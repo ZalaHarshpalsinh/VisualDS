@@ -10,6 +10,10 @@ let context = null
 let actualWidth = 0
 let actualHeight = 0
 
+/**
+ * To initialize the library
+ * @param {HTMLCanvasElement} cnv The canvas to draw on
+ */
 function initialize(cnv)
 {
     canvas = cnv
@@ -20,6 +24,10 @@ function initialize(cnv)
 
 let lastUpdate = 0
 
+/**
+ * Do not call this directly. When you want that your code gets visualized, requestAnimationFrame on this
+ * @param {*} time time of call
+ */
 function render( time )
 {
     let dt = ( time - lastUpdate ) / 1000

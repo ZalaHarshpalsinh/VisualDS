@@ -1,13 +1,25 @@
 import {Entity} from "./Entity.js"
 import { context, animator } from "./demos/array_demo/main.js"
 
+/**
+ * Array as a drawable entity
+ */
 export class vArray extends Entity
 {
     constructor(data)
     {
         super()
+        /**
+         * The actual array
+         */
         this.data = data
+        /**
+         * width of an element drawn as a box
+         */
         this.boxWidth = 30
+        /**
+         * height of an element drawn as a box
+         */
         this.boxHeight = 30
 
         this.width = data.length * this.boxWidth
@@ -15,14 +27,21 @@ export class vArray extends Entity
         animator.add(this)
     }
 
+    /**
+     * Add a value in the array
+     * @param {*} val Value
+     */
     push(val)
     {
-        sleep(1000)
+        // sleep(1000)
         this.data.push(val)
     }
 
     update(dt){}
 
+    /**
+     * To draw all the elements on canvas
+     */
     draw()
     {
         console.log("Array draw")
