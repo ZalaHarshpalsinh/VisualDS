@@ -1,6 +1,7 @@
 import { Animator } from "../../Animator.js"
 import { Entity } from "../../Entity.js"
 import { vArray } from "../../vArray.js"
+import { Pointer } from "../../Pointer.js"
 
 const animator  = new Animator()
 
@@ -48,4 +49,4 @@ function draw()
     animator.draw()
 }
 
-export {context, initialize, render, animator, Entity, vArray}
+export {context, initialize, render, animator, Entity, vArray, Pointer}
