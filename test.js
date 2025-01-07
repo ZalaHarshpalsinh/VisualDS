@@ -1,4 +1,4 @@
-import {initialize, render, vArray} from "./demos/array_demo/main.js"
+import {initialize, Pointer, render, vArray} from "./demos/array_demo/main.js"
 
 const canvas = document.querySelector("#cnv")
 initialize(canvas)
@@ -13,5 +13,7 @@ for(let i in myArray.data)
 {
     secondArray.push(myArray.data[i]*2)
 }
+
+let p = new Pointer(myArray, 0)
 
 requestAnimationFrame(render)
