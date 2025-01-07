@@ -1,5 +1,6 @@
 import {Entity} from "./Entity.js"
 import { context, animator } from "./demos/array_demo/main.js"
+import {Pointer} from "./Pointer.js";
 
 /**
  * Array as a drawable entity
@@ -67,5 +68,16 @@ export class vArray extends Entity
 
             brushX += this.boxWidth
         }
+    }
+
+    /**
+     * Get a pointer of this array
+     * @param {number} initIndex The initial index pointed by the pointer
+     * @returns {Pointer}
+     */
+    getPointer(initIndex)
+    {
+        const ptr = new Pointer(this, initIndex);
+        return ptr;
     }
 }
