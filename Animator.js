@@ -17,7 +17,12 @@ class Animator
         /**
          * Pool of drawable entities
          */
-        this.pool = []
+        this.dsPool = []
+        /**
+         * Queue of animations
+         * All animations in this queue will be executed sequentially
+         */
+        this.animationQueue = [];
     }
 
     /**
@@ -31,12 +36,12 @@ class Animator
             entity.setCoordinates(this.brushX, this.brushY)
             this.brushY += entity.height + 20
         }
-        this.pool.push(entity)
+        this.dsPool.push(entity)
     }
 
     update(dt)
     {
-        this.pool.forEach((entity)=>{
+        this.dsPool.forEach((entity)=>{
             entity.update(dt)
         })
     }
@@ -46,7 +51,7 @@ class Animator
      */
     draw()
     {
-        this.pool.forEach((entity)=>{
+        this.dsPool.forEach((entity)=>{
             entity.draw()
         })
     }
