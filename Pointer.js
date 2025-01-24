@@ -17,9 +17,7 @@ class Pointer extends Entity
         let myX = this.pointee.x + (this.initialIndex) * this.pointee.boxWidth + this.pointee.boxWidth/2
         let myY = this.pointee.y + this.pointee.boxHeight
         // console.log("Draw pointer", myX, myY)
-        context.fillStyle = "#000"
         context.textBaseline = "top";
-        context.font = "32 Arial"
         context.fillText("↑", myX, myY)
     }
 }

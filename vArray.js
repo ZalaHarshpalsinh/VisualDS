@@ -60,7 +60,6 @@ export class vArray extends Entity
 
             // Draw the value
             context.fillStyle = "#000";
-            context.font = "16 Arial";
             context.textAlign = "center";
             context.textBaseline = "middle";
             context.fillText(this.data[i], brushX + this.boxWidth / 2, brushY + this.boxHeight / 2);
