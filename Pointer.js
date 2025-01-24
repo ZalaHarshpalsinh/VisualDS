@@ -1,5 +1,5 @@
 import {Entity} from "./Entity.js"
-import { context, animator } from "./demos/array_demo/main.js"
+import { context } from "./demos/array_demo/main.js"
 
 export
 class Pointer extends Entity
@@ -8,16 +8,26 @@ class Pointer extends Entity
     {
         super()
         this.pointee = pointee
-        this.initialIndex = initialIndex
-        animator.add(this)
+        this.index = initialIndex
+        // pointer knows where to be drawn
+        this.isAbsolute = false;
+        // derive coords based on index and the array
+        this.updateCoords();
+        super.add();
+        
+    }
+
+    updateCoords()
+    {
+        this.x = this.pointee.x + (this.index) * this.pointee.boxWidth + this.pointee.boxWidth/2;
+        this.y = this.pointee.y + this.pointee.boxHeight;
     }
 
     draw()
     {
-        let myX = this.pointee.x + (this.initialIndex) * this.pointee.boxWidth + this.pointee.boxWidth/2
-        let myY = this.pointee.y + this.pointee.boxHeight
         // console.log("Draw pointer", myX, myY)
         context.textBaseline = "top";
-        context.fillText("↑", myX, myY)
+        context.font = "32 Arial";
+        context.fillText("↑", this.x, this.y);
     }
 }

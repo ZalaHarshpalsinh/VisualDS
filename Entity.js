@@ -1,3 +1,5 @@
+import { animator } from "./demos/array_demo/main.js"
+
 /**
  * This class represents a 'drawable' entity.
  */
@@ -46,4 +48,12 @@ export class Entity
      * and also updated the height and width property
      */
     draw(){}
+
+    /**
+     * To add this object in the DS Pool of animator
+     */
+    add()
+    {
+        animator.add(this);
+    }
 } 
