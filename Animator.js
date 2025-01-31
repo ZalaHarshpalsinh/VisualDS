@@ -1,3 +1,7 @@
+import { AnimatingState } from "./AnimatingState";
+import { IdleState } from "./IdleState";
+import { StateMachine } from "./StateMachine";
+
 /**
  * An Animator object is the one that actually has the pool of all the drawable entities. Call add() to add more entities to the pool
  */
@@ -23,6 +27,24 @@ class Animator
          * All animations in this queue will be executed sequentially
          */
         this.animationQueue = [];
+        /**
+         * To manage states of animator
+         * On every frame, update of animator will be called.
+         * first we update all the ds in the pool.
+         * Then, we call update of the stateMachine,
+         * which in turn calls update of the current state.
+         * update of idle state: takes an element from animationQueue, and starts animation of it
+         * then transit to animating state
+         * update of animating state: since already an animation is going on, do nothing
+         */
+        this.stateMachine = new StateMachine({
+            idle: ()=>{
+                return (new IdleState(this));
+            },
+            animating: ()=>{
+                return (new AnimatingState(this));
+            }
+        }, 'idle');
     }
 
     /**
@@ -43,7 +65,10 @@ class Animator
     {
         this.dsPool.forEach((entity)=>{
             entity.update(dt)
-        })
+        });
+
+        // call update of current state
+        this.stateMachine.update();
     }
 
     /**
@@ -54,5 +79,29 @@ class Animator
         this.dsPool.forEach((entity)=>{
             entity.draw()
         })
+    }
+
+    /**
+     * To queue an animation
+     */
+    addAnimation(animObj)
+    {
+        this.animationQueue.push(animObj);
+    }
+
+    /**
+     * Whenever an animation is finished, this is called by the Entity class
+     */
+    makeIdle()
+    {
+        this.stateMachine.change('idle')
+    }
+
+    /**
+     * Whenever an animation is started, this is called by IdleState's change
+     */
+    makeAnimating()
+    {
+        this.stateMachine.change('animating');
     }
 }
