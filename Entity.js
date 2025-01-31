@@ -56,4 +56,30 @@ export class Entity
     {
         animator.add(this);
     }
+
+    /**
+     * To add an animation object in the animation queue
+     * Will be called by a specific entity (sub class of Entity)
+     * To be able to queue an animation
+     */
+    addAnimation(toState, params)
+    {
+        // create animObj
+        const animObj = {
+            toState,
+            params,
+            entity: this
+        };
+        
+        // add the entity in animObj
+        animator.addAnimation(animObj);
+    }
+
+    /**
+     * To make the animator idle again, so that it can take up another animation (if any)
+     */
+    makeIdle()
+    {
+        animator.makeIdle();
+    }
 } 
