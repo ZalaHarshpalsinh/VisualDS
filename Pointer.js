@@ -1,5 +1,7 @@
 import {Entity} from "./Entity.js"
 import { context } from "./demos/array_demo/main.js"
+import { StateMachine } from "./StateMachine.js"
+import { IdleState, MovingState } from "./PointerStates/PointerStates.js"
 
 export
 class Pointer extends Entity
@@ -11,10 +13,26 @@ class Pointer extends Entity
         this.index = initialIndex
         // pointer knows where to be drawn
         this.isAbsolute = false;
+
+        this.stateMachine = new StateMachine({
+            idle : () => new IdleState(this),
+            moving: () => new MovingState(this)
+        }, 'idle')
+
         // derive coords based on index and the array
         this.updateCoords();
         super.add();
         
+    }
+
+    update(dt)
+    {
+        this.stateMachine.update(dt)
+    }
+
+    changeState(stateName)
+    {
+        this.stateMachine.change(stateName);
     }
 
     updateCoords()
@@ -26,9 +44,29 @@ class Pointer extends Entity
     draw()
     {
         // console.log("Draw pointer", myX, myY)
-        context.fillStyle = "#000";
         context.textBaseline = "top";
         context.font = "32 Arial";
         context.fillText("↑", this.x, this.y);
+    }
+
+    /**
+     * Defining a method to change the state of pointer 
+     */
+    changeState(toState, param)
+    {
+        this.stateMachine.change(toState, param)
+    }
+
+    /**
+     * Method to move the pointer with animation
+     */
+    move(change)
+    {
+        if(this.index + change < 0 || this.index + change > (this.pointee.data.length))
+        {
+            throw new Error("Index out of bound");
+        }
+
+        super.addAnimation('moving', {change: change})
     }
 }
