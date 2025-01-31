@@ -48,4 +48,25 @@ class Pointer extends Entity
         context.font = "32 Arial";
         context.fillText("↑", this.x, this.y);
     }
+
+    /**
+     * Defining a method to change the state of pointer 
+     */
+    changeState(toState, param)
+    {
+        this.stateMachine.change(toState, param)
+    }
+
+    /**
+     * Method to move the pointer with animation
+     */
+    move(change)
+    {
+        if(this.index + change < 0 || this.index + change > (this.pointee.data.length))
+        {
+            throw new Error("Index out of bound");
+        }
+
+        super.addAnimation('moving', {change: change})
+    }
 }
