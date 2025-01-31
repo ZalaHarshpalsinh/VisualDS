@@ -1,5 +1,7 @@
 import {Entity} from "./Entity.js"
 import { context } from "./demos/array_demo/main.js"
+import { StateMachine } from "./StateMachine.js"
+import { IdleState, MovingState } from "./PointerStates/PointerStates.js"
 
 export
 class Pointer extends Entity
@@ -11,10 +13,26 @@ class Pointer extends Entity
         this.index = initialIndex
         // pointer knows where to be drawn
         this.isAbsolute = false;
+
+        this.stateMachine = new StateMachine({
+            idle : () => new IdleState(this),
+            moving: () => new MovingState(this)
+        }, 'idle')
+
         // derive coords based on index and the array
         this.updateCoords();
         super.add();
         
+    }
+
+    update(dt)
+    {
+        this.stateMachine.update(dt)
+    }
+
+    changeState(stateName)
+    {
+        this.stateMachine.change(stateName);
     }
 
     updateCoords()

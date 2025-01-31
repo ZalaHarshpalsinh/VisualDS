@@ -3,10 +3,10 @@
  */
 export class StateMachine
 {
-    constructor( states )
+    constructor( states, intitialState )
     {
         this.states = states ? states : {};
-        this.current_state = states[ 'BaseState' ]();
+        this.current_state = states[ intitialState ]();
     }
     change( state_name, enter_para )
     {
