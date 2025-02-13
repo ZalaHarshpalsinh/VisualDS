@@ -1,4 +1,4 @@
-import { BaseState } from "./BaseState";
+import { BaseState } from "./BaseState.js";
 
 /**
  * Represents idle state of animator
@@ -8,6 +8,7 @@ export class IdleState extends BaseState
 
     constructor(animator)
     {
+        super()
         this.animator = animator;
     }
 
@@ -23,6 +24,7 @@ export class IdleState extends BaseState
 
         if(animObj!=undefined)
         {
+            console.log(animObj)
             // an animation is there
 
             // the entity which is going to be animated

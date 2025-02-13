@@ -47,7 +47,7 @@ export class vArray extends Entity
      */
     draw()
     {
-        console.log("Array draw")
+        // console.log("Array draw")
         let brushX = this.x;
         let brushY = this.y
 

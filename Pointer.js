@@ -30,11 +30,6 @@ class Pointer extends Entity
         this.stateMachine.update(dt)
     }
 
-    changeState(stateName)
-    {
-        this.stateMachine.change(stateName);
-    }
-
     updateCoords()
     {
         this.x = this.pointee.x + (this.index) * this.pointee.boxWidth + this.pointee.boxWidth/2;
@@ -62,11 +57,12 @@ class Pointer extends Entity
      */
     move(change)
     {
-        if(this.index + change < 0 || this.index + change > (this.pointee.data.length))
+        if(this.index + change < 0 || this.index + change >= (this.pointee.data.length))
         {
             throw new Error("Index out of bound");
         }
 
+        this.index += change
         super.addAnimation('moving', {change: change})
     }
 }
