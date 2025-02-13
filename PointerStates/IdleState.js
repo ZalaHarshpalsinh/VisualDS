@@ -1,10 +1,11 @@
-import { BaseState } from "../BaseState";
+import { BaseState } from "../BaseState.js";
 
 export class IdleState extends BaseState
 {
-    constructor()
+    constructor(pointer)
     {
-        this.pointer = enterPara.pointer
+        super();
+        this.pointer = pointer
     }
     
     draw()

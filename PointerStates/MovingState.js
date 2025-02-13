@@ -1,11 +1,12 @@
-import { BaseState } from "../BaseState";
+import { BaseState } from "../BaseState.js";
 
-const POINTER_MOVING_SPEED = 100;
+const POINTER_MOVING_SPEED = 30;
 
 export class MovingState extends BaseState
 {
     constructor(pointer)
     {
+        super()
         this.pointer = pointer;
         this.change = 0;
     }
@@ -13,7 +14,7 @@ export class MovingState extends BaseState
     enter(enterPara)
     {
         this.change = enterPara.change;
-        this.targetX = this.pointer.x + (change * this.pointer.pointee.boxWidth);
+        this.targetX = this.pointer.x + (this.change * this.pointer.pointee.boxWidth);
     }
 
     update(dt)
@@ -28,7 +29,7 @@ export class MovingState extends BaseState
         }
         else
         {
-            this.pointer.changeState("idle")
+            this.pointer.makeIdle()
         }
     }
 

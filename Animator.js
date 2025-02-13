@@ -1,6 +1,6 @@
-import { AnimatingState } from "./AnimatingState";
-import { IdleState } from "./IdleState";
-import { StateMachine } from "./StateMachine";
+import { AnimatingState } from "./AnimatingState.js";
+import { IdleState } from "./IdleState.js";
+import { StateMachine } from "./StateMachine.js";
 
 /**
  * An Animator object is the one that actually has the pool of all the drawable entities. Call add() to add more entities to the pool
@@ -86,6 +86,7 @@ class Animator
      */
     addAnimation(animObj)
     {
+        // console.log(animObj)
         this.animationQueue.push(animObj);
     }
 
