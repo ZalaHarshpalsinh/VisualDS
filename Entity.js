@@ -76,6 +76,13 @@ export class Entity
     }
 
     /**
+     * To change the state of an entity
+     * @param {*} toState The state to transit to
+     * @param {*} params The object to pass to the enter method of that state
+     */
+    changeState(toState, params){}
+
+    /**
      * To make the animator idle again, so that it can take up another animation (if any)
      */
     makeIdle()

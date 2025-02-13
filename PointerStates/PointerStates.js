@@ -1,4 +1,4 @@
-import { IdleState } from "./IdleState";
-import { MovingState } from "./MovingState";
+import { IdleState } from "./IdleState.js";
+import { MovingState } from "./MovingState.js";
 
 export {IdleState, MovingState}
