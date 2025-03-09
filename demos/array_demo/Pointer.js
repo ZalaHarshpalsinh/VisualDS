@@ -1,5 +1,5 @@
 import {Entity} from "./Entity.js"
-import { context } from "./demos/array_demo/main.js"
+import { context } from "./main.js"
 import { StateMachine } from "./StateMachine.js"
 import { IdleState, MovingState } from "./PointerStates/PointerStates.js"
 
@@ -39,9 +39,11 @@ class Pointer extends Entity
     draw()
     {
         // console.log("Draw pointer", myX, myY)
-        context.textBaseline = "top";
-        context.font = "32 Arial";
+        context.save()
+        context.textBaseline = "hanging";
+        context.font = "32px Arial";
         context.fillText("↑", this.x, this.y);
+        context.restore()
     }
 
     /**

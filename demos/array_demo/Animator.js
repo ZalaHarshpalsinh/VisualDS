@@ -1,5 +1,6 @@
 import { AnimatingState } from "./AnimatingState.js";
 import { IdleState } from "./IdleState.js";
+import { context, virtualWidth } from "./main.js";
 import { StateMachine } from "./StateMachine.js";
 
 /**
@@ -17,7 +18,7 @@ class Animator
         /**
          * current y from where to draw
          */
-        this.brushY = 10
+        this.brushY = 90
         /**
          * Pool of drawable entities
          */
@@ -56,7 +57,7 @@ class Animator
         if(entity.isAbsolute)
         {
             entity.setCoordinates(this.brushX, this.brushY)
-            this.brushY += entity.height + 20
+            this.brushY += entity.height + 30
         }
         this.dsPool.push(entity)
     }
@@ -76,6 +77,7 @@ class Animator
      */
     draw()
     {
+        this.drawHeader()
         this.dsPool.forEach((entity)=>{
             entity.draw()
         })
@@ -104,5 +106,19 @@ class Animator
     makeAnimating()
     {
         this.stateMachine.change('animating');
+    }
+
+    drawHeader()
+    {
+        context.save()
+        // Header background
+        context.fillStyle = "#2c3e50";
+        context.fillRect(0, 0, virtualWidth, 80);
+        // Project name
+        context.font = "bold 32px 'Arial', sans-serif";
+        context.fillStyle = "#ecf0f1";
+        context.textAlign = "center";
+        context.fillText("Data Structure Visualizer", virtualWidth / 2, 50);
+        context.restore()
     }
 }

@@ -1,15 +1,18 @@
-import { Animator } from "../../Animator.js"
-import { Entity } from "../../Entity.js"
-import { vArray } from "../../vArray.js"
-import { Pointer } from "../../Pointer.js"
+import { Animator } from "./Animator.js"
+import { Entity } from "./Entity.js"
+import { vArray } from "./vArray.js"
+import { Pointer } from "./Pointer.js"
+import { vElement } from "./vElement.js"
 
 const animator  = new Animator()
 
 let canvas = null
 let context = null
 
-let actualWidth = 0
-let actualHeight = 0
+let virtualWidth = 500
+let virtualHeight = 500
+let actualWidth = 1000
+let actualHeight = 1000
 
 /**
  * To initialize the library
@@ -19,8 +22,13 @@ function initialize(cnv)
 {
     canvas = cnv
     context = canvas.getContext('2d')
-    actualWidth = canvas.width 
-    actualHeight = canvas.height 
+    console.log(canvas.width, canvas.height)
+    canvas.width = actualWidth
+    canvas.height = actualHeight
+
+    context.font = "20px serif"
+    context.imageSmoothingEnabled = false;  // Disables image smoothing for images
+    context.scale(actualWidth/virtualWidth, actualHeight/virtualHeight)
 }
 
 let lastUpdate = 0
@@ -49,4 +57,4 @@ function draw()
     animator.draw()
 }
 
-export {context, initialize, render, animator, Entity, vArray, Pointer}
+export {context, virtualWidth, virtualHeight, initialize, render, animator, Entity, vElement, vArray, Pointer}

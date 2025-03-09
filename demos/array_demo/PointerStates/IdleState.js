@@ -7,11 +7,4 @@ export class IdleState extends BaseState
         super();
         this.pointer = pointer
     }
-    
-    draw()
-    {
-        context.textBaseline = "top";
-        context.font = "32 Arial";
-        context.fillText("↑", this.pointer.x, this.pointer.y); 
-    }
 }

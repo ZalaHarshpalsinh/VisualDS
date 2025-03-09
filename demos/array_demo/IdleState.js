@@ -24,7 +24,7 @@ export class IdleState extends BaseState
 
         if(animObj!=undefined)
         {
-            console.log(animObj)
+            // console.log(animObj)
             // an animation is there
 
             // the entity which is going to be animated

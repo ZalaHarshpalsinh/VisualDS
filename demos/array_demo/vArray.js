@@ -1,5 +1,5 @@
 import {Entity} from "./Entity.js"
-import { context } from "./demos/array_demo/main.js"
+import { context } from "./main.js"
 import {Pointer} from "./Pointer.js";
 
 /**

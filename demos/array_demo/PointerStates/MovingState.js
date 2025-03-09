@@ -35,11 +35,4 @@ export class MovingState extends BaseState
             this.pointer.makeIdle()
         }
     }
-
-    draw()
-    {
-        context.textBaseline = "top";
-        context.font = "32 Arial";
-        context.fillText("↑", this.pointer.x, this.pointer.y); 
-    }
 }
