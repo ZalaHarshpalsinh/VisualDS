@@ -9,10 +9,11 @@ export class vElement extends Entity
     {
         super()
         this.val = val
-        this.customCoordinates  = customCoordinates
         this.calculateDimensions()
-
+        this.customCoordinates  = customCoordinates
         super.addInPool()
+        
+        this.color = cnt.DEFAULT_COLOR
     }
 
     calculateDimensions()
@@ -26,9 +27,14 @@ export class vElement extends Entity
         this.height = this.text.length * cnt.DEFAULT_LINE_HEIGHT + cnt.PAD_Y*2
     }
 
+    changeColor(color)
+    {
+        this.color = color
+    }
+
     draw()
     {
-        drawRectangle(this.x, this.y, this.width, this.height, 'CornflowerBlue', 'black')
+        drawRectangle(this.x, this.y, this.width, this.height, this.color, 'black')
         
         let brushX = this.x 
         let brushY = this.y + cnt.PAD_Y 

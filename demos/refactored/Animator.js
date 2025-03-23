@@ -18,7 +18,7 @@ class Animator
     {
         if(! entity.customCoordinates)
         {
-            console.log(entity)
+            // console.log(entity)
             entity.setCoordinates(this.brushX, this.brushY)
             this.brushY += entity.height + cnt.MARGIN_Y
         }
@@ -40,7 +40,7 @@ class Animator
      */
     nextAnimation()
     {
-        setTimeout(()=>this.state='idle', 1000)
+        setTimeout(()=>this.state = 'idle', 1000)
     }
 
     drawHeader()
