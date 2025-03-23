@@ -16,8 +16,12 @@ class Animator
 
     addInPool(entity)
     {
-        entity.setCoordinates(this.brushX, this.brushY)
-        this.brushY += entity.height + cnt.MARGIN_Y
+        if(! entity.customCoordinates)
+        {
+            console.log(entity)
+            entity.setCoordinates(this.brushX, this.brushY)
+            this.brushY += entity.height + cnt.MARGIN_Y
+        }
         this.dsPool.push(entity)
     }
 
@@ -53,10 +57,12 @@ class Animator
             let animObj = this.animationQueue.shift();
 
             if(animObj !== undefined)
+            {
                 //change the entity's state for animation
                 animObj.entity.changeState(animObj.toState, animObj.params);
 
-            this.state = 'animating'
+                this.state = 'animating'
+            }
         }
         
         this.dsPool.forEach((entity)=>{

@@ -5,10 +5,11 @@ import { drawRectangle, drawText } from "../../utils/helper.js"
 
 export class vElement extends Entity
 {
-    constructor(val)
+    constructor(val, customCoordinates=false)
     {
         super()
         this.val = val
+        this.customCoordinates  = customCoordinates
         this.calculateDimensions()
 
         super.addInPool()
@@ -29,11 +30,11 @@ export class vElement extends Entity
     {
         drawRectangle(this.x, this.y, this.width, this.height, 'CornflowerBlue', 'black')
         
-        let brushX = this.x + cnt.PAD_X
-        let brushY = this.y + cnt.PAD_Y
+        let brushX = this.x 
+        let brushY = this.y + cnt.PAD_Y 
 
         this.text.forEach(line => {
-            drawText(line, brushX, brushY, '10px serif' ,'black', 'left', 'top')
+            drawText(line, brushX + this.width/2, brushY+cnt.DEFAULT_LINE_HEIGHT/2, '10px serif' ,'black', 'center', 'middle')
             brushY += cnt.DEFAULT_LINE_HEIGHT
         })
     }
