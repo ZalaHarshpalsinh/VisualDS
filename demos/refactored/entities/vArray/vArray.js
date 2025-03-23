@@ -2,7 +2,7 @@ import { cnt } from "../../CONSTANTS.js";
 import { Entity } from "../Entity.js";
 import { vElement } from "../index.js";
 import {StateMachine} from "../../utils/index.js"
-import { IdleState, PropertyChangeState } from "./states/index.js";
+import { IdleState, PropertyChangeState, SwapState } from "./states/index.js";
 
 export class vArray extends Entity
 {
@@ -10,14 +10,16 @@ export class vArray extends Entity
     {
         super()
 
-        this.data = []
+        this.data = data
+        this.drawData = []
+
         this.boxWidth = 0
         this.boxHeight = 0
         for(let i=0; i<data.length; i++)
         {
-            this.data.push(new vElement(data[i], true))
-            this.boxWidth = Math.max(this.boxWidth, this.data[i].width)
-            this.boxHeight = Math.max(this.boxHeight, this.data[i].height)
+            this.drawData.push(new vElement(data[i], true))
+            this.boxWidth = Math.max(this.boxWidth, this.drawData[i].width)
+            this.boxHeight = Math.max(this.boxHeight, this.drawData[i].height)
         }
         this.width = this.length() * this.boxWidth
         this.height = this.boxHeight
@@ -27,21 +29,22 @@ export class vArray extends Entity
         let brush = {x:this.x, y:this.y}
         for(let i=0; i< this.length(); i++)
         {
-            this.data[i].setCoordinates(brush.x, brush.y)
-            this.data[i].width = this.boxWidth
-            this.data[i].height = this.boxHeight
+            this.drawData[i].setCoordinates(brush.x, brush.y)
+            this.drawData[i].width = this.boxWidth
+            this.drawData[i].height = this.boxHeight
             brush.x += this.boxWidth
         }
 
         this.stateMachine = new StateMachine({
             idle: ()=> new IdleState(this),
-            property_change: ()=> new PropertyChangeState(this)
+            property_change: ()=> new PropertyChangeState(this),
+            swap: ()=> new SwapState(this),
         }, 'idle');
     }
 
     drawBoxes()
     {
-        this.data.forEach(e => {
+        this.drawData.forEach(e => {
             e.draw()
         })
     }
@@ -62,7 +65,7 @@ export class vArray extends Entity
      */
     length()
     {
-        return this.data.length;
+        return this.drawData.length;
     }
     
     /**
@@ -72,7 +75,7 @@ export class vArray extends Entity
      */
     at(index)
     {
-        return this.data[index];
+        return this.drawData[index];
     }
 
     /**
@@ -105,6 +108,27 @@ export class vArray extends Entity
                 indices,
                 toColor: cnt.DEFAULT_COLOR
             };
+
+        super.addAnimation(toState, params);
+    }
+
+    /**
+     * To swap elements at two indices and show animation
+     * @param {number} i The first index
+     * @param {number} j The second index
+     */
+    swap(i, j)
+    {
+        //swap the actual raw data directly
+        let tmp = this.data[i]
+        this.data[i] = this.data[j]
+        this.data[j] = tmp
+
+        // queue an animation to swap elements in drawData
+        const toState = "swap";
+        const params = {
+            i,j
+        };
 
         super.addAnimation(toState, params);
     }

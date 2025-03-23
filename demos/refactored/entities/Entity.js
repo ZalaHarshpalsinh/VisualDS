@@ -26,6 +26,11 @@ export class Entity
         this.y = y
     }
 
+    getCoordinates()
+    {
+        return {x: this.x, y:this.y}
+    }
+
     /**
      * To add this object in the DS Pool of animator
      */

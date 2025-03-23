@@ -22,7 +22,7 @@ export class PropertyChangeState extends BaseState
             {
                 if(index < this.varray.length())
                 {
-                    this.varray.data[index].changeColor(this.data.toColor)
+                    this.varray.drawData[index].changeColor(this.data.toColor)
                 }
             });
         }
@@ -32,10 +32,4 @@ export class PropertyChangeState extends BaseState
         
         this.varray.nextAnimation()
     }
-
-    draw()
-    {
-        this.varray.drawBoxes();
-    }
-
 }
