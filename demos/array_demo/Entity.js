@@ -1,4 +1,4 @@
-import { animator } from "./demos/array_demo/main.js"
+import { animator } from "./main.js"
 
 /**
  * This class represents a 'drawable' entity.

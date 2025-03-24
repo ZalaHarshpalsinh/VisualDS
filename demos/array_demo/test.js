@@ -1,6 +1,7 @@
-import {initialize, render, vArray, animator} from "./demos/array_demo/main.js"
+import {initialize, render, vArray, vElement} from "./main.js"
 
 const canvas = document.querySelector("#cnv")
+
 initialize(canvas)
 
 let myArray = new vArray([10,20,30])
@@ -32,4 +33,5 @@ i.move(-1)
 i.move(1)
 i.move(-1)
 i.move(1)
+
 requestAnimationFrame(render)
