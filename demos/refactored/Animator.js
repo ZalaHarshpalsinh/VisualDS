@@ -40,7 +40,7 @@ class Animator
      */
     nextAnimation()
     {
-        setTimeout(()=>this.state = 'idle', 1000)
+        setTimeout(()=>this.state = 'idle', 250)
     }
 
     drawHeader()

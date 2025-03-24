@@ -15,4 +15,6 @@ export const cnt = {
     DEFAULT_LINE_HEIGHT: 10,
 
     DEFAULT_COLOR: "CornflowerBlue",
+
+    DEFAULT_MOVE_SPEED: 50,
 }

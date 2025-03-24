@@ -1,6 +1,6 @@
 import { cnt } from "../../CONSTANTS.js";
 import { Entity } from "../Entity.js";
-import { vElement } from "../index.js";
+import { vElement, Pointer } from "../index.js";
 import {StateMachine} from "../../utils/index.js"
 import { IdleState, PropertyChangeState, SwapState } from "./states/index.js";
 
@@ -42,6 +42,11 @@ export class vArray extends Entity
         }, 'idle');
     }
 
+    update(dt)
+    {
+        this.stateMachine.update(dt)
+    }
+
     drawBoxes()
     {
         this.drawData.forEach(e => {
@@ -75,7 +80,7 @@ export class vArray extends Entity
      */
     at(index)
     {
-        return this.drawData[index];
+        return this.data[index];
     }
 
     /**
@@ -132,4 +137,15 @@ export class vArray extends Entity
 
         super.addAnimation(toState, params);
     }
+
+     /**
+     * Get a pointer of this array
+     * @param {number} initIndex The initial index pointed by the pointer
+     * @returns {Pointer}
+     */
+     getPointer(initIndex)
+     {
+         const ptr = new Pointer(this, initIndex);
+         return ptr;
+     }
 }
