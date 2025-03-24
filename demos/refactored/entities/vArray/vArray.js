@@ -10,13 +10,14 @@ export class vArray extends Entity
     {
         super()
 
-        this.data = data
+        this.data = []
         this.drawData = []
 
         this.boxWidth = 0
         this.boxHeight = 0
         for(let i=0; i<data.length; i++)
         {
+            this.data.push(data[i])
             this.drawData.push(new vElement(data[i], true))
             this.boxWidth = Math.max(this.boxWidth, this.drawData[i].width)
             this.boxHeight = Math.max(this.boxHeight, this.drawData[i].height)

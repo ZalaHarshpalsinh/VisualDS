@@ -2,13 +2,13 @@ import {createVisualisation} from './driver.js'
 import {vElement, vArray} from './entities/index.js'
 
 createVisualisation('cnv', ()=>{
-
+    let inp = [1, 2, 3, 4, 5, 10, 9, 8, 7, 6]
     //Selection sort
-    let arr = new vArray([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
+    let arr = new vArray(inp)
 
     let p1 = arr.getPointer(0)
     let p2 = arr.getPointer(0)
-    for(let i=0; i<arr.length()-1;i++)
+    for(let i=0; i<arr.length();i++)
     {
         p1.moveTo(i)
         arr.highlight([i], "blue")
@@ -32,20 +32,20 @@ createVisualisation('cnv', ()=>{
             arr.unhighlight([i, min])  
         }
         
-        arr.unhighlight([i])
+        arr.highlight([i], 'green')
     }
 
 
     //Bubble sort
-    let arr2 = new vArray([10, 9, 8, 7, 6, 5, 4, 3, 2, 1])
+    let arr2 = new vArray(inp)
 
-    p1 = arr2.getPointer(0)
+    let p3 = arr2.getPointer(0)
 
-    for(let i=0;i<arr2.length()-1;i++)
+    for(let i=0;i<arr2.length();i++)
     {
         for(let j=0;j<arr2.length()-1-i;j++)
         {
-            p1.moveTo(j)
+            p3.moveTo(j)
 
             if(arr2.at(j)>arr2.at(j+1))
             {
@@ -55,5 +55,27 @@ createVisualisation('cnv', ()=>{
             }
         }
         arr2.highlight([arr2.length()-1-i], 'green')
+    }
+
+    //Insertion sort
+    let arr3 = new vArray(inp)
+
+    let p4 = arr3.getPointer(1)
+    arr3.highlight([0], "green")
+
+    for(let i=1;i<arr3.length();i++)    
+    {
+        p4.moveTo(i)
+        arr3.highlight([i], "blue")
+
+        let key = arr3.at(i)
+        let j = i-1
+        while(j>=0 && arr3.at(j)>key)
+        {
+            arr3.swap(j, j+1)
+            j--
+        }
+
+        arr3.highlight([j+1], "green")
     }
 })
