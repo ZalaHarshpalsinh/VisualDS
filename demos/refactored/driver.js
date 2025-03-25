@@ -5,15 +5,24 @@ let cnv = null
 let ctx = null
 let animator = new Animator()
 
+/**
+ * This is the function that exposes the whole framework to the user, user here meaning one who uses our classes such as vArray to draw and visualize DS and algo.
+ * @param {string} cnvId The ID of the canvas in the DOM, this canvas will be used to draw on.
+ * @param {Function} userScript The callback given by user containing all the actual visualization code.
+ */
 function createVisualisation(cnvId, userScript)
 {
+    // get the canvas
     cnv = document.getElementById(cnvId)
     ctx = cnv.getContext('2d')
 
+    // initialize the canvas
     initialize()
 
+    // execute user given code (which we call the synchronous code given by user)
     userScript()
 
+    // start the visualization
     requestAnimationFrame( render )
 }
 
@@ -25,6 +34,8 @@ function initialize()
 }
 
 let lastUpdate = 0
+
+// this method is called on every frame, this should not be called by user directly
 function render( time )
 {
     let dt = (time - lastUpdate) / 1000
