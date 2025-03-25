@@ -29,10 +29,9 @@ jobs:
         run: npx rollup -c
 
       # Step 5: Deploy to GitHub Pages
-      - name: Deploy to GitHub Pages
-        run: |
-          git config --global user.name "github-actions[bot]"
-          git config --global user.email "github-actions@github.com"
-          git add docs/
-          git commit -m "Update GitHub Pages site" || echo "No changes to commit"
-          git push https://x-access-token:${{ secrets.GITHUB_TOKEN }}@github.com/ZalaHarshpalsinh/VisualDS.git master
+      - name: Commit and push changes
+        uses: ad-m/github-push-action@vmaster
+        with:
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        branch: master
+        force: false  # Ensures changes are pushed even if there are conflicts
