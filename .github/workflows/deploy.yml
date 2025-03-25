@@ -32,6 +32,6 @@ jobs:
       - name: Commit and push changes
         uses: ad-m/github-push-action@vmaster
         with:
-        github_token: ${{ secrets.GITHUB_TOKEN }}
-        branch: master
-        force: false  # Ensures changes are pushed even if there are conflicts
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          branch: master
+          force: false  # Ensures changes are pushed even if there are conflicts
