@@ -30,8 +30,8 @@ jobs:
 
       # Step 5: Deploy to GitHub Pages
       - name: Commit and push changes
-        uses: ad-m/github-push-action@master
+        uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          branch: master
-          force: false  # Ensures changes are pushed even if there are conflicts
+          publish_dir: ./dist   # Deploy the /dist folder
+          keep_files: true      # Preserve old files (optional)
