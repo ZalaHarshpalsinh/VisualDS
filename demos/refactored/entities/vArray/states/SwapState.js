@@ -1,6 +1,8 @@
 import { BaseState } from "../../../utils/index.js"
 
-
+/**
+ * Represents the state where two elements are to be swapped in the vArray obj
+ */
 export class SwapState extends BaseState
 {
     constructor(varray)

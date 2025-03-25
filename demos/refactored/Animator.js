@@ -1,6 +1,11 @@
 import { cnt } from "./CONSTANTS.js";
 import { drawRectangle, drawText } from "./utils/helper.js";
 
+/**
+ * This is the manager class of the whole framework.
+ * It has a pool or array of Entity to be drawn on every frame.
+ * It also has an animation queue from which it takes up an animation, completes it then moves to the next naimation.
+ */
 export 
 class Animator 
 {
@@ -40,6 +45,8 @@ class Animator
      */
     nextAnimation()
     {
+        // don't change to idle directly, allow a delay, to allow the user to observe the changes
+        // in other words, once an animation is finished, don't start the nect immediately, allow a delay
         setTimeout(()=>this.state = 'idle', 250)
     }
 
@@ -51,6 +58,7 @@ class Animator
 
     update(dt)
     {
+        // in case it is idle, take up the next animation if any
         if(this.state == 'idle')
         {
             // take an element from animation queue

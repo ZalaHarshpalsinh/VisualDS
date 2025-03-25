@@ -11,6 +11,9 @@ export class IdleState extends BaseState
         this.varray = varray;
     }
     
+    /**
+     * draw() just draws the boxes
+     */
     draw()
     {
         this.varray.drawBoxes();

@@ -4,13 +4,43 @@ import { vElement, Pointer } from "../index.js";
 import {StateMachine} from "../../utils/index.js"
 import { IdleState, PropertyChangeState, SwapState } from "./states/index.js";
 
+/**
+ * This class represents a visual array.
+ * It may be an array of number, string, or even custom objects, as long as they have toString overridden.
+ */
 export class vArray extends Entity
 {
+    /**
+     * Create vArray object for an array of anything, it may be array of string, number, Student object, or any other array of objects.
+     * The only restriction is that the class, whose objects are in the array, should have a toString method
+     * that returns what needs to be written in the visualized object in the visualized array.
+     * It may be a single line text, or a multiline text. If just passing array of numbers, or strings, then no need to worry about toString
+     * since it is there by default in these inbuilt classes.
+     * @param {any[]} data The array whose visualization to create
+     */
     constructor(data)
     {
         super()
 
+        // here, we need to have two arrays
+        // one representing the actual data inside the array, that changes with the synchronous code
+        // written by the user
+        // another representing the array using which we draw on every frame.
+        // this one changes asynchronously
+        // now, this concept of keeping two copies is required, 
+        // because drwing based on an in memory data structure on every frame
+        // this is unlike SVG, where you draw once, and that thing stays on the screen forever, until changes explicitly
+
+        /**
+         * This is the actual data inside the array, that changes with the synchronous code
+         * written by user.
+         */
         this.data = []
+
+        /**
+         * This is the copy utilized for drawing on every frame.
+         * It changes asynchronously.
+         */
         this.drawData = []
 
         this.boxWidth = 0
@@ -18,6 +48,7 @@ export class vArray extends Entity
         for(let i=0; i<data.length; i++)
         {
             this.data.push(data[i])
+            // create the data to be drawn as an array of vElement, since that is how we support drawing anything with a toString overridden.
             this.drawData.push(new vElement(data[i], true))
             this.boxWidth = Math.max(this.boxWidth, this.drawData[i].width)
             this.boxHeight = Math.max(this.boxHeight, this.drawData[i].height)
@@ -25,9 +56,11 @@ export class vArray extends Entity
         this.width = this.length() * this.boxWidth
         this.height = this.boxHeight
 
+        // since properties of Entity are initialized properly, add in pool
         super.addInPool()
         
         let brush = {x:this.x, y:this.y}
+        // set the custom coords for each vElement
         for(let i=0; i< this.length(); i++)
         {
             this.drawData[i].setCoordinates(brush.x, brush.y)
@@ -36,6 +69,9 @@ export class vArray extends Entity
             brush.x += this.boxWidth
         }
 
+        /**
+         * To manage the animation via states
+         */
         this.stateMachine = new StateMachine({
             idle: ()=> new IdleState(this),
             property_change: ()=> new PropertyChangeState(this),
@@ -48,6 +84,9 @@ export class vArray extends Entity
         this.stateMachine.update(dt)
     }
 
+    /**
+     * To draw boxes for each element, basically just delegates to the draw of each vElement object in drawData
+     */
     drawBoxes()
     {
         this.drawData.forEach(e => {

@@ -3,8 +3,18 @@ import { ctx } from "../../driver.js"
 import { cnt } from "../../CONSTANTS.js"
 import { drawRectangle, drawText } from "../../utils/helper.js"
 
+/**
+ * This is that class that encapsulates any object that is to be drawn.
+ * It may be number, string, or even a custom Student object.
+ * It is through this class that we support drawing anything with a toString overridden.
+ */
 export class vElement extends Entity
 {
+    /**
+     * 
+     * @param {any} val The object to visualize. Must have a toString overridden which returns a single/multi line respresentation of object in case it is a custom object.
+     * @param {boolean} customCoordinates True if this vElement where it needs to be drawn, which will typically be the case, since the vArray (or any other DS which we might support in future) of which it is a part will give proper x and y coords to this. Otherwise false.
+     */
     constructor(val, customCoordinates=false)
     {
         super()
@@ -16,6 +26,9 @@ export class vElement extends Entity
         this.color = cnt.DEFAULT_COLOR
     }
 
+    /**
+     * To calculate dimensions based on toString of the encapsulated object.
+     */
     calculateDimensions()
     {
         this.text = this.val.toString().split('\n')
@@ -32,6 +45,9 @@ export class vElement extends Entity
         this.color = color
     }
 
+    /**
+     * To actually draw the encapsulated object inside a rectange, with the single/multi line text provided by the toString.
+     */
     draw()
     {
         drawRectangle(this.x, this.y, this.width, this.height, this.color, 'black')
