@@ -1,3 +1,5 @@
+import {vArray, vElement, Pointer, Entity} from './entities/index.js'
+import {drawRectangle, drawText, BaseState, StateMachine} from './utils/index.js'
 import { Animator } from "./Animator.js"
 import { cnt } from "./CONSTANTS.js"
 
@@ -56,4 +58,16 @@ function draw()
     animator.draw()
 }
 
-export {ctx, animator, createVisualisation}
+export {
+    ctx,
+    animator,
+    createVisualisation,
+    vArray,
+    vElement,
+    Pointer,
+    Entity,
+    drawRectangle,
+    drawText,
+    BaseState,
+    StateMachine
+}
