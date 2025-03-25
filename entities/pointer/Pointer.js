@@ -27,7 +27,7 @@ export class Pointer extends Entity
 
     drawArrow()
     {
-        drawText("↑", this.x, this.y, "16px Arial", 'red', 'left', 'top')
+        drawText("↑", this.x, this.y, "16px Arial", 'red', 'center', 'top')
     }
 
     draw()
