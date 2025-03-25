@@ -1,0 +1,36 @@
+name: Create Release
+on:
+  push:
+    tags:
+      - 'v*'  # Trigger when tags like v1.0.0 are pushed
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+     # Step 1: Checkout the code
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      # Step 2: Set up Node.js
+      - name: Set up Node.js
+        uses: actions/setup-node@v3
+        with:
+          node-version: 16
+
+      # Step 3: Install dependencies
+      - name: Install dependencies
+        run: npm install
+        
+      # Step 4: Build the project
+      - name: Build the project
+        run: npx rollup -c
+
+      # Step 5: Create the release
+      - name: Create Release
+        uses: softprops/action-gh-release@v1
+        with:
+          files: |
+            ./dist/visualds.min.js
+            README.md
+          body: ${{ github.event.head_commit.message }}
