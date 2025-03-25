@@ -1,0 +1,13 @@
+@startuml
+actor Educator
+participant ":Entity"
+participant ":System"
+
+Educator -> ":Entity" : operation()
+":Entity" -> ":System" : add animation to queue
+":System" -> ":Entity" : changeState(), start animation
+":System" -> ":System" : update()
+":System" -> ":Entity" : update()
+":System" -> ":System" : draw()
+":System" -> ":Entity" : draw()
+@enduml

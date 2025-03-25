@@ -1,0 +1,108 @@
+@startuml
+abstract class Entity {
+    +x: number
+    +y: number
+    +width: number
+    +height: number
+    +customCoordinates: boolean
+    +setCoordinates(x: number, y: number)
+    +getCoordinates(): object
+    +addInPool()
+    +addAnimation(toState: string, params: object)
+    +nextAnimation()
+    {abstract} update(dt: number)
+    {abstract} draw()
+    {abstract} changeState(toState: string, params: object)
+}
+
+class Animator {
+    +brushX: number
+    +brushY: number
+    +dsPool: Entity[]
+    +animationQueue: object[]
+    +state: string
+    +addInPool(entity: Entity)
+    +addAnimation(animObj: object)
+    +update(dt: number)
+    +draw()
+    +nextAnimation()
+}
+
+class vElement {
+    +val: any
+    +text: string
+    +color: string
+    +calculateDimensions()
+    +changeColor(color: string)
+}
+
+class vArray {
+    +data: any[]
+    +drawData: vElement[]
+    +boxWidth: number
+    +boxHeight: number
+    +stateMachine: StateMachine
+    +drawBoxes()
+    +length(): number
+    +at(index: number): any
+    +highlight(indices: number[], color: string)
+    +unhighlight(indices: number[])
+    +swap(i: number, j: number)
+    +getPointer(initIndex: number): Pointer
+}
+
+class Pointer {
+    +pointee: vArray
+    +index: number
+    +stateMachine: StateMachine
+    +increment()
+    +decrement()
+    +move(change: number)
+    +moveTo(index: number)
+    +getIndex(): number
+    +drawArrow()
+    +updateCoords()
+}
+
+interface BaseState {
+    +enter(params: object)
+    +exit()
+    +update(dt: number)
+    +draw()
+}
+
+class StateMachine {
+    +states: object
+    +currentState: BaseState
+    +change(toState: string, params: object)
+    +update(dt: number)
+    +draw()
+}
+
+class IdleState {
+    +pointer: Pointer
+}
+
+class MovingState {
+    +pointer: Pointer
+    +change: number
+    +targetX: number
+}
+
+' Relationships
+Entity <|-- vElement
+Entity <|-- vArray
+Entity <|-- Pointer
+
+Animator o-- Entity : contains *
+
+vArray o-- vElement : contains *
+Pointer o-- vArray : contains 1
+
+vArray *-- StateMachine : contains 1
+Pointer *-- StateMachine : contains 1
+
+StateMachine *-- BaseState : contains 1
+BaseState <|-- IdleState
+BaseState <|-- MovingState
+@enduml

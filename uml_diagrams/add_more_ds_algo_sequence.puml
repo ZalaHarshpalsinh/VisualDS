@@ -1,0 +1,8 @@
+@startuml
+actor Contributor
+participant ":System"
+
+Contributor -> ":System" : implement Entity for own DS
+Contributor -> ":System" : create and manage states for algo
+Contributor -> ":System" : use states in implemented Entity
+@enduml

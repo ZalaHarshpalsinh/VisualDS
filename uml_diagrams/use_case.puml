@@ -1,0 +1,15 @@
+@startuml use_case
+actor Educator
+actor Student
+actor Contributer
+
+usecase "Visualize Data Structures" as UC1
+usecase "Visualize Algorithms" as UC2
+usecase "Add more DS and algo visualizations" as UC3
+
+Educator --> UC1
+Educator --> UC2
+Student --> UC1
+Student --> UC2
+Contributer --> UC3
+@enduml

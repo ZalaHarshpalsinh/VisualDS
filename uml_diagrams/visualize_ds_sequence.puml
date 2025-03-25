@@ -1,0 +1,18 @@
+@startuml
+actor Educator
+participant ":Entity"
+participant ":System"
+
+Educator -> ":Entity" : constructor()
+":Entity" -> ":System" : add to DS pool
+":System" -> ":System" : update()
+":System" -> ":Entity" : update()
+":System" -> ":System" : draw()
+":System" -> ":Entity" : draw()
+
+' Repeat the sequence
+":System" -> ":System" : update()
+":System" -> ":Entity" : update()
+":System" -> ":System" : draw()
+":System" -> ":Entity" : draw()
+@enduml
