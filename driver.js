@@ -5,7 +5,7 @@ import { cnt } from "./CONSTANTS.js"
 
 let cnv = null
 let ctx = null
-let animator = new Animator()
+let animator = null
 
 /**
  * This is the function that exposes the whole framework to the user, user here meaning one who uses our classes such as vArray to draw and visualize DS and algo.
@@ -17,6 +17,8 @@ function createVisualisation(cnvId, userScript)
     // get the canvas
     cnv = document.getElementById(cnvId)
     ctx = cnv.getContext('2d')
+
+    animator = new Animator()
 
     // initialize the canvas
     initialize()
