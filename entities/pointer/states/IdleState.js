@@ -7,6 +7,11 @@ export class IdleState extends BaseState
         super();
         this.pointer = pointer
     }
+
+    update(dt)
+    {
+        this.pointer.updateCoords()
+    }
     
     draw()
     {

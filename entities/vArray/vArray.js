@@ -2,7 +2,7 @@ import { cnt } from "../../CONSTANTS.js";
 import { Entity } from "../Entity.js";
 import { vElement, Pointer } from "../index.js";
 import {StateMachine} from "../../utils/index.js"
-import { IdleState, PropertyChangeState, SwapState } from "./states/index.js";
+import { IdleState, PropertyChangeState, SwapState, PushBackState } from "./states/index.js";
 
 /**
  * This class represents a visual array.
@@ -43,32 +43,30 @@ export class vArray extends Entity
          */
         this.drawData = []
 
+        //Height and width of a single element
         this.boxWidth = 0
         this.boxHeight = 0
+        //Height and width of whole array
+        this.width = 0
+        this.height = 0
+
+        //Populate both lists with given data
         for(let i=0; i<data.length; i++)
         {
             this.data.push(data[i])
             // create the data to be drawn as an array of vElement, since that is how we support drawing anything with a toString overridden.
             this.drawData.push(new vElement(data[i], true))
-            this.boxWidth = Math.max(this.boxWidth, this.drawData[i].width)
-            this.boxHeight = Math.max(this.boxHeight, this.drawData[i].height)
         }
-        this.width = this.length() * this.boxWidth
-        this.height = this.boxHeight
 
-        // since properties of Entity are initialized properly, add in pool
+        // update boxWidth, boxHeight, Width, Height
+        this.syncDimensions()
+
+        // since necessary properties of Entity are initialized properly, add in pool and get the assigned coordinates
         super.addInPool()
-        
-        let brush = {x:this.x, y:this.y}
-        // set the custom coords for each vElement
-        for(let i=0; i< this.length(); i++)
-        {
-            this.drawData[i].setCoordinates(brush.x, brush.y)
-            this.drawData[i].width = this.boxWidth
-            this.drawData[i].height = this.boxHeight
-            brush.x += this.boxWidth
-        }
 
+        // update the coordinates of each box
+        this.syncCoordinates()
+        
         /**
          * To manage the animation via states
          */
@@ -76,6 +74,7 @@ export class vArray extends Entity
             idle: ()=> new IdleState(this),
             property_change: ()=> new PropertyChangeState(this),
             swap: ()=> new SwapState(this),
+            pushBack: ()=> new PushBackState(this),
         }, 'idle');
     }
 
@@ -105,22 +104,82 @@ export class vArray extends Entity
     }
 
     /**
+     * To update boxWidth, boxHeight, Width, Height based on biggest vElement in drawData
+     */
+    syncDimensions()
+    {
+        //Find biggest box's height/width
+        for(let i=0; i < this.drawData.length; i++)
+        {
+            this.boxWidth = Math.max(this.boxWidth, this.drawData[i].width)
+            this.boxHeight = Math.max(this.boxHeight, this.drawData[i].height)
+        }
+
+        //Make every box same as biggest box
+        for(let i=0; i < this.drawData.length; i++)
+        {
+            this.drawData[i].width = this.boxWidth
+            this.drawData[i].height = this.boxHeight
+        }
+
+        //update height/width of whole array
+        this.width = this.drawData.length * this.boxWidth
+        this.height = this.boxHeight
+    }
+
+    /**
+     * To update the coordinates of each box, based on starting coordinates of array and boxWidth
+     */
+    syncCoordinates()
+    {
+        // Put brush at start of array
+        let brush = {x:this.x, y:this.y}
+        for(let i=0; i < this.drawData.length; i++)
+        {
+            // set the custom coords for each vElement
+            this.drawData[i].setCoordinates(brush.x, brush.y)
+            //move brush to the right by boxWidth
+            brush.x += this.boxWidth
+        }
+    }
+
+    /**
      * Get array length
      * @returns Length of the contained array
      */
     length()
     {
-        return this.drawData.length;
+        return this.data.length;
     }
     
     /**
      * To get value at a given index
-     * @param {number} index The index to get value at
+     * @param {number} index The index to get value from
      * @returns The value at the given index
      */
-    at(index)
+    get(index)
     {
         return this.data[index];
+    }
+
+    /**
+     * To set a new value at a given index
+     * @param {*} index The index for which to update value
+     * @param {*} newVal The new value
+     */
+    set(index, newVal)
+    {
+        this.data[index] = newVal
+        this.drawData[index].setVal(newVal)
+        this.syncDataAndVisual()
+    }
+
+
+    pushBack(val)
+    {
+        this.data.push(val)
+        // queue the animation
+        super.addAnimation("pushBack", {val: val})
     }
 
     /**
@@ -178,14 +237,14 @@ export class vArray extends Entity
         super.addAnimation(toState, params);
     }
 
-     /**
-     * Get a pointer of this array
-     * @param {number} initIndex The initial index pointed by the pointer
-     * @returns {Pointer}
-     */
-     getPointer(initIndex)
-     {
-         const ptr = new Pointer(this, initIndex);
-         return ptr;
-     }
+    /**
+    * Get a pointer of this array
+    * @param {number} initIndex The initial index pointed by the pointer
+    * @returns {Pointer}
+    */
+    getPointer(initIndex)
+    {
+        const ptr = new Pointer(this, initIndex);
+        return ptr;
+    }
 }

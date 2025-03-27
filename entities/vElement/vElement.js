@@ -19,32 +19,13 @@ export class vElement extends Entity
     {
         super()
         this.val = val
-        this.calculateDimensions()
+        this.syncDataAndVisual()
         this.customCoordinates  = customCoordinates
         super.addInPool()
         
         this.color = cnt.DEFAULT_COLOR
     }
-
-    /**
-     * To calculate dimensions based on toString of the encapsulated object.
-     */
-    calculateDimensions()
-    {
-        this.text = this.val.toString().split('\n')
-        let maxWidth = 0
-        this.text.forEach(line => {
-            maxWidth = Math.max(maxWidth, ctx.measureText(line).width)
-        });
-        this.width = maxWidth + cnt.PAD_X*2
-        this.height = this.text.length * cnt.DEFAULT_LINE_HEIGHT + cnt.PAD_Y*2
-    }
-
-    changeColor(color)
-    {
-        this.color = color
-    }
-
+    
     /**
      * To actually draw the encapsulated object inside a rectange, with the single/multi line text provided by the toString.
      */
@@ -59,5 +40,47 @@ export class vElement extends Entity
             drawText(line, brushX + this.width/2, brushY+cnt.DEFAULT_LINE_HEIGHT/2, '10px serif' ,'black', 'center', 'middle')
             brushY += cnt.DEFAULT_LINE_HEIGHT
         })
+    }
+
+    /**
+     * To calculate dimensions based on toString of the encapsulated object.
+     */
+    syncDataAndVisual()
+    {
+        this.text = this.val.toString().split('\n')
+        let maxWidth = 0
+        this.text.forEach(line => {
+            maxWidth = Math.max(maxWidth, ctx.measureText(line).width)
+        });
+        this.width = maxWidth + cnt.PAD_X*2
+        this.height = this.text.length * cnt.DEFAULT_LINE_HEIGHT + cnt.PAD_Y*2
+    }
+
+    /**
+     * To change the box's background color
+     * @param {string} color The name of the color (supports any CSS color property value)
+     */
+    changeColor(color)
+    {
+        this.color = color
+    }
+
+    /**
+     * To set the new value
+     * @param {*} val The new value
+     */
+    setVal(val)
+    {
+        this.val = val
+        this.syncDataAndVisual()
+    }
+
+    /**
+     * To get the current value
+     * @returns The current value stored by vElement
+     */
+    getVal()
+    {
+        return this.val
     }
 }

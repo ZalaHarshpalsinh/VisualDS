@@ -12,6 +12,7 @@ export class Pointer extends Entity
 
         this.pointee = pointee
         this.index = initialIndex
+        this.drawIndex = initialIndex
         this.updateCoords()
 
         this.stateMachine = new StateMachine( {
@@ -42,7 +43,7 @@ export class Pointer extends Entity
 
     updateCoords()
     {
-        this.x = (this.pointee.x) + (this.pointee.boxWidth / 2) + ( this.index  * this.pointee.boxWidth)
+        this.x = (this.pointee.x) + (this.pointee.boxWidth / 2) + ( this.drawIndex  * this.pointee.boxWidth)
         this.y = this.pointee.y + this.pointee.boxHeight;
     }
 

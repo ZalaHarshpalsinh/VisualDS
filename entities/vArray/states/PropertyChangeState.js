@@ -20,7 +20,7 @@ export class PropertyChangeState extends BaseState
             // change color of boxes
             this.data.indices.forEach((index)=>
             {
-                if(index < this.varray.length())
+                if(index < this.varray.drawData.length)
                 {
                     this.varray.drawData[index].changeColor(this.data.toColor)
                 }

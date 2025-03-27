@@ -14,6 +14,8 @@ export class MovingState extends BaseState
     {
         this.change = enterPara.change;
         this.targetX = this.pointer.x + (this.change * this.pointer.pointee.boxWidth);
+
+        this.pointer.drawIndex += this.change
     }
 
     update(dt)
