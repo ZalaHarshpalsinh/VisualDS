@@ -23,20 +23,22 @@ class Animator
     {
         if(! entity.customCoordinates)
         {
-            // console.log(entity)
             entity.setCoordinates(this.brushX, this.brushY)
             this.brushY += entity.height + cnt.MARGIN_Y
         }
-        this.dsPool.push(entity)
+        this.addAnimation({command: 'add', entity: entity})
     }
 
-    
+    removeFromPool(entity)
+    {
+        this.addAnimation({command: 'remove', entity: entity})
+    }
+
     /**
      * To queue an animation
      */
     addAnimation(animObj)
     {
-        // console.log(animObj)
         this.animationQueue.push(animObj);
     }
 
@@ -47,7 +49,7 @@ class Animator
     {
         // don't change to idle directly, allow a delay, to allow the user to observe the changes
         // in other words, once an animation is finished, don't start the nect immediately, allow a delay
-        setTimeout(()=>this.state = 'idle', 250)
+        setTimeout(()=>this.state = 'idle', 500)
     }
 
     update(dt)
@@ -57,13 +59,36 @@ class Animator
         {
             // take an element from animation queue
             let animObj = this.animationQueue.shift();
-
             if(animObj !== undefined)
             {
-                //change the entity's state for animation
-                animObj.entity.changeState(animObj.toState, animObj.params);
+                if(animObj.command)
+                {
+                    this.state = 'command'
 
-                this.state = 'animating'
+                    switch(animObj.command)
+                    {
+                        case "add":
+                            this.dsPool.push(animObj.entity)
+                            break
+                        case "remove":
+                            console.log(animObj)
+                            console.log(this.dsPool)
+                            this.dsPool.splice( this.dsPool.indexOf(animObj.entity), 1)
+                            console.log(this.dsPool)
+                            break
+                        default:
+                            console.log("Invalid command")
+                            break
+                    }
+
+                    this.nextAnimation()
+                }
+                else
+                {
+                    //change the entity's state for animation
+                    animObj.entity.changeState(animObj.toState, animObj.params);
+                    this.state = 'animating'
+                }
             }
         }
         

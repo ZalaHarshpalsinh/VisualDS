@@ -39,6 +39,11 @@ export class Entity
         animator.addInPool(this);
     }
 
+    delete()
+    {
+        animator.removeFromPool(this)
+    }
+
     /**
      * To add an animation object in the animation queue
      * Will be called by a specific entity (sub class of Entity)

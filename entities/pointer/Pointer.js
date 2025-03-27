@@ -61,13 +61,12 @@ export class Pointer extends Entity
      */
     move( change )
     {
-        if ( this.index + change < 0 || this.index + change >= ( this.pointee.data.length ) )
-        {
-            throw new Error( "Index out of bound" );
-        }
+        let oldIndex = this.index
+        this.index =  Math.max(-1, Math.min(this.pointee.length(), this.index + change))
 
-        this.index += change
-        super.addAnimation( 'moving', { change: change } )
+        change = this.index - oldIndex
+        if(change!=0)
+            super.addAnimation( 'moving', { change: change } )
     }
 
     /**

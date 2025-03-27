@@ -16,5 +16,5 @@ export const cnt = {
 
     DEFAULT_COLOR: "CornflowerBlue",
 
-    DEFAULT_MOVE_SPEED: 50,
+    DEFAULT_MOVE_SPEED: 80,
 }

@@ -4,11 +4,16 @@ import {vElement, vArray} from './entities/index.js'
 createVisualisation('cnv', ()=>{
     setTimeout(()=>{
         let arr = new vArray([1,2,3,4,5])
-        for(let i=arr.getPointer(0); i.index<arr.length()-1; i.increment())
+        
+        for(let i=arr.getPointer(0); i.index<arr.length() || i.delete(); i.increment())
         {
 
         }
-        for(let i=10; i<100; i+=10) arr.pushBack(i*10000)
+        
+        arr.delete()
+        
+        let num = new vArray([10, 20, 30])
+        
     }, 0)
 })
 

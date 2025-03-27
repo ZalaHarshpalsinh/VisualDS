@@ -21,7 +21,9 @@ export class vElement extends Entity
         this.val = val
         this.syncDataAndVisual()
         this.customCoordinates  = customCoordinates
-        super.addInPool()
+
+        if(!customCoordinates)
+            super.addInPool()
         
         this.color = cnt.DEFAULT_COLOR
     }
