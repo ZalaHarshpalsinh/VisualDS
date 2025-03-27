@@ -56,6 +56,11 @@ export class Pointer extends Entity
          return this.index;
      }
 
+     isOutOfBound()
+     {
+        return (this.index < 0 || this.index >= this.pointee.length())
+     }
+
     /**
      * Method to move the pointer with animation
      */
@@ -91,5 +96,17 @@ export class Pointer extends Entity
      decrement()
      {
          this.move(-1);
+     }
+
+     highlight(color)
+     {
+        if(! this.isOutOfBound())
+            this.pointee.highlight([this.index], color)
+     }
+
+     unhighlight()
+     {
+        if(! this.isOutOfBound())
+            this.pointee.unhighlight([this.index])
      }
 }

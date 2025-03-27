@@ -7,7 +7,8 @@ createVisualisation('cnv', ()=>{
         
         for(let i=arr.getPointer(0); i.index<arr.length() || i.delete(); i.increment())
         {
-
+            i.highlight('red')
+            i.unhighlight()
         }
         
         arr.delete()
