@@ -5,7 +5,7 @@ export const cnt = {
     ACTUAL_HEIGHT: 750,
 
     START_X: 10,
-    START_Y: 90,
+    START_Y: 10,
 
     MARGIN_Y: 20,
 

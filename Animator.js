@@ -50,12 +50,6 @@ class Animator
         setTimeout(()=>this.state = 'idle', 250)
     }
 
-    drawHeader()
-    {
-        drawRectangle(0,0,cnt.VIRTUAL_WIDTH, 50, 'DarkSlateGrey', 'red')
-        drawText("Data Structure Visualizer", cnt.VIRTUAL_WIDTH/2, 25,"bold 32px serif", 'white', 'center', 'middle')
-    }
-
     update(dt)
     {
         // in case it is idle, take up the next animation if any
@@ -83,7 +77,6 @@ class Animator
      */
     draw()
     {
-        this.drawHeader()
         this.dsPool.forEach((entity)=>{
             entity.draw()
         })
