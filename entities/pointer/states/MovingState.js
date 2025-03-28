@@ -35,9 +35,4 @@ export class MovingState extends BaseState
             this.pointer.nextAnimation()
         }
     }
-
-    draw()
-    {
-        this.pointer.drawArrow()
-    }
 }

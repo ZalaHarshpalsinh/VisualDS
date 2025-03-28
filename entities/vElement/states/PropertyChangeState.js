@@ -23,7 +23,6 @@ export class PropertyChangeState extends BaseState
         else if(this.data.type == "value_update")
         {
             this.velement.drawVal = this.data.newVal
-            this.velement.syncDataAndVisual()
         }
     
         // done, so exit the state

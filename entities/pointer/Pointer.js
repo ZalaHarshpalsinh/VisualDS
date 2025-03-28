@@ -7,13 +7,10 @@ export class Pointer extends Entity
     constructor(pointee, initialIndex)
     {
         super()
-        this.customCoordinates = true
-        super.addInPool()
-
+        
         this.pointee = pointee
         this.index = initialIndex
         this.drawIndex = initialIndex
-        this.updateCoords()
 
         this.stateMachine = new StateMachine( {
             idle: () => new IdleState( this ),
@@ -33,7 +30,8 @@ export class Pointer extends Entity
 
     draw()
     {
-        this.stateMachine.draw()
+        // this.stateMachine.draw()
+        this.drawArrow()
     }
 
     changeState(toState, params)
@@ -41,7 +39,7 @@ export class Pointer extends Entity
         this.stateMachine.change(toState, params)
     }
 
-    updateCoords()
+    syncCoords()
     {
         this.x = (this.pointee.x) + (this.pointee.boxWidth / 2) + ( this.drawIndex  * this.pointee.boxWidth)
         this.y = this.pointee.y + this.pointee.boxHeight;

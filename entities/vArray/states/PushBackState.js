@@ -51,10 +51,4 @@ export class PushBackState extends BaseState
             this.varray.nextAnimation()
         }
     }
-
-    draw()
-    {
-        //draw the array boxes
-        this.varray.drawBoxes()
-    }
 }

@@ -43,6 +43,8 @@ export class vArray extends Entity
          */
         this.drawData = []
 
+        this.pointers = []
+
         //Height and width of a single element
         this.boxWidth = 0
         this.boxHeight = 0
@@ -64,9 +66,6 @@ export class vArray extends Entity
         // since necessary properties of Entity are initialized properly, add in pool and get the assigned coordinates
         super.addInPool()
 
-        // update the coordinates of each box
-        this.syncCoordinates()
-        
         /**
          * To manage the animation via states
          */
@@ -76,6 +75,20 @@ export class vArray extends Entity
             swap: ()=> new SwapState(this),
             pushBack: ()=> new PushBackState(this),
         }, 'idle');
+    }
+
+    updateBoxes(dt)
+    {
+        this.drawData.forEach(e => {
+            e.update(dt)
+        })
+    }
+
+    updatePointers(dt)
+    {
+        this.pointers.forEach(p => {
+            p.update(dt)
+        })
     }
 
     update(dt)
@@ -93,14 +106,23 @@ export class vArray extends Entity
         })
     }
 
-    draw()
+    drawPointers()
     {
-        this.stateMachine.draw()
+        this.pointers.forEach(p => {
+            p.draw()
+        })
     }
 
-    changeState(toState, param)
+    draw()
     {
-        this.stateMachine.change(toState, param);
+        // this.stateMachine.draw()
+        this.drawBoxes()
+        this.drawPointers()
+    }
+
+    changeState(toState, params)
+    {
+        this.stateMachine.change(toState, params);
     }
 
     /**
@@ -171,9 +193,7 @@ export class vArray extends Entity
     {
         this.data[index] = newVal
         this.drawData[index].setVal(newVal)
-        this.syncDataAndVisual()
     }
-
 
     pushBack(val)
     {
@@ -221,8 +241,10 @@ export class vArray extends Entity
      * @param {number} i The first index
      * @param {number} j The second index
      */
-    swap(i, j)
+    swap(i, j, highlight=true)
     {
+        if(highlight) this.highlight([i,j], 'red')
+
         //swap the actual raw data directly
         let tmp = this.data[i]
         this.data[i] = this.data[j]
@@ -235,6 +257,7 @@ export class vArray extends Entity
         };
 
         super.addAnimation(toState, params);
+        if(highlight) this.unhighlight([i,j])
     }
 
     /**
@@ -245,6 +268,7 @@ export class vArray extends Entity
     getPointer(initIndex)
     {
         const ptr = new Pointer(this, initIndex);
+        this.pointers.push(ptr)
         return ptr;
     }
 }

@@ -14,7 +14,7 @@ export class vElement extends Entity
     /**
      * 
      * @param {any} val The object to visualize. Must have a toString overridden which returns a single/multi line respresentation of object in case it is a custom object.
-     * @param {boolean} customCoordinates True if this vElement where it needs to be drawn, which will typically be the case, since the vArray (or any other DS which we might support in future) of which it is a part will give proper x and y coords to this. Otherwise false.
+     * @param {boolean} isSlave True if this vElement is not to be managed by the animator directly (managed by some master entity, i.e. vArray)
      */
     constructor(val, isSlave=false)
     {
@@ -22,9 +22,9 @@ export class vElement extends Entity
 
         this.val = val
         this.drawVal = val
-        this.syncDataAndVisual()
         this.color = cnt.DEFAULT_COLOR
-       
+        this.syncDataAndVisual()
+
         if(!isSlave)
             super.addInPool()
         
@@ -36,7 +36,7 @@ export class vElement extends Entity
 
     update(dt)
     {
-        this.stateMachine.update(dt)
+        this.syncDataAndVisual()
     }
     
     /**

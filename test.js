@@ -2,13 +2,30 @@ import {createVisualisation} from './driver.js'
 import {vElement, vArray} from './entities/index.js'
 
 createVisualisation('cnv', ()=>{
-    let x = new vElement(0)
-
-    for(let i=0; i<100; i+=10)
-    {
-        x.setVal(i)
-    }
-
+    let arr3 = new vArray([1, 2, 3, 4, 5, 10, 9, 8, 7, 6])
+ 
+     let p4 = arr3.getPointer(1)
+     let p5 = arr3.getPointer(0)
+     arr3.highlight([0], "green")
+ 
+     for(let i=1;i<arr3.length();i++)    
+     {
+         p4.moveTo(i)
+         arr3.highlight([i], "blue")
+ 
+         let key = arr3.get(i)
+         
+         let j = i-1
+         p5.moveTo(j)
+         while(j>=0 && arr3.get(j)>key)
+         {
+            arr3.swap(j, j+1, false)
+            j--
+            p5.moveTo(j)
+         }
+ 
+         arr3.highlight([j+1], "green")
+     } 
 })
 
 function allSorts()
@@ -32,7 +49,7 @@ function allSorts()
              // take p02 to curr j
              p02.moveTo(j)
  
-             if (arr0.at(j) < arr0.at(i)) {
+             if (arr0.get(j) < arr0.get(i)) {
                  // highlight and swap i-th element with j-th element
                  arr0.highlight([i, j], 'red')
                  arr0.swap(i, j)
@@ -60,7 +77,7 @@ function allSorts()
          {
              // take p2 to curr j
              p2.moveTo(j)
-             if(arr.at(j)<arr.at(min))
+             if(arr.get(j)<arr.get(min))
              {
                  // if got a new min, unhighlight prev, and then highlight new one
  
@@ -97,7 +114,7 @@ function allSorts()
          {
              p3.moveTo(j)
  
-             if(arr2.at(j)>arr2.at(j+1))
+             if(arr2.get(j)>arr2.get(j+1))
              {
                  arr2.highlight([j, j+1], 'red')
                  arr2.swap(j, j+1)
@@ -118,11 +135,11 @@ function allSorts()
          p4.moveTo(i)
          arr3.highlight([i], "blue")
  
-         let key = arr3.at(i)
+         let key = arr3.get(i)
          let j = i-1
-         while(j>=0 && arr3.at(j)>key)
+         while(j>=0 && arr3.get(j)>key)
          {
-             arr3.swap(j, j+1)
+             arr3.swap(j, j+1, false)
              j--
          }
  

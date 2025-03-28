@@ -8,8 +8,8 @@ export class PropertyChangeState extends BaseState
 {
     constructor(varray)
     {
-        super();
-        this.varray = varray;
+        super()
+        this.varray = varray
     }
 
     enter(enterPara)
@@ -22,13 +22,13 @@ export class PropertyChangeState extends BaseState
             {
                 if(index < this.varray.drawData.length)
                 {
-                    this.varray.drawData[index].changeColor(this.data.toColor)
+                    this.varray.drawData[index].color = this.data.toColor
                 }
-            });
+            })
         }
     
         // done, so exit the state
-        this.varray.changeState('idle');
+        this.varray.changeState('idle')
         
         this.varray.nextAnimation()
     }

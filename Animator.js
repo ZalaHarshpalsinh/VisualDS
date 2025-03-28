@@ -21,11 +21,8 @@ class Animator
 
     addInPool(entity)
     {
-        if(! entity.customCoordinates)
-        {
-            entity.setCoordinates(this.brushX, this.brushY)
-            this.brushY += entity.height + cnt.MARGIN_Y
-        }
+        entity.setCoordinates(this.brushX, this.brushY)
+        this.brushY += entity.height + cnt.MARGIN_Y
         this.addAnimation({command: 'add', entity: entity})
     }
 
@@ -49,7 +46,7 @@ class Animator
     {
         // don't change to idle directly, allow a delay, to allow the user to observe the changes
         // in other words, once an animation is finished, don't start the nect immediately, allow a delay
-        setTimeout(()=>this.state = 'idle', 500)
+        setTimeout(()=>this.state = 'idle', 300)
     }
 
     update(dt)

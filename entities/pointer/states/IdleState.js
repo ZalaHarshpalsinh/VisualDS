@@ -10,11 +10,6 @@ export class IdleState extends BaseState
 
     update(dt)
     {
-        this.pointer.updateCoords()
-    }
-    
-    draw()
-    {
-        this.pointer.drawArrow() 
+        this.pointer.syncCoords()
     }
 }
