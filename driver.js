@@ -1,11 +1,12 @@
 import {vArray, vElement, Pointer, Entity} from './entities/index.js'
-import {drawRectangle, drawText, BaseState, StateMachine} from './utils/index.js'
+import {drawRectangle, drawText, BaseState, StateMachine, TweenManager} from './utils/index.js'
 import { Animator } from "./Animator.js"
 import { cnt } from "./CONSTANTS.js"
 
 let cnv = null
 let ctx = null
 let animator = null
+let tweenManager = null
 
 /**
  * This is the function that exposes the whole framework to the user, user here meaning one who uses our classes such as vArray to draw and visualize DS and algo.
@@ -19,6 +20,7 @@ function createVisualisation(cnvId, userScript)
     ctx = cnv.getContext('2d')
 
     animator = new Animator()
+    tweenManager = new TweenManager()
 
     // initialize the canvas
     initialize()
@@ -52,6 +54,7 @@ function render( time )
 function update(dt)
 {
     animator.update(dt)
+    tweenManager.update(dt)
 }
 
 function draw()
@@ -61,15 +64,8 @@ function draw()
 }
 
 export {
+    createVisualisation,
     ctx,
     animator,
-    createVisualisation,
-    vArray,
-    vElement,
-    Pointer,
-    Entity,
-    drawRectangle,
-    drawText,
-    BaseState,
-    StateMachine
+    tweenManager
 }

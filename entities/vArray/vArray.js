@@ -226,14 +226,7 @@ export class vArray extends Entity
     unhighlight(indices)
     {
         // queue an animation to change colour property
-        const toState = "property_change";
-        const params = {
-                type: "box_color_change",
-                indices,
-                toColor: cnt.DEFAULT_COLOR
-            };
-
-        super.addAnimation(toState, params);
+        this.highlight(indices, cnt.DEFAULT_COLOR)
     }
 
     /**

@@ -1,5 +1,5 @@
 import { cnt } from "./CONSTANTS.js";
-import { drawRectangle, drawText } from "./utils/helper.js";
+import {TweenManager} from "./utils/index.js";
 
 /**
  * This is the manager class of the whole framework.
@@ -15,7 +15,6 @@ class Animator
         this.brushY = cnt.START_Y
         this.dsPool = []
         this.animationQueue = []
-
         this.state = 'idle'
     }
 

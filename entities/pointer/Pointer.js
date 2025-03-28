@@ -11,7 +11,8 @@ export class Pointer extends Entity
         this.pointee = pointee
         this.index = initialIndex
         this.drawIndex = initialIndex
-
+        this.syncCoords()
+        
         this.stateMachine = new StateMachine( {
             idle: () => new IdleState( this ),
             moving: () => new MovingState( this )
@@ -41,8 +42,8 @@ export class Pointer extends Entity
 
     syncCoords()
     {
-        this.x = (this.pointee.x) + (this.pointee.boxWidth / 2) + ( this.drawIndex  * this.pointee.boxWidth)
-        this.y = this.pointee.y + this.pointee.boxHeight;
+        this.x = (this.pointee.x) + (this.pointee.boxWidth / 2) + ( this.drawIndex * this.pointee.boxWidth)
+        this.y = (this.pointee.y) + (this.pointee.boxHeight)
     }
 
      /**

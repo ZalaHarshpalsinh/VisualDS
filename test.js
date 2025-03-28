@@ -2,38 +2,15 @@ import {createVisualisation} from './driver.js'
 import {vElement, vArray} from './entities/index.js'
 
 createVisualisation('cnv', ()=>{
-    let arr3 = new vArray([1, 2, 3, 4, 5, 10, 9, 8, 7, 6])
- 
-     let p4 = arr3.getPointer(1)
-     let p5 = arr3.getPointer(0)
-     arr3.highlight([0], "green")
- 
-     for(let i=1;i<arr3.length();i++)    
-     {
-         p4.moveTo(i)
-         arr3.highlight([i], "blue")
- 
-         let key = arr3.get(i)
-         
-         let j = i-1
-         p5.moveTo(j)
-         while(j>=0 && arr3.get(j)>key)
-         {
-            arr3.swap(j, j+1, false)
-            j--
-            p5.moveTo(j)
-         }
- 
-         arr3.highlight([j+1], "green")
-     } 
+   allSorts()
 })
 
 function allSorts()
 {
      // this is where user writes the code. below are some examples
 
-     let inp = [1, 2, 3, 4, 5, 10, 9, 8, 7, 6]
-
+     let inp = [3, 7, 2, 9, 1, 5, 10, 4, 6, 8]
+     
      //Selection sort version 1: where we swap whenever smaller element found
      let arr0 = new vArray(inp)
  

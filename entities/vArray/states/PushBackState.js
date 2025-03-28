@@ -17,7 +17,7 @@ export class PushBackState extends BaseState
     enter(enterPara)
     {
         let {val} = enterPara
-        console.log(val)
+        
         //create new vElement and push it in drawData
         this.varray.drawData.push(new vElement(val, true))
 
