@@ -1,5 +1,6 @@
 import { cnt } from "../../../CONSTANTS.js"
-import { BaseState } from "../../../utils/index.js"
+import { tweenManager } from "../../../driver.js"
+import { BaseState, TweenManager } from "../../../utils/index.js"
 import { vElement } from "../../index.js"
 
 /**
@@ -11,7 +12,7 @@ export class PushBackState extends BaseState
     {
         super()
         this.varray = varray
-        this.spawnDistance = 50
+        this.spawnDistance = 400
     }
 
     enter(enterPara)
@@ -20,35 +21,29 @@ export class PushBackState extends BaseState
         
         //create new vElement and push it in drawData
         this.varray.drawData.push(new vElement(val, true))
-
         // update boxWidth, boxHeight, Width, Height
         this.varray.syncDimensions()
         // update the coordinates of each box
         this.varray.syncCoordinates()
 
         //get ref to newly created box
-        this.newBox = this.varray.drawData[this.varray.drawData.length-1]
+        let newBox = this.varray.drawData[this.varray.drawData.length-1]
         //save the assigned coordinates of new box as target
-        this.target = this.newBox.getCoordinates()
+        let target = newBox.getCoordinates()
         
         //move new box to spawn point for animation
         let spawnPoint = {x: this.varray.x+this.varray.width-this.varray.boxWidth+this.spawnDistance , y: this.varray.y}
-        this.newBox.setCoordinates(spawnPoint.x, spawnPoint.y)
-    }
+        newBox.setCoordinates(spawnPoint.x, spawnPoint.y)
 
-    update(dt)
-    {
-        //if not reached target
-        if(this.newBox.x != this.target.x)
-        {
-            //move towards target position
-            this.newBox.x = Math.max(this.target.x, this.newBox.x - 100*dt)
-        }
-        else
-        {
-            //move to next animation if reached target
-            this.varray.changeState('idle')
-            this.varray.nextAnimation()
-        }
+        tweenManager.addTween( newBox,
+            {x: target.x},
+            500,
+            TweenManager.linear,
+            ()=>{
+                //move to next animation if reached target
+                this.varray.changeState('idle')
+                this.varray.nextAnimation()
+            }
+        )
     }
 }

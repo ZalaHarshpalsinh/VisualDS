@@ -18,7 +18,7 @@ export class MovingState extends BaseState
         this.pointer.drawIndex += change
         tweenManager.addTween(this.pointer,
             {x: targetX },
-            500,
+            300,
             TweenManager.linear,  
             ()=>{
                 this.pointer.changeState('idle')

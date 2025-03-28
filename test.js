@@ -2,7 +2,7 @@ import {createVisualisation} from './driver.js'
 import {vElement, vArray} from './entities/index.js'
 
 createVisualisation('cnv', ()=>{
-   allSorts()
+    allSorts()
 })
 
 function allSorts()
