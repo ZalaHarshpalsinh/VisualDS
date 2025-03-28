@@ -1,7 +1,8 @@
 import { Entity } from "../Entity.js"
 import { ctx } from "../../driver.js"
 import { cnt } from "../../CONSTANTS.js"
-import { drawRectangle, drawText } from "../../utils/helper.js"
+import { drawRectangle, drawText, StateMachine } from "../../utils/index.js"
+import {IdleState, PropertyChangeState} from './states/index.js'
 
 /**
  * This is that class that encapsulates any object that is to be drawn.
@@ -15,17 +16,27 @@ export class vElement extends Entity
      * @param {any} val The object to visualize. Must have a toString overridden which returns a single/multi line respresentation of object in case it is a custom object.
      * @param {boolean} customCoordinates True if this vElement where it needs to be drawn, which will typically be the case, since the vArray (or any other DS which we might support in future) of which it is a part will give proper x and y coords to this. Otherwise false.
      */
-    constructor(val, customCoordinates=false)
+    constructor(val, isSlave=false)
     {
         super()
-        this.val = val
-        this.syncDataAndVisual()
-        this.customCoordinates  = customCoordinates
 
-        if(!customCoordinates)
+        this.val = val
+        this.drawVal = val
+        this.syncDataAndVisual()
+        this.color = cnt.DEFAULT_COLOR
+       
+        if(!isSlave)
             super.addInPool()
         
-        this.color = cnt.DEFAULT_COLOR
+        this.stateMachine = new StateMachine({
+            idle: ()=> new IdleState(this),
+            property_change: ()=> new PropertyChangeState(this),
+        }, 'idle')
+    }
+
+    update(dt)
+    {
+        this.stateMachine.update(dt)
     }
     
     /**
@@ -44,12 +55,17 @@ export class vElement extends Entity
         })
     }
 
+    changeState(toState, params)
+    {
+        this.stateMachine.change(toState, params)
+    }
+
     /**
      * To calculate dimensions based on toString of the encapsulated object.
      */
     syncDataAndVisual()
     {
-        this.text = this.val.toString().split('\n')
+        this.text = this.drawVal.toString().split('\n')
         let maxWidth = 0
         this.text.forEach(line => {
             maxWidth = Math.max(maxWidth, ctx.measureText(line).width)
@@ -59,22 +75,23 @@ export class vElement extends Entity
     }
 
     /**
-     * To change the box's background color
-     * @param {string} color The name of the color (supports any CSS color property value)
-     */
-    changeColor(color)
-    {
-        this.color = color
-    }
-
-    /**
      * To set the new value
      * @param {*} val The new value
      */
-    setVal(val)
+    setVal(val, highlight=true)
     {
         this.val = val
-        this.syncDataAndVisual()
+
+        if(highlight)
+            this.highlight('MediumOrchid')
+
+        this.addAnimation('property_change', {
+            type: 'value_update',
+            newVal: val
+        })
+
+        if(highlight)
+            this.unhighlight()
     }
 
     /**
@@ -84,5 +101,21 @@ export class vElement extends Entity
     getVal()
     {
         return this.val
+    }
+
+    highlight(color)
+    {
+        this.addAnimation('property_change', {
+            type: 'box_color_change',
+            color: color,
+        })
+    }
+
+    unhighlight()
+    {
+        this.addAnimation('property_change',{
+            type: 'box_color_change',
+            color: cnt.DEFAULT_COLOR, 
+        })
     }
 }

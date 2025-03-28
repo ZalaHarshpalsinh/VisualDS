@@ -8,11 +8,9 @@ export class Entity
         this.y = 0
         this.width = 0
         this.height = 0
-        /**
-         * true: this entity knows where it should be drawn, it is relative to some other entity
-         * false: this entity does not know where it should be drawn, it is not relative to any other entity.
-         */
-        this.customCoordinates = false
+
+        // true : this entity is removed from scope and will not be able to queue any animations
+        this.removed = false
     }
 
     /**
@@ -39,8 +37,9 @@ export class Entity
         animator.addInPool(this);
     }
 
-    delete()
+    remove()
     {
+        this.removed = true
         animator.removeFromPool(this)
     }
 
@@ -51,6 +50,9 @@ export class Entity
     */
    addAnimation(toState, params)
    {
+        //dont't queue animation if already removed by user
+        if(this.removed) return
+
        // create animObj
         const animObj = {
             toState,

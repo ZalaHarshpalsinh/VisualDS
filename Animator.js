@@ -59,6 +59,7 @@ class Animator
         {
             // take an element from animation queue
             let animObj = this.animationQueue.shift();
+
             if(animObj !== undefined)
             {
                 if(animObj.command)
@@ -71,10 +72,7 @@ class Animator
                             this.dsPool.push(animObj.entity)
                             break
                         case "remove":
-                            console.log(animObj)
-                            console.log(this.dsPool)
                             this.dsPool.splice( this.dsPool.indexOf(animObj.entity), 1)
-                            console.log(this.dsPool)
                             break
                         default:
                             console.log("Invalid command")

@@ -2,20 +2,13 @@ import {createVisualisation} from './driver.js'
 import {vElement, vArray} from './entities/index.js'
 
 createVisualisation('cnv', ()=>{
-    setTimeout(()=>{
-        let arr = new vArray([1,2,3,4,5])
-        
-        for(let i=arr.getPointer(0); i.index<arr.length() || i.delete(); i.increment())
-        {
-            i.highlight('red')
-            i.unhighlight()
-        }
-        
-        arr.delete()
-        
-        let num = new vArray([10, 20, 30])
-        
-    }, 0)
+    let x = new vElement(0)
+
+    for(let i=0; i<100; i+=10)
+    {
+        x.setVal(i)
+    }
+
 })
 
 function allSorts()
