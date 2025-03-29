@@ -12,7 +12,7 @@ export const cnt = {
     PAD_X: 5,
     PAD_Y: 5,
 
-    DEFAULT_LINE_HEIGHT: 10,
+    DEFAULT_LINE_HEIGHT: 15,
 
     DEFAULT_COLOR: "CornflowerBlue",
 

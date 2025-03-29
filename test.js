@@ -2,18 +2,11 @@ import {createVisualisation} from './driver.js'
 import {vElement, vArray} from './entities/index.js'
 
 createVisualisation('cnv', ()=>{
-    let arr = new vArray([0])
-    let p = arr.getPointer(0)
-    for(let i=1;i<=1000;i*=10)
+    let x = new vArray("hello world")
+    for(let i=x.getPointer(0); ! i.isOutOfBound(); i.increment())
     {
-        arr.pushBack(i)
-        p.increment()
+        x.set(i.getIndex(), x.get(i.getIndex()).toUpperCase())
     }
-    for(let i=1;i<=1000;i*=10)
-    {
-        arr.popBack()
-    }
-    
 })
 
 function allSorts()

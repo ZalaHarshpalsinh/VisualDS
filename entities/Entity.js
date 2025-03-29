@@ -75,12 +75,7 @@ export class Entity
     {
         animator.nextAnimation()
     }
-
-    addTween()
-    {
-        
-    }
-
+   
     update(dt){}
  
     /**
