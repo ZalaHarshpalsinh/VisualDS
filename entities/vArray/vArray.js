@@ -2,7 +2,7 @@ import { cnt } from "../../CONSTANTS.js";
 import { Entity } from "../Entity.js";
 import { vElement, Pointer } from "../index.js";
 import {StateMachine} from "../../utils/index.js"
-import { IdleState, PropertyChangeState, SwapState, PushBackState } from "./states/index.js";
+import { IdleState, PropertyChangeState, SwapState, PushState, PopState } from "./states/index.js";
 
 /**
  * This class represents a visual array.
@@ -73,7 +73,8 @@ export class vArray extends Entity
             idle: ()=> new IdleState(this),
             property_change: ()=> new PropertyChangeState(this),
             swap: ()=> new SwapState(this),
-            pushBack: ()=> new PushBackState(this),
+            push: ()=> new PushState(this),
+            pop: ()=> new PopState(this),
         }, 'idle');
     }
 
@@ -199,7 +200,28 @@ export class vArray extends Entity
     {
         this.data.push(val)
         // queue the animation
-        super.addAnimation("pushBack", {val: val})
+        super.addAnimation("push", {type: 'back', val: val})
+    }
+
+    popBack()
+    {
+        this.data.pop()
+        // queue the animation
+        super.addAnimation("pop", {type: 'back'})
+    }
+
+    pushFront(val)
+    {
+        this.data.unshift(val)
+        //queue the animation
+        super.addAnimation("push", {type: 'front', val: val})
+    }
+
+    popFront()
+    {
+        this.data.shift()
+        // queue the animation
+        super.addAnimation("pop", {type: 'front'})
     }
 
     /**

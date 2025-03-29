@@ -1,12 +1,11 @@
-import { cnt } from "../../../CONSTANTS.js"
 import { tweenManager } from "../../../driver.js"
 import { BaseState, TweenManager } from "../../../utils/index.js"
 import { vElement } from "../../index.js"
 
 /**
- * Represents the state where a new value is pushed at the back of the array
+ * Represents the state where a new value is pushed in the array
  */
-export class PushBackState extends BaseState
+export class PushState extends BaseState
 {
     constructor(varray)
     {
@@ -17,18 +16,21 @@ export class PushBackState extends BaseState
 
     enter(enterPara)
     {
-        let {val} = enterPara
+        let {type, val} = enterPara
         
         //create new vElement and push it in drawData
-        this.varray.drawData.push(new vElement(val, true))
+        if(type == 'front')
+            this.varray.drawData.unshift(new vElement(val, true))
+        else
+            this.varray.drawData.push(new vElement(val, true))
+
         // update boxWidth, boxHeight, Width, Height
         this.varray.syncDimensions()
         // update the coordinates of each box
         this.varray.syncCoordinates()
 
-        //get ref to newly created box
-        let newBox = this.varray.drawData[this.varray.drawData.length-1]
         //save the assigned coordinates of new box as target
+        let newBox = this.varray.drawData[type=='front' ? 0 : this.varray.drawData.length-1]
         let target = newBox.getCoordinates()
         
         //move new box to spawn point for animation
@@ -38,7 +40,7 @@ export class PushBackState extends BaseState
         tweenManager.addTween( newBox,
             {x: target.x},
             500,
-            TweenManager.linear,
+            TweenManager.cubicIn,
             ()=>{
                 //move to next animation if reached target
                 this.varray.changeState('idle')
