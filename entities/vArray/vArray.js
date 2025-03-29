@@ -94,7 +94,14 @@ export class vArray extends Entity
 
     update(dt)
     {
-        this.stateMachine.update(dt)
+        //update each box
+        this.updateBoxes(dt)
+        // update boxWidth, boxHeight, Width, Height incase any box's value changed
+        this.syncDimensions()
+        // similarly update the coordinates of each box
+        this.syncCoordinates()
+        //update each pointer (incase boxWidth/boxHeight changed)
+        this.updatePointers(dt)
     }
 
     /**
@@ -266,12 +273,8 @@ export class vArray extends Entity
         this.data[j] = tmp
 
         // queue an animation to swap elements in drawData
-        const toState = "swap";
-        const params = {
-            i,j
-        };
+        super.addAnimation('swap', {i,j});
 
-        super.addAnimation(toState, params);
         if(highlight) this.unhighlight([i,j])
     }
 
@@ -283,7 +286,7 @@ export class vArray extends Entity
     getPointer(initIndex)
     {
         const ptr = new Pointer(this, initIndex);
-        this.pointers.push(ptr)
+        this.addAnimation('property_change',{type:'add_pointer', pointer: ptr})
         return ptr;
     }
 }

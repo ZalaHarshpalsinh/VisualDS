@@ -15,7 +15,7 @@ export class PropertyChangeState extends BaseState
     enter(enterPara)
     {
         this.data = enterPara;
-        if(this.data.type=="box_color_change")
+        if(this.data.type == "box_color_change")
         {
             // change color of boxes
             this.data.indices.forEach((index)=>
@@ -25,6 +25,10 @@ export class PropertyChangeState extends BaseState
                     this.varray.drawData[index].color = this.data.toColor
                 }
             })
+        }
+        else if(this.data.type == "add_pointer")
+        {
+            this.varray.pointers.push(this.data.pointer)
         }
     
         // done, so exit the state

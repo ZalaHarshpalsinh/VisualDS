@@ -10,8 +10,8 @@ export class Pointer extends Entity
         
         this.pointee = pointee
         this.index = initialIndex
-        this.drawIndex = initialIndex
-        this.syncCoords()
+        this.drawIndex = Math.max(-1, Math.min(this.pointee.length(), initialIndex))
+        this.syncCoordinates()
         
         this.stateMachine = new StateMachine( {
             idle: () => new IdleState( this ),
@@ -40,9 +40,8 @@ export class Pointer extends Entity
         this.stateMachine.change(toState, params)
     }
 
-    syncCoords()
+    syncCoordinates()
     {
-        this.drawIndex = Math.max(-1, Math.min(this.pointee.length(), this.index + change))
         this.x = (this.pointee.x) + (this.pointee.boxWidth / 2) + ( this.drawIndex * this.pointee.boxWidth)
         this.y = (this.pointee.y) + (this.pointee.boxHeight)
     }
@@ -58,7 +57,7 @@ export class Pointer extends Entity
 
     isOutOfBound()
     {
-    return (this.index < 0 || this.index >= this.pointee.length())
+        return (this.index < 0 || this.index >= this.pointee.length())
     }
 
     /**
@@ -66,10 +65,11 @@ export class Pointer extends Entity
      */
     move( change )
     {
-        let oldIndex = this.index
-        this.index =  Math.max(-1, Math.min(this.pointee.length(), this.index + change))
+        let oldIndexCapped = Math.max(-1, Math.min(this.pointee.length(), this.index))
+        this.index += change
 
-        change = this.index - oldIndex
+        let newIndexCapped = Math.max(-1, Math.min(this.pointee.length(), this.index))
+        change = newIndexCapped - oldIndexCapped
         if(change!=0)
             super.addAnimation( 'moving', { change: change } )
     }

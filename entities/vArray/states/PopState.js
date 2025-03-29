@@ -35,11 +35,7 @@ export class PopState extends BaseState
                     this.varray.drawData.shift()
                 else
                     this.varray.drawData.pop()
-                // update boxWidth, boxHeight, Width, Height
-                this.varray.syncDimensions()
-                // update the coordinates of each box
-                this.varray.syncCoordinates()
-
+                
                 //move to next animation
                 this.varray.changeState('idle')
                 this.varray.nextAnimation()

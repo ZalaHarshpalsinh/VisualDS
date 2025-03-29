@@ -10,6 +10,8 @@ export class IdleState extends BaseState
 
     update(dt)
     {
-        this.pointer.syncCoords()
+        //check if array has shrunk
+        this.pointer.drawIndex = Math.max(-1, Math.min(this.pointer.pointee.drawData.length, this.pointer.drawIndex))
+        this.pointer.syncCoordinates()
     }
 }

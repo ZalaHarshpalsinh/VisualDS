@@ -30,17 +30,21 @@ export class PushState extends BaseState
         this.varray.syncCoordinates()
 
         //save the assigned coordinates of new box as target
-        let newBox = this.varray.drawData[type=='front' ? 0 : this.varray.drawData.length-1]
+        let newBox = this.varray.drawData[type == 'front' ? 0 : this.varray.drawData.length-1]
         let target = newBox.getCoordinates()
         
         //move new box to spawn point for animation
-        let spawnPoint = {x: this.varray.x+this.varray.width-this.varray.boxWidth+this.spawnDistance , y: this.varray.y}
+        let spawnPoint = 0
+        if(type=='front')
+            spawnPoint = {x: this.varray.x - this.varray.boxWidth - this.spawnDistance, y: this.varray.y}
+        else
+            spawnPoint = {x: this.varray.x+this.varray.width-this.varray.boxWidth+this.spawnDistance , y: this.varray.y}
         newBox.setCoordinates(spawnPoint.x, spawnPoint.y)
 
         tweenManager.addTween( newBox,
             {x: target.x},
             500,
-            TweenManager.cubicIn,
+            TweenManager.cubicOut,
             ()=>{
                 //move to next animation if reached target
                 this.varray.changeState('idle')
