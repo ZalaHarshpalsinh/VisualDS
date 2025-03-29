@@ -292,16 +292,15 @@ export class vArray extends Entity
 
     removePointer(ptr)
     {
-        if(this.pointers.indexOf(ptr) != -1)
-            this.addAnimation('property_change', {type: 'remove_pointer', pointer: ptr})
+        this.addAnimation('property_change', {type: 'remove_pointer', pointer: ptr})
     }
 
     cleanUp()
     {
         this.drawData = []
         this.pointers.forEach(p=>{
+            p.removed = true
             p.cleanUp()
-            p.remove()
         })
         this.pointers = []
     }

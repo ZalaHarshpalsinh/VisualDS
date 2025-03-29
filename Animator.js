@@ -27,8 +27,7 @@ class Animator
 
     removeFromPool(entity)
     {
-        if(this.dsPool.indexOf(entity)!=-1)
-            this.addAnimation({command: 'remove', entity: entity})
+        this.addAnimation({command: 'remove', entity: entity})
     }
 
     /**

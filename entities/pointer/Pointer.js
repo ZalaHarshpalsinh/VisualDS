@@ -112,7 +112,7 @@ export class Pointer extends Entity
 
     remove()
     {
-        super.remove()
+        this.removed = true
         this.pointee.removePointer(this)
     }
 
