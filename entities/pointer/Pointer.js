@@ -109,4 +109,17 @@ export class Pointer extends Entity
         if(! this.isOutOfBound())
             this.pointee.unhighlight([this.index])
     }
+
+    remove()
+    {
+        super.remove()
+        this.pointee.removePointer(this)
+    }
+
+    cleanUp()
+    {
+        this.drawIndex = null
+        this.pointee = null
+        this.stateMachine = null
+    }
 }

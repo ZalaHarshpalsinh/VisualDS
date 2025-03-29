@@ -83,4 +83,6 @@ export class Entity
      * and also updated the height and width property
      */
     draw(){}
+
+    cleanUp(){}
 } 

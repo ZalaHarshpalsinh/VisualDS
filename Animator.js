@@ -27,7 +27,8 @@ class Animator
 
     removeFromPool(entity)
     {
-        this.addAnimation({command: 'remove', entity: entity})
+        if(this.dsPool.indexOf(entity)!=-1)
+            this.addAnimation({command: 'remove', entity: entity})
     }
 
     /**
@@ -68,6 +69,7 @@ class Animator
                             this.dsPool.push(animObj.entity)
                             break
                         case "remove":
+                            animObj.entity.cleanUp()
                             this.dsPool.splice( this.dsPool.indexOf(animObj.entity), 1)
                             break
                         default:

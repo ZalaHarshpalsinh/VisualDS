@@ -118,4 +118,11 @@ export class vElement extends Entity
             color: cnt.DEFAULT_COLOR, 
         })
     }
+
+    cleanUp()
+    {
+        this.drawVal = null
+        this.text = null
+        this.stateMachine = null
+    }
 }
