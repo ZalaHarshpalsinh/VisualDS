@@ -1,4 +1,5 @@
 import { cnt } from "./CONSTANTS.js";
+import { tweenManager } from "./driver.js";
 import {TweenManager} from "./utils/index.js";
 
 /**
@@ -48,8 +49,34 @@ class Animator
         setTimeout(()=>this.state = 'idle', 300)
     }
 
-    update(dt)
+    compactEntities()
     {
+        this.brushX = cnt.START_X
+        this.brushY = cnt.START_Y
+
+        this.dsPool.forEach( e => {
+            let oldCoords = e.getCoordinates()
+            if(oldCoords.x != this.brushX || oldCoords.y != this.brushY)
+            {
+                this.state = 'compacting'
+                tweenManager.addTween(e,
+                    {x: this.brushX, y:this.brushY},
+                    100,
+                    TweenManager.linear,
+                    ()=>{
+                        this.nextAnimation()
+                    }
+                )
+            }
+            this.brushY += e.height + cnt.MARGIN_Y
+        })
+    }
+
+    update(dt)
+    {   
+        if(this.state == 'idle')
+            this.compactEntities()
+
         // in case it is idle, take up the next animation if any
         if(this.state == 'idle')
         {
@@ -85,8 +112,9 @@ class Animator
                     this.state = 'animating'
                 }
             }
+            
         }
-        
+ 
         this.dsPool.forEach((entity)=>{
             entity.update(dt)
         });

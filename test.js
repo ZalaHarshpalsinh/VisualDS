@@ -2,12 +2,15 @@ import {createVisualisation} from './driver.js'
 import {vElement, vArray} from './entities/index.js'
 
 createVisualisation('cnv', ()=>{
-    let arr = new vArray([1,2,3,4,5])
-    arr.getPointer(0)
-    arr.getPointer(1)
-    arr.getPointer(2)
-
-    arr.remove()
+    let arr = [], n = 10
+    for(let i=0;i<n;i++)
+    {
+        arr.push(new vArray([1,2,3]))
+    }
+    for(let i=0;i<n;i++)
+    {
+        arr[i].remove()
+    }
 })
 
 function allSorts()
