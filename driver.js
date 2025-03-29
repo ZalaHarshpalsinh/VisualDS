@@ -39,6 +39,16 @@ function initialize()
     ctx.scale(cnt.ACTUAL_WIDTH/cnt.VIRTUAL_WIDTH, cnt.ACTUAL_HEIGHT/cnt.VIRTUAL_HEIGHT)
 }
 
+function getAnimationSpeed()
+{
+    return animator.getAnimationSpeed()
+}
+
+function setAnimationSpeed(newSpeed)
+{
+    animator.setAnimationSpeed(newSpeed)
+}
+
 let lastUpdate = 0
 
 // this method is called on every frame, this should not be called by user directly
@@ -65,6 +75,8 @@ function draw()
 
 export {
     createVisualisation,
+    getAnimationSpeed,
+    setAnimationSpeed,
     ctx,
     animator,
     tweenManager

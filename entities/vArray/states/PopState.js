@@ -1,6 +1,5 @@
 import { tweenManager } from "../../../driver.js"
 import { BaseState, TweenManager } from "../../../utils/index.js"
-import { vElement } from "../../index.js"
 
 /**
  * Represents the state where a value is poped from the array

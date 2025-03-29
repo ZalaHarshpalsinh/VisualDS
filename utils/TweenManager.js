@@ -1,3 +1,5 @@
+import {getAnimationSpeed} from "../driver.js"
+
 export class TweenManager
 {
     constructor()
@@ -21,6 +23,9 @@ export class TweenManager
         const startValues = {}
         const changeValues = {}
         const startTime = performance.now() // in miliseconds
+
+        //update ideal duration as per currentAnimationSpeed
+        duration /= getAnimationSpeed()
         
         // Store initial values and calculate changes
         for (const key in values) {
@@ -69,7 +74,7 @@ export class TweenManager
         this.tweens.forEach((tween, id) => {
 
             const elapsed = now - tween.startTime;
-            const progress = Math.min(elapsed / tween.duration, 1);
+            const progress = Math.min(elapsed / tween.duration, 1.0);
             const easedProgress = tween.easing(progress);
 
             // Update target properties
@@ -79,7 +84,7 @@ export class TweenManager
             }
 
             // Check if tween is complete
-            if (progress == 1) 
+            if (progress >= 1.0) 
             {
                 completedTweens.push(id);
                 if (tween.callback) 

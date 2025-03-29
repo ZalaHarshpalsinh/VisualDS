@@ -26,12 +26,12 @@ export class SwapState extends BaseState
         //swap coordinates
         tweenManager.addTween( refI,
             {x: refJ.x},
-            300,
+            400,
             TweenManager.linear
         )
         tweenManager.addTween( refJ,
             {x: refI.x},
-            300,
+            400,
             TweenManager.linear,
             ()=>{
                 //move to next animation

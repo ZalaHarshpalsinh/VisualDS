@@ -1,4 +1,3 @@
-import { cnt } from "../../../CONSTANTS.js";
 import { BaseState, TweenManager } from "../../../utils/index.js"
 import { tweenManager } from "../../../driver.js";
 
@@ -18,7 +17,7 @@ export class MovingState extends BaseState
         this.pointer.drawIndex += change
         tweenManager.addTween(this.pointer,
             {x: targetX },
-            300,
+            500,
             TweenManager.linear,  
             ()=>{
                 this.pointer.changeState('idle')

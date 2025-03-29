@@ -17,6 +17,8 @@ class Animator
         this.dsPool = []
         this.animationQueue = []
         this.state = 'idle'
+
+        this.animationSpeed = 1.0
     }
 
     addInPool(entity)
@@ -46,7 +48,17 @@ class Animator
     {
         // don't change to idle directly, allow a delay, to allow the user to observe the changes
         // in other words, once an animation is finished, don't start the nect immediately, allow a delay
-        setTimeout(()=>this.state = 'idle', 300)
+        setTimeout(()=>this.state = 'idle', 400 / this.getAnimationSpeed())
+    }
+
+    getAnimationSpeed()
+    {
+        return this.animationSpeed
+    }
+
+    setAnimationSpeed(newSpeed)
+    {
+        this.addAnimation({command: 'change_speed', newSpeed: newSpeed})
     }
 
     compactEntities()
@@ -61,7 +73,7 @@ class Animator
                 this.state = 'compacting'
                 tweenManager.addTween(e,
                     {x: this.brushX, y:this.brushY},
-                    100,
+                    300,
                     TweenManager.linear,
                     ()=>{
                         this.nextAnimation()
@@ -98,6 +110,8 @@ class Animator
                             animObj.entity.cleanUp()
                             this.dsPool.splice( this.dsPool.indexOf(animObj.entity), 1)
                             break
+                        case "change_speed":
+                            this.animationSpeed = animObj.newSpeed
                         default:
                             console.log("Invalid command")
                             break

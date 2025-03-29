@@ -1,12 +1,16 @@
-import {createVisualisation} from './driver.js'
-import {vElement, vArray} from './entities/index.js'
+import { createVisualisation, setAnimationSpeed, getAnimationSpeed, ctx, tweenManager, Entity, vElement, vArray, StateMachine, BaseState, TweenManager, drawRectangle, drawText} 
+from './VisualDS.js'
 
 createVisualisation('cnv', ()=>{
     let arr = [], n = 10
     for(let i=0;i<n;i++)
     {
         arr.push(new vArray([1,2,3]))
+        arr[i].getPointer(0)
     }
+
+    setAnimationSpeed(2)
+
     for(let i=0;i<n;i++)
     {
         arr[i].remove()
