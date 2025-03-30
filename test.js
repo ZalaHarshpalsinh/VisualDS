@@ -1,26 +1,18 @@
-import { createVisualisation, setAnimationSpeed, getAnimationSpeed, ctx, tweenManager, Entity, vElement, vArray, StateMachine, BaseState, TweenManager, drawRectangle, drawText} 
-from './VisualDS.js'
+import {createVisualisation, setAnimationSpeed, selectionSort, bubbleSort, insertionSort } from "./VisualDS.js"
 
 createVisualisation('cnv', ()=>{
-    let arr = [], n = 10
-    for(let i=0;i<n;i++)
-    {
-        arr.push(new vArray([1,2,3]))
-        arr[i].getPointer(0)
-    }
+    setAnimationSpeed(1)
+    // let arr = [3, 7, 2, 9, 1, 5, 10, 4, 6, 8]
+    let arr = [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
 
-    setAnimationSpeed(2)
-
-    for(let i=0;i<n;i++)
-    {
-        arr[i].remove()
-    }
+    insertionSort(arr)
+    selectionSort(arr)
+    bubbleSort(arr)
 })
 
 function allSorts()
 {
      // this is where user writes the code. below are some examples
-
      let inp = [3, 7, 2, 9, 1, 5, 10, 4, 6, 8]
      
      //Selection sort version 1: where we swap whenever smaller element found
@@ -48,90 +40,5 @@ function allSorts()
  
          // current i is correctly sorted, highlight it
          arr0.highlight([i], 'green')
-     }
- 
-     //Selection sort version 2: where we keep trach of the min index
-     let arr = new vArray(inp)
- 
-     let p1 = arr.getPointer(0)
-     let p2 = arr.getPointer(0)
-     for(let i=0; i<arr.length();i++)
-     {
-         // take p1 to curr i, and highlight it
-         p1.moveTo(i)
-         arr.highlight([i], "blue")
- 
-         let min = i;
-         for(let j=i+1;j<arr.length();j++)
-         {
-             // take p2 to curr j
-             p2.moveTo(j)
-             if(arr.get(j)<arr.get(min))
-             {
-                 // if got a new min, unhighlight prev, and then highlight new one
- 
-                 // unhighlight prev min iff it is not i
-                 if(min!=i)arr.unhighlight([min])
-                 // new min
-                 min = j;
-                 // highlight it
-                 arr.highlight([min], "green")
-             }
-         }
-         
-         if(min != i)
-         {
-             // highlight and swap iit element with minth element
-             arr.highlight([i, min], 'red')
-             arr.swap(i, min)
-             arr.unhighlight([i, min])  
-         }
-         
-         // current i is correctly sorted, highlight it
-         arr.highlight([i], 'green')
-     }
- 
- 
-     //Bubble sort
-     let arr2 = new vArray(inp)
- 
-     let p3 = arr2.getPointer(0)
- 
-     for(let i=0;i<arr2.length();i++)
-     {
-         for(let j=0;j<arr2.length()-1-i;j++)
-         {
-             p3.moveTo(j)
- 
-             if(arr2.get(j)>arr2.get(j+1))
-             {
-                 arr2.highlight([j, j+1], 'red')
-                 arr2.swap(j, j+1)
-                 arr2.unhighlight([j, j+1])
-             }
-         }
-         arr2.highlight([arr2.length()-1-i], 'green')
-     }
- 
-     //Insertion sort
-     let arr3 = new vArray(inp)
- 
-     let p4 = arr3.getPointer(1)
-     arr3.highlight([0], "green")
- 
-     for(let i=1;i<arr3.length();i++)    
-     {
-         p4.moveTo(i)
-         arr3.highlight([i], "blue")
- 
-         let key = arr3.get(i)
-         let j = i-1
-         while(j>=0 && arr3.get(j)>key)
-         {
-             arr3.swap(j, j+1, false)
-             j--
-         }
- 
-         arr3.highlight([j+1], "green")
      }
 }
