@@ -1,7 +1,7 @@
 import { cnt } from "../../CONSTANTS.js";
 import { Entity } from "../Entity.js";
 import { vElement, Pointer } from "../index.js";
-import {StateMachine} from "../../utils/index.js"
+import { StateMachine } from "../../utils/index.js"
 import { IdleState, PropertyChangeState, SwapState, PushState, PopState } from "./states/index.js";
 
 /**
@@ -18,7 +18,7 @@ export class vArray extends Entity
      * since it is there by default in these inbuilt classes.
      * @param {any[]} data The array whose visualization to create
      */
-    constructor(data)
+    constructor( data )
     {
         super()
 
@@ -53,11 +53,11 @@ export class vArray extends Entity
         this.height = 0
 
         //Populate both lists with given data
-        for(let i=0; i<data.length; i++)
+        for ( let i = 0; i < data.length; i++ )
         {
-            this.data.push(data[i])
+            this.data.push( data[ i ] )
             // create the data to be drawn as an array of vElement, since that is how we support drawing anything with a toString overridden.
-            this.drawData.push(new vElement(data[i], true))
+            this.drawData.push( new vElement( data[ i ], true ) )
         }
 
         // update boxWidth, boxHeight, Width, Height
@@ -69,39 +69,41 @@ export class vArray extends Entity
         /**
          * To manage the animation via states
          */
-        this.stateMachine = new StateMachine({
-            idle: ()=> new IdleState(this),
-            property_change: ()=> new PropertyChangeState(this),
-            swap: ()=> new SwapState(this),
-            push: ()=> new PushState(this),
-            pop: ()=> new PopState(this),
-        }, 'idle');
+        this.stateMachine = new StateMachine( {
+            idle: () => new IdleState( this ),
+            property_change: () => new PropertyChangeState( this ),
+            swap: () => new SwapState( this ),
+            push: () => new PushState( this ),
+            pop: () => new PopState( this ),
+        }, 'idle' );
     }
 
-    updateBoxes(dt)
+    updateBoxes( dt )
     {
-        this.drawData.forEach(e => {
-            e.update(dt)
-        })
+        this.drawData.forEach( e =>
+        {
+            e.update( dt )
+        } )
     }
 
-    updatePointers(dt)
+    updatePointers( dt )
     {
-        this.pointers.forEach(p => {
-            p.update(dt)
-        })
+        this.pointers.forEach( p =>
+        {
+            p.update( dt )
+        } )
     }
 
-    update(dt)
+    update( dt )
     {
         //update each box
-        this.updateBoxes(dt)
+        this.updateBoxes( dt )
         // update boxWidth, boxHeight, Width, Height incase any box's value changed
         this.syncDimensions()
         // similarly update the coordinates of each box
         this.syncCoordinates()
         //update each pointer (incase boxWidth/boxHeight changed)
-        this.updatePointers(dt)
+        this.updatePointers( dt )
     }
 
     /**
@@ -109,16 +111,18 @@ export class vArray extends Entity
      */
     drawBoxes()
     {
-        this.drawData.forEach(e => {
+        this.drawData.forEach( e =>
+        {
             e.draw()
-        })
+        } )
     }
 
     drawPointers()
     {
-        this.pointers.forEach(p => {
+        this.pointers.forEach( p =>
+        {
             p.draw()
-        })
+        } )
     }
 
     draw()
@@ -128,9 +132,9 @@ export class vArray extends Entity
         this.drawPointers()
     }
 
-    changeState(toState, params)
+    changeState( toState, params )
     {
-        this.stateMachine.change(toState, params);
+        this.stateMachine.change( toState, params );
     }
 
     /**
@@ -139,17 +143,17 @@ export class vArray extends Entity
     syncDimensions()
     {
         //Find biggest box's height/width
-        for(let i=0; i < this.drawData.length; i++)
+        for ( let i = 0; i < this.drawData.length; i++ )
         {
-            this.boxWidth = Math.max(this.boxWidth, this.drawData[i].width)
-            this.boxHeight = Math.max(this.boxHeight, this.drawData[i].height)
+            this.boxWidth = Math.max( this.boxWidth, this.drawData[ i ].width )
+            this.boxHeight = Math.max( this.boxHeight, this.drawData[ i ].height )
         }
 
         //Make every box same as biggest box
-        for(let i=0; i < this.drawData.length; i++)
+        for ( let i = 0; i < this.drawData.length; i++ )
         {
-            this.drawData[i].width = this.boxWidth
-            this.drawData[i].height = this.boxHeight
+            this.drawData[ i ].width = this.boxWidth
+            this.drawData[ i ].height = this.boxHeight
         }
 
         //update height/width of whole array
@@ -163,11 +167,11 @@ export class vArray extends Entity
     syncCoordinates()
     {
         // Put brush at start of array
-        let brush = {x:this.x, y:this.y}
-        for(let i=0; i < this.drawData.length; i++)
+        let brush = { x: this.x, y: this.y }
+        for ( let i = 0; i < this.drawData.length; i++ )
         {
             // set the custom coords for each vElement
-            this.drawData[i].setCoordinates(brush.x, brush.y)
+            this.drawData[ i ].setCoordinates( brush.x, brush.y )
             //move brush to the right by boxWidth
             brush.x += this.boxWidth
         }
@@ -181,15 +185,15 @@ export class vArray extends Entity
     {
         return this.data.length;
     }
-    
+
     /**
      * To get value at a given index
      * @param {number} index The index to get value from
      * @returns The value at the given index
      */
-    get(index)
+    get( index )
     {
-        return this.data[index];
+        return this.data[ index ];
     }
 
     /**
@@ -197,37 +201,37 @@ export class vArray extends Entity
      * @param {*} index The index for which to update value
      * @param {*} newVal The new value
      */
-    set(index, newVal)
+    set( index, newVal, highlight = true )
     {
-        this.data[index] = newVal
-        this.drawData[index].setVal(newVal)
+        this.data[ index ] = newVal
+        this.drawData[ index ].setVal( newVal, highlight )
     }
 
-    pushBack(val)
+    pushBack( val )
     {
         // queue the animation
-        super.addAnimation("push", {type: 'back', val: val})
-        return this.data.push(val)
+        super.addAnimation( "push", { type: 'back', val: val } )
+        return this.data.push( val )
     }
 
     popBack()
     {
         // queue the animation
-        super.addAnimation("pop", {type: 'back'})
+        super.addAnimation( "pop", { type: 'back' } )
         return this.data.pop()
     }
 
-    pushFront(val)
+    pushFront( val )
     {
         //queue the animation
-        super.addAnimation("push", {type: 'front', val: val})
-        return this.data.unshift(val)
+        super.addAnimation( "push", { type: 'front', val: val } )
+        return this.data.unshift( val )
     }
 
     popFront()
     {
         // queue the animation
-        super.addAnimation("pop", {type: 'front'})
+        super.addAnimation( "pop", { type: 'front' } )
         return this.data.shift()
     }
 
@@ -235,27 +239,27 @@ export class vArray extends Entity
      * Highlight a list of indices
      * @param indices The list of indices
      */
-    highlight(indices, color="blue")
+    highlight( indices, color = "blue" )
     {
         // queue an animation to change colour property
         const toState = "property_change";
         const params = {
-                type: "box_color_change",
-                indices,
-                toColor: color
-            };
+            type: "box_color_change",
+            indices,
+            toColor: color
+        };
 
-        super.addAnimation(toState, params);
+        super.addAnimation( toState, params );
     }
-    
+
     /**
      * To unhighlight a list of indices
      * @param indices The list
      */
-    unhighlight(indices)
+    unhighlight( indices )
     {
         // queue an animation to change colour property
-        this.highlight(indices, cnt.DEFAULT_COLOR)
+        this.highlight( indices, cnt.DEFAULT_COLOR )
     }
 
     /**
@@ -263,19 +267,19 @@ export class vArray extends Entity
      * @param {number} i The first index
      * @param {number} j The second index
      */
-    swap(i, j, highlight=true)
+    swap( i, j, highlight = true )
     {
-        if(highlight) this.highlight([i,j], 'red')
+        if ( highlight ) this.highlight( [ i, j ], 'red' )
 
         //swap the actual raw data directly
-        let tmp = this.data[i]
-        this.data[i] = this.data[j]
-        this.data[j] = tmp
+        let tmp = this.data[ i ]
+        this.data[ i ] = this.data[ j ]
+        this.data[ j ] = tmp
 
         // queue an animation to swap elements in drawData
-        super.addAnimation('swap', {i,j});
+        super.addAnimation( 'swap', { i, j } );
 
-        if(highlight) this.unhighlight([i,j])
+        if ( highlight ) this.unhighlight( [ i, j ] )
     }
 
     /**
@@ -283,25 +287,26 @@ export class vArray extends Entity
     * @param {number} initIndex The initial index pointed by the pointer
     * @returns {Pointer}
     */
-    getPointer(initIndex)
+    getPointer( initIndex )
     {
-        const ptr = new Pointer(this, initIndex);
-        this.addAnimation('property_change',{type:'add_pointer', pointer: ptr})
+        const ptr = new Pointer( this, initIndex );
+        this.addAnimation( 'property_change', { type: 'add_pointer', pointer: ptr } )
         return ptr;
     }
 
-    removePointer(ptr)
+    removePointer( ptr )
     {
-        this.addAnimation('property_change', {type: 'remove_pointer', pointer: ptr})
+        this.addAnimation( 'property_change', { type: 'remove_pointer', pointer: ptr } )
     }
 
     cleanUp()
     {
         this.drawData = []
-        this.pointers.forEach(p=>{
+        this.pointers.forEach( p =>
+        {
             p.removed = true
             p.cleanUp()
-        })
+        } )
         this.pointers = []
     }
 }
