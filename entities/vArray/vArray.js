@@ -262,6 +262,20 @@ export class vArray extends Entity
         this.highlight( indices, cnt.DEFAULT_COLOR )
     }
 
+    highlightRange( s, e, color )
+    {
+        let indices = []
+        for ( let i = s; i <= e; i++ )indices.push( i )
+        this.highlight( indices, color )
+    }
+
+    unhighlightRange( s, e )
+    {
+        let indices = []
+        for ( let i = s; i <= e; i++ )indices.push( i )
+        this.unhighlight( indices )
+    }
+
     /**
      * To swap elements at two indices and show animation
      * @param {number} i The first index

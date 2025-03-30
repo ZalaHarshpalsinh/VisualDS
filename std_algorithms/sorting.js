@@ -71,8 +71,8 @@ function mergeSort( inputArr )
 {
     function sort( arr, s, e )
     {
-        highlightRange( arr, s, e, 'SpringGreen' )
-        unhighlightRange( arr, s, e )
+        arr.highlightRange( s, e, 'SpringGreen' )
+        arr.unhighlightRange( s, e )
 
         if ( s === e ) return
         let m = Math.floor( ( s + e ) / 2 )
@@ -83,8 +83,8 @@ function mergeSort( inputArr )
 
     function merge( arr, s, m, e )
     {
-        highlightRange( arr, s, m, 'Turquoise' )
-        highlightRange( arr, m + 1, e, 'Tomato' )
+        arr.highlightRange( s, m, 'Turquoise' )
+        arr.highlightRange( m + 1, e, 'Tomato' )
 
         let left = [], right = []
         for ( let i = s; i <= m; i++ )
@@ -99,8 +99,8 @@ function mergeSort( inputArr )
         right.push( '#' )
 
         left = new vArray( left ), right = new vArray( right )
-        highlightRange( left, 0, left.length() - 1, 'Turquoise' )
-        highlightRange( right, 0, right.length() - 1, 'Tomato' )
+        left.highlightRange( 0, left.length() - 1, 'Turquoise' )
+        right.highlightRange( 0, right.length() - 1, 'Tomato' )
 
         for ( let i = arr.getPointer( s ); i.getIndex() <= e || i.remove(); i.increment() )
         {
@@ -114,7 +114,7 @@ function mergeSort( inputArr )
             }
         }
 
-        highlightRange( arr, s, e, 'green' )
+        arr.highlightRange( s, e, 'green' )
 
         left.remove()
         right.remove()
@@ -123,19 +123,5 @@ function mergeSort( inputArr )
     let arr = new vArray( inputArr )
     sort( arr, 0, arr.length() - 1 )
 }
-
-function highlightRange( arr, s, e, color )
-{
-    let indices = []
-    for ( let i = s; i <= e; i++ )indices.push( i )
-    arr.highlight( indices, color )
-}
-function unhighlightRange( arr, s, e )
-{
-    let indices = []
-    for ( let i = s; i <= e; i++ )indices.push( i )
-    arr.unhighlight( indices )
-}
-
 
 export { selectionSort, bubbleSort, insertionSort, mergeSort }

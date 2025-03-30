@@ -1,9 +1,10 @@
-import {Entity, vElement, vArray} from "./entities/index.js"
-import {StateMachine, BaseState, TweenManager, drawRectangle, drawText} from "./utils/index.js"
+import { Entity, vElement, vArray } from "./entities/index.js"
+import { StateMachine, BaseState, TweenManager, drawRectangle, drawText } from "./utils/index.js"
 import { createVisualisation, getAnimationSpeed, setAnimationSpeed, ctx, tweenManager } from "./driver.js"
-import { selectionSort, bubbleSort, insertionSort, mergeSort } from "./std_algorithms/index.js"
+import { selectionSort, bubbleSort, insertionSort, mergeSort, linearSearch, binarySearch } from "./std_algorithms/index.js"
 
-export {
+export
+{
     createVisualisation,
     setAnimationSpeed,
     getAnimationSpeed,
@@ -22,4 +23,6 @@ export {
     bubbleSort,
     insertionSort,
     mergeSort,
+    linearSearch,
+    binarySearch,
 }
