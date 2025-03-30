@@ -86,8 +86,8 @@ class Animator
 
     update(dt)
     {   
-        if(this.state == 'idle')
-            this.compactEntities()
+        // if(this.state == 'idle')
+        //     this.compactEntities()
 
         // in case it is idle, take up the next animation if any
         if(this.state == 'idle')
@@ -112,6 +112,7 @@ class Animator
                             break
                         case "change_speed":
                             this.animationSpeed = animObj.newSpeed
+                            break
                         default:
                             console.log("Invalid command")
                             break

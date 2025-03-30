@@ -205,30 +205,30 @@ export class vArray extends Entity
 
     pushBack(val)
     {
-        this.data.push(val)
         // queue the animation
         super.addAnimation("push", {type: 'back', val: val})
+        return this.data.push(val)
     }
 
     popBack()
     {
-        this.data.pop()
         // queue the animation
         super.addAnimation("pop", {type: 'back'})
+        return this.data.pop()
     }
 
     pushFront(val)
     {
-        this.data.unshift(val)
         //queue the animation
         super.addAnimation("push", {type: 'front', val: val})
+        return this.data.unshift(val)
     }
 
     popFront()
     {
-        this.data.shift()
         // queue the animation
         super.addAnimation("pop", {type: 'front'})
+        return this.data.shift()
     }
 
     /**

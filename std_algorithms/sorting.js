@@ -67,4 +67,70 @@ function insertionSort(inputArr)
     }
 }
 
-export {selectionSort, bubbleSort, insertionSort}
+function mergeSort(inputArr)
+{
+    function sort(arr, s, e)
+    {
+        highlightRange(arr, s, e, 'SpringGreen')
+        unhighlightRange(arr, s, e)
+
+        if(s===e) return
+        let m = Math.floor( (s+e)/2 )
+        sort(arr, s, m)
+        sort(arr, m+1, e)
+        merge(arr, s, m, e)
+    }
+
+    function merge(arr, s, m, e)
+    {
+        highlightRange(arr, s, m, 'Turquoise')
+        highlightRange(arr, m+1, e, 'Tomato')
+
+        let left = [], right = []
+        for(let i=s; i<=m; i++)
+        {
+            left.push(arr.get(i))
+        }
+        left.push('#')
+        for(let i=m+1; i<=e; i++)
+        {
+            right.push(arr.get(i))
+        }
+        right.push('#')
+
+        left = new vArray(left), right = new vArray(right)
+
+        for(let i=arr.getPointer(s); i.getIndex()<=e || i.remove(); i.increment())
+        {
+            if(right.get(0) === '#' || (left.get(0)!=='#' && left.get(0)<right.get(0)))
+            {
+                arr.set(i.getIndex(), left.popFront())            
+            }
+            else
+            {
+                arr.set(i.getIndex(), right.popFront())
+            }
+        }
+        left.remove()
+        right.remove()
+    }
+
+    let arr = new vArray(inputArr)
+    sort(arr, 0, arr.length()-1)
+}
+
+function highlightRange(arr, s, e, color)
+{
+    let indices = []
+    for(let i=s;i<=e;i++)indices.push(i)
+    arr.highlight(indices, color)
+}
+function unhighlightRange(arr, s, e)
+{
+    let indices = []
+    for(let i=s;i<=e;i++)indices.push(i)
+    arr.unhighlight(indices)
+}
+
+
+export {selectionSort, bubbleSort, insertionSort, mergeSort}

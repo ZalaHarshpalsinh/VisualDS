@@ -1,3 +1,3 @@
-import { selectionSort, bubbleSort, insertionSort } from "./sorting.js"
+import { selectionSort, bubbleSort, insertionSort, mergeSort } from "./sorting.js"
 
-export {selectionSort, bubbleSort, insertionSort}
+export {selectionSort, bubbleSort, insertionSort, mergeSort}
