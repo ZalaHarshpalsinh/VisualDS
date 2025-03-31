@@ -2,14 +2,14 @@ import { vArray } from "../entities/index.js"
 
 function selectionSort( inputArr )
 {
-    let arr = new vArray( inputArr )
+    let arr = new vArray( inputArr, 'Selection Sort' )
 
-    for ( let i = arr.getPointer( 0 ); !i.isOutOfBound() || i.remove(); i.increment() )
+    for ( let i = arr.getPointer( 0, 'I' ); !i.isOutOfBound() || i.remove(); i.increment() )
     {
         let min = i.getIndex()
         i.highlight( 'green' )
 
-        for ( let j = arr.getPointer( i.getIndex() + 1 ); !j.isOutOfBound() || j.remove(); j.increment() )
+        for ( let j = arr.getPointer( i.getIndex() + 1, 'J' ); !j.isOutOfBound() || j.remove(); j.increment() )
         {
             if ( arr.get( j.getIndex() ) < arr.get( min ) )
             {
@@ -24,11 +24,11 @@ function selectionSort( inputArr )
 
 function bubbleSort( inputArr )
 {
-    let arr = new vArray( inputArr )
-    for ( let i = arr.getPointer( 0 ); !i.isOutOfBound() || i.remove(); i.increment() )
+    let arr = new vArray( inputArr, 'Bubble Sort' )
+    for ( let i = arr.getPointer( 0, 'I' ); !i.isOutOfBound() || i.remove(); i.increment() )
     {
         let swap = false
-        for ( let j = arr.getPointer( 0 ); ( j.getIndex() < arr.length() - 1 - i.getIndex() ) || j.remove(); j.increment() )
+        for ( let j = arr.getPointer( 0, 'J' ); ( j.getIndex() < arr.length() - 1 - i.getIndex() ) || j.remove(); j.increment() )
         {
             if ( arr.get( j.getIndex() ) > arr.get( j.getIndex() + 1 ) )
             {
@@ -43,6 +43,7 @@ function bubbleSort( inputArr )
             let allIndex = []
             for ( let k = 0; k < arr.length(); k++ )allIndex.push( k )
             arr.highlight( allIndex, 'green' )
+            i.remove()
             break
         }
     }
@@ -50,13 +51,13 @@ function bubbleSort( inputArr )
 
 function insertionSort( inputArr )
 {
-    let arr = new vArray( inputArr )
+    let arr = new vArray( inputArr, 'Insertion Sort' )
 
     arr.highlight( [ 0 ], 'green' )
-    for ( let i = arr.getPointer( 1 ); !i.isOutOfBound() || i.remove(); i.increment() )
+    for ( let i = arr.getPointer( 1, 'I' ); !i.isOutOfBound() || i.remove(); i.increment() )
     {
         i.highlight()
-        let j = arr.getPointer( i.getIndex() - 1 )
+        let j = arr.getPointer( i.getIndex() - 1, 'J' )
         while ( !j.isOutOfBound() && arr.get( j.getIndex() ) > arr.get( j.getIndex() + 1 ) )
         {
             arr.swap( j.getIndex(), j.getIndex() + 1, false )
@@ -98,11 +99,11 @@ function mergeSort( inputArr )
         }
         right.push( '#' )
 
-        left = new vArray( left ), right = new vArray( right )
+        left = new vArray( left, 'left' ), right = new vArray( right, 'right' )
         left.highlightRange( 0, left.length() - 1, 'Turquoise' )
         right.highlightRange( 0, right.length() - 1, 'Tomato' )
 
-        for ( let i = arr.getPointer( s ); i.getIndex() <= e || i.remove(); i.increment() )
+        for ( let i = arr.getPointer( s, 'I' ); i.getIndex() <= e || i.remove(); i.increment() )
         {
             if ( right.get( 0 ) === '#' || ( left.get( 0 ) !== '#' && left.get( 0 ) < right.get( 0 ) ) )
             {
@@ -120,7 +121,7 @@ function mergeSort( inputArr )
         right.remove()
     }
 
-    let arr = new vArray( inputArr )
+    let arr = new vArray( inputArr, 'Merge Sort' )
     sort( arr, 0, arr.length() - 1 )
 }
 

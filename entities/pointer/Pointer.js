@@ -4,29 +4,31 @@ import { IdleState, MovingState } from "./states/index.js"
 
 export class Pointer extends Entity
 {
-    constructor(pointee, initialIndex)
+    constructor( pointee, initialIndex, label = '' )
     {
         super()
-        
+
         this.pointee = pointee
         this.index = initialIndex
-        this.drawIndex = Math.max(-1, Math.min(this.pointee.length(), initialIndex))
+        this.label = label
+        this.drawIndex = Math.max( -1, Math.min( this.pointee.length(), initialIndex ) )
         this.syncCoordinates()
-        
+
         this.stateMachine = new StateMachine( {
             idle: () => new IdleState( this ),
             moving: () => new MovingState( this )
         }, 'idle' )
     }
 
-    update(dt)
+    update( dt )
     {
-        this.stateMachine.update(dt)
+        this.stateMachine.update( dt )
     }
 
     drawArrow()
     {
-        drawText("↑", this.x, this.y, "16px Arial", 'red', 'center', 'top')
+        drawText( "↑", this.x, this.y, "14px Arial", 'red', 'center', 'top' )
+        drawText( `${this.label}${this.label ? ': ' : ''}${this.drawIndex}`, this.x, this.y + 14, '9px Arial', 'blue', 'center', 'top' )
     }
 
     draw()
@@ -35,15 +37,15 @@ export class Pointer extends Entity
         this.drawArrow()
     }
 
-    changeState(toState, params)
+    changeState( toState, params )
     {
-        this.stateMachine.change(toState, params)
+        this.stateMachine.change( toState, params )
     }
 
     syncCoordinates()
     {
-        this.x = (this.pointee.x) + (this.pointee.boxWidth / 2) + ( this.drawIndex * this.pointee.boxWidth)
-        this.y = (this.pointee.y) + (this.pointee.boxHeight)
+        this.x = ( this.pointee.x ) + ( this.pointee.boxWidth / 2 ) + ( this.drawIndex * this.pointee.boxWidth )
+        this.y = ( this.pointee.y ) + ( this.pointee.boxHeight )
     }
 
     /**
@@ -57,7 +59,7 @@ export class Pointer extends Entity
 
     isOutOfBound()
     {
-        return (this.index < 0 || this.index >= this.pointee.length())
+        return ( this.index < 0 || this.index >= this.pointee.length() )
     }
 
     /**
@@ -65,12 +67,12 @@ export class Pointer extends Entity
      */
     move( change )
     {
-        let oldIndexCapped = Math.max(-1, Math.min(this.pointee.length(), this.index))
+        let oldIndexCapped = Math.max( -1, Math.min( this.pointee.length(), this.index ) )
         this.index += change
 
-        let newIndexCapped = Math.max(-1, Math.min(this.pointee.length(), this.index))
+        let newIndexCapped = Math.max( -1, Math.min( this.pointee.length(), this.index ) )
         change = newIndexCapped - oldIndexCapped
-        if(change!=0)
+        if ( change != 0 )
             super.addAnimation( 'moving', { change: change } )
     }
 
@@ -81,13 +83,13 @@ export class Pointer extends Entity
     {
         this.move( index - this.getIndex() );
     }
- 
+
     /**
      * To increment this pointer
      */
     increment()
     {
-        this.move(1);
+        this.move( 1 );
     }
 
     /**
@@ -95,25 +97,25 @@ export class Pointer extends Entity
      */
     decrement()
     {
-        this.move(-1);
+        this.move( -1 );
     }
 
-    highlight(color)
+    highlight( color )
     {
-        if(! this.isOutOfBound())
-            this.pointee.highlight([this.index], color)
+        if ( !this.isOutOfBound() )
+            this.pointee.highlight( [ this.index ], color )
     }
 
     unhighlight()
     {
-        if(! this.isOutOfBound())
-            this.pointee.unhighlight([this.index])
+        if ( !this.isOutOfBound() )
+            this.pointee.unhighlight( [ this.index ] )
     }
 
     remove()
     {
         this.removed = true
-        this.pointee.removePointer(this)
+        this.pointee.removePointer( this )
     }
 
     cleanUp()

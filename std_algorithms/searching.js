@@ -2,14 +2,15 @@ import { vArray } from "../entities/index.js"
 
 function linearSearch( inputArr, target )
 {
-        let arr = new vArray( inputArr )
+        let arr = new vArray( inputArr, 'Linear Search' )
 
-        for ( let i = arr.getPointer( 0 ); !i.isOutOfBound(); i.increment() )
+        for ( let i = arr.getPointer( 0, 'I' ); !i.isOutOfBound() || i.remove(); i.increment() )
         {
                 i.highlight()
                 if ( arr.get( i.getIndex() ) == target )
                 {
                         i.highlight( 'green' )
+                        i.remove()
                         break;
                 }
                 else
@@ -21,7 +22,7 @@ function linearSearch( inputArr, target )
 
 function binarySearch( sortedArr, target )
 {
-        let arr = new vArray( sortedArr )
+        let arr = new vArray( sortedArr, 'Binary Search' )
         search( arr, 0, arr.length() - 1, target )
 
         function search( arr, s, e, target )

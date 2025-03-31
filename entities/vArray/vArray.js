@@ -1,7 +1,7 @@
 import { cnt } from "../../CONSTANTS.js";
 import { Entity } from "../Entity.js";
 import { vElement, Pointer } from "../index.js";
-import { StateMachine } from "../../utils/index.js"
+import { drawText, StateMachine } from "../../utils/index.js"
 import { IdleState, PropertyChangeState, SwapState, PushState, PopState } from "./states/index.js";
 
 /**
@@ -18,7 +18,7 @@ export class vArray extends Entity
      * since it is there by default in these inbuilt classes.
      * @param {any[]} data The array whose visualization to create
      */
-    constructor( data )
+    constructor( data, label = '' )
     {
         super()
 
@@ -36,6 +36,7 @@ export class vArray extends Entity
          * written by user.
          */
         this.data = []
+        this.label = label
 
         /**
          * This is the copy utilized for drawing on every frame.
@@ -57,7 +58,7 @@ export class vArray extends Entity
         {
             this.data.push( data[ i ] )
             // create the data to be drawn as an array of vElement, since that is how we support drawing anything with a toString overridden.
-            this.drawData.push( new vElement( data[ i ], true ) )
+            this.drawData.push( new vElement( data[ i ], "", true ) )
         }
 
         // update boxWidth, boxHeight, Width, Height
@@ -111,9 +112,11 @@ export class vArray extends Entity
      */
     drawBoxes()
     {
-        this.drawData.forEach( e =>
+        this.drawData.forEach( ( e, i ) =>
         {
             e.draw()
+            //print indices
+            drawText( `[${i}]`, e.x + e.width / 2, e.y, '9px Times New Roman', 'black', 'center', 'bottom' )
         } )
     }
 
@@ -127,7 +130,7 @@ export class vArray extends Entity
 
     draw()
     {
-        // this.stateMachine.draw()
+        drawText( this.label, this.x + this.width / 2, this.y + this.height + 20, '10px Arial', 'black', 'center', 'middle' )
         this.drawBoxes()
         this.drawPointers()
     }
@@ -301,11 +304,11 @@ export class vArray extends Entity
     * @param {number} initIndex The initial index pointed by the pointer
     * @returns {Pointer}
     */
-    getPointer( initIndex )
+    getPointer( initIndex, label = '' )
     {
-        const ptr = new Pointer( this, initIndex );
+        const ptr = new Pointer( this, initIndex, label )
         this.addAnimation( 'property_change', { type: 'add_pointer', pointer: ptr } )
-        return ptr;
+        return ptr
     }
 
     removePointer( ptr )
