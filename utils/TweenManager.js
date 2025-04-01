@@ -1,10 +1,20 @@
 import { getAnimationSpeed } from "../driver.js"
 
+/**
+ * A manager class which manages all tweens
+ */
 export class TweenManager
 {
     constructor()
     {
+        /**
+         * A map of all unfinished tweens
+         */
         this.tweens = new Map()
+
+        /**
+         * Id to be assigned to next tween
+         */
         this.nextId = 1
     }
 
@@ -12,19 +22,24 @@ export class TweenManager
      * Create a new tween
      * @param {object} target - The target object to tween
      * @param {object} values - The target values to tween to (e.g., {x: 100, y: 200})
-     * @param {number} duration - Duration of the tween in seconds
+     * @param {number} duration - Duration of the tween in milliseconds
      * @param {function} [easing] - Easing function (default: linear)
      * @param {function} [callback] - Callback when tween completes
      * @returns {number} - Tween ID
      */
     addTween( target, values, duration, easing = TweenManager.linear, callback = null ) 
     {
+        // Assign id to tween
         const id = this.nextId++
+        // Values before tween
         const startValues = {}
+        // Values after tween
         const changeValues = {}
+
+        // Starting time of tween
         const startTime = performance.now() // in miliseconds
 
-        //update ideal duration as per currentAnimationSpeed
+        // update ideal duration as per current animation speed
         duration /= getAnimationSpeed()
 
         // Store initial values and calculate changes
@@ -34,6 +49,7 @@ export class TweenManager
             changeValues[ key ] = values[ key ] - startValues[ key ]
         }
 
+        // add the tween in map
         this.tweens.set( id, {
             target,
             startValues,
@@ -65,18 +81,20 @@ export class TweenManager
     }
 
     /**
-     * Update all active tweens
-     * @param {number} dt delta time
+     * Updates all active tweens
+     * @param {number} dt Delta time
      */
     update( dt ) 
     {
         const now = performance.now()
 
+        // A list to store ids of completed tweens for later removal
         const completedTweens = []
 
         this.tweens.forEach( ( tween, id ) =>
         {
 
+            // time elapsed since starting of tween
             const elapsed = now - tween.startTime
             const progress = Math.min( elapsed / tween.duration, 1.0 )
             const easedProgress = tween.easing( progress )
