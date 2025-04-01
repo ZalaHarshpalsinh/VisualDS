@@ -18,7 +18,7 @@ export class Entity
      * @param {*} x The x co-ordinate
      * @param {*} y The y co-ordinate
      */
-    setCoordinates(x, y)
+    setCoordinates( x, y )
     {
         this.x = x
         this.y = y
@@ -26,7 +26,7 @@ export class Entity
 
     getCoordinates()
     {
-        return {x: this.x, y:this.y}
+        return { x: this.x, y: this.y }
     }
 
     /**
@@ -34,13 +34,13 @@ export class Entity
      */
     addInPool()
     {
-        animator.addInPool(this);
+        animator.addInPool( this );
     }
 
     remove()
     {
         this.removed = true
-        animator.removeFromPool(this)
+        animator.removeFromPool( this )
     }
 
     /**
@@ -48,41 +48,41 @@ export class Entity
      * Will be called by a specific entity (sub class of Entity)
      * To be able to queue an animation
     */
-   addAnimation(toState, params)
-   {
-        //dont't queue animation if already removed by user
-        if(this.removed) return
+    addAnimation( params )
+    {
+        // dont't queue animation if already removed by user
+        if ( this.removed ) return
 
-       // create animObj
+        // create animObj
         const animObj = {
             toState,
             params,
             entity: this
         };
-        
+
         // add the entity in animObj
-        animator.addAnimation(animObj);
+        animator.addAnimation( animObj );
     }
-    
+
     /**
      * To change the state of an entity
      * @param {*} toState The state to transit to
      * @param {*} params The object to pass to the enter method of that state
      */
-    changeState(toState, params){}
-    
+    changeState( toState, params ) { }
+
     nextAnimation()
     {
         animator.nextAnimation()
     }
-   
-    update(dt){}
- 
+
+    update( dt ) { }
+
     /**
      * Draws this drawable entity from the top left set
      * and also updated the height and width property
      */
-    draw(){}
+    draw() { }
 
-    cleanUp(){}
+    cleanUp() { }
 } 
