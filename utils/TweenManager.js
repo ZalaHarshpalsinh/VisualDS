@@ -1,4 +1,4 @@
-import {getAnimationSpeed} from "../driver.js"
+import { getAnimationSpeed } from "../driver.js"
 
 export class TweenManager
 {
@@ -17,7 +17,7 @@ export class TweenManager
      * @param {function} [callback] - Callback when tween completes
      * @returns {number} - Tween ID
      */
-    addTween(target, values, duration, easing = TweenManager.linear, callback = null) 
+    addTween( target, values, duration, easing = TweenManager.linear, callback = null ) 
     {
         const id = this.nextId++
         const startValues = {}
@@ -26,14 +26,15 @@ export class TweenManager
 
         //update ideal duration as per currentAnimationSpeed
         duration /= getAnimationSpeed()
-        
+
         // Store initial values and calculate changes
-        for (const key in values) {
-            startValues[key] = target[key]
-            changeValues[key] = values[key] - startValues[key]
+        for ( const key in values )
+        {
+            startValues[ key ] = target[ key ]
+            changeValues[ key ] = values[ key ] - startValues[ key ]
         }
 
-        this.tweens.set(id, {
+        this.tweens.set( id, {
             target,
             startValues,
             changeValues,
@@ -41,61 +42,64 @@ export class TweenManager
             duration,
             easing,
             callback
-        });
-        
-        return id;
+        } )
+
+        return id
     }
 
     /**
      * Cancel a tween
      * @param {number} id - The tween ID to cancel
      */
-    cancel(id) {
-        this.tweens.delete(id);
+    cancel( id )
+    {
+        this.tweens.delete( id )
     }
 
     /**
      * Cancel all tweens
      */
-    cancelAll() {
-        this.tweens.clear();
+    cancelAll()
+    {
+        this.tweens.clear()
     }
-    
+
     /**
      * Update all active tweens
      * @param {number} dt delta time
      */
-    update(dt) 
+    update( dt ) 
     {
         const now = performance.now()
 
         const completedTweens = []
 
-        this.tweens.forEach((tween, id) => {
+        this.tweens.forEach( ( tween, id ) =>
+        {
 
-            const elapsed = now - tween.startTime;
-            const progress = Math.min(elapsed / tween.duration, 1.0);
-            const easedProgress = tween.easing(progress);
+            const elapsed = now - tween.startTime
+            const progress = Math.min( elapsed / tween.duration, 1.0 )
+            const easedProgress = tween.easing( progress )
 
             // Update target properties
-            for (const key in tween.changeValues) 
+            for ( const key in tween.changeValues ) 
             {
-                tween.target[key] = tween.startValues[key] + tween.changeValues[key] * easedProgress
+                tween.target[ key ] = tween.startValues[ key ] + tween.changeValues[ key ] * easedProgress
             }
 
             // Check if tween is complete
-            if (progress >= 1.0) 
+            if ( progress >= 1.0 ) 
             {
-                completedTweens.push(id);
-                if (tween.callback) 
+                completedTweens.push( id )
+                if ( tween.callback ) 
                 {
-                    tween.callback();
+                    tween.callback()
                 }
             }
-        });
+        } )
 
         // Remove completed tweens
-        completedTweens.forEach(id => this.tweens.delete(id));
+        completedTweens.forEach( id => this.tweens.delete( id ) )
     }
 
     /**
@@ -103,27 +107,29 @@ export class TweenManager
      * @param {number} id - The tween ID to check
      * @returns {boolean} - True if the tween is active
      */
-    isActive(id) {
-        return this.tweens.get(id) ? true : false
+    isActive( id )
+    {
+        return this.tweens.get( id ) ? true : false
     }
 }
 
 // Built-in easing functions
-TweenManager.linear = t => t;
-TweenManager.quadIn = t => t * t;
-TweenManager.quadOut = t => t * (2 - t);
-TweenManager.quadInOut = t => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
-TweenManager.cubicIn = t => t * t * t;
-TweenManager.cubicOut = t => (--t) * t * t + 1;
-TweenManager.cubicInOut = t => t < 0.5 ? 4 * t * t * t : (t - 1) * (2 * t - 2) * (2 * t - 2) + 1;
-TweenManager.sinIn = t => 1 - Math.cos(t * Math.PI / 2);
-TweenManager.sinOut = t => Math.sin(t * Math.PI / 2);
-TweenManager.sinInOut = t => (1 - Math.cos(Math.PI * t)) / 2;
-TweenManager.expoIn = t => t === 0 ? 0 : Math.pow(2, 10 * (t - 1));
-TweenManager.expoOut = t => t === 1 ? 1 : 1 - Math.pow(2, -10 * t);
-TweenManager.expoInOut = t => {
-    if (t === 0) return 0;
-    if (t === 1) return 1;
-    if ((t *= 2) < 1) return 0.5 * Math.pow(2, 10 * (t - 1));
-    return 0.5 * (-Math.pow(2, -10 * --t) + 2);
-};
+TweenManager.linear = t => t
+TweenManager.quadIn = t => t * t
+TweenManager.quadOut = t => t * ( 2 - t )
+TweenManager.quadInOut = t => t < 0.5 ? 2 * t * t : -1 + ( 4 - 2 * t ) * t
+TweenManager.cubicIn = t => t * t * t
+TweenManager.cubicOut = t => ( --t ) * t * t + 1
+TweenManager.cubicInOut = t => t < 0.5 ? 4 * t * t * t : ( t - 1 ) * ( 2 * t - 2 ) * ( 2 * t - 2 ) + 1
+TweenManager.sinIn = t => 1 - Math.cos( t * Math.PI / 2 )
+TweenManager.sinOut = t => Math.sin( t * Math.PI / 2 )
+TweenManager.sinInOut = t => ( 1 - Math.cos( Math.PI * t ) ) / 2
+TweenManager.expoIn = t => t === 0 ? 0 : Math.pow( 2, 10 * ( t - 1 ) )
+TweenManager.expoOut = t => t === 1 ? 1 : 1 - Math.pow( 2, -10 * t )
+TweenManager.expoInOut = t =>
+{
+    if ( t === 0 ) return 0
+    if ( t === 1 ) return 1
+    if ( ( t *= 2 ) < 1 ) return 0.5 * Math.pow( 2, 10 * ( t - 1 ) )
+    return 0.5 * ( -Math.pow( 2, -10 * --t ) + 2 )
+}

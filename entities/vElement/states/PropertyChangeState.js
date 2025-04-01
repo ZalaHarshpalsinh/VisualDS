@@ -6,27 +6,27 @@ import { BaseState } from "../../../utils/index.js"
  */
 export class PropertyChangeState extends BaseState
 {
-    constructor(velement)
+    constructor( velement )
     {
-        super();
-        this.velement = velement;
+        super()
+        this.velement = velement
     }
 
-    enter(enterPara)
+    enter( enterPara )
     {
-        this.data = enterPara;
+        this.data = enterPara
 
-        if(this.data.type=="box_color_change")
+        if ( this.data.type == "box_color_change" )
         {
             this.velement.color = this.data.color
         }
-        else if(this.data.type == "value_update")
+        else if ( this.data.type == "value_update" )
         {
             this.velement.drawVal = this.data.newVal
         }
-    
+
         // done, so exit the state
-        this.velement.changeState('idle');
+        this.velement.changeState( 'idle' )
         this.velement.nextAnimation()
     }
 }

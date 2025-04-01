@@ -1,8 +1,8 @@
-import { cnt } from "../../CONSTANTS.js";
-import { Entity } from "../Entity.js";
-import { vElement, Pointer } from "../index.js";
+import { cnt } from "../../CONSTANTS.js"
+import { Entity } from "../Entity.js"
+import { vElement, Pointer } from "../index.js"
 import { drawText, StateMachine } from "../../utils/index.js"
-import { IdleState, PropertyChangeState, SwapState, PushState, PopState } from "./states/index.js";
+import { IdleState, PropertyChangeState, SwapState, PushState, PopState } from "./states/index.js"
 
 /**
  * This class represents a visual array.
@@ -76,7 +76,7 @@ export class vArray extends Entity
             swap: () => new SwapState( this ),
             push: () => new PushState( this ),
             pop: () => new PopState( this ),
-        }, 'idle' );
+        }, 'idle' )
     }
 
     updateBoxes( dt )
@@ -137,7 +137,7 @@ export class vArray extends Entity
 
     changeState( toState, params )
     {
-        this.stateMachine.change( toState, params );
+        this.stateMachine.change( toState, params )
     }
 
     /**
@@ -186,7 +186,7 @@ export class vArray extends Entity
      */
     length()
     {
-        return this.data.length;
+        return this.data.length
     }
 
     /**
@@ -196,7 +196,7 @@ export class vArray extends Entity
      */
     get( index )
     {
-        return this.data[ index ];
+        return this.data[ index ]
     }
 
     /**
@@ -245,14 +245,14 @@ export class vArray extends Entity
     highlight( indices, color = "blue" )
     {
         // queue an animation to change colour property
-        const toState = "property_change";
+        const toState = "property_change"
         const params = {
             type: "box_color_change",
             indices,
             toColor: color
-        };
+        }
 
-        super.addAnimation( toState, params );
+        super.addAnimation( toState, params )
     }
 
     /**
@@ -294,7 +294,7 @@ export class vArray extends Entity
         this.data[ j ] = tmp
 
         // queue an animation to swap elements in drawData
-        super.addAnimation( 'swap', { i, j } );
+        super.addAnimation( 'swap', { i, j } )
 
         if ( highlight ) this.unhighlight( [ i, j ] )
     }

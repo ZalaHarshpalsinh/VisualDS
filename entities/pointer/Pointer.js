@@ -54,7 +54,7 @@ export class Pointer extends Entity
      */
     getIndex()
     {
-        return this.index;
+        return this.index
     }
 
     isOutOfBound()
@@ -81,7 +81,7 @@ export class Pointer extends Entity
      */
     moveTo( index )
     {
-        this.move( index - this.getIndex() );
+        this.move( index - this.getIndex() )
     }
 
     /**
@@ -89,7 +89,7 @@ export class Pointer extends Entity
      */
     increment()
     {
-        this.move( 1 );
+        this.move( 1 )
     }
 
     /**
@@ -97,7 +97,7 @@ export class Pointer extends Entity
      */
     decrement()
     {
-        this.move( -1 );
+        this.move( -1 )
     }
 
     highlight( color )

@@ -5,9 +5,9 @@ import { BaseState } from "../../../utils/index.js"
  */
 export class IdleState extends BaseState
 {
-    constructor(velement)
+    constructor( velement )
     {
-        super();
-        this.velement = velement;
+        super()
+        this.velement = velement
     }
 }

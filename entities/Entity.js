@@ -34,7 +34,7 @@ export class Entity
      */
     addInPool()
     {
-        animator.addInPool( this );
+        animator.addInPool( this )
     }
 
     remove()
@@ -58,10 +58,10 @@ export class Entity
             toState,
             params,
             entity: this
-        };
+        }
 
         // add the entity in animObj
-        animator.addAnimation( animObj );
+        animator.addAnimation( animObj )
     }
 
     /**

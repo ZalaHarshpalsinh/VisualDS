@@ -1,4 +1,4 @@
-import { IdleState } from "./IdleState.js";
-import { PropertyChangeState } from "./PropertyChangeState.js";
+import { IdleState } from "./IdleState.js"
+import { PropertyChangeState } from "./PropertyChangeState.js"
 
-export {IdleState, PropertyChangeState}
+export { IdleState, PropertyChangeState }

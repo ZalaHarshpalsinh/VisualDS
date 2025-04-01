@@ -77,7 +77,7 @@ export class vElement extends Entity
             ctx.font = this.font
             maxWidth = Math.max( maxWidth, ctx.measureText( line ).width )
             ctx.restore()
-        } );
+        } )
         this.width = maxWidth + cnt.PAD_X * 2
         this.height = this.text.length * cnt.DEFAULT_LINE_HEIGHT + cnt.PAD_Y * 2
     }

@@ -246,7 +246,7 @@ export class Animator
         this.dsPool.forEach( ( entity ) =>
         {
             entity.update( dt )
-        } );
+        } )
     }
 
     /**

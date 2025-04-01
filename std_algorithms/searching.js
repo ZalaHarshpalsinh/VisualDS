@@ -11,7 +11,7 @@ function linearSearch( inputArr, target )
                 {
                         i.highlight( 'green' )
                         i.remove()
-                        break;
+                        break
                 }
                 else
                 {
