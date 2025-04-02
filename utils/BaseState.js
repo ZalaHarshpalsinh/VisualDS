@@ -11,7 +11,6 @@ export class BaseState
     enter( params ) { }
     /**
      * Executes tasks to be performed while exiting this state
-     * @param {*} params 
      */
     exit() { }
     /**

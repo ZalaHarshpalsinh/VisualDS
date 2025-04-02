@@ -1,4 +1,5 @@
 import { getAnimationSpeed } from "../driver.js"
+import { Tween } from "./Tween.js"
 
 /**
  * A manager class which manages all tweens
@@ -9,11 +10,13 @@ export class TweenManager
     {
         /**
          * A map of all unfinished tweens
+         * @type {Map<number, Tween>}
          */
         this.tweens = new Map()
 
         /**
          * Id to be assigned to next tween
+         * @type {number}
          */
         this.nextId = 1
     }
@@ -31,7 +34,7 @@ export class TweenManager
     {
         // Assign id to tween
         const id = this.nextId++
-        // Values before tween
+        // 
         const startValues = {}
         // Values after tween
         const changeValues = {}
@@ -50,7 +53,7 @@ export class TweenManager
         }
 
         // add the tween in map
-        this.tweens.set( id, {
+        this.tweens.set( id, new Tween(
             target,
             startValues,
             changeValues,
@@ -58,7 +61,7 @@ export class TweenManager
             duration,
             easing,
             callback
-        } )
+        ) )
 
         return id
     }

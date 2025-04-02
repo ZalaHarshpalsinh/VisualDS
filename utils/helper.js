@@ -27,13 +27,13 @@ function drawRectangle( x, y, width, height, fillColor, borderColor )
 
 /**
  * Draws text with provided specifications
- * @param {*} text text to be drawn
- * @param {*} x X coordinate
- * @param {*} y Y coordinate
- * @param {*} font font to use
- * @param {*} color color of text
- * @param {*} alignment horizontal allignment
- * @param {*} baseline vertical allignment
+ * @param {string} text text to be drawn
+ * @param {number} x X coordinate
+ * @param {number} y Y coordinate
+ * @param {string} font font to use
+ * @param {string} color color of text
+ * @param {string} alignment horizontal allignment
+ * @param {string} baseline vertical allignment
  */
 function drawText( text, x, y, font, color, alignment, baseline )
 {

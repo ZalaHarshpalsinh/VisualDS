@@ -20,6 +20,8 @@ export class Animator
          * brush holds the coordinates which new entity will be assigned upon registration through addInPool() method.
          * 
          * Initially coordinates are set to Framework Level Constant values.
+         * 
+         * @type {{x: number, y:number}}
          */
         this.brush = { x: cnt.START_X, y: cnt.START_Y }
 
@@ -27,12 +29,16 @@ export class Animator
          * Array of entities registered to animator for management.
          * 
          * This implies : Animator will call update and draw on each of them on every frame.
+         * 
+         * @type {Entity[]}
          */
         this.dsPool = []
 
         /**
          * FIFO Queue for storing animation requests for any entity (Registered or unregistered).
          * Animator also stores its actions in this queue which need to be synchronized with animations, i.e. adding a entity
+         * 
+         * @type {(Animation | Action)[]}
          */
         this.animationQueue = []
 
@@ -42,6 +48,8 @@ export class Animator
          * Animator behaves differently in each state.
          * 
          * Initially set to idle state.
+         * 
+         * @type {string}
          */
         this.state = 'idle'
 
@@ -51,6 +59,8 @@ export class Animator
          * It is a multiplier which will be applied to default speed.
          * 
          * By default, the animation speed is set to 1.0x.
+         * 
+         * @type {number}
          */
         this.animationSpeed = 1.0
     }
@@ -141,8 +151,8 @@ export class Animator
     compactEntities()
     {
         // Put brush as starting point
-        this.brushX = cnt.START_X
-        this.brushY = cnt.START_Y
+        this.brush.x = cnt.START_X
+        this.brush.y = cnt.START_Y
 
         // Reassign coordinates to each entity
         this.dsPool.forEach( e =>
@@ -151,11 +161,11 @@ export class Animator
             let oldCoords = e.getCoordinates()
 
             // Compare old coordinates with new ones, to see if there's a change
-            if ( oldCoords.x != this.brushX || oldCoords.y != this.brushY )
+            if ( oldCoords.x != this.brush.x || oldCoords.y != this.brush.y )
             {
                 // if there is a change, tween the coordinates to new values
                 tweenManager.addTween( e,
-                    { x: this.brushX, y: this.brushY },
+                    { x: this.brush.x, y: this.brush.y },
                     300,
                     TweenManager.linear,
                     () =>
@@ -170,7 +180,7 @@ export class Animator
              * Move the brush to next location based on width/height of entity.
              * Margin between entities is a Framework Level Constant.
              */
-            this.brushY += e.height + cnt.MARGIN_Y
+            this.brush.y += e.height + cnt.MARGIN_Y
         } )
     }
 

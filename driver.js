@@ -4,25 +4,29 @@ import { cnt } from "./CONSTANTS.js"
 
 /**
  * A reference of canvas on which everything will be drawn
+ * @type {HTMLElement}
  */
 let cnv = null
 /**
  * A reference of 2D context of canvas
+ * @type { CanvasRenderingContext2D }
  */
 let ctx = null
 /**
  * Instance of Animator 
+ * @type {Animator}
  */
 let animator = null
 /**
  * Instance of TweenManager 
+ * @type {TweenManager}
  */
 let tweenManager = null
 
 /**
  * Exposes the whole framework to the user, user here meaning one who uses our classes such as vArray to draw and visualize DS and algo.
  * @param {string} cnvId The ID of the canvas element in the DOM. This canvas will be used to draw on.
- * @param {Function} userScript The callback containing code to be visualized.
+ * @param {function} userScript The callback containing code to be visualized.
  */
 function createVisualisation( cnvId, userScript )
 {
@@ -79,6 +83,7 @@ function setAnimationSpeed( newSpeed )
 
 /**
  * timestamp of last render
+ * @type {number}
  */
 let lastUpdate = 0
 

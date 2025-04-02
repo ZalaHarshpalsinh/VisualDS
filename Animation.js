@@ -11,16 +11,18 @@ export class Animation
 {
         /**
          * @param {Entity} entity entity which should be notifyed 
-         * @param {object} params object containing all extra parameters. This same object will be passed back to entity in notify() method 
+         * @param {object} params object containing all extra parameters required to complete animation. This same object will be passed back to entity in notify() method 
          */
         constructor( entity, params )
         {
                 /**
                  * Entity which should be notified for this animation
+                 * @type {Entity}
                  */
                 this.entity = entity
                 /**
                  * Object containing parameters which will be passed back to entity in a notify() call
+                 * @type {object}
                  */
                 this.params = params
         }

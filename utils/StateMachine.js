@@ -1,3 +1,5 @@
+import { BaseState } from "./BaseState"
+
 /**
  * A state manager to efficiently manage all the states of an entity and its transition between those states.
  */
@@ -11,10 +13,12 @@ export class StateMachine
     {
         /**
          * An object whose keys are state names and values are functions which return new object of those states.
+         * @type {BaseState[]}
          */
         this.states = states ? states : {}
         /**
          * Object of current state of state machine
+         * @type {BaseState}
          */
         this.currentState = states[ intitialState ]()
     }
