@@ -58,7 +58,7 @@ export class vArray extends Entity
         {
             this.data.push( data[ i ] )
             // create the data to be drawn as an array of vElement, since that is how we support drawing anything with a toString overridden.
-            this.drawData.push( new vElement( data[ i ], "", true ) )
+            this.drawData.push( new vElement( data[ i ], `[${i}]`, true ) )
         }
 
         // update boxWidth, boxHeight, Width, Height
@@ -116,7 +116,7 @@ export class vArray extends Entity
         {
             e.draw()
             //print indices
-            drawText( `[${i}]`, e.x + e.width / 2, e.y, '9px Times New Roman', 'black', 'center', 'bottom' )
+            // drawText( `[${i}]`, e.x + e.width / 2, e.y, '9px Times New Roman', 'black', 'center', 'bottom' )
         } )
     }
 
@@ -130,14 +130,21 @@ export class vArray extends Entity
 
     draw()
     {
-        drawText( this.label, this.x + this.width / 2, this.y + this.height + 20, '10px Arial', 'black', 'center', 'middle' )
+        // drawText( this.label, this.x + this.width / 2, this.y + this.height + 20, '10px Arial', 'black', 'center', 'middle' )
+        drawText( this.label, this.x + this.width / 2, this.y - 15, 'bold 12px Arial', 'black', 'center', 'hanging' )
         this.drawBoxes()
         this.drawPointers()
     }
 
-    changeState( toState, params )
+    notify( params )
     {
-        this.stateMachine.change( toState, params )
+        let { toState, enterParams } = params
+        this.changeState( toState, enterParams )
+    }
+
+    changeState( toState, enterParams )
+    {
+        this.stateMachine.change( toState, enterParams )
     }
 
     /**
@@ -175,6 +182,7 @@ export class vArray extends Entity
         {
             // set the custom coords for each vElement
             this.drawData[ i ].setCoordinates( brush.x, brush.y )
+            this.drawData[ i ].label = `[${i}]`
             //move brush to the right by boxWidth
             brush.x += this.boxWidth
         }
@@ -213,28 +221,28 @@ export class vArray extends Entity
     pushBack( val )
     {
         // queue the animation
-        super.addAnimation( "push", { type: 'back', val: val } )
+        super.addAnimation( { toState: "push", enterParams: { type: 'back', val: val } } )
         return this.data.push( val )
     }
 
     popBack()
     {
         // queue the animation
-        super.addAnimation( "pop", { type: 'back' } )
+        super.addAnimation( { toState: "pop", enterParams: { type: 'back' } } )
         return this.data.pop()
     }
 
     pushFront( val )
     {
         //queue the animation
-        super.addAnimation( "push", { type: 'front', val: val } )
+        super.addAnimation( { toState: "push", enterParams: { type: 'front', val: val } } )
         return this.data.unshift( val )
     }
 
     popFront()
     {
         // queue the animation
-        super.addAnimation( "pop", { type: 'front' } )
+        super.addAnimation( { toState: "pop", enterParams: { type: 'front' } } )
         return this.data.shift()
     }
 
@@ -246,13 +254,12 @@ export class vArray extends Entity
     {
         // queue an animation to change colour property
         const toState = "property_change"
-        const params = {
+        const enterParams = {
             type: "box_color_change",
             indices,
             toColor: color
         }
-
-        super.addAnimation( toState, params )
+        super.addAnimation( { toState, enterParams } )
     }
 
     /**
@@ -294,7 +301,7 @@ export class vArray extends Entity
         this.data[ j ] = tmp
 
         // queue an animation to swap elements in drawData
-        super.addAnimation( 'swap', { i, j } )
+        super.addAnimation( { toState: 'swap', enterParams: { i, j } } )
 
         if ( highlight ) this.unhighlight( [ i, j ] )
     }
@@ -307,17 +314,22 @@ export class vArray extends Entity
     getPointer( initIndex, label = '' )
     {
         const ptr = new Pointer( this, initIndex, label )
-        this.addAnimation( 'property_change', { type: 'add_pointer', pointer: ptr } )
+        this.addAnimation( { toState: 'property_change', enterParams: { type: 'add_pointer', pointer: ptr } } )
         return ptr
     }
 
     removePointer( ptr )
     {
-        this.addAnimation( 'property_change', { type: 'remove_pointer', pointer: ptr } )
+        this.addAnimation( { toState: 'property_change', enterParams: { type: 'remove_pointer', pointer: ptr } } )
     }
 
     cleanUp()
     {
+        this.drawData.forEach( e =>
+        {
+            e.removed = true
+            e.cleanUp()
+        } )
         this.drawData = []
         this.pointers.forEach( p =>
         {

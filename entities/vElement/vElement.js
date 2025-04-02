@@ -4,8 +4,8 @@ import { cnt } from "../../CONSTANTS.js"
 import { drawLine, drawRectangle, drawText, getTextDimensions, StateMachine } from "../../utils/index.js"
 import { IdleState, PropertyChangeState } from './states/index.js'
 
-const PAD_X = 5
-const PAD_Y = 5
+const PAD_X = 8
+const PAD_Y = 8
 const LINE_GAP = 5
 /**
  * This is that class that encapsulates any object that is to be drawn.
@@ -71,7 +71,7 @@ export class vElement extends Entity
 
         if ( this.label )
         {
-            drawLine( this.x, brushY, this.x + this.width, brushY, 'blue', 2 )
+            drawLine( this.x, brushY, this.x + this.width, brushY, 'black', 2 )
             brushY += PAD_Y
             drawText( this.label, brushX, brushY, this.labelFont, 'black', 'center', 'hanging' )
         }
@@ -80,6 +80,11 @@ export class vElement extends Entity
     notify( params )
     {
         let { toState, enterParams } = params
+        this.stateMachine.change( toState, enterParams )
+    }
+
+    changeState( toState, enterParams )
+    {
         this.stateMachine.change( toState, enterParams )
     }
 

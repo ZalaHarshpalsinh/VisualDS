@@ -160,6 +160,9 @@ export class Animator
             // Get old coordinates
             let oldCoords = e.getCoordinates()
 
+
+            // To keep track whether it's a first tween or not
+            let isFirst = true
             // Compare old coordinates with new ones, to see if there's a change
             if ( oldCoords.x != this.brush.x || oldCoords.y != this.brush.y )
             {
@@ -170,10 +173,14 @@ export class Animator
                     TweenManager.linear,
                     () =>
                     {
-                        // When all the tweens are completed, notify animator to move to next animation
-                        this.nextAnimation()
+                        // Only first tween should notify animator about completion
+                        if ( isFirst )
+                            // When all the tweens are completed, notify animator to move to next animation
+                            this.nextAnimation()
                     }
                 )
+
+                isFirst = false
             }
 
             /** 
@@ -238,17 +245,19 @@ export class Animator
             {
                 // Set the new animation
                 this.animationSpeed = animObj.params.newSpeed
+                this.nextAnimation()
             }
             // It is an action, but not a valid one
             else if ( animObj.type )
             {
                 console.log( "Invalid command" )
+                this.nextAnimation()
             }
             // It is an animation request
             else
             {
                 //change the entity's state for animation
-                animObj.entity.changeState( animObj.params )
+                animObj.entity.notify( animObj.params )
             }
         }
 

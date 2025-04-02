@@ -6,38 +6,39 @@ import { tweenManager } from "../../../driver.js"
  */
 export class SwapState extends BaseState
 {
-    constructor(varray)
+    constructor( varray )
     {
         super()
         this.varray = varray
     }
 
-    enter(enterPara)
+    enter( enterPara )
     {
-        let {i, j} = enterPara
-        
-        let refI = this.varray.drawData[i]
-        let refJ = this.varray.drawData[j]
+        let { i, j } = enterPara
+
+        let refI = this.varray.drawData[ i ]
+        let refJ = this.varray.drawData[ j ]
 
         // swap references
-        this.varray.drawData[i] = refJ
-        this.varray.drawData[j] = refI
+        this.varray.drawData[ i ] = refJ
+        this.varray.drawData[ j ] = refI
 
         //swap coordinates
         tweenManager.addTween( refI,
-            {x: refJ.x},
+            { x: refJ.x },
             400,
             TweenManager.linear
         )
         tweenManager.addTween( refJ,
-            {x: refI.x},
+            { x: refI.x },
             400,
             TweenManager.linear,
-            ()=>{
+            () =>
+            {
                 //move to next animation
-                this.varray.changeState('idle')
+                this.varray.changeState( 'idle' )
                 this.varray.nextAnimation()
             }
-        )        
+        )
     }
 }

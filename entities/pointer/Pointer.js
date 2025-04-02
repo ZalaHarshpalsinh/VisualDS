@@ -10,8 +10,8 @@ export class Pointer extends Entity
 
         this.pointee = pointee
         this.index = initialIndex
-        this.label = label
         this.drawIndex = Math.max( -1, Math.min( this.pointee.length(), initialIndex ) )
+        this.label = label
         this.syncCoordinates()
 
         this.stateMachine = new StateMachine( {
@@ -33,13 +33,18 @@ export class Pointer extends Entity
 
     draw()
     {
-        // this.stateMachine.draw()
         this.drawArrow()
     }
 
-    changeState( toState, params )
+    notify( params )
     {
-        this.stateMachine.change( toState, params )
+        let { toState, enterParams } = params
+        this.changeState( toState, enterParams )
+    }
+
+    changeState( toState, enterParams )
+    {
+        this.stateMachine.change( toState, enterParams )
     }
 
     syncCoordinates()
@@ -73,7 +78,7 @@ export class Pointer extends Entity
         let newIndexCapped = Math.max( -1, Math.min( this.pointee.length(), this.index ) )
         change = newIndexCapped - oldIndexCapped
         if ( change != 0 )
-            super.addAnimation( 'moving', { change: change } )
+            super.addAnimation( { toState: 'moving', enterParams: { change: change } } )
     }
 
     /**

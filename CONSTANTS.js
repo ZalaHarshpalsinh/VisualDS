@@ -33,7 +33,7 @@ export const cnt = {
      * Y coordinate of the point from where entities will be drawn
      * @type {number}
      */
-    START_Y: 15,
+    START_Y: 20,
 
     /**
      * Margin in Y dimention between two entities
@@ -45,11 +45,11 @@ export const cnt = {
      * Default height of a line of a text
      * @type {number}
      */
-    DEFAULT_FONT: '15px sans-serif',
+    DEFAULT_FONT: '18px sans-serif',
 
     /**
      * Default color
      * @type {string}
      */
-    DEFAULT_COLOR: "Azure",
+    DEFAULT_COLOR: "CornflowerBlue",
 }

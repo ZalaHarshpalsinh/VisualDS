@@ -6,37 +6,37 @@ import { BaseState } from "../../../utils/index.js"
  */
 export class PropertyChangeState extends BaseState
 {
-    constructor(varray)
+    constructor( varray )
     {
         super()
         this.varray = varray
     }
 
-    enter(enterPara)
+    enter( enterPara )
     {
-        if(enterPara.type == "box_color_change")
+        if ( enterPara.type == "box_color_change" )
         {
             // change color of boxes
-            enterPara.indices.forEach((index)=>
+            enterPara.indices.forEach( ( index ) =>
             {
-                if(index < this.varray.drawData.length)
+                if ( index < this.varray.drawData.length )
                 {
-                    this.varray.drawData[index].color = enterPara.toColor
+                    this.varray.drawData[ index ].color = enterPara.toColor
                 }
-            })
+            } )
         }
-        else if(enterPara.type == "add_pointer")
+        else if ( enterPara.type == "add_pointer" )
         {
-            this.varray.pointers.push(enterPara.pointer)
+            this.varray.pointers.push( enterPara.pointer )
         }
-        else if(enterPara.type == 'remove_pointer')
+        else if ( enterPara.type == 'remove_pointer' )
         {
             enterPara.pointer.cleanUp()
-            this.varray.pointers.splice(this.varray.pointers.indexOf(enterPara.pointer), 1)
+            this.varray.pointers.splice( this.varray.pointers.indexOf( enterPara.pointer ), 1 )
         }
-    
+
         // done, so exit the state
-        this.varray.changeState('idle')
+        this.varray.changeState( 'idle' )
         this.varray.nextAnimation()
     }
 }

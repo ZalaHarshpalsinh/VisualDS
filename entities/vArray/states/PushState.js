@@ -19,10 +19,11 @@ export class PushState extends BaseState
         let { type, val } = enterPara
 
         //create new vElement and push it in drawData
+        let indexLabel = `[${this.varray.drawData.length}]`
         if ( type == 'front' )
-            this.varray.drawData.unshift( new vElement( val, "", true ) )
+            this.varray.drawData.unshift( new vElement( val, indexLabel, true ) )
         else
-            this.varray.drawData.push( new vElement( val, "", true ) )
+            this.varray.drawData.push( new vElement( val, indexLabel, true ) )
 
         // update boxWidth, boxHeight, Width, Height
         this.varray.syncDimensions()
