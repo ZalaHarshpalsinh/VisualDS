@@ -1,6 +1,6 @@
 import { cnt } from "./CONSTANTS.js"
 import { tweenManager } from "./driver.js"
-import { Entity } from "./entities/Entity.js"
+import { Entity } from "./entities/index.js"
 import { TweenManager } from "./utils/index.js"
 import { Animation } from "./Animation.js"
 import { Action } from "./Action.js"

@@ -42,25 +42,14 @@ export const cnt = {
     MARGIN_Y: 40,
 
     /**
-     * Default general value of padding on X axis inside any shape
-     * @type {number}
-     */
-    PAD_X: 5,
-    /**
-     * Default general value of padding on Y axis inside any shape
-     * @type {number}
-     */
-    PAD_Y: 5,
-
-    /**
      * Default height of a line of a text
      * @type {number}
      */
-    DEFAULT_LINE_HEIGHT: 15,
+    DEFAULT_FONT: '15px sans-serif',
 
     /**
      * Default color
      * @type {string}
      */
-    DEFAULT_COLOR: "CornflowerBlue",
+    DEFAULT_COLOR: "Azure",
 }

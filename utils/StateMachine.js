@@ -1,4 +1,4 @@
-import { BaseState } from "./BaseState"
+import { BaseState } from "./BaseState.js"
 
 /**
  * A state manager to efficiently manage all the states of an entity and its transition between those states.

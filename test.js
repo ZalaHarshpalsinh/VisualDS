@@ -2,7 +2,7 @@ import { createVisualisation, setAnimationSpeed, selectionSort, bubbleSort, inse
 
 createVisualisation( 'cnv', () =>
 {
-    test1()
+    test0()
 } )
 
 function test1()
@@ -17,4 +17,10 @@ function test1()
     linearSearch( arr, 8 )
     arr = [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ]
     binarySearch( arr, 8 )
+}
+
+function test0()
+{
+    let num = new vElement( 100, '[1]' )
+    let str = new vElement( "My name is,\nHarshpal", 'Name' )
 }

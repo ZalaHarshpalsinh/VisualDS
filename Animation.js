@@ -1,4 +1,4 @@
-import { Entity } from "./entities"
+import { Entity } from "./entities/index.js"
 
 /**
  * Represents the objects which store information about an animation which is required for communication between Animator and Entity.

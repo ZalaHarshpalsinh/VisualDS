@@ -7,9 +7,10 @@ import { ctx } from "../driver.js"
  * @param {number} width width of rectangle
  * @param {number} height height of rectangle
  * @param {string} fillColor color of rectangle
- * @param {string} borderColor color of border of rectangle
+ * @param {string} borderColor color of border
+ * @param {number} borderWidth thickness of border
  */
-function drawRectangle( x, y, width, height, fillColor, borderColor )
+function drawRectangle( x, y, width, height, fillColor, borderColor, borderWidth )
 {
     // save the context
     ctx.save()
@@ -18,6 +19,7 @@ function drawRectangle( x, y, width, height, fillColor, borderColor )
     ctx.fillStyle = fillColor
     ctx.fillRect( x, y, width, height )
     // Draw the border
+    ctx.lineWidth = borderWidth
     ctx.strokeStyle = borderColor
     ctx.strokeRect( x, y, width, height )
 
@@ -52,4 +54,28 @@ function drawText( text, x, y, font, color, alignment, baseline )
     ctx.restore()
 }
 
-export { drawRectangle, drawText }
+function drawLine( sx, sy, ex, ey, color, width )
+{
+    ctx.save()
+    ctx.strokeStyle = color
+    ctx.lineWidth = width
+    ctx.beginPath()
+    ctx.moveTo( sx, sy )
+    ctx.lineTo( ex, ey )
+    ctx.stroke()
+    ctx.restore()
+}
+
+
+
+function getTextDimensions( font, text )
+{
+    ctx.save()
+    ctx.font = font
+    let textMetrics = ctx.measureText( text )
+    ctx.restore()
+
+    return { width: textMetrics.width, height: textMetrics.actualBoundingBoxAscent + textMetrics.actualBoundingBoxDescent }
+}
+
+export { drawRectangle, drawText, drawLine, getTextDimensions }
