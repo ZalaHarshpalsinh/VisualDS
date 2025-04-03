@@ -25,15 +25,15 @@ export class Pointer extends Entity
         this.stateMachine.update( dt )
     }
 
-    drawArrow()
+    drawArrow( ctx )
     {
-        drawText( "↑", this.x, this.y, "14px Arial", 'red', 'center', 'top' )
-        drawText( `${this.label}${this.label ? ': ' : ''}${this.drawIndex}`, this.x, this.y + 14, '9px Arial', 'blue', 'center', 'top' )
+        drawText( ctx, "↑", this.x, this.y, "14px Arial", 'red', 'center', 'top' )
+        drawText( ctx, `${this.label}${this.label ? ': ' : ''}${this.drawIndex}`, this.x, this.y + 14, '9px Arial', 'blue', 'center', 'top' )
     }
 
-    draw()
+    draw( ctx )
     {
-        this.drawArrow()
+        this.drawArrow( ctx )
     }
 
     notify( params )

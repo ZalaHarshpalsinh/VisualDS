@@ -1,4 +1,4 @@
-import { getAnimationSpeed } from "../driver.js"
+import { getCurrentAnimatorId, getAnimationSpeed } from "../driver.js"
 import { Tween } from "./Tween.js"
 
 /**
@@ -8,6 +8,7 @@ export class TweenManager
 {
     constructor()
     {
+        this.animatorId = getCurrentAnimatorId() + 1
         /**
          * A map of all unfinished tweens
          * @type {Map<number, Tween>}
@@ -43,7 +44,7 @@ export class TweenManager
         const startTime = performance.now() // in miliseconds
 
         // update ideal duration as per current animation speed
-        duration /= getAnimationSpeed()
+        duration /= getAnimationSpeed( this.animatorId )
 
         // Store initial values and calculate changes
         for ( const key in values )

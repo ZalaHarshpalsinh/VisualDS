@@ -1,5 +1,4 @@
 import { Entity } from "../Entity.js"
-import { ctx } from "../../driver.js"
 import { cnt } from "../../CONSTANTS.js"
 import { drawLine, drawRectangle, drawText, getTextDimensions, StateMachine } from "../../utils/index.js"
 import { IdleState, PropertyChangeState } from './states/index.js'
@@ -50,30 +49,27 @@ export class vElement extends Entity
     /**
      * To actually draw the encapsulated object inside a rectange, with the single/multi line text provided by the toString.
      */
-    draw()
+    draw( ctx )
     {
-        drawRectangle( this.x, this.y, this.width, this.height, this.color, 'black', 2 )
+        drawRectangle( ctx, this.x, this.y, this.width, this.height, this.color, 'black', 2 )
 
         let brushX = this.x + this.width / 2
         let brushY = this.y + PAD_Y
 
-        // drawLine( this.x, brushY, this.x + this.width, brushY, 'red', 2 )
-
         this.text.forEach( line =>
         {
-            drawText( line, brushX, brushY, this.font, 'black', 'center', 'hanging' )
+            drawText( ctx, line, brushX, brushY, this.font, 'black', 'center', 'hanging' )
             brushY += getTextDimensions( this.font, line ).height + LINE_GAP
         } )
 
         brushY -= LINE_GAP
-        // drawLine( this.x, brushY, this.x + this.width, brushY, 'red', 2 )
         brushY += PAD_Y
 
         if ( this.label )
         {
-            drawLine( this.x, brushY, this.x + this.width, brushY, 'black', 2 )
+            drawLine( ctx, this.x, brushY, this.x + this.width, brushY, 'black', 2 )
             brushY += PAD_Y
-            drawText( this.label, brushX, brushY, this.labelFont, 'black', 'center', 'hanging' )
+            drawText( ctx, this.label, brushX, brushY, this.labelFont, 'black', 'center', 'hanging' )
         }
     }
 

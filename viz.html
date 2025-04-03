@@ -5,23 +5,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>VisualDS</title>
     <style>
-        body
-        {
-            margin: 0px;
-            padding: 0px;
+        body {
+            margin: 0;
+            padding: 0;
             overflow: hidden;
+            height: 100vh;
+            width: 100vw;
         }
-        #cnv
-        {
-            width: 99.4vw;
-            height: 98.8vh;
-            border: 5px solid black;
-            /* image-rendering:pixelated; */
+        .canvas-container {
+            display: flex;
+            flex-wrap: wrap;
+            width: 100%;
+            height: 100%;
+        }
+        .canvas-quarter {
+            width: 50%;
+            height: 50%;
+            box-sizing: border-box;
+            border: 2px solid black;
         }
     </style>
 </head>
 <body>
-    <canvas id="cnv"></canvas>
+    <div class="canvas-container">
+        <canvas id="cnv1" class="canvas-quarter"></canvas>
+        <canvas id="cnv2" class="canvas-quarter"></canvas>
+        <canvas id="cnv3" class="canvas-quarter"></canvas>
+        <canvas id="cnv4" class="canvas-quarter"></canvas>
+    </div>
+    <script src="./test.js" type="module"></script>
 </body>
-<script src="./test.js" type="module"></script>
 </html>

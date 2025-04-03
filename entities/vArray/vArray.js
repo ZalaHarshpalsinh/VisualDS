@@ -110,30 +110,27 @@ export class vArray extends Entity
     /**
      * To draw boxes for each element, basically just delegates to the draw of each vElement object in drawData
      */
-    drawBoxes()
+    drawBoxes( ctx )
     {
         this.drawData.forEach( ( e, i ) =>
         {
-            e.draw()
-            //print indices
-            // drawText( `[${i}]`, e.x + e.width / 2, e.y, '9px Times New Roman', 'black', 'center', 'bottom' )
+            e.draw( ctx )
         } )
     }
 
-    drawPointers()
+    drawPointers( ctx )
     {
         this.pointers.forEach( p =>
         {
-            p.draw()
+            p.draw( ctx )
         } )
     }
 
-    draw()
+    draw( ctx )
     {
-        // drawText( this.label, this.x + this.width / 2, this.y + this.height + 20, '10px Arial', 'black', 'center', 'middle' )
-        drawText( this.label, this.x + this.width / 2, this.y - 15, 'bold 12px Arial', 'black', 'center', 'hanging' )
-        this.drawBoxes()
-        this.drawPointers()
+        drawText( ctx, this.label, this.x + this.width / 2, this.y - 15, 'bold 12px Arial', 'black', 'center', 'hanging' )
+        this.drawBoxes( ctx )
+        this.drawPointers( ctx )
     }
 
     notify( params )

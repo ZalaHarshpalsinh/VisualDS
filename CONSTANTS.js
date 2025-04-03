@@ -51,5 +51,5 @@ export const cnt = {
      * Default color
      * @type {string}
      */
-    DEFAULT_COLOR: "CornflowerBlue",
+    DEFAULT_COLOR: "azure",
 }

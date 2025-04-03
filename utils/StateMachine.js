@@ -50,8 +50,8 @@ export class StateMachine
     /**
      * Performs the draw logic of current state of the state machine. Should be called on every frame.
      */
-    draw()
+    draw( ctx )
     {
-        this.currentState.draw()
+        this.currentState.draw( ctx )
     }
 }

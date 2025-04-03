@@ -21,5 +21,5 @@ export class BaseState
     /**
      * Executes draw logic of this state
      */
-    draw() { }
+    draw( ctx ) { }
 }

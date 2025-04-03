@@ -1,4 +1,3 @@
-import { tweenManager } from "../../../driver.js"
 import { BaseState, TweenManager } from "../../../utils/index.js"
 import { vElement } from "../../index.js"
 
@@ -42,7 +41,7 @@ export class PushState extends BaseState
             spawnPoint = { x: this.varray.x + this.varray.width - this.varray.boxWidth + this.spawnDistance, y: this.varray.y }
         newBox.setCoordinates( spawnPoint.x, spawnPoint.y )
 
-        tweenManager.addTween( newBox,
+        this.varray.getTweenManager().addTween( newBox,
             { x: target.x },
             500,
             TweenManager.cubicOut,

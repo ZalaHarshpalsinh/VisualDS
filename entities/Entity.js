@@ -1,4 +1,4 @@
-import { animator } from "../driver.js"
+import { getCurrentAnimatorId, addInPool, removeFromPool, addAnimation, nextAnimation, getAnimationSpeed, setAnimationSpeed, getTweenManager } from "../driver.js"
 import { Animation } from "../Animation.js"
 
 /**
@@ -8,6 +8,8 @@ export class Entity
 {
     constructor()
     {
+        this.animatorId = getCurrentAnimatorId()
+
         /**
          * X coordinate assigned to entity by Animator
          * @type {number}
@@ -68,7 +70,7 @@ export class Entity
     addInPool()
     {
         // Delegate the call to animator
-        animator.addInPool( this )
+        addInPool( this.animatorId, this )
     }
 
     /**
@@ -86,7 +88,7 @@ export class Entity
         this.removed = true
 
         // Delegate the call to animator
-        animator.removeFromPool( this )
+        removeFromPool( this.animatorId, this )
     }
 
     /**
@@ -109,7 +111,7 @@ export class Entity
         const animObj = new Animation( this, params )
 
         // delegate the call to animator
-        animator.addAnimation( animObj )
+        addAnimation( this.animatorId, animObj )
     }
 
     /**
@@ -126,7 +128,22 @@ export class Entity
     nextAnimation()
     {
         // Delegate the call to animator
-        animator.nextAnimation()
+        nextAnimation( this.animatorId )
+    }
+
+    getAnimationSpeed()
+    {
+        return getAnimationSpeed( this.animatorId )
+    }
+
+    setAnimationSpeed( newSpeed )
+    {
+        setAnimationSpeed( this.animatorId, newSpeed )
+    }
+
+    getTweenManager()
+    {
+        return getTweenManager( this.animatorId )
     }
 
     /**
@@ -138,7 +155,7 @@ export class Entity
     /**
      * Draws the entity. It is called on every frame if entity is registered to animator.
      */
-    draw() { }
+    draw( ctx ) { }
 
     /**
      * Performs the clean up tasks. It is called by the animator when the entity is removed from its pool.

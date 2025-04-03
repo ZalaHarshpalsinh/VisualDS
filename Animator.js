@@ -1,5 +1,4 @@
 import { cnt } from "./CONSTANTS.js"
-import { tweenManager } from "./driver.js"
 import { Entity } from "./entities/index.js"
 import { TweenManager } from "./utils/index.js"
 import { Animation } from "./Animation.js"
@@ -14,7 +13,7 @@ import { Action } from "./Action.js"
  */
 export class Animator 
 {
-    constructor()
+    constructor( canvas, context )
     {
         /**
          * brush holds the coordinates which new entity will be assigned upon registration through addInPool() method.
@@ -63,6 +62,29 @@ export class Animator
          * @type {number}
          */
         this.animationSpeed = 1.0
+
+        this.tweenManager = new TweenManager()
+
+        this.canvas = canvas
+        this.context = context
+        this.configureCanvas()
+    }
+
+    /**
+     * Configures the canvas as per framework's requirements
+     */
+    configureCanvas()
+    {
+        // Set the actual width/height of canvas
+        this.canvas.width = cnt.ACTUAL_WIDTH
+        this.canvas.height = cnt.ACTUAL_HEIGHT
+        // Apply scaling to scale the virtual width/height to actual width/height
+        this.context.scale( cnt.ACTUAL_WIDTH / cnt.VIRTUAL_WIDTH, cnt.ACTUAL_HEIGHT / cnt.VIRTUAL_HEIGHT )
+    }
+
+    getTweenManager()
+    {
+        return this.tweenManager
     }
 
     /**
@@ -160,14 +182,13 @@ export class Animator
             // Get old coordinates
             let oldCoords = e.getCoordinates()
 
-
             // To keep track whether it's a first tween or not
             let isFirst = true
             // Compare old coordinates with new ones, to see if there's a change
             if ( oldCoords.x != this.brush.x || oldCoords.y != this.brush.y )
             {
                 // if there is a change, tween the coordinates to new values
-                tweenManager.addTween( e,
+                this.tweenManager.addTween( e,
                     { x: this.brush.x, y: this.brush.y },
                     300,
                     TweenManager.linear,
@@ -266,6 +287,8 @@ export class Animator
         {
             entity.update( dt )
         } )
+
+        this.tweenManager.update( dt )
     }
 
     /**
@@ -273,10 +296,11 @@ export class Animator
      */
     draw()
     {
+        this.context.clearRect( 0, 0, cnt.VIRTUAL_WIDTH, cnt.VIRTUAL_HEIGHT )
         // Delegate the call to draw() method of every entity 
         this.dsPool.forEach( ( entity ) =>
         {
-            entity.draw()
+            entity.draw( this.context )
         } )
     }
 }

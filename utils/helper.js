@@ -1,5 +1,3 @@
-import { ctx } from "../driver.js"
-
 /**
  * Draws a solid rectangle with provided specifications
  * @param {number} x X coordinate
@@ -10,7 +8,7 @@ import { ctx } from "../driver.js"
  * @param {string} borderColor color of border
  * @param {number} borderWidth thickness of border
  */
-function drawRectangle( x, y, width, height, fillColor, borderColor, borderWidth )
+function drawRectangle( ctx, x, y, width, height, fillColor, borderColor, borderWidth )
 {
     // save the context
     ctx.save()
@@ -37,7 +35,7 @@ function drawRectangle( x, y, width, height, fillColor, borderColor, borderWidth
  * @param {string} alignment horizontal allignment
  * @param {string} baseline vertical allignment
  */
-function drawText( text, x, y, font, color, alignment, baseline )
+function drawText( ctx, text, x, y, font, color, alignment, baseline )
 {
     // save the context
     ctx.save()
@@ -54,7 +52,7 @@ function drawText( text, x, y, font, color, alignment, baseline )
     ctx.restore()
 }
 
-function drawLine( sx, sy, ex, ey, color, width )
+function drawLine( ctx, sx, sy, ex, ey, color, width )
 {
     ctx.save()
     ctx.strokeStyle = color
@@ -70,6 +68,9 @@ function drawLine( sx, sy, ex, ey, color, width )
 
 function getTextDimensions( font, text )
 {
+    // Create a temporary canvas context
+    const canvas = document.createElement( 'canvas' )
+    const ctx = canvas.getContext( '2d' )
     ctx.save()
     ctx.font = font
     let textMetrics = ctx.measureText( text )

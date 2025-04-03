@@ -1,5 +1,4 @@
 import { BaseState, TweenManager } from "../../../utils/index.js"
-import { tweenManager } from "../../../driver.js"
 
 export class MovingState extends BaseState
 {
@@ -15,7 +14,7 @@ export class MovingState extends BaseState
         let targetX = ( this.pointer.x ) + ( change * this.pointer.pointee.boxWidth )
 
         this.pointer.drawIndex += change
-        tweenManager.addTween( this.pointer,
+        this.pointer.getTweenManager().addTween( this.pointer,
             { x: targetX },
             500,
             TweenManager.linear,
