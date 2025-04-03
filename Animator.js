@@ -67,6 +67,17 @@ export class Animator
 
         this.canvas = canvas
         this.context = context
+
+        this.scroll = {
+            isScrolling: false,
+            x: 0,
+            y: 0,
+            lastX: 0,
+            lastY: 0,
+        }
+
+        this.zoomLevel = 1.0
+
         this.configureCanvas()
     }
 
@@ -78,8 +89,56 @@ export class Animator
         // Set the actual width/height of canvas
         this.canvas.width = cnt.ACTUAL_WIDTH
         this.canvas.height = cnt.ACTUAL_HEIGHT
-        // Apply scaling to scale the virtual width/height to actual width/height
+
         this.context.scale( cnt.ACTUAL_WIDTH / cnt.VIRTUAL_WIDTH, cnt.ACTUAL_HEIGHT / cnt.VIRTUAL_HEIGHT )
+
+        //Register event listeners for scroll and zoom
+        this.canvas.addEventListener( 'mousedown', ( e ) =>
+        {
+            e.preventDefault()
+            this.scroll.isScrolling = true
+            this.scroll.lastX = e.clientX // Remember start position
+            this.scroll.lastY = e.clientY
+            this.canvas.style.cursor = 'grabbing'
+        } )
+
+        this.canvas.addEventListener( 'mousemove', ( e ) =>
+        {
+            e.preventDefault()
+            if ( !this.scroll.isScrolling ) return
+
+            const dx = e.clientX - this.scroll.lastX // How much the mouse moved
+            const dy = e.clientY - this.scroll.lastY
+
+            this.scroll.x += dx // Shift the view
+            this.scroll.y += dy
+
+            this.scroll.lastX = e.clientX // Update last position
+            this.scroll.lastY = e.clientY
+        } )
+
+        // 3. Mouse up: Stop panning
+        this.canvas.addEventListener( 'mouseup', ( e ) =>
+        {
+            e.preventDefault()
+            this.scroll.isScrolling = false
+            this.canvas.style.cursor = 'grab'
+        } )
+
+        // Zoom functionality
+        this.canvas.addEventListener( 'wheel', ( e ) =>
+        {
+            e.preventDefault()
+            if ( e.deltaY < 0 )
+            { // Zoom in
+                this.zoomLevel *= 1.1
+            } else
+            { // Zoom out
+                this.zoomLevel /= 1.1
+            }
+
+            this.zoomLevel = Math.max( 0.1, Math.min( 5.0, this.zoomLevel ) )
+        } )
     }
 
     getTweenManager()
@@ -163,6 +222,17 @@ export class Animator
     setAnimationSpeed( newSpeed )
     {
         this.addAnimation( new Action( 'change_speed', { newSpeed: newSpeed } ) )
+    }
+
+    setScroll( x, y )
+    {
+        this.scroll.x = x
+        this.scroll.y = y
+    }
+
+    setZoom( val )
+    {
+        this.zoomLevel = Math.max( 0.1, Math.min( 5, val ) )
     }
 
     /**
@@ -296,11 +366,20 @@ export class Animator
      */
     draw()
     {
+        this.context.save()
+
         this.context.clearRect( 0, 0, cnt.VIRTUAL_WIDTH, cnt.VIRTUAL_HEIGHT )
+
+        this.context.translate( this.scroll.x, this.scroll.y )
+        // Apply scaling to scale the virtual width/height to actual width/height
+        this.context.scale( cnt.ACTUAL_WIDTH / cnt.VIRTUAL_WIDTH * this.zoomLevel, cnt.ACTUAL_HEIGHT / cnt.VIRTUAL_HEIGHT * this.zoomLevel )
         // Delegate the call to draw() method of every entity 
+
         this.dsPool.forEach( ( entity ) =>
         {
             entity.draw( this.context )
         } )
+
+        this.context.restore()
     }
 }

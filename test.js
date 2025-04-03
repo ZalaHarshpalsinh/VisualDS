@@ -18,6 +18,7 @@ createVisualisation( 'cnv3', ( controller ) =>
 
 createVisualisation( 'cnv4', ( controller ) =>
 {
+    controller.setAnimationSpeed( 3 )
     mergeSort( arr )
 } )
 
