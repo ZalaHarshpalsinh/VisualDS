@@ -23,6 +23,10 @@ export class PropertyChangeState extends BaseState
         else if ( this.data.type == "value_update" )
         {
             this.velement.drawVal = this.data.newVal
+            // update the text too
+            this.velement.text = this.velement.drawVal.toString().split( '\n' )
+            // update height and width according to the new text
+            this.velement.syncDataAndVisual();
         }
 
         // done, so exit the state

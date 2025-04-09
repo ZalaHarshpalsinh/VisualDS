@@ -41,13 +41,26 @@ function test1()
 
 function test0()
 {
-    let num = new vElement( 100, '[1]' )
-    let str = new vElement( "My name is,\nHarshpal", 'Name' )
+    
+    let var1 = new vElement(5, 'var1');
+    let arr = new vArray([1, 2, 3, 4, 5], 'arr');
 
-    let arr = new vArray( [ 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 ], 'Array' )
-    for ( let i = arr.getPointer( 0 ); i.getIndex() < 5 || i.remove(); i.increment() )
+    for(let i = arr.getPointer(0, 'i'); (!i.isOutOfBound()) || i.remove(); i.increment())
     {
-        arr.pushBack( i.getIndex() )
-        arr.popFront()
+        // highlight the current element
+        i.highlight('orange');
+
+        if(arr.get(i.getIndex())==3)
+        {
+            arr.set(i.getIndex(), 33, false);
+            i.unhighlight();
+            i.remove();
+            break;
+        }
+
+        i.unhighlight();
     }
+
+    var1.setVal('hahahahha', true);
+
 }
