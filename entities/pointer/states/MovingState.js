@@ -1,41 +1,28 @@
-import { cnt } from "../../../CONSTANTS.js";
-import { BaseState } from "../../../utils/index.js"
+import { BaseState, TweenManager } from "../../../utils/index.js"
 
 export class MovingState extends BaseState
 {
-    constructor(pointer)
+    constructor( pointer )
     {
         super()
-        this.pointer = pointer;
-        this.change = 0;
+        this.pointer = pointer
     }
 
-    enter(enterPara)
+    enter( enterPara )
     {
-        this.change = enterPara.change;
-        this.targetX = this.pointer.x + (this.change * this.pointer.pointee.boxWidth);
-    }
+        let change = enterPara.change
+        let targetX = ( this.pointer.x ) + ( change * this.pointer.pointee.boxWidth )
 
-    update(dt)
-    {
-        if(this.pointer.x < this.targetX)
-        {
-            this.pointer.x = Math.min(this.pointer.x + cnt.DEFAULT_MOVE_SPEED * dt, this.targetX);
-        }
-        else if(this.pointer.x > this.targetX)
-        {
-            this.pointer.x = Math.max(this.pointer.x - cnt.DEFAULT_MOVE_SPEED * dt, this.targetX);
-        }
-        else
-        {
-            // animation finished
-            this.pointer.changeState('idle')
-            this.pointer.nextAnimation()
-        }
-    }
-
-    draw()
-    {
-        this.pointer.drawArrow()
+        this.pointer.drawIndex += change
+        this.pointer.getTweenManager().addTween( this.pointer,
+            { x: targetX },
+            500,
+            TweenManager.linear,
+            () =>
+            {
+                this.pointer.changeState( 'idle' )
+                this.pointer.nextAnimation()
+            }
+        )
     }
 }

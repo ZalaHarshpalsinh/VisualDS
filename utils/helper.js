@@ -1,26 +1,82 @@
-import { ctx } from "../driver.js"
-
-function drawRectangle(x, y, width, height, fillColor, borderColor )
+/**
+ * Draws a solid rectangle with provided specifications
+ * @param {number} x X coordinate
+ * @param {number} y Y coordinate
+ * @param {number} width width of rectangle
+ * @param {number} height height of rectangle
+ * @param {string} fillColor color of rectangle
+ * @param {string} borderColor color of border
+ * @param {number} borderWidth thickness of border
+ */
+function drawRectangle( ctx, x, y, width, height, fillColor, borderColor, borderWidth )
 {
+    // save the context
     ctx.save()
-    ctx.fillStyle = fillColor
-    ctx.fillRect(x, y, width, height)
 
+    // Draw box
+    ctx.fillStyle = fillColor
+    ctx.fillRect( x, y, width, height )
     // Draw the border
+    ctx.lineWidth = borderWidth
     ctx.strokeStyle = borderColor
-    ctx.strokeRect(x, y, width, height)
+    ctx.strokeRect( x, y, width, height )
+
+    // restore the context
     ctx.restore()
 }
 
-function drawText(text, x, y, font, color, alignment, baseline)
+/**
+ * Draws text with provided specifications
+ * @param {string} text text to be drawn
+ * @param {number} x X coordinate
+ * @param {number} y Y coordinate
+ * @param {string} font font to use
+ * @param {string} color color of text
+ * @param {string} alignment horizontal allignment
+ * @param {string} baseline vertical allignment
+ */
+function drawText( ctx, text, x, y, font, color, alignment, baseline )
 {
+    // save the context
     ctx.save()
+
+    // set the context to given specs
     ctx.font = font
     ctx.fillStyle = color
     ctx.textAlign = alignment
     ctx.textBaseline = baseline
-    ctx.fillText(text, x , y)
+    // draw the text
+    ctx.fillText( text, x, y )
+
+    // restore the context
     ctx.restore()
 }
 
-export {drawRectangle, drawText}
+function drawLine( ctx, sx, sy, ex, ey, color, width )
+{
+    ctx.save()
+    ctx.strokeStyle = color
+    ctx.lineWidth = width
+    ctx.beginPath()
+    ctx.moveTo( sx, sy )
+    ctx.lineTo( ex, ey )
+    ctx.stroke()
+    ctx.restore()
+}
+
+
+
+function getTextDimensions( font, text )
+{
+    // Create a temporary canvas context
+    const canvas = document.createElement( 'canvas' )
+    const ctx = canvas.getContext( '2d' )
+    ctx.save()
+    ctx.font = font
+    let textMetrics = ctx.measureText( text )
+    ctx.restore()
+
+    return { width: textMetrics.width, height: textMetrics.actualBoundingBoxAscent + textMetrics.actualBoundingBoxDescent }
+}
+
+export { drawRectangle, drawText, drawLine, getTextDimensions }
