@@ -1,0 +1,14 @@
+{
+        "compilerOptions": {
+                "moduleResolution": "node", // Use Node.js module resolution strategy
+                "declaration": true, // Generate .d.ts files
+                "emitDeclarationOnly": true, // Only emit .d.ts files, no .js files
+                "outDir": "dist", // Output directory for .d.ts files
+                "module": "ESNext", // Module system
+                "target": "ESNext", // Target JavaScript version
+                "allowJs": true, // Allow JavaScript files
+                "checkJs": true, // Check JavaScript files for type errors
+                "esModuleInterop": true // Enable emit interoperability between CommonJS and ES Modules
+        },
+        "include": ["*.js", "utils/**/*.js", "entities/**/*.js", "std_algorithms/**/*.js"] // Include all relevant files
+}
