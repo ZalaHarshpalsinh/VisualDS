@@ -1,15 +1,26 @@
 import { BaseState, TweenManager } from "../../../utils/index.js"
-import { vElement } from "../../index.js"
+import { vArray, vElement } from "../../index.js"
 
 /**
  * Represents the state where a new value is pushed in the array
  */
 export class PushState extends BaseState
 {
+    /**
+     * @param {vArray} varray The vArray instance to which this state instance belongs 
+     */
     constructor( varray )
     {
         super()
+        /**
+         * The vArray instance to which this state instance belongs 
+         * @type {vArray}
+         */
         this.varray = varray
+        /**
+         * The distance of the spawn point from the array
+         * @type {number}
+         */
         this.spawnDistance = 400
     }
 
@@ -17,7 +28,7 @@ export class PushState extends BaseState
     {
         let { type, val } = enterPara
 
-        //create new vElement and push it in drawData
+        //create new vElement and push it in drawData based on the type (front or back)
         let indexLabel = `[${this.varray.drawData.length}]`
         if ( type == 'front' )
             this.varray.drawData.unshift( new vElement( val, indexLabel, true ) )
@@ -41,6 +52,7 @@ export class PushState extends BaseState
             spawnPoint = { x: this.varray.x + this.varray.width - this.varray.boxWidth + this.spawnDistance, y: this.varray.y }
         newBox.setCoordinates( spawnPoint.x, spawnPoint.y )
 
+        // register the tween to move the new box to its target position
         this.varray.getTweenManager().addTween( newBox,
             { x: target.x },
             500,
@@ -49,6 +61,8 @@ export class PushState extends BaseState
             {
                 //move to next animation if reached target
                 this.varray.changeState( 'idle' )
+
+                // notify the animator that the animation is done
                 this.varray.nextAnimation()
             }
         )

@@ -5,7 +5,7 @@ import { Entity } from "./entities/index.js"
  * 
  * Entity will register Animation objects to Animator. Animator will store them in a FIFO queue and execute them one by one.
  * 
- * To execute a single Animation, animator will notify the specified entity by calling notify(), while passing in params object  
+ * To execute a single Animation, animator will notify the specified entity by calling notify(), while passing in 'params' object back which was stored in animation object by entity while registering the animation  
  */
 export class Animation
 {

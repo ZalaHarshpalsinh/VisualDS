@@ -3,7 +3,7 @@
  * 
  * Animator will store the Action objects along with Animation objects in a FIFO queue and execute them one by one.
  * 
- * To execute a single Action, animator will use the type to determine what to do.
+ * To execute a single Action, animator will use the 'type' parameter to determine what to do.
  */
 export class Action 
 {

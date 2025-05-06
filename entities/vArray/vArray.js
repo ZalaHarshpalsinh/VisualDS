@@ -6,16 +6,19 @@ import { IdleState, PropertyChangeState, SwapState, PushState, PopState } from "
 
 /**
  * This class represents a visual array.
+ * 
+ * It can be an array of anything, i.e string, number, custom objects, etc.
+ * The only restriction is that the class, whose objects are in the array, should have a toString() method
+ * that returns what needs to be written in the visualized object in the visualized array.
+ * It may be a single line text, or a multiline text. If just passing array of numbers, or strings, then no need to worry about toString
+ * since it is there by default in these inbuilt classes.
+ * 
+ * With its pushBack(), popBack(), pushFront(), popFront() methods, it can be used as a stack or queue as well.
  */
 export class vArray extends Entity
 {
     /**
-     * Create vArray object for an array of anything, it may be array of string, number, Student object, or any other array of objects.
-     * The only restriction is that the class, whose objects are in the array, should have a toString() method
-     * that returns what needs to be written in the visualized object in the visualized array.
-     * It may be a single line text, or a multiline text. If just passing array of numbers, or strings, then no need to worry about toString
-     * since it is there by default in these inbuilt classes.
-     * @param {any[]} data The array whose visualization to create
+     * @param {any[]} data The array data to be used for visualization
      * @param {string} label The label to draw above the array. Defaults to empty string.
      */
     constructor( data, label = '' )
@@ -23,22 +26,21 @@ export class vArray extends Entity
         super()
 
         // here, we need to have two arrays
-        // one representing the actual data inside the array, that changes with the synchronous code
-        // written by the user
+        // one representing the actual data inside the array, that changes with the synchronous code written by the user
         // another representing the array using which we draw on every frame.
         // this one changes asynchronously
-        // now, this concept of keeping two copies is required, 
-        // because drawing based on an in memory data structure on every frame
-        // this is unlike SVG, where you draw once, and that thing stays on the screen forever, until changed explicitly
+        // as and when animations related to the varray object are selected from the animation queue.
 
         /**
          * This is the actual data inside the array, that changes with the synchronous code
          * written by user.
+         * @type {any[]}
          */
         this.data = []
 
         /**
          * The label to draw above the array
+         * @type {string}
          */
         this.label = label
 
@@ -46,29 +48,36 @@ export class vArray extends Entity
          * This is the copy utilized for drawing on every frame.
          * It changes asynchronously, as and when animations related to
          * the varray object are selected from the animation queue.
+         * @type {vElement[]}
          */
         this.drawData = []
 
         /**
          * The list of pointers (index variables) that point to elements of this array.
+         * 
          * Required, because along with the array itself, these also need to be drawn and updated on every frame.
+         * @type {Pointer[]}
          */
         this.pointers = []
 
         /**
          * Width of a single element drawn
+         * @type {number}
          */
         this.boxWidth = 0
         /**
          * Height of a single element drawn
+         * @type {number}
          */
         this.boxHeight = 0
         /**
          * Width of the whole array
+         * @type {number}
          */
         this.width = 0
         /**
          * Height of the whole array
+         * @type {number}
          */
         this.height = 0
 
@@ -83,11 +92,12 @@ export class vArray extends Entity
         // update boxWidth, boxHeight, Width, Height according to the data
         this.syncDimensions()
 
-        // since necessary properties of Entity are initialized properly, add in pool and get the assigned coordinates
+        // Register the vArray to the animator
         super.addInPool()
 
         /**
          * To manage the animation via states
+         * @type {StateMachine}
          */
         this.stateMachine = new StateMachine( {
             idle: () => new IdleState( this ),
@@ -99,10 +109,12 @@ export class vArray extends Entity
     }
 
     /**
-     * To call update on all the vElement objects encapsulated
+     * Updates all the vElement objects encapsulated in this vArray
+     * @param {number} dt The delta time
      */
     updateBoxes( dt )
     {
+        // update each box
         this.drawData.forEach( e =>
         {
             e.update( dt )
@@ -110,10 +122,14 @@ export class vArray extends Entity
     }
 
     /**
-     * To call udate on all the pointers encapsulated
+     * Updates all the pointers encapsulated in this vArray
+     * @param {number} dt The delta time
      */
     updatePointers( dt )
     {
+        // update each pointer
+        // this is required because the boxWidth/boxHeight may have changed, and we need to update the pointers accordingly
+        // also, the pointers may have changed their position, so we need to update them as well,  as they are a slave entity of the vArray
         this.pointers.forEach( p =>
         {
             p.update( dt )
@@ -133,10 +149,12 @@ export class vArray extends Entity
     }
 
     /**
-     * To draw boxes for each element, basically just delegates to the draw of each vElement object in drawData
+     * Draws the boxes for each element, basically just delegates to the draw of each vElement object in drawData
+     * @param {CanvasRenderingContext2D} ctx The canvas context to draw on 
      */
     drawBoxes( ctx )
     {
+        //draw each box
         this.drawData.forEach( ( e, i ) =>
         {
             e.draw( ctx )
@@ -144,7 +162,8 @@ export class vArray extends Entity
     }
 
     /**
-     * To draw all the pointers.
+     * Draws all the pointers associated with this array
+     * @param {CanvasRenderingContext2D} ctx The canvas context to draw on
      */
     drawPointers( ctx )
     {
@@ -154,9 +173,6 @@ export class vArray extends Entity
         } )
     }
 
-    /**
-     * TO draw this array
-     */
     draw( ctx )
     {
         // draw the label
@@ -169,17 +185,24 @@ export class vArray extends Entity
 
     notify( params )
     {
+        // this is called by the animator when its this entity's turn to perform the requested animation
+        // use the params object to change to approperiate state to perform the animation
         let { toState, enterParams } = params
         this.changeState( toState, enterParams )
     }
 
+    /**
+     * Changes the state of the state machine to the given state
+     * @param {string} toState The state to change to
+     * @param {*} enterParams The object containing all the parameters required to enter the state
+     */
     changeState( toState, enterParams )
     {
         this.stateMachine.change( toState, enterParams )
     }
 
     /**
-     * To update boxWidth, boxHeight, Width, Height based on biggest vElement in drawData
+     * Updates the boxWidth, boxHeight, Width, Height based on biggest vElement in drawData
      */
     syncDimensions()
     {
@@ -203,7 +226,7 @@ export class vArray extends Entity
     }
 
     /**
-     * To update the coordinates of each box, based on starting coordinates of array and boxWidth
+     * Updates the coordinates of each box, based on starting coordinates of array and boxWidth
      */
     syncCoordinates()
     {
@@ -220,7 +243,7 @@ export class vArray extends Entity
     }
 
     /**
-     * Get array length
+     * Get the array length
      * @returns Length of the contained array
      */
     length()
@@ -229,7 +252,7 @@ export class vArray extends Entity
     }
 
     /**
-     * To get value at a given index
+     * Get the value at a given index
      * @param {number} index The index to get value from
      * @returns The value at the given index
      */
@@ -239,8 +262,8 @@ export class vArray extends Entity
     }
 
     /**
-     * To set a new value at a given index
-     * @param {*} index The index for which to update value
+     * Set a new value at a given index
+     * @param {number} index The index for which to update value
      * @param {*} newVal The new value
      * @param {boolean} highlight Whether to highlight the element while showing updation on screen. Defaults to true.
      */
@@ -251,59 +274,71 @@ export class vArray extends Entity
     }
 
     /**
-     * To add a new element at the end of array
+     * Adds a new element at the end of array
      * @param {*} val The new value to add
      * @returns The new length of the array
      */
     pushBack( val )
     {
-        // queue the animation
+        // queue the animation of pushing a new element at the end of drawData array
+        // enterParams contains the type of push, and the value to be pushed
         super.addAnimation( { toState: "push", enterParams: { type: 'back', val: val } } )
+
+        // add the new value to the data array and return the new length of the array
         return this.data.push( val )
     }
 
     /**
-     * To remove an element from the end of array
+     * Removes an element from the end of array
      * @returns The removed element. If array is empty, undefined is returned and array is not modified.
      */
     popBack()
     {
-        // queue the animation
+        // queue the animation of popping an element from the end of drawData array
+        // enterParams contains the type of pop
         super.addAnimation( { toState: "pop", enterParams: { type: 'back' } } )
+
+        // remove the last element from the data array and return it
         return this.data.pop()
     }
 
     /**
-     * To add a new element at the start of array
+     * Adds a new element at the start of array
      * @param {*} val The new value to add
      * @returns The new length of the array
      */
     pushFront( val )
     {
-        //queue the animation
+        //queue the animation of pushing a new element at the start of drawData array
+        // enterParams contains the type of push, and the value to be pushed
         super.addAnimation( { toState: "push", enterParams: { type: 'front', val: val } } )
+
+        // add the new value to the data array and return the new length of the array
         return this.data.unshift( val )
     }
 
     /**
-     * To remove an element from the start of array
+     * Removes an element from the start of array
      * @returns The removed element. If array is empty, undefined is returned and array is not modified.
      */
     popFront()
     {
-        // queue the animation
+        // queue the animation of popping an element from the start of drawData array
+        // enterParams contains the type of pop
         super.addAnimation( { toState: "pop", enterParams: { type: 'front' } } )
+
+        // remove the first element from the data array and return it
         return this.data.shift()
     }
 
     /**
-     * Highlight a list of indices
+     * Highlights a list of indices
      * @param {number[]} indices The list of indices
      * @param {string} color The color to highlight with. Defaults to blue.
      */
     highlight( indices, color = "blue" )
     {
-        // queue an animation to change colour property
+        // queue an animation to change colour property to specified color
         const toState = "property_change"
         const enterParams = {
             type: "box_color_change",
@@ -314,42 +349,44 @@ export class vArray extends Entity
     }
 
     /**
-     * To unhighlight a list of indices
-     * @param indices The list
+     * Unhighlights a list of indices 
+     * @param {number[]} indices The list of indices
      */
     unhighlight( indices )
     {
-        // queue an animation to change colour property
+        // queue an animation to change colour property to default color
         this.highlight( indices, cnt.DEFAULT_COLOR )
     }
 
     /**
-     * To highlight a range of indices, start and end both inclusive.
+     * Highlights a range of indices, start and end are both inclusive.
      * @param {number} s The start of the range
      * @param {number} e The end of the range
      * @param {string} color The color to highlight with.
      */
     highlightRange( s, e, color )
     {
+        // queue an animation to change colour property to specified color
         let indices = []
         for ( let i = s; i <= e; i++ )indices.push( i )
         this.highlight( indices, color )
     }
 
     /**
-     * To unhighlight a range of indices, start and end both inclusive.
+     * Unhighlight a range of indices, start and end are both inclusive.
      * @param {number} s The start of the range
      * @param {number} e The end of the range
      */
     unhighlightRange( s, e )
     {
+        // queue an animation to change colour property to default color
         let indices = []
         for ( let i = s; i <= e; i++ )indices.push( i )
         this.unhighlight( indices )
     }
 
     /**
-     * To swap elements at two indices and show animation
+     * Swaps elements at two indices
      * @param {number} i The first index
      * @param {number} j The second index
      * @param {boolean} highlight Whether to highlight the elements while showing animation. Defaults to true. 
@@ -372,29 +409,38 @@ export class vArray extends Entity
     }
 
     /**
-    * Get a pointer(index variable) of this array
+    * Get a pointer(index variable) for this vArray instance.
     * @param {number} initIndex The initial index pointed by the pointer
     * @param {string} label The name to show for this pointer on screen.
     * @returns {Pointer}
     */
     getPointer( initIndex, label = '' )
     {
+        // queue an animation to add a new pointer
+        // enterParams contains the type of property_change action, and the initial index to point to
         const ptr = new Pointer( this, initIndex, label )
         this.addAnimation( { toState: 'property_change', enterParams: { type: 'add_pointer', pointer: ptr } } )
         return ptr
     }
 
     /**
-     * To remove a given pointer. Removing means it will not be drawn following this call, and you cannot queue any animations on the pointer
+     * Remove a given pointer from this vArray instance. 
+     * 
+     * It has the following effect: It will not be drawn following this call, and you cannot queue any animations from the pointer
      * @param {Pointer} ptr The pointer to remove
      */
     removePointer( ptr )
     {
+        // queue an animation to remove the pointer
+        // enterParams contains the type of property_change action, and the pointer to remove
         this.addAnimation( { toState: 'property_change', enterParams: { type: 'remove_pointer', pointer: ptr } } )
     }
 
     cleanUp()
     {
+        // mask every vElement and pointer as removed, so that they are not drawn anymore
+        // and also call their cleanUp() method as they are slave entities of this vArray
+        // this is required because the animator will not call cleanUp() on them, as they are not in the pool 
         this.drawData.forEach( e =>
         {
             e.removed = true

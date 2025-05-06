@@ -1,55 +1,52 @@
 /**
  * Object to store all Framework Level Constants
- * @type {object}
+ * 
+ * VIRTUAL_WIDTH : Virtual/Logical width of canvas in pixels
+ * 
+ * VIRTUAL_HEIGHT : Virtual/Logical height of canvas in pixels
+ * 
+ * ACTUAL_WIDTH : Actual/Physical width of canvas in pixels
+ * 
+ * ACTUAL_HEIGHT : Actual/Physical height of canvas in pixels
+ * 
+ * START_X : X coordinate of the point from where entities will be drawn
+ * 
+ * START_Y : Y coordinate of the point from where entities will be drawn
+ * 
+ * MARGIN_Y : Margin in Y dimention between two entities
+ * 
+ * DEFAULT_FONT : Default font style for the text
+ * 
+ * DEFAULT_COLOR : Default color
+ * 
+ * @type {{
+ *  VIRTUAL_WIDTH: number Abcd,
+ *  VIRTUAL_HEIGHT: number,
+ *  ACTUAL_WIDTH: number,
+ *  ACTUAL_HEIGHT: number,
+ *  START_X: number,
+ *  START_Y: number,
+ *  MARGIN_Y: number,
+ *  DEFAULT_FONT: string,
+ *  DEFAULT_COLOR: string
+ * }}
  */
 export const cnt = {
-    /**
-     * Virtual/Logical width of canvas in pixels.
-     * @type {number}
-     */
     VIRTUAL_WIDTH: 800,
-    /**
-     * Virtual/Logical height of canvas in pixels.
-     * @type {number}
-     */
+
     VIRTUAL_HEIGHT: 600,
-    /**
-     * Actual/Physical width of canvas in pixels.
-     * @type {number}
-     */
+
     ACTUAL_WIDTH: 1000,
-    /**
-     * Actual/Physical height of canvas in pixels.
-     * @type {number}
-     */
+
     ACTUAL_HEIGHT: 750,
 
-    /**
-     * X coordinate of the point from where entities will be drawn
-     * @type {number}
-     */
     START_X: 10,
-    /**
-     * Y coordinate of the point from where entities will be drawn
-     * @type {number}
-     */
+
     START_Y: 20,
 
-    /**
-     * Margin in Y dimention between two entities
-     * @type {number}
-     */
     MARGIN_Y: 40,
 
-    /**
-     * Default height of a line of a text
-     * @type {number}
-     */
     DEFAULT_FONT: '18px sans-serif',
 
-    /**
-     * Default color
-     * @type {string}
-     */
     DEFAULT_COLOR: "azure",
 }

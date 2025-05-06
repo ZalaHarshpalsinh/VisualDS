@@ -6,9 +6,9 @@ export class BaseState
     constructor() { }
     /**
      * Executes tasks to be performed while entering this state  
-     * @param {object} params 
+     * @param {object} enterParams object containing parameters required while entering this state
      */
-    enter( params ) { }
+    enter( enterParams ) { }
     /**
      * Executes tasks to be performed while exiting this state
      */
@@ -20,6 +20,7 @@ export class BaseState
     update( dt ) { }
     /**
      * Executes draw logic of this state
+     * @param {CanvasRenderingContext2D} ctx The canvas context to draw with
      */
     draw( ctx ) { }
 }

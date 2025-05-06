@@ -1,5 +1,6 @@
 import { getCurrentAnimatorId, addInPool, removeFromPool, addAnimation, nextAnimation, getAnimationSpeed, setAnimationSpeed, getTweenManager } from "../driver.js"
 import { Animation } from "../Animation.js"
+import { TweenManager } from "../utils/index.js"
 
 /**
  * Represents an drawable entity which uses the framework functionalities and services of Animator to perform animations.
@@ -8,6 +9,8 @@ export class Entity
 {
     constructor()
     {
+        // Get the animator id of the current animator
+        // This is the animator which will be used to perform animations on this entity
         this.animatorId = getCurrentAnimatorId()
 
         /**
@@ -76,8 +79,8 @@ export class Entity
     /**
      * Remove the entity object ( this ) from animator
      * 
-     * Immediate effect: Entity object is marked removed and will not be able to register any more animations
-     * Animator queues the Action of removing this entity
+     * Immediate effect: Entity object is marked removed and will not be able to register any more animations and
+     * animator queues the Action of removing this entity
      * 
      * Animation effect: Entity gets removed from animator and disappears from the canvas.
      * Other entities move to fill the gap left by removed entity.
@@ -116,7 +119,7 @@ export class Entity
 
     /**
      * Notifies the entity that its turn has arrived and it can perform the requested animation
-     * @param {object} params bject containing all extra parameters required to complete animation. This is the same object which was passed in while calling addAnimation.
+     * @param {object} params object containing all extra parameters required to complete animation. This is the same object which was passed in while calling addAnimation.
      */
     notify( params ) { }
 
@@ -131,16 +134,28 @@ export class Entity
         nextAnimation( this.animatorId )
     }
 
+    /**
+     * Gets the current animation speed of the animator
+     * @returns {number} The current animation speed of the animator
+     */
     getAnimationSpeed()
     {
         return getAnimationSpeed( this.animatorId )
     }
 
+    /**
+     * Sets the animation speed of the animator
+     * @param {number} newSpeed The new animation speed of the animator. It must be between 0.1 and 5.0
+     */
     setAnimationSpeed( newSpeed )
     {
         setAnimationSpeed( this.animatorId, newSpeed )
     }
 
+    /**
+     * Gets the tween manager of the animator. It can be used to create tweens for this entity.
+     * @returns {TweenManager} The tween manager of the animator.
+     */
     getTweenManager()
     {
         return getTweenManager( this.animatorId )
@@ -154,6 +169,8 @@ export class Entity
 
     /**
      * Draws the entity. It is called on every frame if entity is registered to animator.
+     * 
+     * @param {CanvasRenderingContext2D} ctx The 2d context of canvas to draw with
      */
     draw( ctx ) { }
 

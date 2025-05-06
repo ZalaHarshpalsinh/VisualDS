@@ -13,7 +13,7 @@ export class StateMachine
     {
         /**
          * An object whose keys are state names and values are functions which return new object of those states.
-         * @type {BaseState[]}
+         * @type {object}
          */
         this.states = states ? states : {}
         /**
@@ -49,6 +49,7 @@ export class StateMachine
 
     /**
      * Performs the draw logic of current state of the state machine. Should be called on every frame.
+     * @param {CanvasRenderingContext2D} ctx The 2D rendering context for the drawing surface of a <canvas> element.
      */
     draw( ctx )
     {

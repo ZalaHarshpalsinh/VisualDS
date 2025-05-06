@@ -8,7 +8,11 @@ export class TweenManager
 {
     constructor()
     {
+        // Get the current animator ID
+        // This is used to identify the animator instance that created this tween manager
         this.animatorId = getCurrentAnimatorId() + 1
+
+
         /**
          * A map of all unfinished tweens
          * @type {Map<number, Tween>}
