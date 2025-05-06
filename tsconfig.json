@@ -4,7 +4,7 @@
                 "declaration": true, // Generate .d.ts files
                 "declarationMap": false, // Do not generate .d.ts.map files
                 "emitDeclarationOnly": true, // Only emit .d.ts files, no .js files
-                "outDir": "dist", // Output directory for .d.ts files
+                "outDir": "types", // Output directory for .d.ts files
                 "module": "ESNext", // Module system
                 "target": "ESNext", // Target JavaScript version
                 "allowJs": true, // Allow JavaScript files

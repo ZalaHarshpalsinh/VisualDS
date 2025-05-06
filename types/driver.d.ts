@@ -39,9 +39,9 @@ export function removeFromPool(animatorId: number, entity: Entity): void;
 /**
  * Registers an animation to the specified animator. The animation will be added to the queue of animations which will be executed one by one
  * @param {number} animatorId ID of the animator to which the animation should be registered.
- * @param {Animation} animObj Animation object to be registered.
+ * @param {Animation | Action} animObj Animation object to be registered.
  */
-export function addAnimation(animatorId: number, animObj: Animation): void;
+export function addAnimation(animatorId: number, animObj: Animation | Action): void;
 /**
  * Moves to the next animation in the queue of the specified animator. This should be called by the entity at the end of every animation, if it is not, next animations in the animator's queue will not execute.
  * @param {number} animatorId ID of the animator for which to move to the next animation.
@@ -54,4 +54,6 @@ export function nextAnimation(animatorId: number): void;
  */
 export function getTweenManager(animatorId: number): TweenManager;
 import { Entity } from "./entities/Entity.js";
+import { Animation } from "./Animation.js";
+import { Action } from "./Action.js";
 import { TweenManager } from "./utils/index.js";

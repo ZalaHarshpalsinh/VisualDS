@@ -13,10 +13,11 @@ export default [
         plugins: [ resolve(), terser() ], // Resolve imports and minify
     },
     {
-        input: "dist/VisualDS.d.ts", // Path to the generated declaration file
+        input: "types/VisualDS.d.ts", // Path to the generated declaration file
         output: {
             file: "dist/visualds.d.ts", // Output bundled declaration file
             format: "es",
         },
         plugins: [ dts() ],
-    } ];
+    }
+];

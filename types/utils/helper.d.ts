@@ -18,10 +18,10 @@ export function drawRectangle(ctx: CanvasRenderingContext2D, x: number, y: numbe
  * @param {number} y Y coordinate
  * @param {string} font font to use
  * @param {string} color color of text
- * @param {string} alignment horizontal allignment
- * @param {string} baseline vertical allignment
+ * @param {CanvasTextAlign} alignment horizontal alignment
+ * @param {CanvasTextBaseline} baseline vertical allignment
  */
-export function drawText(ctx: CanvasRenderingContext2D, text: string, x: number, y: number, font: string, color: string, alignment: string, baseline: string): void;
+export function drawText(ctx: CanvasRenderingContext2D, text: string, x: number, y: number, font: string, color: string, alignment: CanvasTextAlign, baseline: CanvasTextBaseline): void;
 /**
  * Draws a line with provided specifications
  * @param {CanvasRenderingContext2D} ctx canvas context to draw on

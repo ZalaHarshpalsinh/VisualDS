@@ -22,7 +22,7 @@ jobs:
 
             # Step 3: Install dependencies
             - name: Install dependencies
-              run: npm install
+              run: npm install --force
 
             # Step 4: Generate TypeScript declaration files
             - name: Generate .d.ts files
@@ -38,4 +38,4 @@ jobs:
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
                   publish_dir: ./dist # Deploy the /dist folder
-                  keep_files: true # Preserve old files (optional)
+                  keep_files: false # Preserve old files (optional)

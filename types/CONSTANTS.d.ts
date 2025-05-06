@@ -20,7 +20,7 @@
  * DEFAULT_COLOR : Default color
  *
  * @type {{
- *  VIRTUAL_WIDTH: number Abcd,
+ *  VIRTUAL_WIDTH: number,
  *  VIRTUAL_HEIGHT: number,
  *  ACTUAL_WIDTH: number,
  *  ACTUAL_HEIGHT: number,
@@ -33,7 +33,6 @@
  */
 export const cnt: {
     VIRTUAL_WIDTH: number;
-    Abcd: any;
     VIRTUAL_HEIGHT: number;
     ACTUAL_WIDTH: number;
     ACTUAL_HEIGHT: number;

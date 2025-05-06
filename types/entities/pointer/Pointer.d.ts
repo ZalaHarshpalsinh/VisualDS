@@ -93,7 +93,7 @@ export class Pointer extends Entity {
      * Hightlights the element where this pointer is pointing. No effect if isOutOfBound() returns true.
      * @param {string} color The color to highlight with
      */
-    highlight(color: string): void;
+    highlight(color?: string): void;
     /**
      * Unightlights the element where this pointer is pointing. No effect if isOutOfBound() returns true.
      */
