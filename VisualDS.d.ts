@@ -778,4 +778,3 @@ declare function linearSearch(inputArr: number[], target: number): void;
  */
 declare function binarySearch(sortedArr: number[], target: number): void;
 
-export { BaseState, Entity, StateMachine, TweenManager, binarySearch, bubbleSort, createVisualisation, drawLine, drawRectangle, drawText, getAnimationSpeed, getTextDimensions, insertionSort, linearSearch, mergeSort, selectionSort, setAnimationSpeed, vArray, vElement };
