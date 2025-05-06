@@ -375,6 +375,7 @@ export class Animator
     {
         /**
          * Object to hold the popped animation/action 
+         * @type {(Animation | Action) | undefined}
          */
         let animObj = undefined
 
@@ -384,46 +385,50 @@ export class Animator
             // Change state
             this.state = 'animating'
 
-            // Check if it is one of the valid actions
-            if ( animObj.type == 'add' )
+            if ( isAction( animObj ) )
             {
-                // Assign current position of brush to entity's coordinates.
-                animObj.params.entity.setCoordinates( this.brush.x, this.brush.y )
-                /** 
-                 * Move the brush to next location based on width/height of entity.
-                 * Margin between entities is a Framework Level Constant.
-                 */
-                this.brush.y += animObj.params.entity.height + cnt.MARGIN_Y
-                // Actually add the entity to dsPool
-                this.dsPool.push( animObj.params.entity )
-                // Move to next animation/action by transitioning to idle state
-                this.nextAnimation()
-            }
-            else if ( animObj.type == 'remove' )
-            {
-                // Actually remove the entity from dsPool
-                this.dsPool.splice( this.dsPool.indexOf( animObj.params.entity ), 1 )
-                /**
-                 * Compact the entities to fill the space left by removed entity.
-                 * After compaction process will be finished, brush will point to an empty location available for assignment to next entity 
-                */
-                this.compactEntities()
-                // Call the cleanUp() function of entity so that it can perform clean up tasks before leaving
-                animObj.params.entity.cleanUp()
-                // Move to next animation/action by transitioning to idle state
-                this.nextAnimation()
-            }
-            else if ( animObj.type == 'change_speed' )
-            {
-                // Set the new animation
-                this.animationSpeed = animObj.params.newSpeed
-                this.nextAnimation()
-            }
-            // It is an action, but not a valid one
-            else if ( animObj.type )
-            {
-                console.log( "Invalid command" )
-                this.nextAnimation()
+
+                // Check if it is one of the valid actions
+                if ( animObj.type == 'add' )
+                {
+                    // Assign current position of brush to entity's coordinates.
+                    animObj.params.entity.setCoordinates( this.brush.x, this.brush.y )
+                    /** 
+                     * Move the brush to next location based on width/height of entity.
+                     * Margin between entities is a Framework Level Constant.
+                     */
+                    this.brush.y += animObj.params.entity.height + cnt.MARGIN_Y
+                    // Actually add the entity to dsPool
+                    this.dsPool.push( animObj.params.entity )
+                    // Move to next animation/action by transitioning to idle state
+                    this.nextAnimation()
+                }
+                else if ( animObj.type == 'remove' )
+                {
+                    // Actually remove the entity from dsPool
+                    this.dsPool.splice( this.dsPool.indexOf( animObj.params.entity ), 1 )
+                    /**
+                     * Compact the entities to fill the space left by removed entity.
+                     * After compaction process will be finished, brush will point to an empty location available for assignment to next entity 
+                    */
+                    this.compactEntities()
+                    // Call the cleanUp() function of entity so that it can perform clean up tasks before leaving
+                    animObj.params.entity.cleanUp()
+                    // Move to next animation/action by transitioning to idle state
+                    this.nextAnimation()
+                }
+                else if ( animObj.type == 'change_speed' )
+                {
+                    // Set the new animation
+                    this.animationSpeed = animObj.params.newSpeed
+                    this.nextAnimation()
+                }
+                // It is an action, but not a valid one
+                else
+                {
+                    console.log( "Invalid command" )
+                    this.nextAnimation()
+                }
             }
             // It is an animation request
             else
@@ -470,4 +475,14 @@ export class Animator
         // restore the context to its original state
         this.context.restore()
     }
+}
+
+/**
+ * Type guard to check if animObj is an Action
+ * @param {Animation | Action} animObj
+ * @returns {animObj is Action}
+ */
+function isAction( animObj )
+{
+    return animObj.hasOwnProperty( 'type' )
 }

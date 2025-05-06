@@ -187,7 +187,7 @@ export class Pointer extends Entity
      * Hightlights the element where this pointer is pointing. No effect if isOutOfBound() returns true.
      * @param {string} color The color to highlight with
      */
-    highlight( color )
+    highlight( color = 'blue' )
     {
         if ( !this.isOutOfBound() )
             this.pointee.highlight( [ this.index ], color )

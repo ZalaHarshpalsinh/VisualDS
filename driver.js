@@ -1,6 +1,8 @@
 import { Animator } from "./Animator.js"
 import { Entity } from "./entities/Entity.js"
 import { TweenManager } from "./utils/index.js"
+import { Animation } from "./Animation.js"
+import { Action } from "./Action.js"
 
 /**
  * Array of animator objects. Each animator object is responsible for a single canvas.
@@ -32,7 +34,7 @@ function createVisualisation( cnvId, userScript )
      * A reference of canvas on which everything will be drawn
      * @type {HTMLCanvasElement}
      */
-    const cnv = document.getElementById( cnvId )
+    const cnv = /** @type {HTMLCanvasElement} */ ( document.getElementById( cnvId ) )
 
     /**
      * A reference of 2D context of canvas
@@ -46,7 +48,7 @@ function createVisualisation( cnvId, userScript )
     animators.push( animator )
 
     /** controller object which will be passed to the user given code to control the animation speed and other properties of the animator
-    * @type {{setAnimationSpeed: function(newSpeed): void}}
+    * @type {{setAnimationSpeed: function(number): void}}
     */
     let controller = {
         setAnimationSpeed: ( newSpeed ) => animator.setAnimationSpeed( newSpeed )
@@ -153,7 +155,7 @@ function removeFromPool( animatorId, entity )
 /**
  * Registers an animation to the specified animator. The animation will be added to the queue of animations which will be executed one by one
  * @param {number} animatorId ID of the animator to which the animation should be registered.
- * @param {Animation} animObj Animation object to be registered.
+ * @param {Animation | Action} animObj Animation object to be registered.
  */
 function addAnimation( animatorId, animObj )
 {

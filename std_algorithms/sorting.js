@@ -152,20 +152,20 @@ function mergeSort( inputArr )
 
         // create two temporary arrays to hold the left and right halves of the array
         // add a '#' at the end of each array to indicate the end of the array (# is treated as infinity)
-        let left = [], right = []
+        let leftTmp = [], rightTmp = []
         for ( let i = s; i <= m; i++ )
         {
-            left.push( arr.get( i ) )
+            leftTmp.push( arr.get( i ) )
         }
-        left.push( '#' )
+        leftTmp.push( '#' )
         for ( let i = m + 1; i <= e; i++ )
         {
-            right.push( arr.get( i ) )
+            rightTmp.push( arr.get( i ) )
         }
-        right.push( '#' )
+        rightTmp.push( '#' )
 
         // wrap the left and right arrays in vArray along with proper names
-        left = new vArray( left, 'left' ), right = new vArray( right, 'right' )
+        let left = new vArray( leftTmp, 'left' ), right = new vArray( rightTmp, 'right' )
         // highlight the entire left and right arrays in different colors
         left.highlightRange( 0, left.length() - 1, 'Turquoise' )
         right.highlightRange( 0, right.length() - 1, 'Tomato' )

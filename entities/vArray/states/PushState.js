@@ -45,7 +45,11 @@ export class PushState extends BaseState
         let target = newBox.getCoordinates()
 
         //move new box to spawn point for animation
-        let spawnPoint = 0
+        /**
+         * @type {{x: number, y: number}}
+         */
+        let spawnPoint = { x: 0, y: 0 }
+
         if ( type == 'front' )
             spawnPoint = { x: this.varray.x - this.varray.boxWidth - this.spawnDistance, y: this.varray.y }
         else

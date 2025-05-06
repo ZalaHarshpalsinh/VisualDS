@@ -34,10 +34,10 @@ function drawRectangle( ctx, x, y, width, height, fillColor, borderColor, border
  * @param {number} y Y coordinate
  * @param {string} font font to use
  * @param {string} color color of text
- * @param {string} alignment horizontal allignment
- * @param {string} baseline vertical allignment
+ * @param {CanvasTextAlign} alignment horizontal alignment
+ * @param {CanvasTextBaseline} baseline vertical allignment
  */
-function drawText( ctx, text, x, y, font, color, alignment, baseline )
+function drawText( ctx, text, x, y, font, color, alignment /** @type {CanvasTextAlign} */, baseline )
 {
     // save the context
     ctx.save()
