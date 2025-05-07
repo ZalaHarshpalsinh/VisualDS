@@ -35,7 +35,7 @@ export class PropertyChangeState extends BaseState
             // update the drawVal of the vElement
             this.velement.drawVal = this.data.newVal
             // update the text too
-            this.velement.text = this.velement.drawVal.toString().split( '\n' )
+            this.velement.text = this.velement.drawVal.toString().split( '\n' ) ?? [ '0' ]
             // update height and width according to the new text
             this.velement.syncDataAndVisual();
         }
