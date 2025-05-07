@@ -406,17 +406,29 @@ declare class vElement extends Entity {
      * Changes the state of the vElement object.
      * @param {string} toState The state to which to change
      * @param {object} enterParams An object containing the parameters required to enter the state and to be passed to the state's enter function.
+     *
+     * @ignore
      */
     changeState(toState: string, enterParams: object): void;
     /**
      * Calculates and sets the box's dimensions based on text and label (Dynamic adjustmenet of dimensions)
      * This is called when the text or label is changed, or when the vElement is created.
+     * @ignore
      */
     syncDataAndVisual(): void;
     /**
      * Sets the new value of the encapsulated object
      * @param {*} val The new value
      * @param {boolean} highlight Is the vElement to be highlighted while showing the change on the screen
+     *
+     * @example <caption>Normal vanilla JS code</caption>
+     * //Vanilla Js
+     * let myVaribale = 10
+     *
+     * @example <caption>Corresponding code using vElement</caption>
+     * //Using vElement
+     * let myVariable = new VisualDS.vElement( 10, "myVariable" )
+     * let x = new vElement(10)
      */
     setVal(val: any, highlight?: boolean): void;
     /**
@@ -499,38 +511,49 @@ declare class vArray extends Entity {
     /**
      * Updates all the vElement objects encapsulated in this vArray
      * @param {number} dt The delta time
+     *
+     * @ignore
      */
     updateBoxes(dt: number): void;
     /**
      * Updates all the pointers encapsulated in this vArray
      * @param {number} dt The delta time
+     *
+     * @ignore
      */
     updatePointers(dt: number): void;
-    update(dt: any): void;
     /**
      * Draws the boxes for each element, basically just delegates to the draw of each vElement object in drawData
      * @param {CanvasRenderingContext2D} ctx The canvas context to draw on
+     *
+     * @ignore
      */
     drawBoxes(ctx: CanvasRenderingContext2D): void;
     /**
      * Draws all the pointers associated with this array
      * @param {CanvasRenderingContext2D} ctx The canvas context to draw on
+     *
+     * @ignore
      */
     drawPointers(ctx: CanvasRenderingContext2D): void;
-    draw(ctx: any): void;
-    notify(params: any): void;
     /**
      * Changes the state of the state machine to the given state
      * @param {string} toState The state to change to
      * @param {*} enterParams The object containing all the parameters required to enter the state
+     *
+     * @ignore
      */
     changeState(toState: string, enterParams: any): void;
     /**
      * Updates the boxWidth, boxHeight, Width, Height based on biggest vElement in drawData
+     *
+     * @ignore
      */
     syncDimensions(): void;
     /**
      * Updates the coordinates of each box, based on starting coordinates of array and boxWidth
+     *
+     * @ignore
      */
     syncCoordinates(): void;
     /**
@@ -658,22 +681,24 @@ declare class Pointer extends Entity {
      * @type {StateMachine}
      */
     stateMachine: StateMachine;
-    update(dt: any): void;
     /**
      * Draws an arrow along with label and index
      * @param {CanvasRenderingContext2D} ctx The canvas context to draw on
+     *
+     * @ignore
      */
     drawArrow(ctx: CanvasRenderingContext2D): void;
-    draw(ctx: any): void;
-    notify(params: any): void;
     /**
      * Changes the state of the state machine to the given state
      * @param {string} toState The state to change to
      * @param {*} enterParams The object containing all the parameters required to enter the state
+     *
+     * @ignore
      */
     changeState(toState: string, enterParams: any): void;
     /**
      * Calculates the coordinates of pointer based on the vArray object coordinates and the index
+     * @ignore
      */
     syncCoordinates(): void;
     /**
