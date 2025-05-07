@@ -18,7 +18,7 @@
         "showAccessFilter"      : "true",
         "collapseSymbols"       : "false",
         "sort"                  : "linenum",
-        "scripts"               : ["https://zalaharshpalsinh.github.io/VisualDS/visualds.min.js","./custom.js"]
+        "scripts"               : ["https://zalaharshpalsinh.github.io/VisualDS/dist/visualds.min.js","./custom.js"]
     }
 }
     
