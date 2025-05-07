@@ -1,6 +1,6 @@
 {
     "source": {
-        "include": ["./entities/vArray/vArray.js", "./entities/Pointer/Pointer.js", "./entities/vElement/vElement.js" ,"./std_algorithms/searching.js", "./std_algorithms/sorting.js"],
+        "include": ["./entities/vArray/vArray.js", "./entities/pointer/Pointer.js", "./entities/vElement/vElement.js" ,"./std_algorithms/searching.js", "./std_algorithms/sorting.js"],
         "includePattern": ".+\\.js(doc|x)?$",
         "excludePattern": "(^|\\/|\\\\)_"
     },
