@@ -204,7 +204,7 @@ export class vElement extends Entity
          * The text representation of the drawVal object, as an array of strings which are to be drawn on separate lines
          * @type {string[]}
          */
-        this.text = this.drawVal.toString().split( '\n' ) ?? [ '0' ]
+        this.text = this.drawVal ? this.drawVal.toString().split( '\n' ) : [ '0' ]
 
         // now that properties are set, update the height and width based on text and label
         this.syncDataAndVisual()
