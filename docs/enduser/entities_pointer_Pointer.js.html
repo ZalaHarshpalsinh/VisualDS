@@ -1,0 +1,389 @@
+<!-- start:source.tmpl.hbs -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width">
+		<title>entities/pointer/Pointer.js</title>
+		<!--[if lt IE 9]>
+		<script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+		<![endif]-->
+		<link href="https://fonts.googleapis.com/css?family=PT+Mono" rel="stylesheet">
+		<link type="text/css" rel="stylesheet" href="css/bootstrap.min.css">
+		<link type="text/css" rel="stylesheet" href="css/prism.min.css">
+		<link type="text/css" rel="stylesheet" href="css/template.min.css">
+			<style>
+				.page-header,
+				pre.code-toolbar > .toolbar:hover {
+					background-color: #049453;
+				}
+				.callout-primary,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus,
+				pre.code-toolbar > .toolbar:hover {
+					border-left-color: #049453;
+				}
+				pre.code-toolbar > .toolbar:hover {
+					border-bottom-color: #049453;
+				}
+				.callout-primary h5,
+				.symbol-title.collapsible-symbol .toggle-icon,
+				.breadcrumb li a,
+				.toc .nav > li > a:hover,
+				.toc .nav > li > a:focus,
+				.toc .nav > li.active > a,
+				.toc .nav > li.active > a:hover,
+				.toc .nav > li.active > a:focus {
+					color: #049453;
+				}
+			</style>
+		<script type="text/javascript">
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"VisualDS","systemSummary":"A javascript library for code driven visualization of data structures and algorithms.","systemLogo":"","systemColor":"#049453","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.","linenums":true,"collapseSymbols":"false","inverseNav":"true","inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":"true","showAccessFilter":"true","analytics":null,"methodHeadingReturns":true,"sort":"linenum","search":true,"favicon":null,"stylesheets":[],"scripts":["https://zalaharshpalsinh.github.io/VisualDS/visualds.min.js","./custom.js"],"monospaceLinks":false,"cleverLinks":false};
+			window.DOCLET_TOC_ENABLED = false;
+			window.DOCLET_AFILTER_ENABLED = false;
+		</script>
+</head>
+<body>
+	<!-- start:navbar.hbs -->
+	<header class="navbar navbar-default navbar-fixed-top navbar-inverse">
+		<div class="container">
+			<div class="navbar-header">
+				<a class="navbar-brand" href="index.html">
+					VisualDS
+				</a>
+				<!-- displayed on small devices -->
+				<button class="navbar-toggle" type="button" data-toggle="collapse" data-target="#topNavigation">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+			</div>
+			<div class="navbar-collapse collapse" id="topNavigation">
+				<ul class="nav navbar-nav">
+								<li class="dropdown">
+									<a href="global.html" class="dropdown-toggle" data-toggle="dropdown">Globals<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="global.html#binarySearch">binarySearch</a></li>
+											<li><a href="global.html#bubbleSort">bubbleSort</a></li>
+											<li><a href="global.html#insertionSort">insertionSort</a></li>
+											<li><a href="global.html#linearSearch">linearSearch</a></li>
+											<li><a href="global.html#mergeSort">mergeSort</a></li>
+											<li><a href="global.html#selectionSort">selectionSort</a></li>
+									</ul>
+								</li>
+								<li class="dropdown">
+									<a href="list_class.html" class="dropdown-toggle" data-toggle="dropdown">Classes<b class="caret"></b></a>
+									<ul class="dropdown-menu">
+											<li><a href="Pointer.html">Pointer</a></li>
+											<li><a href="vArray.html">vArray</a></li>
+											<li><a href="vElement.html">vElement</a></li>
+									</ul>
+								</li>
+				</ul>
+					<!-- start:lunr-search-navbar.hbs -->
+					<form class="navbar-form navbar-right" role="search">
+						<div class="input-group">
+							<input type="text" class="form-control" placeholder="Search" id="lunr-search-input">
+							<div class="input-group-btn">
+								<button class="btn btn-default" id="lunr-search-submit">
+									<i class="glyphicon glyphicon-search"></i>
+								</button>
+							</div>
+						</div>
+					</form>
+					<!-- start:lunr-search-navbar.hbs -->		</div>
+		</div>
+	</header>
+	<!-- end:navbar.hbs -->		<div class="page-header">
+			<div class="container">
+				<span class="kind">source</span>
+				<h1><span class="name">entities/pointer/Pointer.js</span></h1>
+			</div>
+		</div>
+	<div class="container content">
+		<div class="row">
+			<div class="col-md-12 main-content">
+		<section class="source-section">
+			<article></article>
+			<pre class="prettyprint source language-javascript line-numbers"><code class="language-javascript">import { Entity } from "../Entity.js"
+import { drawText, StateMachine } from "../../utils/index.js"
+import { IdleState, MovingState } from "./states/index.js"
+import { vArray } from "../vArray/vArray.js"
+
+/**
+ * This class represents a visual array index variable.
+ * 
+ * DO NOT create an object of this using the constructor.
+ * Always use getPointer() method of vArray to get an object of this.
+ */
+export class Pointer extends Entity
+{
+    /**
+     * @param {vArray} pointee The vArray object this Pointer object will point to
+     * @param {number} initialIndex The initial index
+     * @param {string} label The label to show below this pointer. Defaults to empty string.
+     */
+    constructor( pointee, initialIndex, label = '' )
+    {
+        super()
+
+        /**
+         * The vArray object this Pointer object will point to
+         * @type {vArray}
+         */
+        this.pointee = pointee
+
+        // again we need two copies of index. One that changes as soon as user makes changes.
+        // Other that changes through animations and which is utilized for drawing.
+
+        /**
+         * The index at which this pointer is pointing to. This is the index that changes when user makes changes.
+         * @type {number}
+         */
+        this.index = initialIndex
+
+        /**
+         * The index at which this pointer is drawn. This is the index that changes when animations are scheduled.
+         * @type {number}
+         */
+        this.drawIndex = Math.max( -1, Math.min( this.pointee.length(), initialIndex ) )
+
+        /**
+         * The label to show below this pointer
+         * @type {string}
+         */
+        this.label = label
+
+        // now that properties are initialized, sync the coordinates of pointer based on the vArray coordinates and the index
+        this.syncCoordinates()
+
+        /**
+         * The state machine to handle the states of this pointer. Initial state is idle.
+         * @type {StateMachine}
+         */
+        this.stateMachine = new StateMachine( {
+            idle: () => new IdleState( this ),
+            moving: () => new MovingState( this )
+        }, 'idle' )
+    }
+
+    /**
+     * @param {number} dt The delta time
+     * 
+     * @ignore
+     */
+    update( dt )
+    {
+        this.stateMachine.update( dt )
+    }
+
+    /**
+     * Draws an arrow along with label and index
+     * @param {CanvasRenderingContext2D} ctx The canvas context to draw on 
+     * 
+     * @ignore
+     */
+    drawArrow( ctx )
+    {
+        //draw the arrow
+        drawText( ctx, "↑", this.x, this.y, "14px Arial", 'red', 'center', 'top' )
+        //draw the label and index
+        drawText( ctx, `${this.label}${this.label ? ': ' : ''}${this.drawIndex}`, this.x, this.y + 14, '9px Arial', 'blue', 'center', 'top' )
+    }
+
+    /**
+     * @param {CanvasRenderingContext2D} ctx the canvas context to draw on
+     * 
+     * @ignore
+     */
+    draw( ctx )
+    {
+        // draw the arrow and label
+        this.drawArrow( ctx )
+    }
+
+    /**
+     * @param {object} params the object containing the parameters for the animation 
+     * @ignore
+     */
+    notify( params )
+    {
+        // this is called by the animator when its this entity's turn to perform the requested animation
+        // use the params object to change to approperiate state to perform the animation
+        let { toState, enterParams } = params
+        this.changeState( toState, enterParams )
+    }
+
+    /**
+     * Changes the state of the state machine to the given state
+     * @param {string} toState The state to change to
+     * @param {*} enterParams The object containing all the parameters required to enter the state
+     * 
+     * @ignore
+     */
+    changeState( toState, enterParams )
+    {
+        this.stateMachine.change( toState, enterParams )
+    }
+
+    /**
+     * Calculates the coordinates of pointer based on the vArray object coordinates and the index
+     * @ignore
+     */
+    syncCoordinates()
+    {
+        this.x = ( this.pointee.x ) + ( this.pointee.boxWidth / 2 ) + ( this.drawIndex * this.pointee.boxWidth )
+        this.y = ( this.pointee.y ) + ( this.pointee.boxHeight )
+    }
+
+    /**
+     * Get the current index value of the pointer
+     * @returns current index value
+     */
+    getIndex()
+    {
+        return this.index
+    }
+
+    /**
+     * Check whether the current index value is out of the bounds of vArray
+     * @returns {boolean} true if the index is out of bounds, false otherwise
+     */
+    isOutOfBound()
+    {
+        return ( this.index &lt; 0 || this.index >= this.pointee.length() )
+    }
+
+    /**
+     * Moves the pointer by the specified amount of change in index value.
+     * @param {number} change The change to add in the index. Positive moves it ahead, negative moves it back.
+     * 
+     * You can change the index however you want: no exception is thrown.
+     * Instead, to handle such cases, the drawIndex value is capped till one before start and one after the end of array.
+     */
+    move( change )
+    {
+        // get the old index in range -1 to length
+        let oldIndexCapped = Math.max( -1, Math.min( this.pointee.length(), this.index ) )
+
+        // immediately change one copy
+        this.index += change
+
+        // get the new index in same range
+        let newIndexCapped = Math.max( -1, Math.min( this.pointee.length(), this.index ) )
+
+        // calculate change
+        change = newIndexCapped - oldIndexCapped
+
+        // schedule animation for moving the pointer and changing the drawIndex
+        if ( change != 0 )
+            super.addAnimation( { toState: 'moving', enterParams: { change: change } } )
+    }
+
+    /**
+     * Moves the pointer to a specified index
+     * @param index The index to move to
+     */
+    moveTo( index )
+    {
+        this.move( index - this.getIndex() )
+    }
+
+    /**
+     * Increment the index of pointer by 1
+     * 
+     * Same as calling move(1)
+     */
+    increment()
+    {
+        this.move( 1 )
+    }
+
+    /**
+     * Decrement the index of pointer by 1
+     * 
+     * Same as calling move(-1)
+     */
+    decrement()
+    {
+        this.move( -1 )
+    }
+
+    /**
+     * Hightlights the element where this pointer is pointing. No effect if isOutOfBound() returns true.
+     * @param {string} color The color to highlight with
+     */
+    highlight( color = 'blue' )
+    {
+        if ( !this.isOutOfBound() )
+            this.pointee.highlight( [ this.index ], color )
+    }
+
+    /**
+     * Unightlights the element where this pointer is pointing. No effect if isOutOfBound() returns true.
+     */
+    unhighlight()
+    {
+        if ( !this.isOutOfBound() )
+            this.pointee.unhighlight( [ this.index ] )
+    }
+
+    /**
+     * Removes this pointer from the drawing pool. Also, no animations can be queued after this feom this pointer.
+     */
+    remove()
+    {
+        this.removed = true
+        this.pointee.removePointer( this )
+    }
+
+    /**
+     * @ignore
+     */
+    cleanUp()
+    {
+        // throw away references to the objects to free up memory
+        this.drawIndex = null
+        this.pointee = null
+        this.stateMachine = null
+    }
+}</code></pre>
+		</section>
+			</div>
+		</div>
+	</div>
+	<footer>
+				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 7th May 2025 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+	</footer>
+	<script src="js/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
+	<script src="js/clipboard.min.js"></script>
+	<script src="js/prism.min.js"></script>
+	<script src="js/template.min.js"></script>
+		<!-- start:lunr-search-modal.hbs -->
+		<div class="modal fade" id="lunr-search-modal">
+			<div class="modal-dialog">
+				<div class="modal-content">
+					<div class="modal-header">
+						<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+						<h4 class="modal-title">Search results</h4>
+					</div>
+					<div class="modal-body" id="lunr-search-body">
+					</div>
+					<div class="modal-footer" id="lunr-search-footer">
+						<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+					</div>
+				</div><!-- /.modal-content -->
+			</div><!-- /.modal-dialog -->
+		</div>
+		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
+		<script src="https://zalaharshpalsinh.github.io/VisualDS/visualds.min.js"></script>
+		<script src="./custom.js"></script>
+	
+</body>
+</html>
+<!-- end:source.tmpl.hbs -->
