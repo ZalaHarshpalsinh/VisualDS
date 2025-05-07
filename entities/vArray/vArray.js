@@ -111,6 +111,8 @@ export class vArray extends Entity
     /**
      * Updates all the vElement objects encapsulated in this vArray
      * @param {number} dt The delta time
+     * 
+     * @ignore
      */
     updateBoxes( dt )
     {
@@ -124,6 +126,8 @@ export class vArray extends Entity
     /**
      * Updates all the pointers encapsulated in this vArray
      * @param {number} dt The delta time
+     * 
+     * @ignore
      */
     updatePointers( dt )
     {
@@ -136,6 +140,11 @@ export class vArray extends Entity
         } )
     }
 
+    /**
+     * @param {number} dt The delta time
+     * 
+     * @ignore
+     */
     update( dt )
     {
         //update each box
@@ -151,6 +160,8 @@ export class vArray extends Entity
     /**
      * Draws the boxes for each element, basically just delegates to the draw of each vElement object in drawData
      * @param {CanvasRenderingContext2D} ctx The canvas context to draw on 
+     * 
+     * @ignore
      */
     drawBoxes( ctx )
     {
@@ -164,6 +175,8 @@ export class vArray extends Entity
     /**
      * Draws all the pointers associated with this array
      * @param {CanvasRenderingContext2D} ctx The canvas context to draw on
+     * 
+     * @ignore
      */
     drawPointers( ctx )
     {
@@ -173,6 +186,11 @@ export class vArray extends Entity
         } )
     }
 
+    /**
+     * @param {CanvasRenderingContext2D} ctx the canvas context to draw on
+     * 
+     * @ignore
+     */
     draw( ctx )
     {
         // draw the label
@@ -183,6 +201,10 @@ export class vArray extends Entity
         this.drawPointers( ctx )
     }
 
+    /**
+     * @param {object} params the object containing the parameters for the animation 
+     * @ignore
+     */
     notify( params )
     {
         // this is called by the animator when its this entity's turn to perform the requested animation
@@ -195,6 +217,8 @@ export class vArray extends Entity
      * Changes the state of the state machine to the given state
      * @param {string} toState The state to change to
      * @param {*} enterParams The object containing all the parameters required to enter the state
+     * 
+     * @ignore
      */
     changeState( toState, enterParams )
     {
@@ -203,6 +227,8 @@ export class vArray extends Entity
 
     /**
      * Updates the boxWidth, boxHeight, Width, Height based on biggest vElement in drawData
+     * 
+     * @ignore
      */
     syncDimensions()
     {
@@ -227,6 +253,8 @@ export class vArray extends Entity
 
     /**
      * Updates the coordinates of each box, based on starting coordinates of array and boxWidth
+     * 
+     * @ignore
      */
     syncCoordinates()
     {
@@ -436,6 +464,9 @@ export class vArray extends Entity
         this.addAnimation( { toState: 'property_change', enterParams: { type: 'remove_pointer', pointer: ptr } } )
     }
 
+    /**
+     * @ignore
+     */
     cleanUp()
     {
         // mask every vElement and pointer as removed, so that they are not drawn anymore

@@ -32,10 +32,21 @@ jobs:
             - name: Build the project
               run: npx rollup -c
 
-            # Step 6: Deploy to GitHub Pages
+            # Step 6: Generate documentation for end user
+            - name: Generate documentation
+              run: npx jsdoc -c jsdoc.json
+
+            # Step 7: Move documentation to the dist folder
+            - name: Prepare deployment directory
+              run: |
+                  mkdir -p publish_dir
+                  cp -r ./dist ./publish_dir/
+                  cp -r ./docs ./publish_dir/
+
+            # Step 8: Deploy to GitHub Pages
             - name: Commit and push changes
               uses: peaceiris/actions-gh-pages@v3
               with:
                   github_token: ${{ secrets.GITHUB_TOKEN }}
-                  publish_dir: ./dist # Deploy the /dist folder
+                  publish_dir: ./publish_dir # Deploy the /dist folder
                   keep_files: false # Preserve old files (optional)

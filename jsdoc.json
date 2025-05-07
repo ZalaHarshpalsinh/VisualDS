@@ -1,0 +1,24 @@
+{
+    "source": {
+        "include": ["./entities/vArray/vArray.js", "./entities/Pointer/Pointer.js", "./entities/vElement/vElement.js" ,"./std_algorithms/searching.js", "./std_algorithms/sorting.js"],
+        "includePattern": ".+\\.js(doc|x)?$",
+        "excludePattern": "(^|\\/|\\\\)_"
+    },
+    "opts": {
+        "destination": "./docs/enduser/",
+        "recurse": true,
+        "template": "node_modules/foodoc/template"
+    },
+        "templates": {
+        "systemName"            : "VisualDS",
+        "systemSummary"         : "A javascript library for code driven visualization of data structures and algorithms.",
+        "systemColor"           : "#049453",
+        "inverseNav"            : "true",
+        "showTableOfContents"   : "true",
+        "showAccessFilter"      : "true",
+        "collapseSymbols"       : "false",
+        "sort"                  : "linenum",
+        "scripts"               : ["https://zalaharshpalsinh.github.io/VisualDS/visualds.min.js","./custom.js"]
+    }
+}
+    

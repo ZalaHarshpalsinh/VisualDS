@@ -5,16 +5,25 @@ import { IdleState, PropertyChangeState } from './states/index.js'
 
 /**
  * Default padding on X axis to use in vElement within the box
+ * @type {number}
+ * @constant
+ * @ignore
  */
 const PAD_X = 8
 
 /**
  * Default padding on Y axis to use in vElement within the box
+ * @type {number}
+ * @constant
+ * @ignore
  */
 const PAD_Y = 8
 
 /**
  * Default line gap to use to draw text in vElement
+ * @type {number}
+ * @constant
+ * @ignore
  */
 const LINE_GAP = 5
 
@@ -111,6 +120,8 @@ export class vElement extends Entity
      * Updates the vElement object on every frame.
      * This is the function that is called by the animator or master entity on every frame.
      * @param {number} dt Delta time since last update
+     * 
+     * @ignore
      */
     update( dt )
     {
@@ -124,6 +135,8 @@ export class vElement extends Entity
      * 
      * Actually draws the encapsulated object inside a box, with the single/multi line text provided by the toString().
      * @param {CanvasRenderingContext2D} ctx The canvas context to draw on
+     * 
+     * @ignore
      */
     draw( ctx )
     {
@@ -158,6 +171,8 @@ export class vElement extends Entity
     /**
      * Nofies the vElement object to change its state. This is called by the animator or master entity when an animation is to be executed.
      * @param {object} params An object which was registered by the entity during animation registration.
+     * 
+     * @ignore
      */
     notify( params )
     {
@@ -170,6 +185,8 @@ export class vElement extends Entity
      * Changes the state of the vElement object.
      * @param {string} toState The state to which to change
      * @param {object} enterParams An object containing the parameters required to enter the state and to be passed to the state's enter function.
+     * 
+     * @ignore
      */
     changeState( toState, enterParams )
     {
@@ -179,6 +196,7 @@ export class vElement extends Entity
     /**
      * Calculates and sets the box's dimensions based on text and label (Dynamic adjustmenet of dimensions)
      * This is called when the text or label is changed, or when the vElement is created.
+     * @ignore
      */
     syncDataAndVisual()
     {
@@ -216,6 +234,15 @@ export class vElement extends Entity
      * Sets the new value of the encapsulated object
      * @param {*} val The new value
      * @param {boolean} highlight Is the vElement to be highlighted while showing the change on the screen
+     * 
+     * @example <caption>Normal vanilla JS code</caption>
+     * //Vanilla Js
+     * let myVaribale = 10
+     * 
+     * @example <caption>Corresponding code using vElement</caption>
+     * //Using vElement
+     * let myVariable = new VisualDS.vElement( 10, "myVariable" )
+     * let x = new vElement(10)
      */
     setVal( val, highlight = true )
     {
@@ -286,7 +313,17 @@ export class vElement extends Entity
     }
 
     /**
+     * Remove the vElement from the visualization
+     */
+    remove()
+    {
+        // Call the parent class remove function to remove the object from the pool
+        super.remove()
+    }
+
+    /**
      * Performs the cleanup tasks for the vElement. It is called when the vElement is removed from the pool or destroyed.
+     * @ignore
      */
     cleanUp()
     {

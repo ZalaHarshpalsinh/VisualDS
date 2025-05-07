@@ -60,6 +60,11 @@ export class Pointer extends Entity
         }, 'idle' )
     }
 
+    /**
+     * @param {number} dt The delta time
+     * 
+     * @ignore
+     */
     update( dt )
     {
         this.stateMachine.update( dt )
@@ -68,6 +73,8 @@ export class Pointer extends Entity
     /**
      * Draws an arrow along with label and index
      * @param {CanvasRenderingContext2D} ctx The canvas context to draw on 
+     * 
+     * @ignore
      */
     drawArrow( ctx )
     {
@@ -77,12 +84,21 @@ export class Pointer extends Entity
         drawText( ctx, `${this.label}${this.label ? ': ' : ''}${this.drawIndex}`, this.x, this.y + 14, '9px Arial', 'blue', 'center', 'top' )
     }
 
+    /**
+     * @param {CanvasRenderingContext2D} ctx the canvas context to draw on
+     * 
+     * @ignore
+     */
     draw( ctx )
     {
         // draw the arrow and label
         this.drawArrow( ctx )
     }
 
+    /**
+     * @param {object} params the object containing the parameters for the animation 
+     * @ignore
+     */
     notify( params )
     {
         // this is called by the animator when its this entity's turn to perform the requested animation
@@ -95,6 +111,8 @@ export class Pointer extends Entity
      * Changes the state of the state machine to the given state
      * @param {string} toState The state to change to
      * @param {*} enterParams The object containing all the parameters required to enter the state
+     * 
+     * @ignore
      */
     changeState( toState, enterParams )
     {
@@ -103,6 +121,7 @@ export class Pointer extends Entity
 
     /**
      * Calculates the coordinates of pointer based on the vArray object coordinates and the index
+     * @ignore
      */
     syncCoordinates()
     {
@@ -211,6 +230,9 @@ export class Pointer extends Entity
         this.pointee.removePointer( this )
     }
 
+    /**
+     * @ignore
+     */
     cleanUp()
     {
         // throw away references to the objects to free up memory
