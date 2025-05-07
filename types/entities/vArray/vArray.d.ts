@@ -58,38 +58,49 @@ export class vArray extends Entity {
     /**
      * Updates all the vElement objects encapsulated in this vArray
      * @param {number} dt The delta time
+     *
+     * @ignore
      */
     updateBoxes(dt: number): void;
     /**
      * Updates all the pointers encapsulated in this vArray
      * @param {number} dt The delta time
+     *
+     * @ignore
      */
     updatePointers(dt: number): void;
-    update(dt: any): void;
     /**
      * Draws the boxes for each element, basically just delegates to the draw of each vElement object in drawData
      * @param {CanvasRenderingContext2D} ctx The canvas context to draw on
+     *
+     * @ignore
      */
     drawBoxes(ctx: CanvasRenderingContext2D): void;
     /**
      * Draws all the pointers associated with this array
      * @param {CanvasRenderingContext2D} ctx The canvas context to draw on
+     *
+     * @ignore
      */
     drawPointers(ctx: CanvasRenderingContext2D): void;
-    draw(ctx: any): void;
-    notify(params: any): void;
     /**
      * Changes the state of the state machine to the given state
      * @param {string} toState The state to change to
      * @param {*} enterParams The object containing all the parameters required to enter the state
+     *
+     * @ignore
      */
     changeState(toState: string, enterParams: any): void;
     /**
      * Updates the boxWidth, boxHeight, Width, Height based on biggest vElement in drawData
+     *
+     * @ignore
      */
     syncDimensions(): void;
     /**
      * Updates the coordinates of each box, based on starting coordinates of array and boxWidth
+     *
+     * @ignore
      */
     syncCoordinates(): void;
     /**

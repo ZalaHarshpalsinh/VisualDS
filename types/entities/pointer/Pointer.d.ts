@@ -36,22 +36,24 @@ export class Pointer extends Entity {
      * @type {StateMachine}
      */
     stateMachine: StateMachine;
-    update(dt: any): void;
     /**
      * Draws an arrow along with label and index
      * @param {CanvasRenderingContext2D} ctx The canvas context to draw on
+     *
+     * @ignore
      */
     drawArrow(ctx: CanvasRenderingContext2D): void;
-    draw(ctx: any): void;
-    notify(params: any): void;
     /**
      * Changes the state of the state machine to the given state
      * @param {string} toState The state to change to
      * @param {*} enterParams The object containing all the parameters required to enter the state
+     *
+     * @ignore
      */
     changeState(toState: string, enterParams: any): void;
     /**
      * Calculates the coordinates of pointer based on the vArray object coordinates and the index
+     * @ignore
      */
     syncCoordinates(): void;
     /**

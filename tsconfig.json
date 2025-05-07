@@ -12,5 +12,5 @@
                 "esModuleInterop": true // Enable emit interoperability between CommonJS and ES Modules
         },
         "include": ["*.js", "utils/**/*.js", "entities/**/*.js", "std_algorithms/**/*.js"], // Include all relevant files
-        "exclude": ["test.js", "rollup.config.js"] // Exclude test files and node_modules
+        "exclude": ["test.js", "injectScript.js", "rollup.config.js"] // Exclude test files and node_modules
 }
