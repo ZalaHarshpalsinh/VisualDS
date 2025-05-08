@@ -359,6 +359,24 @@ declare class vElement extends Entity {
      * @param {string} label The label/name that is to be displayed when drawing this vElement. Defaults to empty string.
      * @param {boolean} isSlave True if this vElement is not to be managed by the animator directly
      * (managed by some master entity, such as vArray). Defaults to false.
+     *
+     * @example <caption>Normal JS code</caption>
+     * //Vanilla Js
+     *
+     * //Simple variable
+     * let simpleVaribale = 10
+     *
+     * //Object
+     * let objectVariable = { name: "John", age: 30}
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //Simple variable
+     * let simpleVariable = new vElement( 10, "simpleVariable" )
+     *
+     * //Object
+     * let objectVariable = new vElement( { name: "John", age: 30, toString: function() { return this.name + "\n" + this.age } }, "objectVariable" )
      */
     constructor(val: any, label?: string, isSlave?: boolean);
     /**
@@ -421,19 +439,46 @@ declare class vElement extends Entity {
      * @param {*} val The new value
      * @param {boolean} highlight Is the vElement to be highlighted while showing the change on the screen
      *
-     * @example <caption>Normal vanilla JS code</caption>
+     * @example <caption>Normal JS code</caption>
      * //Vanilla Js
+     *
+     * //declaring a variable
      * let myVaribale = 10
      *
-     * @example <caption>Corresponding code using vElement</caption>
-     * //Using vElement
-     * let myVariable = new VisualDS.vElement( 10, "myVariable" )
-     * let x = new vElement(10)
+     * //updating the variable
+     * myVariable = 20
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //declaring a variable
+     * let myVariable = new vElement( 10, "myVariable" )
+     *
+     * //updating the variable
+     * myVariable.setVal( 20 )
      */
     setVal(val: any, highlight?: boolean): void;
     /**
      * Get the current value of the encapsulated object
      * @returns The current value stored by vElement
+     *
+     * @example <caption>Normal JS code</caption>
+     * //Vanilla Js
+     *
+     * //declaring a variable
+     * let myVaribale = 10
+     *
+     * //Using it's value
+     * let copyOfMyVariable = myVariable
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //declaring a variable
+     * let myVariable = new vElement( 10, "myVariable" )
+     *
+     * //Using it's value
+     * let copyOfMyVariable = new vElement( myVariable.getVal(), "copyOfMyVariable" )
      */
     getVal(): any;
     /**
@@ -441,12 +486,31 @@ declare class vElement extends Entity {
      *
      * Registers the animation for changing the color of the box
      * @param {string} color The colour with which to highlight
+     *
+     * @example <caption>Highlighting a vElement</caption>
+     *
+     * //declaring a variable
+     * let myVariable = new vElement( "It's a beautiful day", "myVariable" )
+     *
+     * //highlighting the vElement with a color
+     * // Works with any valid CSS color value, such as 'red', '#FF0000', 'rgb(255, 0, 0)', etc.
+     * myVariable.highlight( 'MediumOrchid' )
      */
     highlight(color: string): void;
     /**
      * Unhightlights the vElement
      *
      * Registers the animation for changing the color of the box to default color
+     *
+     * @example <caption>Unhighlighting a vElement</caption>
+     * //declaring a variable
+     * let myVariable = new vElement( "It's a beautiful day", "myVariable" )
+     *
+     * //highlighting the vElement with a color
+     * myVariable.highlight( 'MediumOrchid' )
+     *
+     * // unhighlighting the vElement
+     * myVariable.unhighlight()
      */
     unhighlight(): void;
 }
@@ -466,6 +530,24 @@ declare class vArray extends Entity {
     /**
      * @param {any[]} data The array data to be used for visualization
      * @param {string} label The label to draw above the array. Defaults to empty string.
+     *
+     * @example <caption>Normal JS code</caption>
+     * //Vanilla JS
+     *
+     * //creating an array
+     * let arr = [1, 2, 3, 4, 5]
+     *
+     * //creating a string
+     * let str = "Hello World"
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //creating a string
+     * let str = new vArray("Hello World", 'My String')
      */
     constructor(data: any[], label?: string);
     /**
@@ -559,12 +641,49 @@ declare class vArray extends Entity {
     /**
      * Get the array length
      * @returns Length of the contained array
+     *
+     * @example <caption> Normal JS code</caption>
+     * //Vanilla JS
+     *
+     * //creating an array
+     * let arr = [1, 2, 3, 4, 5]
+     *
+     * //getting the length of the array
+     * let length = arr.length
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //getting the length of the array
+     * let length = new vElement(arr.length(), 'Length')
      */
     length(): number;
     /**
      * Get the value at a given index
      * @param {number} index The index to get value from
      * @returns The value at the given index
+     *
+     * @example <caption> Normal JS code</caption>
+     * //Vanilla JS
+     *
+     * //creating an array
+     * let arr = [1, 2, 3, 4, 5]
+     *
+     * //accessing the value at any index
+     * let valAtIndex2 = arr[2]
+     *
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //accessing the value at any index
+     * let valAtIndex2 = new vElement(arr.get(2), 'Value at index 2')
      */
     get(index: number): any;
     /**
@@ -572,39 +691,155 @@ declare class vArray extends Entity {
      * @param {number} index The index for which to update value
      * @param {*} newVal The new value
      * @param {boolean} highlight Whether to highlight the element while showing updation on screen. Defaults to true.
+     *
+     * @example <caption> Normal JS code</caption>
+     * //Vanilla JS
+     *
+     * //creating an array
+     * let arr = [1, 2, 3, 4, 5]
+     *
+     * //updating the value at any index
+     * arr[2] = 10
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //updating the value at any index with highlight
+     * arr.set(2, 10)
+     *
+     * //updating the value at any index without highlight
+     * arr.set(2, 10, false)
      */
     set(index: number, newVal: any, highlight?: boolean): void;
     /**
      * Adds a new element at the end of array
      * @param {*} val The new value to add
      * @returns The new length of the array
+     *
+     * @example <caption> Normal JS code</caption>
+     * //Vanilla JS
+     *
+     * //creating an array
+     * let arr = [1, 2, 3, 4, 5]
+     *
+     * //adding a new element at the end of array
+     * arr.push(6)
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //adding a new element at the end of array
+     * arr.pushBack(6)
      */
     pushBack(val: any): number;
     /**
      * Removes an element from the end of array
      * @returns The removed element. If array is empty, undefined is returned and array is not modified.
+     *
+     * @example <caption> Normal JS code</caption>
+     * //Vanilla JS
+     *
+     * //creating an array
+     * let arr = [1, 2, 3, 4, 5]
+     *
+     * //removing an element from the end of array
+     * let removedElement = arr.pop()
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //removing an element from the end of array
+     * let removedElement = arr.popBack()
+     * removedElement = new vElement(removedElement, 'Removed Element')
      */
     popBack(): any;
     /**
      * Adds a new element at the start of array
      * @param {*} val The new value to add
      * @returns The new length of the array
+     *
+     * @example <caption> Normal JS code</caption>
+     * //Vanilla JS
+     *
+     * //creating an array
+     * let arr = [1, 2, 3, 4, 5]
+     *
+     * //adding a new element at the start of array
+     * arr.unshift(0)
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //adding a new element at the start of array
+     * arr.pushFront(0)
      */
     pushFront(val: any): number;
     /**
      * Removes an element from the start of array
      * @returns The removed element. If array is empty, undefined is returned and array is not modified.
+     *
+     * @example <caption> Normal JS code</caption>
+     * //Vanilla JS
+     *
+     * //creating an array
+     * let arr = [1, 2, 3, 4, 5]
+     *
+     * //removing an element from the start of array
+     * let removedElement = arr.shift()
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //removing an element from the start of array
+     * let removedElement = arr.popFront()
+     * removedElement = new vElement(removedElement, 'Removed Element')
      */
     popFront(): any;
     /**
      * Highlights a list of indices
      * @param {number[]} indices The list of indices
      * @param {string} color The color to highlight with. Defaults to blue.
+     *
+     * @example <caption>Highlighting a list of indices</caption>
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //highlighting a list of indices (default blue)
+     * arr.highlight([1, 3])
+     *
+     * //highlighting a list of indices (custom color)
+     * arr.highlight([0, 2, 4], 'yellow')
      */
     highlight(indices: number[], color?: string): void;
     /**
      * Unhighlights a list of indices
      * @param {number[]} indices The list of indices
+     *
+     * @example <caption>Unhighlighting a list of indices</caption>
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //highlighting a list of indices (default blue)
+     * arr.highlight([0, 1, 2, 3, 4])
+     *
+     * //unhighlighting a list of indices
+     * arr.unhighlight([0, 2, 4])
+     *
      */
     unhighlight(indices: number[]): void;
     /**
@@ -612,12 +847,32 @@ declare class vArray extends Entity {
      * @param {number} s The start of the range
      * @param {number} e The end of the range
      * @param {string} color The color to highlight with.
+     *
+     * @example <caption>Highlighting a continuous range of indices</caption>
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'My Array')
+     *
+     * //highlighting a range of indices (default blue)
+     * arr.highlightRange(0, 4)
+     *
+     * //highlighting a range of indices (custom color)
+     * arr.highlightRange(5, 9, 'yellow')
      */
     highlightRange(s: number, e: number, color: string): void;
     /**
      * Unhighlight a range of indices, start and end are both inclusive.
      * @param {number} s The start of the range
      * @param {number} e The end of the range
+     *
+     * @example <caption>Unhighlighting a continuous range of indices</caption>
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 'My Array')
+     *
+     * //highlighting a range of indices (default blue)
+     * arr.highlightRange(0, 9)
+     *
+     * //unhighlighting a range of indices
+     * arr.unhighlightRange(3, 6)
      */
     unhighlightRange(s: number, e: number): void;
     /**
@@ -625,6 +880,27 @@ declare class vArray extends Entity {
      * @param {number} i The first index
      * @param {number} j The second index
      * @param {boolean} highlight Whether to highlight the elements while showing animation. Defaults to true.
+     *
+     * @example <caption>Normal JS code</caption>
+     * //Vanilla JS
+     *
+     * //creating an array
+     * let arr = [1, 2, 3, 4, 5]
+     *
+     * //swapping two elements
+     * [arr[0], arr[1]] = [arr[1], arr[0]]
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //swapping two elements with highlight
+     * arr.swap(0, 4)
+     *
+     * //swapping two elements without highlight
+     * arr.swap(0, 4, false)
      */
     swap(i: number, j: number, highlight?: boolean): void;
     /**
@@ -632,6 +908,30 @@ declare class vArray extends Entity {
     * @param {number} initIndex The initial index pointed by the pointer
     * @param {string} label The name to show for this pointer on screen.
     * @returns {Pointer}
+    *
+    * @example <caption>Normal JS code</caption>
+    * //Vanilla JS
+    *
+    * //creating an array
+    * let arr = [1, 2, 3, 4, 5]
+    *
+    * // looping through the array using a index variable
+    * for (let i = 0; i < arr.length; i++) {
+    *     console.log(arr[i])
+    * }
+    *
+    * @example <caption>Corresponding code using visualDS for visualization</caption>
+    * //Using visualDS
+    *
+    * //creating an array
+    * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+    *
+    * //looping through the array using a pointer
+    * //refer Pointer class for more details
+    * for(let i = arr.getPointer(0, "Pointer"); !i.isOutOfBound() || i.remove(); i.increment())
+    * {
+    *    arr.highlight([i.getIndex()])
+    * }
     */
     getPointer(initIndex: number, label?: string): Pointer;
     /**
@@ -639,6 +939,7 @@ declare class vArray extends Entity {
      *
      * It has the following effect: It will not be drawn following this call, and you cannot queue any animations from the pointer
      * @param {Pointer} ptr The pointer to remove
+     * @ignore
      */
     removePointer(ptr: Pointer): void;
 }
@@ -654,6 +955,16 @@ declare class Pointer extends Entity {
      * @param {vArray} pointee The vArray object this Pointer object will point to
      * @param {number} initialIndex The initial index
      * @param {string} label The label to show below this pointer. Defaults to empty string.
+     *
+     * @example <caption>Creating a pointer</caption>
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * // DO NOT CREATE POINTER LIKE THIS
+     * let pointer = new Pointer(arr, 0, "Incorrect Use") //Incorrect
+     *
+     * //creating a pointer using the array
+     * let pointer = arr.getPointer(0, 'My Pointer')
      */
     constructor(pointee: vArray, initialIndex: number, label?: string);
     /**
@@ -704,11 +1015,31 @@ declare class Pointer extends Entity {
     /**
      * Get the current index value of the pointer
      * @returns current index value
+     *
+     * @example <caption> Get the currend index of pointer </caption>
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //creating a pointer using the array
+     * let pointer = arr.getPointer(5, 'My Pointer')
+     *
+     * // getting the current index of pointer
+     * let currentIndex = new vElement(pointer.getIndex(), "Index")
      */
     getIndex(): number;
     /**
      * Check whether the current index value is out of the bounds of vArray
      * @returns {boolean} true if the index is out of bounds, false otherwise
+     *
+     * @example <caption> Check whether pointer is outside the array bounds </caption>
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //looping through the array using a pointer
+     * for(let i = arr.getPointer(0, "Pointer"); !i.isOutOfBound() || i.remove(); i.increment())
+     * {
+     *    arr.highlight([i.getIndex()])
+     * }
      */
     isOutOfBound(): boolean;
     /**
@@ -717,32 +1048,109 @@ declare class Pointer extends Entity {
      *
      * You can change the index however you want: no exception is thrown.
      * Instead, to handle such cases, the drawIndex value is capped till one before start and one after the end of array.
+     *
+     * @example <caption>Moving the pointer</caption>
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //get the pointer
+     * let i = arr.getPointer(0, "Moving Pointer")
+     *
+     * // move forward
+     * i.move(4)
+     *
+     * // move backward
+     * i.move(-3)
      */
     move(change: number): void;
     /**
      * Moves the pointer to a specified index
      * @param index The index to move to
+     *
+     * @example <caption>Moving the pointer to a specific index</caption>
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //get the pointer
+     * let i = arr.getPointer(0, "Moving Pointer")
+     *
+     * // move to a specific index
+     * i.moveTo(4)
+     * i.moveTo(1)
      */
     moveTo(index: any): void;
     /**
      * Increment the index of pointer by 1
      *
      * Same as calling move(1)
+     *
+     * @example <caption>Moving pointer forward by 1 index</caption>
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //get the pointer
+     * let i = arr.getPointer(0, "Moving Pointer")
+     *
+     * // Moving pointer forward by 1 index with 3 different styles (all are equivalent)
+     * i.move(1)
+     *
+     * i.moveTo(i.getIndex()+1)
+     *
+     * i.increment()
      */
     increment(): void;
     /**
      * Decrement the index of pointer by 1
      *
      * Same as calling move(-1)
+     *
+     * @example <caption>Moving pointer backward by 1 index</caption>
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //get the pointer
+     * let i = arr.getPointer(0, "Moving Pointer")
+     *
+     * // Moving pointer backward by 1 index with 3 different styles (all are equivalent)
+     * i.move(-1)
+     *
+     * i.moveTo(i.getIndex()-1)
+     *
+     * i.decrement()
      */
     decrement(): void;
     /**
      * Hightlights the element where this pointer is pointing. No effect if isOutOfBound() returns true.
      * @param {string} color The color to highlight with
+     *
+     * @example <caption>Highlight the current index of pointer</caption>
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //get the pointer
+     * let i = arr.getPointer(0, "Moving Pointer")
+     *
+     * // highlight the current index at which pointer is currently
+     *
+     * // default blue color
+     * i.highlight()
+     *
+     * //custom color
+     * i.highlight('yellow')
      */
     highlight(color?: string): void;
     /**
      * Unightlights the element where this pointer is pointing. No effect if isOutOfBound() returns true.
+     *
+     * @example <caption>Unhighlight the current index of pointer</caption>
+     * //creating an array
+     * let arr = new vArray([1, 2, 3, 4, 5], 'My Array')
+     *
+     * //get the pointer
+     * let i = arr.getPointer(0, "Moving Pointer")
+     *
+     * // unhighlight the current index at which pointer is currently
+     * i.unhighlight()
      */
     unhighlight(): void;
 }
@@ -772,21 +1180,37 @@ declare function setAnimationSpeed(animatorId: number, newSpeed: number): void;
 /**
  * Creates a visualisation for performing a selection sort on the given array of numbers.
  * @param {number[]} inputArr the array of numbers to sort
+ *
+ * @example <caption> Visualising selection sort</caption>
+ * // Use the function provided by library
+ * selectionSort([5, 4, 3, 2, 1])
  */
 declare function selectionSort(inputArr: number[]): void;
 /**
  * Creates a visualisation for performing a bubble sort on the given array of numbers.
  * @param {number[]} inputArr the array of numbers to sort
+ *
+ * @example <caption> Visualising bubble sort</caption>
+ * // Use the function provided by library
+ * bubbleSort([5, 4, 3, 2, 1])
  */
 declare function bubbleSort(inputArr: number[]): void;
 /**
  * Creates a visualisation for performing an insertion sort on the given array of numbers.
  * @param {number[]} inputArr the array of numbers to sort
+ *
+ * @example <caption> Visualising insertion sort</caption>
+ * // Use the function provided by library
+ * insertionSort([5, 4, 3, 2, 1])
  */
 declare function insertionSort(inputArr: number[]): void;
 /**
  * Creates a visualisation for performing a merge sort on the given array of numbers.
  * @param {number[]} inputArr the array of numbers to sort
+ *
+ * @example <caption> Visualising merge sort</caption>
+ * // Use the function provided by library
+ * mergeSort([5, 4, 3, 2, 1])
  */
 declare function mergeSort(inputArr: number[]): void;
 
@@ -794,12 +1218,20 @@ declare function mergeSort(inputArr: number[]): void;
  * Creates a visualisation for performing a linear search on the given array of numbers and highlights the first found element.
  * @param {number[]} inputArr the array of numbers to search in
  * @param {number} target the number to search for
+ *
+ * @example <caption> Visualising linear search </caption>
+ * // Use the function provided by library
+ * linearSearch([1,2,3,4,5], 5)
  */
 declare function linearSearch(inputArr: number[], target: number): void;
 /**
  * Creates a visualisation for performing a binary search on the given sorted array of numbers and highlights the found element.
  * @param {number[]} sortedArr the sorted array of numbers to search in
  * @param {number} target the number to search for
+ *
+ * @example <caption> Visualising binary search </caption>
+ * // Use the function provided by library
+ * binarySearch([1,2,3,4,5], 5)
  */
 declare function binarySearch(sortedArr: number[], target: number): void;
 

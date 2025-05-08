@@ -40,7 +40,7 @@
 				}
 			</style>
 		<script type="text/javascript">
-			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"VisualDS","systemSummary":"A javascript library for code driven visualization of data structures and algorithms.","systemLogo":"","systemColor":"#049453","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.","linenums":true,"collapseSymbols":"false","inverseNav":"true","inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":"true","showAccessFilter":"true","analytics":null,"methodHeadingReturns":true,"sort":"linenum","search":true,"favicon":null,"stylesheets":[],"scripts":["https://zalaharshpalsinh.github.io/VisualDS/dist/visualds.min.js","./custom.js"],"monospaceLinks":false,"cleverLinks":false};
+			window.TEMPLATE_OPTIONS = {"includeDate":true,"dateFormat":"Do MMM YYYY","systemName":"VisualDS","systemSummary":"A javascript library for code driven visualization of data structures and algorithms.","systemLogo":"","systemColor":"#049453","navMembers":[{"kind":"class","title":"Classes","summary":"All documented classes."},{"kind":"external","title":"Externals","summary":"All documented external members."},{"kind":"global","title":"Globals","summary":"All documented globals."},{"kind":"mixin","title":"Mixins","summary":"All documented mixins."},{"kind":"interface","title":"Interfaces","summary":"All documented interfaces."},{"kind":"module","title":"Modules","summary":"All documented modules."},{"kind":"namespace","title":"Namespaces","summary":"All documented namespaces."},{"kind":"tutorial","title":"Tutorials","summary":"All available tutorials."}],"footer":"","copyright":"FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.","linenums":true,"collapseSymbols":"false","inverseNav":"true","inlineNav":false,"outputSourceFiles":true,"sourceRootPath":null,"disablePackagePath":true,"outputSourcePath":false,"showTableOfContents":"true","showAccessFilter":"true","analytics":null,"methodHeadingReturns":true,"sort":"linenum","search":true,"favicon":null,"stylesheets":[],"scripts":["../../dist/visualds.min.js","./custom.js"],"monospaceLinks":false,"cleverLinks":false};
 			window.DOCLET_TOC_ENABLED = "true";
 			window.DOCLET_AFILTER_ENABLED = false;
 		</script>
@@ -156,7 +156,18 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>Creating a pointer</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">//creating an array
+			let arr &#x3D; new vArray([1, 2, 3, 4, 5], &#x27;My Array&#x27;)
+			
+			// DO NOT CREATE POINTER LIKE THIS
+			let pointer &#x3D; new Pointer(arr, 0, &quot;Incorrect Use&quot;) //Incorrect
+			 
+			//creating a pointer using the array
+			let pointer &#x3D; arr.getPointer(0, &#x27;My Pointer&#x27;)</code></pre>
+					</div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
@@ -235,7 +246,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-27">line 27</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-37">line 37</a></p>
 								</div>
 							</div>
 			
@@ -279,7 +290,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-36">line 36</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-46">line 46</a></p>
 								</div>
 							</div>
 			
@@ -323,7 +334,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-42">line 42</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-52">line 52</a></p>
 								</div>
 							</div>
 			
@@ -367,7 +378,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-48">line 48</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-58">line 58</a></p>
 								</div>
 							</div>
 			
@@ -411,7 +422,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-57">line 57</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-67">line 67</a></p>
 								</div>
 							</div>
 			
@@ -439,6 +450,17 @@
 								</div>
 							</div>
 					</form>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>Get the currend index of pointer</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">//creating an array
+			let arr &#x3D; new vArray([1, 2, 3, 4, 5], &#x27;My Array&#x27;)
+			
+			//creating a pointer using the array
+			let pointer &#x3D; arr.getPointer(5, &#x27;My Pointer&#x27;)
+			
+			// getting the current index of pointer
+			let currentIndex &#x3D; new vElement(pointer.getIndex(), &quot;Index&quot;)</code></pre>
+					</div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
@@ -459,7 +481,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-136">line 136</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-156">line 156</a></p>
 								</div>
 							</div>
 			
@@ -484,6 +506,17 @@
 								</div>
 							</div>
 					</form>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>Check whether pointer is outside the array bounds</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">//creating an array
+			let arr &#x3D; new vArray([1, 2, 3, 4, 5], &#x27;My Array&#x27;)
+			
+			//looping through the array using a pointer
+			for(let i &#x3D; arr.getPointer(0, &quot;Pointer&quot;); !i.isOutOfBound() || i.remove(); i.increment()) 
+			{
+			   arr.highlight([i.getIndex()])
+			}</code></pre>
+					</div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
@@ -504,7 +537,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-145">line 145</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-175">line 175</a></p>
 								</div>
 							</div>
 			
@@ -545,7 +578,21 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>Moving the pointer</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">//creating an array
+			let arr &#x3D; new vArray([1, 2, 3, 4, 5], &#x27;My Array&#x27;)
+			
+			//get the pointer
+			let i &#x3D; arr.getPointer(0, &quot;Moving Pointer&quot;)
+			
+			// move forward
+			i.move(4)
+			
+			// move backward
+			i.move(-3) </code></pre>
+					</div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
@@ -565,7 +612,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-157">line 157</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-200">line 200</a></p>
 								</div>
 							</div>
 			
@@ -603,7 +650,19 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>Moving the pointer to a specific index</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">//creating an array
+			let arr &#x3D; new vArray([1, 2, 3, 4, 5], &#x27;My Array&#x27;)
+			
+			//get the pointer
+			let i &#x3D; arr.getPointer(0, &quot;Moving Pointer&quot;)
+			
+			// move to a specific index
+			i.moveTo(4)
+			i.moveTo(1) </code></pre>
+					</div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
@@ -623,7 +682,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-180">line 180</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-234">line 234</a></p>
 								</div>
 							</div>
 			
@@ -642,6 +701,21 @@
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description">Increment the index of pointer by 1
 			
 			Same as calling move(1)</div>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>Moving pointer forward by 1 index</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">//creating an array
+			let arr &#x3D; new vArray([1, 2, 3, 4, 5], &#x27;My Array&#x27;)
+			
+			//get the pointer
+			let i &#x3D; arr.getPointer(0, &quot;Moving Pointer&quot;)
+			
+			// Moving pointer forward by 1 index with 3 different styles (all are equivalent)
+			i.move(1)
+			
+			i.moveTo(i.getIndex()+1)
+			
+			i.increment()</code></pre>
+					</div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
@@ -662,7 +736,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-190">line 190</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-258">line 258</a></p>
 								</div>
 							</div>
 			
@@ -681,6 +755,21 @@
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description">Decrement the index of pointer by 1
 			
 			Same as calling move(-1)</div>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>Moving pointer backward by 1 index</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">//creating an array
+			let arr &#x3D; new vArray([1, 2, 3, 4, 5], &#x27;My Array&#x27;)
+			
+			//get the pointer
+			let i &#x3D; arr.getPointer(0, &quot;Moving Pointer&quot;)
+			
+			// Moving pointer backward by 1 index with 3 different styles (all are equivalent)
+			i.move(-1)
+			
+			i.moveTo(i.getIndex()-1)
+			
+			i.decrement()</code></pre>
+					</div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
@@ -701,7 +790,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-200">line 200</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-282">line 282</a></p>
 								</div>
 							</div>
 			
@@ -741,7 +830,23 @@
 					</tbody>
 				</table>
 			</div>
-			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
+			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>Highlight the current index of pointer</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">//creating an array
+			let arr &#x3D; new vArray([1, 2, 3, 4, 5], &#x27;My Array&#x27;)
+			
+			//get the pointer
+			let i &#x3D; arr.getPointer(0, &quot;Moving Pointer&quot;)
+			
+			// highlight the current index at which pointer is currently
+			
+			// default blue color
+			i.highlight()
+			
+			//custom color
+			i.highlight(&#x27;yellow&#x27;)</code></pre>
+					</div>
+			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
 			
@@ -761,7 +866,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-209">line 209</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-306">line 306</a></p>
 								</div>
 							</div>
 			
@@ -778,6 +883,17 @@
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description">Unightlights the element where this pointer is pointing. No effect if isOutOfBound() returns true.</div>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>Unhighlight the current index of pointer</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">//creating an array
+			let arr &#x3D; new vArray([1, 2, 3, 4, 5], &#x27;My Array&#x27;)
+			
+			//get the pointer
+			let i &#x3D; arr.getPointer(0, &quot;Moving Pointer&quot;)
+			
+			// unhighlight the current index at which pointer is currently
+			i.unhighlight()</code></pre>
+					</div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
@@ -798,7 +914,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-218">line 218</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-325">line 325</a></p>
 								</div>
 							</div>
 			
@@ -815,6 +931,20 @@
 <dd class="symbol-details function public  collapsible-symbol">
 	<div class="symbol-details-inner">
 			<div class="callout callout-primary"><h5>Description</h5>		<div class="description">Removes this pointer from the drawing pool. Also, no animations can be queued after this feom this pointer.</div>
+			</div>			<div class="callout callout-example"><h5>Examples</h5>		<div class="example-caption"><p>Removing the pointer</p></div>
+					<div class="example-code">
+						<pre class="prettyprint source language-javascript"><code class="language-javascript">//creating an array
+			let arr &#x3D; new vArray([1, 2, 3, 4, 5], &#x27;My Array&#x27;)
+			
+			//get the pointer
+			let i &#x3D; arr.getPointer(0, &quot;Moving Pointer&quot;)
+			
+			// move the pointer 
+			i.move(4)
+			
+			// removing the vElement from the visualization
+			i.remove()</code></pre>
+					</div>
 			</div>			<div class="callout callout-default"><h5>Details</h5>		<form class="form-horizontal details">
 			
 			
@@ -835,7 +965,7 @@
 							<div class="form-group">
 								<label class="col-sm-3 control-label">Source</label>
 								<div class="col-sm-9">
-									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-227">line 227</a></p>
+									<p class="form-control-static"><a href="entities_pointer_Pointer.js.html">entities/pointer/Pointer.js</a>, <a href="entities_pointer_Pointer.js.html#line-347">line 347</a></p>
 								</div>
 							</div>
 			
@@ -856,7 +986,7 @@
 	</div>
 	<footer>
 				<div class="copyright">FooDoc Copyright © 2016 The contributors to the JSDoc3 and FooDoc projects.</div>
-			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 7th May 2025 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
+			<div class="generated-by">Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 3.6.11</a> on 8th May 2025 using the <a href="https://github.com/steveush/foodoc">FooDoc template</a>.</div>
 	</footer>
 	<script src="js/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
@@ -880,7 +1010,7 @@
 			</div><!-- /.modal-dialog -->
 		</div>
 		<!-- end:lunr-search-modal.hbs -->		<script src="js/lunr.min.js"></script>
-		<script src="https://zalaharshpalsinh.github.io/VisualDS/dist/visualds.min.js"></script>
+		<script src="../../dist/visualds.min.js"></script>
 		<script src="./custom.js"></script>
 	
 </body>
