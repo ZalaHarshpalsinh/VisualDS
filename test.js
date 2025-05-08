@@ -41,18 +41,18 @@ function test1()
 
 function test0()
 {
-    
-    let var1 = new vElement(5, 'var1');
-    let arr = new vArray([1, 2, 3, 4, 5], 'arr');
 
-    for(let i = arr.getPointer(0, 'i'); (!i.isOutOfBound()) || i.remove(); i.increment())
+    let var1 = new vElement( 5, 'var1' );
+    let arr = new vArray( [ 1, 2, 3, 4, 5 ], 'arr' );
+
+    for ( let i = arr.getPointer( 0, 'i' ); ( !i.isOutOfBound() ) || i.remove(); i.increment() )
     {
         // highlight the current element
-        i.highlight('orange');
+        i.highlight( 'orange' );
 
-        if(arr.get(i.getIndex())==3)
+        if ( arr.get( i.getIndex() ) == 3 )
         {
-            arr.set(i.getIndex(), 33, false);
+            arr.set( i.getIndex(), 33, false );
             i.unhighlight();
             i.remove();
             break;
@@ -61,6 +61,6 @@ function test0()
         i.unhighlight();
     }
 
-    var1.setVal('hahahahha', true);
+    var1.setVal( 'hahahahha', true );
 
 }

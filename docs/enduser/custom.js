@@ -12,14 +12,21 @@ document.addEventListener( "DOMContentLoaded", () =>
 
                 const caption = document.createElement( "div" )
                 caption.class = "example-caption"
-                caption.appendChild( captionText )
 
+                const button = document.createElement( 'button' )
+                button.id = `run-btn-${index}`
+                button.style = "margin: 10px; padding: 5px; background-color: lightgreen"
+                button.innerHTML = "Visualise"
+
+                caption.appendChild( captionText )
                 section.appendChild( caption )
+                section.appendChild( button )
+
 
                 // Append a new canvas element to the section
                 const canvas = document.createElement( "canvas" );
                 canvas.id = `exampleCanvas-${index}`;
-                canvas.style = "border: 5px solid black; margin: 10px; display: block; width:100%; aspect-ratio: 16/9;";
+                canvas.style = "border: 5px solid black; margin: 10px; display: block; width:100%; aspect-ratio: 2";
                 section.appendChild( canvas );
 
                 // Get the last <code> snippet in the section
@@ -28,15 +35,17 @@ document.addEventListener( "DOMContentLoaded", () =>
 
                 if ( lastCodeSnippet )
                 {
-                        const codeText = lastCodeSnippet.textContent;
-                        console.log( "Code inside last snippet:", codeText );
+                        let codeText = lastCodeSnippet.textContent;
 
+                        codeText = "controller.setZoom(2)\n\n" + codeText
                         // @ts-ignore
                         let codeScript = new Function( [ 'controller' ], codeText );
 
-                        console.log( "Code script:", codeScript );
-
                         createVisualisation( `exampleCanvas-${index}`, codeScript )
+                        button.addEventListener( "click", () =>
+                        {
+                                createVisualisation( `exampleCanvas-${index}`, codeScript )
+                        } );
                 }
         } );
 } )

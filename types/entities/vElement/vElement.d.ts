@@ -18,6 +18,24 @@ export class vElement extends Entity {
      * @param {string} label The label/name that is to be displayed when drawing this vElement. Defaults to empty string.
      * @param {boolean} isSlave True if this vElement is not to be managed by the animator directly
      * (managed by some master entity, such as vArray). Defaults to false.
+     *
+     * @example <caption>Normal JS code</caption>
+     * //Vanilla Js
+     *
+     * //Simple variable
+     * let simpleVaribale = 10
+     *
+     * //Object
+     * let objectVariable = { name: "John", age: 30}
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //Simple variable
+     * let simpleVariable = new vElement( 10, "simpleVariable" )
+     *
+     * //Object
+     * let objectVariable = new vElement( { name: "John", age: 30, toString: function() { return this.name + "\n" + this.age } }, "objectVariable" )
      */
     constructor(val: any, label?: string, isSlave?: boolean);
     /**
@@ -80,19 +98,46 @@ export class vElement extends Entity {
      * @param {*} val The new value
      * @param {boolean} highlight Is the vElement to be highlighted while showing the change on the screen
      *
-     * @example <caption>Normal vanilla JS code</caption>
+     * @example <caption>Normal JS code</caption>
      * //Vanilla Js
+     *
+     * //declaring a variable
      * let myVaribale = 10
      *
-     * @example <caption>Corresponding code using vElement</caption>
-     * //Using vElement
-     * let myVariable = new VisualDS.vElement( 10, "myVariable" )
-     * let x = new vElement(10)
+     * //updating the variable
+     * myVariable = 20
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //declaring a variable
+     * let myVariable = new vElement( 10, "myVariable" )
+     *
+     * //updating the variable
+     * myVariable.setVal( 20 )
      */
     setVal(val: any, highlight?: boolean): void;
     /**
      * Get the current value of the encapsulated object
      * @returns The current value stored by vElement
+     *
+     * @example <caption>Normal JS code</caption>
+     * //Vanilla Js
+     *
+     * //declaring a variable
+     * let myVaribale = 10
+     *
+     * //Using it's value
+     * let copyOfMyVariable = myVariable
+     *
+     * @example <caption>Corresponding code using visualDS for visualization</caption>
+     * //Using visualDS
+     *
+     * //declaring a variable
+     * let myVariable = new vElement( 10, "myVariable" )
+     *
+     * //Using it's value
+     * let copyOfMyVariable = new vElement( myVariable.getVal(), "copyOfMyVariable" )
      */
     getVal(): any;
     /**
@@ -100,12 +145,31 @@ export class vElement extends Entity {
      *
      * Registers the animation for changing the color of the box
      * @param {string} color The colour with which to highlight
+     *
+     * @example <caption>Highlighting a vElement</caption>
+     *
+     * //declaring a variable
+     * let myVariable = new vElement( "It's a beautiful day", "myVariable" )
+     *
+     * //highlighting the vElement with a color
+     * // Works with any valid CSS color value, such as 'red', '#FF0000', 'rgb(255, 0, 0)', etc.
+     * myVariable.highlight( 'MediumOrchid' )
      */
     highlight(color: string): void;
     /**
      * Unhightlights the vElement
      *
      * Registers the animation for changing the color of the box to default color
+     *
+     * @example <caption>Unhighlighting a vElement</caption>
+     * //declaring a variable
+     * let myVariable = new vElement( "It's a beautiful day", "myVariable" )
+     *
+     * //highlighting the vElement with a color
+     * myVariable.highlight( 'MediumOrchid' )
+     *
+     * // unhighlighting the vElement
+     * myVariable.unhighlight()
      */
     unhighlight(): void;
 }

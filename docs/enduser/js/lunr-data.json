@@ -506,23 +506,6 @@
           "varray",
           "varray#getpoint"
         ],
-        "vArray.html#removePointer": [
-          "anim",
-          "call",
-          "drawn",
-          "effect",
-          "follow",
-          "function",
-          "given",
-          "instanc",
-          "pointer",
-          "ptr",
-          "queue",
-          "remov",
-          "removepoint",
-          "varray",
-          "varray#removepoint"
-        ],
         "vElement.html": [
           "anim",
           "class",
@@ -713,7 +696,7 @@
           "visual"
         ]
       },
-      "length": 56
+      "length": 55
     },
     "tokenStore": {
       "root": {
@@ -1022,10 +1005,6 @@
                   "vArray.html#stateMachine": {
                     "ref": "vArray.html#stateMachine",
                     "tf": 12.5
-                  },
-                  "vArray.html#removePointer": {
-                    "ref": "vArray.html#removePointer",
-                    "tf": 3.8461538461538463
                   },
                   "vElement.html": {
                     "ref": "vElement.html",
@@ -1431,10 +1410,6 @@
                   "Pointer.html#decrement": {
                     "ref": "Pointer.html#decrement",
                     "tf": 6.25
-                  },
-                  "vArray.html#removePointer": {
-                    "ref": "vArray.html#removePointer",
-                    "tf": 3.8461538461538463
                   }
                 }
               }
@@ -1542,10 +1517,6 @@
                     "vArray.html#boxHeight": {
                       "ref": "vArray.html#boxHeight",
                       "tf": 12.5
-                    },
-                    "vArray.html#removePointer": {
-                      "ref": "vArray.html#removePointer",
-                      "tf": 3.8461538461538463
                     },
                     "vElement.html": {
                       "ref": "vElement.html",
@@ -1966,10 +1937,6 @@
                         "vArray.html#getPointer": {
                           "ref": "vArray.html#getPointer",
                           "tf": 12.5
-                        },
-                        "vArray.html#removePointer": {
-                          "ref": "vArray.html#removePointer",
-                          "tf": 3.8461538461538463
                         }
                       }
                     }
@@ -2448,36 +2415,9 @@
                       "ref": "vArray.html#popFront",
                       "tf": 12.5
                     },
-                    "vArray.html#removePointer": {
-                      "ref": "vArray.html#removePointer",
-                      "tf": 3.8461538461538463
-                    },
                     "vElement.html#remove": {
                       "ref": "vElement.html#remove",
                       "tf": 766.6666666666666
-                    }
-                  },
-                  "e": {
-                    "docs": {},
-                    "p": {
-                      "docs": {},
-                      "o": {
-                        "docs": {},
-                        "i": {
-                          "docs": {},
-                          "n": {
-                            "docs": {},
-                            "t": {
-                              "docs": {
-                                "vArray.html#removePointer": {
-                                  "ref": "vArray.html#removePointer",
-                                  "tf": 700
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
                     }
                   }
                 }
@@ -3150,10 +3090,6 @@
                         "ref": "vArray.html#getPointer",
                         "tf": 12.5
                       },
-                      "vArray.html#removePointer": {
-                        "ref": "vArray.html#removePointer",
-                        "tf": 3.8461538461538463
-                      },
                       "vElement.html": {
                         "ref": "vElement.html",
                         "tf": 0.9090909090909091
@@ -3630,44 +3566,6 @@
                                                     }
                                                   }
                                                 }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "r": {
-                        "docs": {},
-                        "e": {
-                          "docs": {},
-                          "m": {
-                            "docs": {},
-                            "o": {
-                              "docs": {},
-                              "v": {
-                                "docs": {},
-                                "e": {
-                                  "docs": {},
-                                  "p": {
-                                    "docs": {},
-                                    "o": {
-                                      "docs": {},
-                                      "i": {
-                                        "docs": {},
-                                        "n": {
-                                          "docs": {},
-                                          "t": {
-                                            "docs": {
-                                              "vArray.html#removePointer": {
-                                                "ref": "vArray.html#removePointer",
-                                                "tf": 1150
                                               }
                                             }
                                           }
@@ -4178,10 +4076,6 @@
                       "ref": "vArray.html#set",
                       "tf": 10
                     },
-                    "vArray.html#removePointer": {
-                      "ref": "vArray.html#removePointer",
-                      "tf": 3.8461538461538463
-                    },
                     "vElement.html#highlight": {
                       "ref": "vElement.html#highlight",
                       "tf": 5.555555555555555
@@ -4656,10 +4550,6 @@
                         "vArray.html#getPointer": {
                           "ref": "vArray.html#getPointer",
                           "tf": 25
-                        },
-                        "vArray.html#removePointer": {
-                          "ref": "vArray.html#removePointer",
-                          "tf": 7.6923076923076925
                         }
                       },
                       "#": {
@@ -5160,17 +5050,6 @@
                       }
                     }
                   }
-                }
-              }
-            }
-          },
-          "t": {
-            "docs": {},
-            "r": {
-              "docs": {
-                "vArray.html#removePointer": {
-                  "ref": "vArray.html#removePointer",
-                  "tf": 50
                 }
               }
             }
@@ -5902,10 +5781,6 @@
                             "ref": "vArray.html#getPointer",
                             "tf": 110
                           },
-                          "vArray.html#removePointer": {
-                            "ref": "vArray.html#removePointer",
-                            "tf": 110
-                          },
                           "vElement.html#setVal": {
                             "ref": "vElement.html#setVal",
                             "tf": 110
@@ -5986,25 +5861,22 @@
               }
             }
           },
-          "o": {
+          "a": {
             "docs": {},
             "l": {
               "docs": {},
-              "l": {
-                "docs": {},
-                "o": {
-                  "docs": {},
-                  "w": {
-                    "docs": {
-                      "vArray.html#removePointer": {
-                        "ref": "vArray.html#removePointer",
-                        "tf": 7.6923076923076925
-                      }
-                    }
+              "s": {
+                "docs": {
+                  "vElement.html": {
+                    "ref": "vElement.html",
+                    "tf": 0.9090909090909091
                   }
                 }
               }
-            },
+            }
+          },
+          "o": {
+            "docs": {},
             "n": {
               "docs": {},
               "t": {
@@ -6016,20 +5888,6 @@
                   "vElement.html#labelFont": {
                     "ref": "vElement.html#labelFont",
                     "tf": 10
-                  }
-                }
-              }
-            }
-          },
-          "a": {
-            "docs": {},
-            "l": {
-              "docs": {},
-              "s": {
-                "docs": {
-                  "vElement.html": {
-                    "ref": "vElement.html",
-                    "tf": 0.9090909090909091
                   }
                 }
               }
@@ -6228,10 +6086,6 @@
                       "Pointer.html#unhighlight": {
                         "ref": "Pointer.html#unhighlight",
                         "tf": 6.25
-                      },
-                      "vArray.html#removePointer": {
-                        "ref": "vArray.html#removePointer",
-                        "tf": 3.8461538461538463
                       }
                     }
                   }
@@ -6528,10 +6382,6 @@
                     "vArray.html#drawData": {
                       "ref": "vArray.html#drawData",
                       "tf": 3.8461538461538463
-                    },
-                    "vArray.html#removePointer": {
-                      "ref": "vArray.html#removePointer",
-                      "tf": 3.8461538461538463
                     }
                   }
                 }
@@ -6540,7 +6390,7 @@
           }
         }
       },
-      "length": 561
+      "length": 546
     },
     "corpusTokens": [
       "1",
@@ -6600,7 +6450,6 @@
       "execut",
       "fals",
       "feom",
-      "follow",
       "font",
       "frame",
       "framework",
@@ -6684,7 +6533,6 @@
       "popback",
       "popfront",
       "provid",
-      "ptr",
       "pushback",
       "pushfront",
       "queu",
@@ -6694,7 +6542,6 @@
       "regist",
       "relat",
       "remov",
-      "removepoint",
       "repres",
       "represent",
       "requir",
@@ -6754,7 +6601,6 @@
       "varray#popfront",
       "varray#pushback",
       "varray#pushfront",
-      "varray#removepoint",
       "varray#set",
       "varray#statemachin",
       "varray#swap",
@@ -7209,16 +7055,6 @@
       "tags": "vArray#getPointer getPointer",
       "summary": "",
       "description": "Get a pointer(index variable) for this vArray instance."
-    },
-    "vArray.html#removePointer": {
-      "id": "vArray.html#removePointer",
-      "kind": "function",
-      "title": "removePointer( ptr )",
-      "longname": "vArray#removePointer",
-      "name": "removePointer",
-      "tags": "vArray#removePointer removePointer",
-      "summary": "",
-      "description": "Remove a given pointer from this vArray instance. It has the following effect: It will not be drawn following this call, and you cannot queue any animations from the pointer"
     },
     "vElement.html": {
       "id": "vElement.html",

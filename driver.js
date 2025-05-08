@@ -48,10 +48,11 @@ function createVisualisation( cnvId, userScript )
     animators.push( animator )
 
     /** controller object which will be passed to the user given code to control the animation speed and other properties of the animator
-    * @type {{setAnimationSpeed: function(number): void}}
+    * @type {{setAnimationSpeed: function(number): void, setZoom: function(number): void }}
     */
     let controller = {
-        setAnimationSpeed: ( newSpeed ) => animator.setAnimationSpeed( newSpeed )
+        setAnimationSpeed: ( newSpeed ) => animator.setAnimationSpeed( newSpeed ),
+        setZoom: ( newZoomLevel ) => animator.setZoom( newZoomLevel )
     }
 
     // execute user given code (which we call the synchronous code given by user)

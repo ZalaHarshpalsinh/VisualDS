@@ -3,6 +3,10 @@ import { vArray } from "../entities/index.js"
 /**
  * Creates a visualisation for performing a selection sort on the given array of numbers.
  * @param {number[]} inputArr the array of numbers to sort
+ * 
+ * @example <caption> Visualising selection sort</caption>
+ * // Use the function provided by library
+ * selectionSort([5, 4, 3, 2, 1])
  */
 function selectionSort( inputArr )
 {
@@ -40,6 +44,10 @@ function selectionSort( inputArr )
 /**
  * Creates a visualisation for performing a bubble sort on the given array of numbers.
  * @param {number[]} inputArr the array of numbers to sort
+ * 
+ * @example <caption> Visualising bubble sort</caption>
+ * // Use the function provided by library
+ * bubbleSort([5, 4, 3, 2, 1])
  */
 function bubbleSort( inputArr )
 {
@@ -82,6 +90,10 @@ function bubbleSort( inputArr )
 /**
  * Creates a visualisation for performing an insertion sort on the given array of numbers.
  * @param {number[]} inputArr the array of numbers to sort
+ * 
+ * @example <caption> Visualising insertion sort</caption>
+ * // Use the function provided by library
+ * insertionSort([5, 4, 3, 2, 1])
  */
 function insertionSort( inputArr )
 {
@@ -118,7 +130,11 @@ function insertionSort( inputArr )
 
 /**
  * Creates a visualisation for performing a merge sort on the given array of numbers.
- * @param {number[]} inputArr the array of numbers to sort 
+ * @param {number[]} inputArr the array of numbers to sort
+ * 
+ * @example <caption> Visualising merge sort</caption>
+ * // Use the function provided by library
+ * mergeSort([5, 4, 3, 2, 1]) 
  */
 function mergeSort( inputArr )
 {
