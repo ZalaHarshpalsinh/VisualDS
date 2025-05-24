@@ -79,58 +79,6 @@
           "varray",
           "visual"
         ],
-        "Pointer.html#pointee": [
-          "member",
-          "object",
-          "point",
-          "pointe",
-          "pointer",
-          "pointer#pointe",
-          "varray"
-        ],
-        "Pointer.html#index": [
-          "chang",
-          "index",
-          "make",
-          "member",
-          "number",
-          "point",
-          "pointer",
-          "pointer#index",
-          "user"
-        ],
-        "Pointer.html#drawIndex": [
-          "anim",
-          "chang",
-          "drawindex",
-          "drawn",
-          "index",
-          "member",
-          "number",
-          "pointer",
-          "pointer#drawindex",
-          "schedul"
-        ],
-        "Pointer.html#label": [
-          "below",
-          "label",
-          "member",
-          "pointer",
-          "pointer#label",
-          "show",
-          "string"
-        ],
-        "Pointer.html#stateMachine": [
-          "handl",
-          "idl",
-          "initi",
-          "machin",
-          "member",
-          "pointer",
-          "pointer#statemachin",
-          "state",
-          "statemachin"
-        ],
         "Pointer.html#getIndex": [
           "current",
           "function",
@@ -270,111 +218,6 @@
           "whose",
           "worri",
           "written"
-        ],
-        "vArray.html#data": [
-          "actual",
-          "array",
-          "array.&lt;any&gt",
-          "chang",
-          "code",
-          "data",
-          "insid",
-          "member",
-          "synchron",
-          "user",
-          "varray#data",
-          "written"
-        ],
-        "vArray.html#label": [
-          "abov",
-          "array",
-          "draw",
-          "label",
-          "member",
-          "string",
-          "varray#label"
-        ],
-        "vArray.html#drawData": [
-          "anim",
-          "array.&lt;velement&gt",
-          "asynchron",
-          "chang",
-          "copi",
-          "draw",
-          "drawdata",
-          "frame",
-          "member",
-          "object",
-          "queue",
-          "relat",
-          "select",
-          "util",
-          "varray",
-          "varray#drawdata"
-        ],
-        "vArray.html#pointers": [
-          "along",
-          "array",
-          "array.&lt;pointer&gt",
-          "drawn",
-          "element",
-          "frame",
-          "index",
-          "itself",
-          "list",
-          "member",
-          "need",
-          "point",
-          "pointer",
-          "requir",
-          "updat",
-          "variabl",
-          "varray#point"
-        ],
-        "vArray.html#boxWidth": [
-          "boxwidth",
-          "drawn",
-          "element",
-          "member",
-          "number",
-          "singl",
-          "varray#boxwidth",
-          "width"
-        ],
-        "vArray.html#boxHeight": [
-          "boxheight",
-          "drawn",
-          "element",
-          "height",
-          "member",
-          "number",
-          "singl",
-          "varray#boxheight"
-        ],
-        "vArray.html#width": [
-          "array",
-          "member",
-          "number",
-          "varray#width",
-          "whole",
-          "width"
-        ],
-        "vArray.html#height": [
-          "array",
-          "height",
-          "member",
-          "number",
-          "varray#height",
-          "whole"
-        ],
-        "vArray.html#stateMachine": [
-          "anim",
-          "manag",
-          "member",
-          "state",
-          "statemachin",
-          "varray#statemachin",
-          "via"
         ],
         "vArray.html#length": [
           "array",
@@ -546,101 +389,6 @@
           "velement",
           "want"
         ],
-        "vElement.html#val": [
-          "along",
-          "code",
-          "encapsul",
-          "get",
-          "member",
-          "object",
-          "synchron",
-          "updat",
-          "user",
-          "val",
-          "velement#v",
-          "written"
-        ],
-        "vElement.html#drawVal": [
-          "anim",
-          "draw",
-          "drawval",
-          "execut",
-          "get",
-          "member",
-          "object",
-          "relat",
-          "updat",
-          "util",
-          "velement#drawv"
-        ],
-        "vElement.html#label": [
-          "display",
-          "draw",
-          "label",
-          "label/nam",
-          "member",
-          "string",
-          "velement",
-          "velement#label"
-        ],
-        "vElement.html#color": [
-          "box",
-          "color",
-          "display",
-          "member",
-          "object",
-          "string",
-          "velement#color"
-        ],
-        "vElement.html#font": [
-          "box",
-          "drawval",
-          "font",
-          "member",
-          "string",
-          "style",
-          "text",
-          "tostr",
-          "util",
-          "velement#font",
-          "write"
-        ],
-        "vElement.html#labelFont": [
-          "font",
-          "label",
-          "labelfont",
-          "member",
-          "string",
-          "style",
-          "util",
-          "velement#labelfont",
-          "write"
-        ],
-        "vElement.html#text": [
-          "array",
-          "array.&lt;string&gt",
-          "drawn",
-          "drawval",
-          "line",
-          "member",
-          "object",
-          "represent",
-          "separ",
-          "string",
-          "text",
-          "velement#text"
-        ],
-        "vElement.html#stateMachine": [
-          "idl",
-          "initi",
-          "machin",
-          "manag",
-          "member",
-          "state",
-          "statemachin",
-          "velement",
-          "velement#statemachin"
-        ],
         "vElement.html#setVal": [
           "encapsul",
           "function",
@@ -696,7 +444,7 @@
           "visual"
         ]
       },
-      "length": 55
+      "length": 33
     },
     "tokenStore": {
       "root": {
@@ -756,24 +504,6 @@
                   }
                 }
               }
-            },
-            "o": {
-              "docs": {},
-              "n": {
-                "docs": {},
-                "g": {
-                  "docs": {
-                    "vArray.html#pointers": {
-                      "ref": "vArray.html#pointers",
-                      "tf": 3.3333333333333335
-                    },
-                    "vElement.html#val": {
-                      "ref": "vElement.html#val",
-                      "tf": 5
-                    }
-                  }
-                }
-              }
             }
           },
           "r": {
@@ -791,26 +521,6 @@
                     "vArray.html": {
                       "ref": "vArray.html",
                       "tf": 5
-                    },
-                    "vArray.html#data": {
-                      "ref": "vArray.html#data",
-                      "tf": 5.555555555555555
-                    },
-                    "vArray.html#label": {
-                      "ref": "vArray.html#label",
-                      "tf": 12.5
-                    },
-                    "vArray.html#pointers": {
-                      "ref": "vArray.html#pointers",
-                      "tf": 6.666666666666667
-                    },
-                    "vArray.html#width": {
-                      "ref": "vArray.html#width",
-                      "tf": 16.666666666666664
-                    },
-                    "vArray.html#height": {
-                      "ref": "vArray.html#height",
-                      "tf": 16.666666666666664
                     },
                     "vArray.html#length": {
                       "ref": "vArray.html#length",
@@ -831,209 +541,6 @@
                     "vArray.html#popFront": {
                       "ref": "vArray.html#popFront",
                       "tf": 12.5
-                    },
-                    "vElement.html#text": {
-                      "ref": "vElement.html#text",
-                      "tf": 5.555555555555555
-                    }
-                  },
-                  ".": {
-                    "docs": {},
-                    "&": {
-                      "docs": {},
-                      "l": {
-                        "docs": {},
-                        "t": {
-                          "docs": {},
-                          ";": {
-                            "docs": {},
-                            "a": {
-                              "docs": {},
-                              "n": {
-                                "docs": {},
-                                "y": {
-                                  "docs": {},
-                                  "&": {
-                                    "docs": {},
-                                    "g": {
-                                      "docs": {},
-                                      "t": {
-                                        "docs": {
-                                          "vArray.html#data": {
-                                            "ref": "vArray.html#data",
-                                            "tf": 50
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "v": {
-                              "docs": {},
-                              "e": {
-                                "docs": {},
-                                "l": {
-                                  "docs": {},
-                                  "e": {
-                                    "docs": {},
-                                    "m": {
-                                      "docs": {},
-                                      "e": {
-                                        "docs": {},
-                                        "n": {
-                                          "docs": {},
-                                          "t": {
-                                            "docs": {},
-                                            "&": {
-                                              "docs": {},
-                                              "g": {
-                                                "docs": {},
-                                                "t": {
-                                                  "docs": {
-                                                    "vArray.html#drawData": {
-                                                      "ref": "vArray.html#drawData",
-                                                      "tf": 50
-                                                    }
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "p": {
-                              "docs": {},
-                              "o": {
-                                "docs": {},
-                                "i": {
-                                  "docs": {},
-                                  "n": {
-                                    "docs": {},
-                                    "t": {
-                                      "docs": {},
-                                      "e": {
-                                        "docs": {},
-                                        "r": {
-                                          "docs": {},
-                                          "&": {
-                                            "docs": {},
-                                            "g": {
-                                              "docs": {},
-                                              "t": {
-                                                "docs": {
-                                                  "vArray.html#pointers": {
-                                                    "ref": "vArray.html#pointers",
-                                                    "tf": 50
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "s": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "r": {
-                                  "docs": {},
-                                  "i": {
-                                    "docs": {},
-                                    "n": {
-                                      "docs": {},
-                                      "g": {
-                                        "docs": {},
-                                        "&": {
-                                          "docs": {},
-                                          "g": {
-                                            "docs": {},
-                                            "t": {
-                                              "docs": {
-                                                "vElement.html#text": {
-                                                  "ref": "vElement.html#text",
-                                                  "tf": 50
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "n": {
-            "docs": {},
-            "i": {
-              "docs": {},
-              "m": {
-                "docs": {
-                  "Pointer.html#drawIndex": {
-                    "ref": "Pointer.html#drawIndex",
-                    "tf": 7.142857142857142
-                  },
-                  "Pointer.html#remove": {
-                    "ref": "Pointer.html#remove",
-                    "tf": 6.25
-                  },
-                  "vArray.html#drawData": {
-                    "ref": "vArray.html#drawData",
-                    "tf": 7.6923076923076925
-                  },
-                  "vArray.html#stateMachine": {
-                    "ref": "vArray.html#stateMachine",
-                    "tf": 12.5
-                  },
-                  "vElement.html": {
-                    "ref": "vElement.html",
-                    "tf": 0.9090909090909091
-                  },
-                  "vElement.html#drawVal": {
-                    "ref": "vElement.html#drawVal",
-                    "tf": 10
-                  },
-                  "vElement.html#highlight": {
-                    "ref": "vElement.html#highlight",
-                    "tf": 5.555555555555555
-                  },
-                  "vElement.html#unhighlight": {
-                    "ref": "vElement.html#unhighlight",
-                    "tf": 5.555555555555555
-                  }
-                }
-              }
-            },
-            "y": {
-              "docs": {},
-              "t": {
-                "docs": {},
-                "h": {
-                  "docs": {
-                    "vArray.html": {
-                      "ref": "vArray.html",
-                      "tf": 1
                     }
                   }
                 }
@@ -1060,63 +567,40 @@
               }
             }
           },
-          "c": {
+          "n": {
             "docs": {},
-            "t": {
+            "i": {
               "docs": {},
-              "u": {
-                "docs": {},
-                "a": {
-                  "docs": {},
-                  "l": {
-                    "docs": {
-                      "vArray.html#data": {
-                        "ref": "vArray.html#data",
-                        "tf": 5.555555555555555
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "b": {
-            "docs": {},
-            "o": {
-              "docs": {},
-              "v": {
+              "m": {
                 "docs": {
-                  "vArray.html#label": {
-                    "ref": "vArray.html#label",
-                    "tf": 12.5
+                  "Pointer.html#remove": {
+                    "ref": "Pointer.html#remove",
+                    "tf": 6.25
+                  },
+                  "vElement.html": {
+                    "ref": "vElement.html",
+                    "tf": 0.9090909090909091
+                  },
+                  "vElement.html#highlight": {
+                    "ref": "vElement.html#highlight",
+                    "tf": 5.555555555555555
+                  },
+                  "vElement.html#unhighlight": {
+                    "ref": "vElement.html#unhighlight",
+                    "tf": 5.555555555555555
                   }
                 }
               }
-            }
-          },
-          "s": {
-            "docs": {},
+            },
             "y": {
               "docs": {},
-              "n": {
+              "t": {
                 "docs": {},
-                "c": {
-                  "docs": {},
-                  "h": {
-                    "docs": {},
-                    "r": {
-                      "docs": {},
-                      "o": {
-                        "docs": {},
-                        "n": {
-                          "docs": {
-                            "vArray.html#drawData": {
-                              "ref": "vArray.html#drawData",
-                              "tf": 3.8461538461538463
-                            }
-                          }
-                        }
-                      }
+                "h": {
+                  "docs": {
+                    "vArray.html": {
+                      "ref": "vArray.html",
+                      "tf": 1
                     }
                   }
                 }
@@ -1150,14 +634,6 @@
                   "index.html": {
                     "ref": "index.html",
                     "tf": 8.75
-                  },
-                  "vArray.html#data": {
-                    "ref": "vArray.html#data",
-                    "tf": 5.555555555555555
-                  },
-                  "vElement.html#val": {
-                    "ref": "vElement.html#val",
-                    "tf": 10
                   }
                 }
               }
@@ -1212,10 +688,6 @@
                       "ref": "vArray.html#highlightRange",
                       "tf": 25
                     },
-                    "vElement.html#color": {
-                      "ref": "vElement.html#color",
-                      "tf": 712.5
-                    },
                     "vElement.html#highlight": {
                       "ref": "vElement.html#highlight",
                       "tf": 61.111111111111114
@@ -1224,17 +696,6 @@
                       "ref": "vElement.html#unhighlight",
                       "tf": 11.11111111111111
                     }
-                  }
-                }
-              }
-            },
-            "p": {
-              "docs": {},
-              "i": {
-                "docs": {
-                  "vArray.html#drawData": {
-                    "ref": "vArray.html#drawData",
-                    "tf": 3.8461538461538463
                   }
                 }
               }
@@ -1284,61 +745,6 @@
                     "vElement.html": {
                       "ref": "vElement.html",
                       "tf": 0.9090909090909091
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "h": {
-            "docs": {},
-            "a": {
-              "docs": {},
-              "n": {
-                "docs": {},
-                "g": {
-                  "docs": {
-                    "Pointer.html#index": {
-                      "ref": "Pointer.html#index",
-                      "tf": 12.5
-                    },
-                    "Pointer.html#drawIndex": {
-                      "ref": "Pointer.html#drawIndex",
-                      "tf": 7.142857142857142
-                    },
-                    "Pointer.html#move": {
-                      "ref": "Pointer.html#move",
-                      "tf": 57.14285714285714
-                    },
-                    "vArray.html#data": {
-                      "ref": "vArray.html#data",
-                      "tf": 5.555555555555555
-                    },
-                    "vArray.html#drawData": {
-                      "ref": "vArray.html#drawData",
-                      "tf": 3.8461538461538463
-                    },
-                    "vElement.html#highlight": {
-                      "ref": "vElement.html#highlight",
-                      "tf": 5.555555555555555
-                    },
-                    "vElement.html#unhighlight": {
-                      "ref": "vElement.html#unhighlight",
-                      "tf": 5.555555555555555
-                    }
-                  }
-                }
-              }
-            },
-            "e": {
-              "docs": {},
-              "c": {
-                "docs": {},
-                "k": {
-                  "docs": {
-                    "Pointer.html#isOutOfBound": {
-                      "ref": "Pointer.html#isOutOfBound",
-                      "tf": 6.25
                     }
                   }
                 }
@@ -1397,6 +803,45 @@
               }
             }
           },
+          "h": {
+            "docs": {},
+            "e": {
+              "docs": {},
+              "c": {
+                "docs": {},
+                "k": {
+                  "docs": {
+                    "Pointer.html#isOutOfBound": {
+                      "ref": "Pointer.html#isOutOfBound",
+                      "tf": 6.25
+                    }
+                  }
+                }
+              }
+            },
+            "a": {
+              "docs": {},
+              "n": {
+                "docs": {},
+                "g": {
+                  "docs": {
+                    "Pointer.html#move": {
+                      "ref": "Pointer.html#move",
+                      "tf": 57.14285714285714
+                    },
+                    "vElement.html#highlight": {
+                      "ref": "vElement.html#highlight",
+                      "tf": 5.555555555555555
+                    },
+                    "vElement.html#unhighlight": {
+                      "ref": "vElement.html#unhighlight",
+                      "tf": 5.555555555555555
+                    }
+                  }
+                }
+              }
+            }
+          },
           "a": {
             "docs": {},
             "l": {
@@ -1427,10 +872,6 @@
                   "index.html": {
                     "ref": "index.html",
                     "tf": 8.75
-                  },
-                  "vArray.html#data": {
-                    "ref": "vArray.html#data",
-                    "tf": 705.5555555555555
                   }
                 }
               }
@@ -1462,108 +903,13 @@
                   "Pointer.html#remove": {
                     "ref": "Pointer.html#remove",
                     "tf": 6.25
-                  },
-                  "vArray.html#label": {
-                    "ref": "vArray.html#label",
-                    "tf": 12.5
-                  },
-                  "vArray.html#drawData": {
-                    "ref": "vArray.html#drawData",
-                    "tf": 3.8461538461538463
-                  },
-                  "vElement.html#drawVal": {
-                    "ref": "vElement.html#drawVal",
-                    "tf": 5
-                  },
-                  "vElement.html#label": {
-                    "ref": "vElement.html#label",
-                    "tf": 12.5
-                  }
-                },
-                "i": {
-                  "docs": {},
-                  "n": {
-                    "docs": {},
-                    "d": {
-                      "docs": {},
-                      "e": {
-                        "docs": {},
-                        "x": {
-                          "docs": {
-                            "Pointer.html#drawIndex": {
-                              "ref": "Pointer.html#drawIndex",
-                              "tf": 700
-                            }
-                          }
-                        }
-                      }
-                    }
                   }
                 },
                 "n": {
                   "docs": {
-                    "Pointer.html#drawIndex": {
-                      "ref": "Pointer.html#drawIndex",
-                      "tf": 7.142857142857142
-                    },
-                    "vArray.html#pointers": {
-                      "ref": "vArray.html#pointers",
-                      "tf": 3.3333333333333335
-                    },
-                    "vArray.html#boxWidth": {
-                      "ref": "vArray.html#boxWidth",
-                      "tf": 12.5
-                    },
-                    "vArray.html#boxHeight": {
-                      "ref": "vArray.html#boxHeight",
-                      "tf": 12.5
-                    },
                     "vElement.html": {
                       "ref": "vElement.html",
                       "tf": 1.8181818181818181
-                    },
-                    "vElement.html#text": {
-                      "ref": "vElement.html#text",
-                      "tf": 5.555555555555555
-                    }
-                  }
-                },
-                "d": {
-                  "docs": {},
-                  "a": {
-                    "docs": {},
-                    "t": {
-                      "docs": {},
-                      "a": {
-                        "docs": {
-                          "vArray.html#drawData": {
-                            "ref": "vArray.html#drawData",
-                            "tf": 700
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                "v": {
-                  "docs": {},
-                  "a": {
-                    "docs": {},
-                    "l": {
-                      "docs": {
-                        "vElement.html#drawVal": {
-                          "ref": "vElement.html#drawVal",
-                          "tf": 750
-                        },
-                        "vElement.html#font": {
-                          "ref": "vElement.html#font",
-                          "tf": 6.25
-                        },
-                        "vElement.html#text": {
-                          "ref": "vElement.html#text",
-                          "tf": 5.555555555555555
-                        }
-                      }
                     }
                   }
                 }
@@ -1677,30 +1023,6 @@
                   }
                 }
               }
-            },
-            "s": {
-              "docs": {},
-              "p": {
-                "docs": {},
-                "l": {
-                  "docs": {},
-                  "a": {
-                    "docs": {},
-                    "y": {
-                      "docs": {
-                        "vElement.html#label": {
-                          "ref": "vElement.html#label",
-                          "tf": 12.5
-                        },
-                        "vElement.html#color": {
-                          "ref": "vElement.html#color",
-                          "tf": 12.5
-                        }
-                      }
-                    }
-                  }
-                }
-              }
             }
           }
         },
@@ -1721,14 +1043,6 @@
                     "Pointer.html": {
                       "ref": "Pointer.html",
                       "tf": 3.125
-                    },
-                    "Pointer.html#index": {
-                      "ref": "Pointer.html#index",
-                      "tf": 712.5
-                    },
-                    "Pointer.html#drawIndex": {
-                      "ref": "Pointer.html#drawIndex",
-                      "tf": 14.285714285714285
                     },
                     "Pointer.html#getIndex": {
                       "ref": "Pointer.html#getIndex",
@@ -1753,10 +1067,6 @@
                     "Pointer.html#decrement": {
                       "ref": "Pointer.html#decrement",
                       "tf": 6.25
-                    },
-                    "vArray.html#pointers": {
-                      "ref": "vArray.html#pointers",
-                      "tf": 3.3333333333333335
                     },
                     "vArray.html#get": {
                       "ref": "vArray.html#get",
@@ -1806,41 +1116,6 @@
                           "vElement.html": {
                             "ref": "vElement.html",
                             "tf": 0.9090909090909091
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "i": {
-              "docs": {},
-              "t": {
-                "docs": {},
-                "i": {
-                  "docs": {
-                    "Pointer.html#stateMachine": {
-                      "ref": "Pointer.html#stateMachine",
-                      "tf": 6.25
-                    },
-                    "vElement.html#stateMachine": {
-                      "ref": "vElement.html#stateMachine",
-                      "tf": 6.25
-                    }
-                  },
-                  "n": {
-                    "docs": {},
-                    "d": {
-                      "docs": {},
-                      "e": {
-                        "docs": {},
-                        "x": {
-                          "docs": {
-                            "vArray.html#getPointer": {
-                              "ref": "vArray.html#getPointer",
-                              "tf": 25
-                            }
                           }
                         }
                       }
@@ -1913,19 +1188,34 @@
                 }
               }
             },
-            "s": {
+            "i": {
               "docs": {},
-              "i": {
+              "t": {
                 "docs": {},
-                "d": {
-                  "docs": {
-                    "vArray.html#data": {
-                      "ref": "vArray.html#data",
-                      "tf": 5.555555555555555
+                "i": {
+                  "docs": {},
+                  "n": {
+                    "docs": {},
+                    "d": {
+                      "docs": {},
+                      "e": {
+                        "docs": {},
+                        "x": {
+                          "docs": {
+                            "vArray.html#getPointer": {
+                              "ref": "vArray.html#getPointer",
+                              "tf": 25
+                            }
+                          }
+                        }
+                      }
                     }
                   }
                 }
-              },
+              }
+            },
+            "s": {
+              "docs": {},
               "t": {
                 "docs": {},
                 "a": {
@@ -1972,21 +1262,6 @@
                       }
                     }
                   }
-                }
-              }
-            }
-          },
-          "d": {
-            "docs": {},
-            "l": {
-              "docs": {
-                "Pointer.html#stateMachine": {
-                  "ref": "Pointer.html#stateMachine",
-                  "tf": 6.25
-                },
-                "vElement.html#stateMachine": {
-                  "ref": "vElement.html#stateMachine",
-                  "tf": 6.25
                 }
               }
             }
@@ -2059,26 +1334,6 @@
               "vArray.html": {
                 "ref": "vArray.html",
                 "tf": 1
-              }
-            }
-          },
-          "t": {
-            "docs": {},
-            "s": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "l": {
-                  "docs": {},
-                  "f": {
-                    "docs": {
-                      "vArray.html#pointers": {
-                        "ref": "vArray.html#pointers",
-                        "tf": 3.3333333333333335
-                      }
-                    }
-                  }
-                }
               }
             }
           }
@@ -2155,10 +1410,6 @@
                     "ref": "list_class.html",
                     "tf": 110
                   },
-                  "vArray.html#pointers": {
-                    "ref": "vArray.html#pointers",
-                    "tf": 3.3333333333333335
-                  },
                   "vArray.html#highlight": {
                     "ref": "vArray.html#highlight",
                     "tf": 16.666666666666664
@@ -2200,77 +1451,6 @@
                   "vArray.html": {
                     "ref": "vArray.html",
                     "tf": 1
-                  },
-                  "vElement.html#text": {
-                    "ref": "vElement.html#text",
-                    "tf": 5.555555555555555
-                  }
-                }
-              }
-            }
-          },
-          "a": {
-            "docs": {},
-            "b": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "l": {
-                  "docs": {
-                    "Pointer.html#label": {
-                      "ref": "Pointer.html#label",
-                      "tf": 712.5
-                    },
-                    "vArray.html#label": {
-                      "ref": "vArray.html#label",
-                      "tf": 712.5
-                    },
-                    "vArray.html#getPointer": {
-                      "ref": "vArray.html#getPointer",
-                      "tf": 25
-                    },
-                    "vElement.html#label": {
-                      "ref": "vElement.html#label",
-                      "tf": 700
-                    },
-                    "vElement.html#labelFont": {
-                      "ref": "vElement.html#labelFont",
-                      "tf": 10
-                    }
-                  },
-                  "/": {
-                    "docs": {},
-                    "n": {
-                      "docs": {},
-                      "a": {
-                        "docs": {},
-                        "m": {
-                          "docs": {
-                            "vElement.html#label": {
-                              "ref": "vElement.html#label",
-                              "tf": 12.5
-                            }
-                          }
-                        }
-                      }
-                    }
-                  },
-                  "f": {
-                    "docs": {},
-                    "o": {
-                      "docs": {},
-                      "n": {
-                        "docs": {},
-                        "t": {
-                          "docs": {
-                            "vElement.html#labelFont": {
-                              "ref": "vElement.html#labelFont",
-                              "tf": 700
-                            }
-                          }
-                        }
-                      }
-                    }
                   }
                 }
               }
@@ -2304,6 +1484,23 @@
                     "vElement.html": {
                       "ref": "vElement.html",
                       "tf": 0.9090909090909091
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "a": {
+            "docs": {},
+            "b": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "l": {
+                  "docs": {
+                    "vArray.html#getPointer": {
+                      "ref": "vArray.html#getPointer",
+                      "tf": 25
                     }
                   }
                 }
@@ -2355,10 +1552,6 @@
                             "vElement.html": {
                               "ref": "vElement.html",
                               "tf": 0.9090909090909091
-                            },
-                            "vElement.html#text": {
-                              "ref": "vElement.html#text",
-                              "tf": 5.555555555555555
                             }
                           }
                         }
@@ -2440,41 +1633,6 @@
                             "tf": 1
                           }
                         }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "l": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "t": {
-                  "docs": {
-                    "vArray.html#drawData": {
-                      "ref": "vArray.html#drawData",
-                      "tf": 3.8461538461538463
-                    },
-                    "vElement.html#drawVal": {
-                      "ref": "vElement.html#drawVal",
-                      "tf": 5
-                    }
-                  }
-                }
-              }
-            },
-            "q": {
-              "docs": {},
-              "u": {
-                "docs": {},
-                "i": {
-                  "docs": {},
-                  "r": {
-                    "docs": {
-                      "vArray.html#pointers": {
-                        "ref": "vArray.html#pointers",
-                        "tf": 3.3333333333333335
                       }
                     }
                   }
@@ -2563,41 +1721,13 @@
                   "docs": {},
                   "g": {
                     "docs": {
-                      "Pointer.html#label": {
-                        "ref": "Pointer.html#label",
-                        "tf": 50
-                      },
                       "vArray.html": {
                         "ref": "vArray.html",
                         "tf": 2
                       },
-                      "vArray.html#label": {
-                        "ref": "vArray.html#label",
-                        "tf": 50
-                      },
                       "vElement.html": {
                         "ref": "vElement.html",
                         "tf": 1.8181818181818181
-                      },
-                      "vElement.html#label": {
-                        "ref": "vElement.html#label",
-                        "tf": 50
-                      },
-                      "vElement.html#color": {
-                        "ref": "vElement.html#color",
-                        "tf": 50
-                      },
-                      "vElement.html#font": {
-                        "ref": "vElement.html#font",
-                        "tf": 50
-                      },
-                      "vElement.html#labelFont": {
-                        "ref": "vElement.html#labelFont",
-                        "tf": 50
-                      },
-                      "vElement.html#text": {
-                        "ref": "vElement.html#text",
-                        "tf": 5.555555555555555
                       }
                     }
                   }
@@ -2606,56 +1736,6 @@
             },
             "a": {
               "docs": {},
-              "t": {
-                "docs": {},
-                "e": {
-                  "docs": {
-                    "Pointer.html#stateMachine": {
-                      "ref": "Pointer.html#stateMachine",
-                      "tf": 18.75
-                    },
-                    "vArray.html#stateMachine": {
-                      "ref": "vArray.html#stateMachine",
-                      "tf": 12.5
-                    },
-                    "vElement.html#stateMachine": {
-                      "ref": "vElement.html#stateMachine",
-                      "tf": 18.75
-                    }
-                  },
-                  "m": {
-                    "docs": {},
-                    "a": {
-                      "docs": {},
-                      "c": {
-                        "docs": {},
-                        "h": {
-                          "docs": {},
-                          "i": {
-                            "docs": {},
-                            "n": {
-                              "docs": {
-                                "Pointer.html#stateMachine": {
-                                  "ref": "Pointer.html#stateMachine",
-                                  "tf": 750
-                                },
-                                "vArray.html#stateMachine": {
-                                  "ref": "vArray.html#stateMachine",
-                                  "tf": 750
-                                },
-                                "vElement.html#stateMachine": {
-                                  "ref": "vElement.html#stateMachine",
-                                  "tf": 750
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
               "c": {
                 "docs": {},
                 "k": {
@@ -2707,82 +1787,6 @@
                         }
                       }
                     }
-                  }
-                }
-              }
-            },
-            "y": {
-              "docs": {},
-              "l": {
-                "docs": {},
-                "e": {
-                  "docs": {
-                    "vElement.html#font": {
-                      "ref": "vElement.html#font",
-                      "tf": 6.25
-                    },
-                    "vElement.html#labelFont": {
-                      "ref": "vElement.html#labelFont",
-                      "tf": 10
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "c": {
-            "docs": {},
-            "h": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "d": {
-                  "docs": {},
-                  "u": {
-                    "docs": {},
-                    "l": {
-                      "docs": {
-                        "Pointer.html#drawIndex": {
-                          "ref": "Pointer.html#drawIndex",
-                          "tf": 7.142857142857142
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "r": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "n": {
-                    "docs": {
-                      "vElement.html": {
-                        "ref": "vElement.html",
-                        "tf": 0.9090909090909091
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "h": {
-            "docs": {},
-            "o": {
-              "docs": {},
-              "w": {
-                "docs": {
-                  "Pointer.html#label": {
-                    "ref": "Pointer.html#label",
-                    "tf": 12.5
-                  },
-                  "vElement.html": {
-                    "ref": "vElement.html",
-                    "tf": 0.9090909090909091
                   }
                 }
               }
@@ -2845,14 +1849,6 @@
                       "ref": "vArray.html",
                       "tf": 1
                     },
-                    "vArray.html#boxWidth": {
-                      "ref": "vArray.html#boxWidth",
-                      "tf": 12.5
-                    },
-                    "vArray.html#boxHeight": {
-                      "ref": "vArray.html#boxHeight",
-                      "tf": 12.5
-                    },
                     "vElement.html": {
                       "ref": "vElement.html",
                       "tf": 0.9090909090909091
@@ -2862,55 +1858,8 @@
               }
             }
           },
-          "y": {
-            "docs": {},
-            "n": {
-              "docs": {},
-              "c": {
-                "docs": {},
-                "h": {
-                  "docs": {},
-                  "r": {
-                    "docs": {},
-                    "o": {
-                      "docs": {},
-                      "n": {
-                        "docs": {
-                          "vArray.html#data": {
-                            "ref": "vArray.html#data",
-                            "tf": 5.555555555555555
-                          },
-                          "vElement.html#val": {
-                            "ref": "vElement.html#val",
-                            "tf": 5
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
           "e": {
             "docs": {},
-            "l": {
-              "docs": {},
-              "e": {
-                "docs": {},
-                "c": {
-                  "docs": {},
-                  "t": {
-                    "docs": {
-                      "vArray.html#drawData": {
-                        "ref": "vArray.html#drawData",
-                        "tf": 3.8461538461538463
-                      }
-                    }
-                  }
-                }
-              }
-            },
             "t": {
               "docs": {
                 "vArray.html#set": {
@@ -2936,20 +1885,6 @@
                   }
                 }
               }
-            },
-            "p": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "r": {
-                  "docs": {
-                    "vElement.html#text": {
-                      "ref": "vElement.html#text",
-                      "tf": 5.555555555555555
-                    }
-                  }
-                }
-              }
             }
           },
           "w": {
@@ -2961,6 +1896,40 @@
                   "vArray.html#swap": {
                     "ref": "vArray.html#swap",
                     "tf": 695.8333333333334
+                  }
+                }
+              }
+            }
+          },
+          "c": {
+            "docs": {},
+            "r": {
+              "docs": {},
+              "e": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "n": {
+                    "docs": {
+                      "vElement.html": {
+                        "ref": "vElement.html",
+                        "tf": 0.9090909090909091
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "h": {
+            "docs": {},
+            "o": {
+              "docs": {},
+              "w": {
+                "docs": {
+                  "vElement.html": {
+                    "ref": "vElement.html",
+                    "tf": 0.9090909090909091
                   }
                 }
               }
@@ -3021,14 +1990,6 @@
                   }
                 }
               }
-            },
-            "a": {
-              "docs": {
-                "vArray.html#stateMachine": {
-                  "ref": "vArray.html#stateMachine",
-                  "tf": 12.5
-                }
-              }
             }
           },
           "a": {
@@ -3046,10 +2007,6 @@
                         "Pointer.html": {
                           "ref": "Pointer.html",
                           "tf": 3.125
-                        },
-                        "vArray.html#pointers": {
-                          "ref": "vArray.html#pointers",
-                          "tf": 3.3333333333333335
                         },
                         "vArray.html#getPointer": {
                           "ref": "vArray.html#getPointer",
@@ -3070,10 +2027,6 @@
                         "ref": "Pointer.html",
                         "tf": 3.125
                       },
-                      "Pointer.html#pointee": {
-                        "ref": "Pointer.html#pointee",
-                        "tf": 60
-                      },
                       "Pointer.html#isOutOfBound": {
                         "ref": "Pointer.html#isOutOfBound",
                         "tf": 6.25
@@ -3081,10 +2034,6 @@
                       "vArray.html": {
                         "ref": "vArray.html",
                         "tf": 1900
-                      },
-                      "vArray.html#drawData": {
-                        "ref": "vArray.html#drawData",
-                        "tf": 3.8461538461538463
                       },
                       "vArray.html#getPointer": {
                         "ref": "vArray.html#getPointer",
@@ -3097,68 +2046,8 @@
                     },
                     "#": {
                       "docs": {},
-                      "d": {
-                        "docs": {},
-                        "a": {
-                          "docs": {},
-                          "t": {
-                            "docs": {},
-                            "a": {
-                              "docs": {
-                                "vArray.html#data": {
-                                  "ref": "vArray.html#data",
-                                  "tf": 1150
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "r": {
-                          "docs": {},
-                          "a": {
-                            "docs": {},
-                            "w": {
-                              "docs": {},
-                              "d": {
-                                "docs": {},
-                                "a": {
-                                  "docs": {},
-                                  "t": {
-                                    "docs": {},
-                                    "a": {
-                                      "docs": {
-                                        "vArray.html#drawData": {
-                                          "ref": "vArray.html#drawData",
-                                          "tf": 1150
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
                       "l": {
                         "docs": {},
-                        "a": {
-                          "docs": {},
-                          "b": {
-                            "docs": {},
-                            "e": {
-                              "docs": {},
-                              "l": {
-                                "docs": {
-                                  "vArray.html#label": {
-                                    "ref": "vArray.html#label",
-                                    "tf": 1150
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
                         "e": {
                           "docs": {},
                           "n": {
@@ -3180,55 +2069,29 @@
                           }
                         }
                       },
-                      "p": {
+                      "g": {
                         "docs": {},
-                        "o": {
+                        "e": {
                           "docs": {},
-                          "i": {
-                            "docs": {},
-                            "n": {
-                              "docs": {},
-                              "t": {
-                                "docs": {
-                                  "vArray.html#pointers": {
-                                    "ref": "vArray.html#pointers",
-                                    "tf": 1150
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "p": {
-                            "docs": {},
-                            "b": {
-                              "docs": {},
-                              "a": {
-                                "docs": {},
-                                "c": {
-                                  "docs": {},
-                                  "k": {
-                                    "docs": {
-                                      "vArray.html#popBack": {
-                                        "ref": "vArray.html#popBack",
-                                        "tf": 1150
-                                      }
-                                    }
-                                  }
-                                }
+                          "t": {
+                            "docs": {
+                              "vArray.html#get": {
+                                "ref": "vArray.html#get",
+                                "tf": 1300
                               }
                             },
-                            "f": {
+                            "p": {
                               "docs": {},
-                              "r": {
+                              "o": {
                                 "docs": {},
-                                "o": {
+                                "i": {
                                   "docs": {},
                                   "n": {
                                     "docs": {},
                                     "t": {
                                       "docs": {
-                                        "vArray.html#popFront": {
-                                          "ref": "vArray.html#popFront",
+                                        "vArray.html#getPointer": {
+                                          "ref": "vArray.html#getPointer",
                                           "tf": 1150
                                         }
                                       }
@@ -3238,7 +2101,38 @@
                               }
                             }
                           }
+                        }
+                      },
+                      "s": {
+                        "docs": {},
+                        "e": {
+                          "docs": {},
+                          "t": {
+                            "docs": {
+                              "vArray.html#set": {
+                                "ref": "vArray.html#set",
+                                "tf": 1150
+                              }
+                            }
+                          }
                         },
+                        "w": {
+                          "docs": {},
+                          "a": {
+                            "docs": {},
+                            "p": {
+                              "docs": {
+                                "vArray.html#swap": {
+                                  "ref": "vArray.html#swap",
+                                  "tf": 1150
+                                }
+                              }
+                            }
+                          }
+                        }
+                      },
+                      "p": {
+                        "docs": {},
                         "u": {
                           "docs": {},
                           "s": {
@@ -3284,73 +2178,44 @@
                               }
                             }
                           }
-                        }
-                      },
-                      "b": {
-                        "docs": {},
+                        },
                         "o": {
                           "docs": {},
-                          "x": {
+                          "p": {
                             "docs": {},
-                            "w": {
+                            "b": {
                               "docs": {},
-                              "i": {
+                              "a": {
                                 "docs": {},
-                                "d": {
+                                "c": {
                                   "docs": {},
-                                  "t": {
-                                    "docs": {},
-                                    "h": {
-                                      "docs": {
-                                        "vArray.html#boxWidth": {
-                                          "ref": "vArray.html#boxWidth",
-                                          "tf": 1150
-                                        }
+                                  "k": {
+                                    "docs": {
+                                      "vArray.html#popBack": {
+                                        "ref": "vArray.html#popBack",
+                                        "tf": 1150
                                       }
                                     }
                                   }
                                 }
                               }
                             },
-                            "h": {
+                            "f": {
                               "docs": {},
-                              "e": {
+                              "r": {
                                 "docs": {},
-                                "i": {
+                                "o": {
                                   "docs": {},
-                                  "g": {
+                                  "n": {
                                     "docs": {},
-                                    "h": {
-                                      "docs": {},
-                                      "t": {
-                                        "docs": {
-                                          "vArray.html#boxHeight": {
-                                            "ref": "vArray.html#boxHeight",
-                                            "tf": 1150
-                                          }
+                                    "t": {
+                                      "docs": {
+                                        "vArray.html#popFront": {
+                                          "ref": "vArray.html#popFront",
+                                          "tf": 1150
                                         }
                                       }
                                     }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "w": {
-                        "docs": {},
-                        "i": {
-                          "docs": {},
-                          "d": {
-                            "docs": {},
-                            "t": {
-                              "docs": {},
-                              "h": {
-                                "docs": {
-                                  "vArray.html#width": {
-                                    "ref": "vArray.html#width",
-                                    "tf": 1150
                                   }
                                 }
                               }
@@ -3360,26 +2225,6 @@
                       },
                       "h": {
                         "docs": {},
-                        "e": {
-                          "docs": {},
-                          "i": {
-                            "docs": {},
-                            "g": {
-                              "docs": {},
-                              "h": {
-                                "docs": {},
-                                "t": {
-                                  "docs": {
-                                    "vArray.html#height": {
-                                      "ref": "vArray.html#height",
-                                      "tf": 1150
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
                         "i": {
                           "docs": {},
                           "g": {
@@ -3417,103 +2262,6 @@
                                               }
                                             }
                                           }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "s": {
-                        "docs": {},
-                        "t": {
-                          "docs": {},
-                          "a": {
-                            "docs": {},
-                            "t": {
-                              "docs": {},
-                              "e": {
-                                "docs": {},
-                                "m": {
-                                  "docs": {},
-                                  "a": {
-                                    "docs": {},
-                                    "c": {
-                                      "docs": {},
-                                      "h": {
-                                        "docs": {},
-                                        "i": {
-                                          "docs": {},
-                                          "n": {
-                                            "docs": {
-                                              "vArray.html#stateMachine": {
-                                                "ref": "vArray.html#stateMachine",
-                                                "tf": 1150
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "e": {
-                          "docs": {},
-                          "t": {
-                            "docs": {
-                              "vArray.html#set": {
-                                "ref": "vArray.html#set",
-                                "tf": 1150
-                              }
-                            }
-                          }
-                        },
-                        "w": {
-                          "docs": {},
-                          "a": {
-                            "docs": {},
-                            "p": {
-                              "docs": {
-                                "vArray.html#swap": {
-                                  "ref": "vArray.html#swap",
-                                  "tf": 1150
-                                }
-                              }
-                            }
-                          }
-                        }
-                      },
-                      "g": {
-                        "docs": {},
-                        "e": {
-                          "docs": {},
-                          "t": {
-                            "docs": {
-                              "vArray.html#get": {
-                                "ref": "vArray.html#get",
-                                "tf": 1300
-                              }
-                            },
-                            "p": {
-                              "docs": {},
-                              "o": {
-                                "docs": {},
-                                "i": {
-                                  "docs": {},
-                                  "n": {
-                                    "docs": {},
-                                    "t": {
-                                      "docs": {
-                                        "vArray.html#getPointer": {
-                                          "ref": "vArray.html#getPointer",
-                                          "tf": 1150
                                         }
                                       }
                                     }
@@ -3594,10 +2342,6 @@
                   "ref": "vArray.html#pushFront",
                   "tf": 50
                 },
-                "vElement.html#val": {
-                  "ref": "vElement.html#val",
-                  "tf": 750
-                },
                 "vElement.html#setVal": {
                   "ref": "vElement.html#setVal",
                   "tf": 33.33333333333333
@@ -3655,14 +2399,6 @@
                             "ref": "vElement.html",
                             "tf": 1900.909090909091
                           },
-                          "vElement.html#label": {
-                            "ref": "vElement.html#label",
-                            "tf": 12.5
-                          },
-                          "vElement.html#stateMachine": {
-                            "ref": "vElement.html#stateMachine",
-                            "tf": 6.25
-                          },
                           "vElement.html#highlight": {
                             "ref": "vElement.html#highlight",
                             "tf": 5.555555555555555
@@ -3678,162 +2414,8 @@
                         },
                         "#": {
                           "docs": {},
-                          "v": {
-                            "docs": {
-                              "vElement.html#val": {
-                                "ref": "vElement.html#val",
-                                "tf": 1150
-                              }
-                            }
-                          },
-                          "d": {
-                            "docs": {},
-                            "r": {
-                              "docs": {},
-                              "a": {
-                                "docs": {},
-                                "w": {
-                                  "docs": {},
-                                  "v": {
-                                    "docs": {
-                                      "vElement.html#drawVal": {
-                                        "ref": "vElement.html#drawVal",
-                                        "tf": 1150
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "l": {
-                            "docs": {},
-                            "a": {
-                              "docs": {},
-                              "b": {
-                                "docs": {},
-                                "e": {
-                                  "docs": {},
-                                  "l": {
-                                    "docs": {
-                                      "vElement.html#label": {
-                                        "ref": "vElement.html#label",
-                                        "tf": 1150
-                                      }
-                                    },
-                                    "f": {
-                                      "docs": {},
-                                      "o": {
-                                        "docs": {},
-                                        "n": {
-                                          "docs": {},
-                                          "t": {
-                                            "docs": {
-                                              "vElement.html#labelFont": {
-                                                "ref": "vElement.html#labelFont",
-                                                "tf": 1150
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "c": {
-                            "docs": {},
-                            "o": {
-                              "docs": {},
-                              "l": {
-                                "docs": {},
-                                "o": {
-                                  "docs": {},
-                                  "r": {
-                                    "docs": {
-                                      "vElement.html#color": {
-                                        "ref": "vElement.html#color",
-                                        "tf": 1150
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "f": {
-                            "docs": {},
-                            "o": {
-                              "docs": {},
-                              "n": {
-                                "docs": {},
-                                "t": {
-                                  "docs": {
-                                    "vElement.html#font": {
-                                      "ref": "vElement.html#font",
-                                      "tf": 1150
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
-                          "t": {
-                            "docs": {},
-                            "e": {
-                              "docs": {},
-                              "x": {
-                                "docs": {},
-                                "t": {
-                                  "docs": {
-                                    "vElement.html#text": {
-                                      "ref": "vElement.html#text",
-                                      "tf": 1150
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          },
                           "s": {
                             "docs": {},
-                            "t": {
-                              "docs": {},
-                              "a": {
-                                "docs": {},
-                                "t": {
-                                  "docs": {},
-                                  "e": {
-                                    "docs": {},
-                                    "m": {
-                                      "docs": {},
-                                      "a": {
-                                        "docs": {},
-                                        "c": {
-                                          "docs": {},
-                                          "h": {
-                                            "docs": {},
-                                            "i": {
-                                              "docs": {},
-                                              "n": {
-                                                "docs": {
-                                                  "vElement.html#stateMachine": {
-                                                    "ref": "vElement.html#stateMachine",
-                                                    "tf": 1150
-                                                  }
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            },
                             "e": {
                               "docs": {},
                               "t": {
@@ -3990,16 +2572,7 @@
           "e": {
             "docs": {},
             "t": {
-              "docs": {
-                "vElement.html#val": {
-                  "ref": "vElement.html#val",
-                  "tf": 5
-                },
-                "vElement.html#drawVal": {
-                  "ref": "vElement.html#drawVal",
-                  "tf": 5
-                }
-              },
+              "docs": {},
               "p": {
                 "docs": {},
                 "o": {
@@ -4110,164 +2683,6 @@
                   }
                 }
               }
-            },
-            "m": {
-              "docs": {},
-              "b": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "r": {
-                    "docs": {
-                      "Pointer.html#pointee": {
-                        "ref": "Pointer.html#pointee",
-                        "tf": 110
-                      },
-                      "Pointer.html#index": {
-                        "ref": "Pointer.html#index",
-                        "tf": 110
-                      },
-                      "Pointer.html#drawIndex": {
-                        "ref": "Pointer.html#drawIndex",
-                        "tf": 110
-                      },
-                      "Pointer.html#label": {
-                        "ref": "Pointer.html#label",
-                        "tf": 110
-                      },
-                      "Pointer.html#stateMachine": {
-                        "ref": "Pointer.html#stateMachine",
-                        "tf": 110
-                      },
-                      "vArray.html#data": {
-                        "ref": "vArray.html#data",
-                        "tf": 110
-                      },
-                      "vArray.html#label": {
-                        "ref": "vArray.html#label",
-                        "tf": 110
-                      },
-                      "vArray.html#drawData": {
-                        "ref": "vArray.html#drawData",
-                        "tf": 110
-                      },
-                      "vArray.html#pointers": {
-                        "ref": "vArray.html#pointers",
-                        "tf": 110
-                      },
-                      "vArray.html#boxWidth": {
-                        "ref": "vArray.html#boxWidth",
-                        "tf": 110
-                      },
-                      "vArray.html#boxHeight": {
-                        "ref": "vArray.html#boxHeight",
-                        "tf": 110
-                      },
-                      "vArray.html#width": {
-                        "ref": "vArray.html#width",
-                        "tf": 110
-                      },
-                      "vArray.html#height": {
-                        "ref": "vArray.html#height",
-                        "tf": 110
-                      },
-                      "vArray.html#stateMachine": {
-                        "ref": "vArray.html#stateMachine",
-                        "tf": 110
-                      },
-                      "vElement.html#val": {
-                        "ref": "vElement.html#val",
-                        "tf": 110
-                      },
-                      "vElement.html#drawVal": {
-                        "ref": "vElement.html#drawVal",
-                        "tf": 110
-                      },
-                      "vElement.html#label": {
-                        "ref": "vElement.html#label",
-                        "tf": 110
-                      },
-                      "vElement.html#color": {
-                        "ref": "vElement.html#color",
-                        "tf": 110
-                      },
-                      "vElement.html#font": {
-                        "ref": "vElement.html#font",
-                        "tf": 110
-                      },
-                      "vElement.html#labelFont": {
-                        "ref": "vElement.html#labelFont",
-                        "tf": 110
-                      },
-                      "vElement.html#text": {
-                        "ref": "vElement.html#text",
-                        "tf": 110
-                      },
-                      "vElement.html#stateMachine": {
-                        "ref": "vElement.html#stateMachine",
-                        "tf": 110
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "a": {
-            "docs": {},
-            "k": {
-              "docs": {},
-              "e": {
-                "docs": {
-                  "Pointer.html#index": {
-                    "ref": "Pointer.html#index",
-                    "tf": 6.25
-                  }
-                }
-              }
-            },
-            "c": {
-              "docs": {},
-              "h": {
-                "docs": {},
-                "i": {
-                  "docs": {},
-                  "n": {
-                    "docs": {
-                      "Pointer.html#stateMachine": {
-                        "ref": "Pointer.html#stateMachine",
-                        "tf": 6.25
-                      },
-                      "vElement.html#stateMachine": {
-                        "ref": "vElement.html#stateMachine",
-                        "tf": 6.25
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "n": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "g": {
-                  "docs": {
-                    "vArray.html#stateMachine": {
-                      "ref": "vArray.html#stateMachine",
-                      "tf": 12.5
-                    },
-                    "vElement.html": {
-                      "ref": "vElement.html",
-                      "tf": 0.9090909090909091
-                    },
-                    "vElement.html#stateMachine": {
-                      "ref": "vElement.html#stateMachine",
-                      "tf": 6.25
-                    }
-                  }
-                }
-              }
             }
           },
           "o": {
@@ -4339,6 +2754,23 @@
                 }
               }
             }
+          },
+          "a": {
+            "docs": {},
+            "n": {
+              "docs": {},
+              "a": {
+                "docs": {},
+                "g": {
+                  "docs": {
+                    "vElement.html": {
+                      "ref": "vElement.html",
+                      "tf": 0.9090909090909091
+                    }
+                  }
+                }
+              }
+            }
           }
         },
         "o": {
@@ -4357,37 +2789,13 @@
                         "ref": "Pointer.html",
                         "tf": 6.25
                       },
-                      "Pointer.html#pointee": {
-                        "ref": "Pointer.html#pointee",
-                        "tf": 20
-                      },
                       "vArray.html": {
                         "ref": "vArray.html",
                         "tf": 3
                       },
-                      "vArray.html#drawData": {
-                        "ref": "vArray.html#drawData",
-                        "tf": 3.8461538461538463
-                      },
                       "vElement.html": {
                         "ref": "vElement.html",
                         "tf": 5.454545454545454
-                      },
-                      "vElement.html#val": {
-                        "ref": "vElement.html#val",
-                        "tf": 5
-                      },
-                      "vElement.html#drawVal": {
-                        "ref": "vElement.html#drawVal",
-                        "tf": 5
-                      },
-                      "vElement.html#color": {
-                        "ref": "vElement.html#color",
-                        "tf": 12.5
-                      },
-                      "vElement.html#text": {
-                        "ref": "vElement.html#text",
-                        "tf": 5.555555555555555
                       },
                       "vElement.html#setVal": {
                         "ref": "vElement.html#setVal",
@@ -4457,14 +2865,6 @@
                 "docs": {},
                 "t": {
                   "docs": {
-                    "Pointer.html#pointee": {
-                      "ref": "Pointer.html#pointee",
-                      "tf": 10
-                    },
-                    "Pointer.html#index": {
-                      "ref": "Pointer.html#index",
-                      "tf": 6.25
-                    },
                     "Pointer.html#highlight": {
                       "ref": "Pointer.html#highlight",
                       "tf": 6.25
@@ -4472,44 +2872,15 @@
                     "Pointer.html#unhighlight": {
                       "ref": "Pointer.html#unhighlight",
                       "tf": 6.25
-                    },
-                    "vArray.html#pointers": {
-                      "ref": "vArray.html#pointers",
-                      "tf": 3.3333333333333335
                     }
                   },
                   "e": {
-                    "docs": {
-                      "Pointer.html#pointee": {
-                        "ref": "Pointer.html#pointee",
-                        "tf": 700
-                      }
-                    },
+                    "docs": {},
                     "r": {
                       "docs": {
                         "Pointer.html": {
                           "ref": "Pointer.html",
                           "tf": 1900
-                        },
-                        "Pointer.html#pointee": {
-                          "ref": "Pointer.html#pointee",
-                          "tf": 10
-                        },
-                        "Pointer.html#index": {
-                          "ref": "Pointer.html#index",
-                          "tf": 6.25
-                        },
-                        "Pointer.html#drawIndex": {
-                          "ref": "Pointer.html#drawIndex",
-                          "tf": 7.142857142857142
-                        },
-                        "Pointer.html#label": {
-                          "ref": "Pointer.html#label",
-                          "tf": 12.5
-                        },
-                        "Pointer.html#stateMachine": {
-                          "ref": "Pointer.html#stateMachine",
-                          "tf": 6.25
                         },
                         "Pointer.html#getIndex": {
                           "ref": "Pointer.html#getIndex",
@@ -4543,10 +2914,6 @@
                           "ref": "Pointer.html#remove",
                           "tf": 12.5
                         },
-                        "vArray.html#pointers": {
-                          "ref": "vArray.html#pointers",
-                          "tf": 703.3333333333334
-                        },
                         "vArray.html#getPointer": {
                           "ref": "vArray.html#getPointer",
                           "tf": 25
@@ -4554,21 +2921,27 @@
                       },
                       "#": {
                         "docs": {},
-                        "p": {
+                        "g": {
                           "docs": {},
-                          "o": {
+                          "e": {
                             "docs": {},
-                            "i": {
+                            "t": {
                               "docs": {},
-                              "n": {
+                              "i": {
                                 "docs": {},
-                                "t": {
+                                "n": {
                                   "docs": {},
-                                  "e": {
-                                    "docs": {
-                                      "Pointer.html#pointee": {
-                                        "ref": "Pointer.html#pointee",
-                                        "tf": 1150
+                                  "d": {
+                                    "docs": {},
+                                    "e": {
+                                      "docs": {},
+                                      "x": {
+                                        "docs": {
+                                          "Pointer.html#getIndex": {
+                                            "ref": "Pointer.html#getIndex",
+                                            "tf": 1150
+                                          }
+                                        }
                                       }
                                     }
                                   }
@@ -4579,34 +2952,6 @@
                         },
                         "i": {
                           "docs": {},
-                          "n": {
-                            "docs": {},
-                            "d": {
-                              "docs": {},
-                              "e": {
-                                "docs": {},
-                                "x": {
-                                  "docs": {
-                                    "Pointer.html#index": {
-                                      "ref": "Pointer.html#index",
-                                      "tf": 1150
-                                    }
-                                  }
-                                }
-                              }
-                            },
-                            "c": {
-                              "docs": {},
-                              "r": {
-                                "docs": {
-                                  "Pointer.html#increment": {
-                                    "ref": "Pointer.html#increment",
-                                    "tf": 1150
-                                  }
-                                }
-                              }
-                            }
-                          },
                           "s": {
                             "docs": {},
                             "o": {
@@ -4644,135 +2989,16 @@
                                 }
                               }
                             }
-                          }
-                        },
-                        "d": {
-                          "docs": {},
-                          "r": {
-                            "docs": {},
-                            "a": {
-                              "docs": {},
-                              "w": {
-                                "docs": {},
-                                "i": {
-                                  "docs": {},
-                                  "n": {
-                                    "docs": {},
-                                    "d": {
-                                      "docs": {},
-                                      "e": {
-                                        "docs": {},
-                                        "x": {
-                                          "docs": {
-                                            "Pointer.html#drawIndex": {
-                                              "ref": "Pointer.html#drawIndex",
-                                              "tf": 1150
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
                           },
-                          "e": {
+                          "n": {
                             "docs": {},
                             "c": {
                               "docs": {},
                               "r": {
                                 "docs": {
-                                  "Pointer.html#decrement": {
-                                    "ref": "Pointer.html#decrement",
+                                  "Pointer.html#increment": {
+                                    "ref": "Pointer.html#increment",
                                     "tf": 1150
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "l": {
-                          "docs": {},
-                          "a": {
-                            "docs": {},
-                            "b": {
-                              "docs": {},
-                              "e": {
-                                "docs": {},
-                                "l": {
-                                  "docs": {
-                                    "Pointer.html#label": {
-                                      "ref": "Pointer.html#label",
-                                      "tf": 1150
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "s": {
-                          "docs": {},
-                          "t": {
-                            "docs": {},
-                            "a": {
-                              "docs": {},
-                              "t": {
-                                "docs": {},
-                                "e": {
-                                  "docs": {},
-                                  "m": {
-                                    "docs": {},
-                                    "a": {
-                                      "docs": {},
-                                      "c": {
-                                        "docs": {},
-                                        "h": {
-                                          "docs": {},
-                                          "i": {
-                                            "docs": {},
-                                            "n": {
-                                              "docs": {
-                                                "Pointer.html#stateMachine": {
-                                                  "ref": "Pointer.html#stateMachine",
-                                                  "tf": 1150
-                                                }
-                                              }
-                                            }
-                                          }
-                                        }
-                                      }
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        },
-                        "g": {
-                          "docs": {},
-                          "e": {
-                            "docs": {},
-                            "t": {
-                              "docs": {},
-                              "i": {
-                                "docs": {},
-                                "n": {
-                                  "docs": {},
-                                  "d": {
-                                    "docs": {},
-                                    "e": {
-                                      "docs": {},
-                                      "x": {
-                                        "docs": {
-                                          "Pointer.html#getIndex": {
-                                            "ref": "Pointer.html#getIndex",
-                                            "tf": 1150
-                                          }
-                                        }
-                                      }
-                                    }
                                   }
                                 }
                               }
@@ -4801,6 +3027,23 @@
                                         "tf": 1150
                                       }
                                     }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        },
+                        "d": {
+                          "docs": {},
+                          "e": {
+                            "docs": {},
+                            "c": {
+                              "docs": {},
+                              "r": {
+                                "docs": {
+                                  "Pointer.html#decrement": {
+                                    "ref": "Pointer.html#decrement",
+                                    "tf": 1150
                                   }
                                 }
                               }
@@ -5096,21 +3339,9 @@
               "docs": {},
               "r": {
                 "docs": {
-                  "Pointer.html#index": {
-                    "ref": "Pointer.html#index",
-                    "tf": 6.25
-                  },
-                  "vArray.html#data": {
-                    "ref": "vArray.html#data",
-                    "tf": 5.555555555555555
-                  },
                   "vElement.html": {
                     "ref": "vElement.html",
                     "tf": 3.6363636363636362
-                  },
-                  "vElement.html#val": {
-                    "ref": "vElement.html#val",
-                    "tf": 5
                   }
                 }
               }
@@ -5228,447 +3459,6 @@
                             }
                           }
                         }
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "t": {
-            "docs": {},
-            "i": {
-              "docs": {},
-              "l": {
-                "docs": {
-                  "vArray.html#drawData": {
-                    "ref": "vArray.html#drawData",
-                    "tf": 3.8461538461538463
-                  },
-                  "vElement.html#drawVal": {
-                    "ref": "vElement.html#drawVal",
-                    "tf": 5
-                  },
-                  "vElement.html#font": {
-                    "ref": "vElement.html#font",
-                    "tf": 6.25
-                  },
-                  "vElement.html#labelFont": {
-                    "ref": "vElement.html#labelFont",
-                    "tf": 10
-                  }
-                }
-              }
-            }
-          },
-          "p": {
-            "docs": {},
-            "d": {
-              "docs": {},
-              "a": {
-                "docs": {},
-                "t": {
-                  "docs": {
-                    "vArray.html#pointers": {
-                      "ref": "vArray.html#pointers",
-                      "tf": 3.3333333333333335
-                    },
-                    "vElement.html#val": {
-                      "ref": "vElement.html#val",
-                      "tf": 5
-                    },
-                    "vElement.html#drawVal": {
-                      "ref": "vElement.html#drawVal",
-                      "tf": 10
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "n": {
-          "docs": {},
-          "u": {
-            "docs": {},
-            "m": {
-              "docs": {},
-              "b": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "r": {
-                    "docs": {
-                      "Pointer.html#index": {
-                        "ref": "Pointer.html#index",
-                        "tf": 50
-                      },
-                      "Pointer.html#drawIndex": {
-                        "ref": "Pointer.html#drawIndex",
-                        "tf": 50
-                      },
-                      "vArray.html": {
-                        "ref": "vArray.html",
-                        "tf": 2
-                      },
-                      "vArray.html#boxWidth": {
-                        "ref": "vArray.html#boxWidth",
-                        "tf": 50
-                      },
-                      "vArray.html#boxHeight": {
-                        "ref": "vArray.html#boxHeight",
-                        "tf": 50
-                      },
-                      "vArray.html#width": {
-                        "ref": "vArray.html#width",
-                        "tf": 50
-                      },
-                      "vArray.html#height": {
-                        "ref": "vArray.html#height",
-                        "tf": 50
-                      },
-                      "vElement.html": {
-                        "ref": "vElement.html",
-                        "tf": 1.8181818181818181
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "e": {
-            "docs": {},
-            "e": {
-              "docs": {},
-              "d": {
-                "docs": {
-                  "vArray.html": {
-                    "ref": "vArray.html",
-                    "tf": 2
-                  },
-                  "vArray.html#pointers": {
-                    "ref": "vArray.html#pointers",
-                    "tf": 3.3333333333333335
-                  }
-                }
-              }
-            },
-            "w": {
-              "docs": {
-                "vArray.html#set": {
-                  "ref": "vArray.html#set",
-                  "tf": 10
-                },
-                "vArray.html#pushBack": {
-                  "ref": "vArray.html#pushBack",
-                  "tf": 10
-                },
-                "vArray.html#pushFront": {
-                  "ref": "vArray.html#pushFront",
-                  "tf": 10
-                },
-                "vElement.html#setVal": {
-                  "ref": "vElement.html#setVal",
-                  "tf": 10
-                }
-              },
-              "v": {
-                "docs": {},
-                "a": {
-                  "docs": {},
-                  "l": {
-                    "docs": {
-                      "vArray.html#set": {
-                        "ref": "vArray.html#set",
-                        "tf": 25
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          }
-        },
-        "b": {
-          "docs": {},
-          "e": {
-            "docs": {},
-            "l": {
-              "docs": {},
-              "o": {
-                "docs": {},
-                "w": {
-                  "docs": {
-                    "Pointer.html#label": {
-                      "ref": "Pointer.html#label",
-                      "tf": 12.5
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "o": {
-            "docs": {},
-            "o": {
-              "docs": {},
-              "l": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "a": {
-                    "docs": {},
-                    "n": {
-                      "docs": {
-                        "Pointer.html#isOutOfBound": {
-                          "ref": "Pointer.html#isOutOfBound",
-                          "tf": 50
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "u": {
-              "docs": {},
-              "n": {
-                "docs": {},
-                "d": {
-                  "docs": {
-                    "Pointer.html#isOutOfBound": {
-                      "ref": "Pointer.html#isOutOfBound",
-                      "tf": 6.25
-                    }
-                  }
-                }
-              }
-            },
-            "x": {
-              "docs": {
-                "vElement.html#color": {
-                  "ref": "vElement.html#color",
-                  "tf": 12.5
-                },
-                "vElement.html#font": {
-                  "ref": "vElement.html#font",
-                  "tf": 6.25
-                },
-                "vElement.html#highlight": {
-                  "ref": "vElement.html#highlight",
-                  "tf": 5.555555555555555
-                },
-                "vElement.html#unhighlight": {
-                  "ref": "vElement.html#unhighlight",
-                  "tf": 5.555555555555555
-                }
-              },
-              "w": {
-                "docs": {},
-                "i": {
-                  "docs": {},
-                  "d": {
-                    "docs": {},
-                    "t": {
-                      "docs": {},
-                      "h": {
-                        "docs": {
-                          "vArray.html#boxWidth": {
-                            "ref": "vArray.html#boxWidth",
-                            "tf": 700
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              },
-              "h": {
-                "docs": {},
-                "e": {
-                  "docs": {},
-                  "i": {
-                    "docs": {},
-                    "g": {
-                      "docs": {},
-                      "h": {
-                        "docs": {},
-                        "t": {
-                          "docs": {
-                            "vArray.html#boxHeight": {
-                              "ref": "vArray.html#boxHeight",
-                              "tf": 700
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                }
-              }
-            },
-            "t": {
-              "docs": {},
-              "h": {
-                "docs": {
-                  "vArray.html#highlightRange": {
-                    "ref": "vArray.html#highlightRange",
-                    "tf": 7.142857142857142
-                  },
-                  "vArray.html#unhighlightRange": {
-                    "ref": "vArray.html#unhighlightRange",
-                    "tf": 7.142857142857142
-                  }
-                }
-              }
-            }
-          }
-        },
-        "h": {
-          "docs": {},
-          "a": {
-            "docs": {},
-            "n": {
-              "docs": {},
-              "d": {
-                "docs": {},
-                "l": {
-                  "docs": {
-                    "Pointer.html#stateMachine": {
-                      "ref": "Pointer.html#stateMachine",
-                      "tf": 6.25
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "i": {
-            "docs": {},
-            "g": {
-              "docs": {},
-              "h": {
-                "docs": {},
-                "l": {
-                  "docs": {},
-                  "i": {
-                    "docs": {},
-                    "g": {
-                      "docs": {},
-                      "h": {
-                        "docs": {},
-                        "t": {
-                          "docs": {
-                            "Pointer.html#highlight": {
-                              "ref": "Pointer.html#highlight",
-                              "tf": 700
-                            },
-                            "vArray.html#set": {
-                              "ref": "vArray.html#set",
-                              "tf": 25
-                            },
-                            "vArray.html#highlight": {
-                              "ref": "vArray.html#highlight",
-                              "tf": 700
-                            },
-                            "vArray.html#highlightRange": {
-                              "ref": "vArray.html#highlightRange",
-                              "tf": 7.142857142857142
-                            },
-                            "vArray.html#swap": {
-                              "ref": "vArray.html#swap",
-                              "tf": 33.33333333333333
-                            },
-                            "vElement.html#setVal": {
-                              "ref": "vElement.html#setVal",
-                              "tf": 33.33333333333333
-                            },
-                            "vElement.html#highlight": {
-                              "ref": "vElement.html#highlight",
-                              "tf": 700
-                            }
-                          },
-                          "r": {
-                            "docs": {},
-                            "a": {
-                              "docs": {},
-                              "n": {
-                                "docs": {},
-                                "g": {
-                                  "docs": {
-                                    "vArray.html#highlightRange": {
-                                      "ref": "vArray.html#highlightRange",
-                                      "tf": 675
-                                    }
-                                  }
-                                }
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                "t": {
-                  "docs": {},
-                  "l": {
-                    "docs": {},
-                    "i": {
-                      "docs": {},
-                      "g": {
-                        "docs": {},
-                        "h": {
-                          "docs": {},
-                          "t": {
-                            "docs": {
-                              "Pointer.html#highlight": {
-                                "ref": "Pointer.html#highlight",
-                                "tf": 6.25
-                              },
-                              "vElement.html#highlight": {
-                                "ref": "vElement.html#highlight",
-                                "tf": 5.555555555555555
-                              }
-                            }
-                          }
-                        }
-                      }
-                    }
-                  }
-                },
-                "e": {
-                  "docs": {},
-                  "r": {
-                    "docs": {
-                      "vElement.html": {
-                        "ref": "vElement.html",
-                        "tf": 0.9090909090909091
-                      }
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "e": {
-            "docs": {},
-            "i": {
-              "docs": {},
-              "g": {
-                "docs": {},
-                "h": {
-                  "docs": {},
-                  "t": {
-                    "docs": {
-                      "vArray.html#boxHeight": {
-                        "ref": "vArray.html#boxHeight",
-                        "tf": 12.5
-                      },
-                      "vArray.html#height": {
-                        "ref": "vArray.html#height",
-                        "tf": 716.6666666666666
                       }
                     }
                   }
@@ -5823,6 +3613,20 @@
               }
             }
           },
+          "a": {
+            "docs": {},
+            "l": {
+              "docs": {},
+              "s": {
+                "docs": {
+                  "vElement.html": {
+                    "ref": "vElement.html",
+                    "tf": 0.9090909090909091
+                  }
+                }
+              }
+            }
+          },
           "r": {
             "docs": {},
             "a": {
@@ -5830,16 +3634,7 @@
               "m": {
                 "docs": {},
                 "e": {
-                  "docs": {
-                    "vArray.html#drawData": {
-                      "ref": "vArray.html#drawData",
-                      "tf": 3.8461538461538463
-                    },
-                    "vArray.html#pointers": {
-                      "ref": "vArray.html#pointers",
-                      "tf": 3.3333333333333335
-                    }
-                  },
+                  "docs": {},
                   "w": {
                     "docs": {},
                     "o": {
@@ -5860,35 +3655,70 @@
                 }
               }
             }
-          },
-          "a": {
+          }
+        },
+        "b": {
+          "docs": {},
+          "o": {
             "docs": {},
-            "l": {
+            "o": {
               "docs": {},
-              "s": {
-                "docs": {
-                  "vElement.html": {
-                    "ref": "vElement.html",
-                    "tf": 0.9090909090909091
+              "l": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "a": {
+                    "docs": {},
+                    "n": {
+                      "docs": {
+                        "Pointer.html#isOutOfBound": {
+                          "ref": "Pointer.html#isOutOfBound",
+                          "tf": 50
+                        }
+                      }
+                    }
                   }
                 }
               }
-            }
-          },
-          "o": {
-            "docs": {},
-            "n": {
+            },
+            "u": {
               "docs": {},
-              "t": {
-                "docs": {
-                  "vElement.html#font": {
-                    "ref": "vElement.html#font",
-                    "tf": 706.25
-                  },
-                  "vElement.html#labelFont": {
-                    "ref": "vElement.html#labelFont",
-                    "tf": 10
+              "n": {
+                "docs": {},
+                "d": {
+                  "docs": {
+                    "Pointer.html#isOutOfBound": {
+                      "ref": "Pointer.html#isOutOfBound",
+                      "tf": 6.25
+                    }
                   }
+                }
+              }
+            },
+            "t": {
+              "docs": {},
+              "h": {
+                "docs": {
+                  "vArray.html#highlightRange": {
+                    "ref": "vArray.html#highlightRange",
+                    "tf": 7.142857142857142
+                  },
+                  "vArray.html#unhighlightRange": {
+                    "ref": "vArray.html#unhighlightRange",
+                    "tf": 7.142857142857142
+                  }
+                }
+              }
+            },
+            "x": {
+              "docs": {
+                "vElement.html#highlight": {
+                  "ref": "vElement.html#highlight",
+                  "tf": 5.555555555555555
+                },
+                "vElement.html#unhighlight": {
+                  "ref": "vElement.html#unhighlight",
+                  "tf": 5.555555555555555
                 }
               }
             }
@@ -5927,21 +3757,6 @@
                     "vArray.html": {
                       "ref": "vArray.html",
                       "tf": 1
-                    }
-                  }
-                }
-              },
-              "l": {
-                "docs": {},
-                "e": {
-                  "docs": {
-                    "vArray.html#width": {
-                      "ref": "vArray.html#width",
-                      "tf": 16.666666666666664
-                    },
-                    "vArray.html#height": {
-                      "ref": "vArray.html#height",
-                      "tf": 16.666666666666664
                     }
                   }
                 }
@@ -5994,49 +3809,8 @@
                         "vArray.html": {
                           "ref": "vArray.html",
                           "tf": 1
-                        },
-                        "vArray.html#data": {
-                          "ref": "vArray.html#data",
-                          "tf": 5.555555555555555
-                        },
-                        "vElement.html#val": {
-                          "ref": "vElement.html#val",
-                          "tf": 5
                         }
                       }
-                    }
-                  }
-                },
-                "e": {
-                  "docs": {
-                    "vElement.html#font": {
-                      "ref": "vElement.html#font",
-                      "tf": 6.25
-                    },
-                    "vElement.html#labelFont": {
-                      "ref": "vElement.html#labelFont",
-                      "tf": 10
-                    }
-                  }
-                }
-              }
-            }
-          },
-          "i": {
-            "docs": {},
-            "d": {
-              "docs": {},
-              "t": {
-                "docs": {},
-                "h": {
-                  "docs": {
-                    "vArray.html#boxWidth": {
-                      "ref": "vArray.html#boxWidth",
-                      "tf": 12.5
-                    },
-                    "vArray.html#width": {
-                      "ref": "vArray.html#width",
-                      "tf": 716.6666666666666
                     }
                   }
                 }
@@ -6112,18 +3886,6 @@
                         "Pointer.html#unhighlight": {
                           "ref": "Pointer.html#unhighlight",
                           "tf": 6.25
-                        },
-                        "vArray.html#pointers": {
-                          "ref": "vArray.html#pointers",
-                          "tf": 3.3333333333333335
-                        },
-                        "vArray.html#boxWidth": {
-                          "ref": "vArray.html#boxWidth",
-                          "tf": 12.5
-                        },
-                        "vArray.html#boxHeight": {
-                          "ref": "vArray.html#boxHeight",
-                          "tf": 12.5
                         },
                         "vArray.html#pushBack": {
                           "ref": "vArray.html#pushBack",
@@ -6201,10 +3963,6 @@
                             "ref": "vElement.html",
                             "tf": 0.9090909090909091
                           },
-                          "vElement.html#val": {
-                            "ref": "vElement.html#val",
-                            "tf": 5
-                          },
                           "vElement.html#setVal": {
                             "ref": "vElement.html#setVal",
                             "tf": 10
@@ -6253,18 +4011,112 @@
                   }
                 }
               }
-            },
-            "e": {
+            }
+          }
+        },
+        "h": {
+          "docs": {},
+          "i": {
+            "docs": {},
+            "g": {
               "docs": {},
-              "c": {
+              "h": {
                 "docs": {},
-                "u": {
+                "l": {
                   "docs": {},
-                  "t": {
+                  "i": {
+                    "docs": {},
+                    "g": {
+                      "docs": {},
+                      "h": {
+                        "docs": {},
+                        "t": {
+                          "docs": {
+                            "Pointer.html#highlight": {
+                              "ref": "Pointer.html#highlight",
+                              "tf": 700
+                            },
+                            "vArray.html#set": {
+                              "ref": "vArray.html#set",
+                              "tf": 25
+                            },
+                            "vArray.html#highlight": {
+                              "ref": "vArray.html#highlight",
+                              "tf": 700
+                            },
+                            "vArray.html#highlightRange": {
+                              "ref": "vArray.html#highlightRange",
+                              "tf": 7.142857142857142
+                            },
+                            "vArray.html#swap": {
+                              "ref": "vArray.html#swap",
+                              "tf": 33.33333333333333
+                            },
+                            "vElement.html#setVal": {
+                              "ref": "vElement.html#setVal",
+                              "tf": 33.33333333333333
+                            },
+                            "vElement.html#highlight": {
+                              "ref": "vElement.html#highlight",
+                              "tf": 700
+                            }
+                          },
+                          "r": {
+                            "docs": {},
+                            "a": {
+                              "docs": {},
+                              "n": {
+                                "docs": {},
+                                "g": {
+                                  "docs": {
+                                    "vArray.html#highlightRange": {
+                                      "ref": "vArray.html#highlightRange",
+                                      "tf": 675
+                                    }
+                                  }
+                                }
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "t": {
+                  "docs": {},
+                  "l": {
+                    "docs": {},
+                    "i": {
+                      "docs": {},
+                      "g": {
+                        "docs": {},
+                        "h": {
+                          "docs": {},
+                          "t": {
+                            "docs": {
+                              "Pointer.html#highlight": {
+                                "ref": "Pointer.html#highlight",
+                                "tf": 6.25
+                              },
+                              "vElement.html#highlight": {
+                                "ref": "vElement.html#highlight",
+                                "tf": 5.555555555555555
+                              }
+                            }
+                          }
+                        }
+                      }
+                    }
+                  }
+                },
+                "e": {
+                  "docs": {},
+                  "r": {
                     "docs": {
-                      "vElement.html#drawVal": {
-                        "ref": "vElement.html#drawVal",
-                        "tf": 5
+                      "vElement.html": {
+                        "ref": "vElement.html",
+                        "tf": 0.9090909090909091
                       }
                     }
                   }
@@ -6310,14 +4162,6 @@
                   "vElement.html": {
                     "ref": "vElement.html",
                     "tf": 0.9090909090909091
-                  },
-                  "vElement.html#font": {
-                    "ref": "vElement.html#font",
-                    "tf": 6.25
-                  },
-                  "vElement.html#text": {
-                    "ref": "vElement.html#text",
-                    "tf": 705.5555555555555
                   }
                 }
               }
@@ -6338,10 +4182,6 @@
                     "vElement.html": {
                       "ref": "vElement.html",
                       "tf": 0.9090909090909091
-                    },
-                    "vElement.html#font": {
-                      "ref": "vElement.html#font",
-                      "tf": 6.25
                     }
                   }
                 }
@@ -6378,10 +4218,81 @@
                     "vArray.html": {
                       "ref": "vArray.html",
                       "tf": 1
-                    },
-                    "vArray.html#drawData": {
-                      "ref": "vArray.html#drawData",
-                      "tf": 3.8461538461538463
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "n": {
+          "docs": {},
+          "e": {
+            "docs": {},
+            "e": {
+              "docs": {},
+              "d": {
+                "docs": {
+                  "vArray.html": {
+                    "ref": "vArray.html",
+                    "tf": 2
+                  }
+                }
+              }
+            },
+            "w": {
+              "docs": {
+                "vArray.html#set": {
+                  "ref": "vArray.html#set",
+                  "tf": 10
+                },
+                "vArray.html#pushBack": {
+                  "ref": "vArray.html#pushBack",
+                  "tf": 10
+                },
+                "vArray.html#pushFront": {
+                  "ref": "vArray.html#pushFront",
+                  "tf": 10
+                },
+                "vElement.html#setVal": {
+                  "ref": "vElement.html#setVal",
+                  "tf": 10
+                }
+              },
+              "v": {
+                "docs": {},
+                "a": {
+                  "docs": {},
+                  "l": {
+                    "docs": {
+                      "vArray.html#set": {
+                        "ref": "vArray.html#set",
+                        "tf": 25
+                      }
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "u": {
+            "docs": {},
+            "m": {
+              "docs": {},
+              "b": {
+                "docs": {},
+                "e": {
+                  "docs": {},
+                  "r": {
+                    "docs": {
+                      "vArray.html": {
+                        "ref": "vArray.html",
+                        "tf": 2
+                      },
+                      "vElement.html": {
+                        "ref": "vElement.html",
+                        "tf": 1.8181818181818181
+                      }
                     }
                   }
                 }
@@ -6390,32 +4301,21 @@
           }
         }
       },
-      "length": 546
+      "length": 338
     },
     "corpusTokens": [
       "1",
-      "abov",
-      "actual",
       "add",
       "algorithm",
-      "along",
       "alway",
       "amount",
       "anim",
       "anyth",
       "array",
-      "array.&lt;any&gt",
-      "array.&lt;pointer&gt",
-      "array.&lt;string&gt",
-      "array.&lt;velement&gt",
-      "asynchron",
-      "below",
       "boolean",
       "both",
       "bound",
       "box",
-      "boxheight",
-      "boxwidth",
       "call",
       "chang",
       "check",
@@ -6423,7 +4323,6 @@
       "code",
       "color",
       "constructor",
-      "copi",
       "creat",
       "current",
       "custom",
@@ -6431,13 +4330,9 @@
       "decrement",
       "default",
       "directli",
-      "display",
       "document",
       "draw",
-      "drawdata",
-      "drawindex",
       "drawn",
-      "drawval",
       "driven",
       "e",
       "effect",
@@ -6447,57 +4342,42 @@
       "etc",
       "even",
       "exampl",
-      "execut",
       "fals",
       "feom",
-      "font",
-      "frame",
       "framework",
       "function",
-      "get",
       "getindex",
       "getpoint",
       "getval",
       "given",
       "global",
-      "handl",
-      "height",
       "higher",
       "highlight",
       "highlightrang",
       "hightlight",
       "i.",
-      "idl",
       "inbuilt",
       "inclus",
       "increment",
       "index",
       "indic",
       "individu",
-      "initi",
       "initindex",
-      "insid",
       "instanc",
       "instead",
       "intern",
       "isoutofbound",
       "isslav",
-      "itself",
       "j",
       "javascript",
       "label",
-      "label/nam",
-      "labelfont",
       "length",
       "level",
       "librari",
       "line",
       "list",
       "list:class",
-      "machin",
-      "make",
       "manag",
-      "member",
       "method",
       "move",
       "move(1",
@@ -6512,21 +4392,15 @@
       "overridden",
       "pass",
       "point",
-      "pointe",
       "pointer",
       "pointer#decr",
-      "pointer#drawindex",
       "pointer#getindex",
       "pointer#highlight",
       "pointer#incr",
-      "pointer#index",
       "pointer#isoutofbound",
-      "pointer#label",
       "pointer#mov",
       "pointer#moveto",
-      "pointer#pointe",
       "pointer#remov",
-      "pointer#statemachin",
       "pointer#unhighlight",
       "pointer(index",
       "pool",
@@ -6540,19 +4414,14 @@
       "rang",
       "readm",
       "regist",
-      "relat",
       "remov",
       "repres",
       "represent",
-      "requir",
       "restrict",
       "return",
       "s",
       "same",
-      "schedul",
       "screen",
-      "select",
-      "separ",
       "set",
       "setval",
       "show",
@@ -6560,15 +4429,11 @@
       "specifi",
       "stack",
       "start",
-      "state",
-      "statemachin",
       "string",
       "structur",
       "student",
-      "style",
       "such",
       "swap",
-      "synchron",
       "text",
       "tostr",
       "true",
@@ -6577,61 +4442,38 @@
       "unhighlightrang",
       "unhightlight",
       "unightlight",
-      "updat",
       "us",
       "user",
-      "util",
       "val",
       "valu",
       "variabl",
       "varray",
-      "varray#boxheight",
-      "varray#boxwidth",
-      "varray#data",
-      "varray#drawdata",
       "varray#get",
       "varray#getpoint",
-      "varray#height",
       "varray#highlight",
       "varray#highlightrang",
-      "varray#label",
       "varray#length",
-      "varray#point",
       "varray#popback",
       "varray#popfront",
       "varray#pushback",
       "varray#pushfront",
       "varray#set",
-      "varray#statemachin",
       "varray#swap",
       "varray#unhighlight",
       "varray#unhighlightrang",
-      "varray#width",
       "velement",
-      "velement#color",
-      "velement#drawv",
-      "velement#font",
       "velement#getv",
       "velement#highlight",
-      "velement#label",
-      "velement#labelfont",
       "velement#remov",
       "velement#setv",
-      "velement#statemachin",
-      "velement#text",
       "velement#unhighlight",
-      "velement#v",
-      "via",
       "visual",
       "visuald",
       "want",
       "well",
       "whether",
-      "whole",
       "whose",
-      "width",
       "worri",
-      "write",
       "written"
     ],
     "pipeline": [
@@ -6684,56 +4526,6 @@
       "summary": "",
       "description": "This class represents a visual array index variable. DO NOT create an object of this using the constructor. Always use getPointer() method of vArray to get an object of this.",
       "body": ""
-    },
-    "Pointer.html#pointee": {
-      "id": "Pointer.html#pointee",
-      "kind": "member",
-      "title": "pointee :vArray",
-      "longname": "Pointer#pointee",
-      "name": "pointee",
-      "tags": "Pointer#pointee pointee",
-      "summary": "",
-      "description": "The vArray object this Pointer object will point to"
-    },
-    "Pointer.html#index": {
-      "id": "Pointer.html#index",
-      "kind": "member",
-      "title": "index :number",
-      "longname": "Pointer#index",
-      "name": "index",
-      "tags": "Pointer#index index",
-      "summary": "",
-      "description": "The index at which this pointer is pointing to. This is the index that changes when user makes changes."
-    },
-    "Pointer.html#drawIndex": {
-      "id": "Pointer.html#drawIndex",
-      "kind": "member",
-      "title": "drawIndex :number",
-      "longname": "Pointer#drawIndex",
-      "name": "drawIndex",
-      "tags": "Pointer#drawIndex drawIndex",
-      "summary": "",
-      "description": "The index at which this pointer is drawn. This is the index that changes when animations are scheduled."
-    },
-    "Pointer.html#label": {
-      "id": "Pointer.html#label",
-      "kind": "member",
-      "title": "label :string",
-      "longname": "Pointer#label",
-      "name": "label",
-      "tags": "Pointer#label label",
-      "summary": "",
-      "description": "The label to show below this pointer"
-    },
-    "Pointer.html#stateMachine": {
-      "id": "Pointer.html#stateMachine",
-      "kind": "member",
-      "title": "stateMachine :StateMachine",
-      "longname": "Pointer#stateMachine",
-      "name": "stateMachine",
-      "tags": "Pointer#stateMachine stateMachine",
-      "summary": "",
-      "description": "The state machine to handle the states of this pointer. Initial state is idle."
     },
     "Pointer.html#getIndex": {
       "id": "Pointer.html#getIndex",
@@ -6835,96 +4627,6 @@
       "summary": "",
       "description": "This class represents a visual array. It can be an array of anything, i.e string, number, custom objects, etc. The only restriction is that the class, whose objects are in the array, should have a toString() method that returns what needs to be written in the visualized object in the visualized array. It may be a single line text, or a multiline text. If just passing array of numbers, or strings, then no need to worry about toString since it is there by default in these inbuilt classes. With its pushBack(), popBack(), pushFront(), popFront() methods, it can be used as a stack or queue as well.",
       "body": ""
-    },
-    "vArray.html#data": {
-      "id": "vArray.html#data",
-      "kind": "member",
-      "title": "data :Array.&lt;any&gt;",
-      "longname": "vArray#data",
-      "name": "data",
-      "tags": "vArray#data data",
-      "summary": "",
-      "description": "This is the actual data inside the array, that changes with the synchronous code written by user."
-    },
-    "vArray.html#label": {
-      "id": "vArray.html#label",
-      "kind": "member",
-      "title": "label :string",
-      "longname": "vArray#label",
-      "name": "label",
-      "tags": "vArray#label label",
-      "summary": "",
-      "description": "The label to draw above the array"
-    },
-    "vArray.html#drawData": {
-      "id": "vArray.html#drawData",
-      "kind": "member",
-      "title": "drawData :Array.&lt;vElement&gt;",
-      "longname": "vArray#drawData",
-      "name": "drawData",
-      "tags": "vArray#drawData drawData",
-      "summary": "",
-      "description": "This is the copy utilized for drawing on every frame. It changes asynchronously, as and when animations related to the varray object are selected from the animation queue."
-    },
-    "vArray.html#pointers": {
-      "id": "vArray.html#pointers",
-      "kind": "member",
-      "title": "pointers :Array.&lt;Pointer&gt;",
-      "longname": "vArray#pointers",
-      "name": "pointers",
-      "tags": "vArray#pointers pointers",
-      "summary": "",
-      "description": "The list of pointers (index variables) that point to elements of this array. Required, because along with the array itself, these also need to be drawn and updated on every frame."
-    },
-    "vArray.html#boxWidth": {
-      "id": "vArray.html#boxWidth",
-      "kind": "member",
-      "title": "boxWidth :number",
-      "longname": "vArray#boxWidth",
-      "name": "boxWidth",
-      "tags": "vArray#boxWidth boxWidth",
-      "summary": "",
-      "description": "Width of a single element drawn"
-    },
-    "vArray.html#boxHeight": {
-      "id": "vArray.html#boxHeight",
-      "kind": "member",
-      "title": "boxHeight :number",
-      "longname": "vArray#boxHeight",
-      "name": "boxHeight",
-      "tags": "vArray#boxHeight boxHeight",
-      "summary": "",
-      "description": "Height of a single element drawn"
-    },
-    "vArray.html#width": {
-      "id": "vArray.html#width",
-      "kind": "member",
-      "title": "width :number",
-      "longname": "vArray#width",
-      "name": "width",
-      "tags": "vArray#width width",
-      "summary": "",
-      "description": "Width of the whole array"
-    },
-    "vArray.html#height": {
-      "id": "vArray.html#height",
-      "kind": "member",
-      "title": "height :number",
-      "longname": "vArray#height",
-      "name": "height",
-      "tags": "vArray#height height",
-      "summary": "",
-      "description": "Height of the whole array"
-    },
-    "vArray.html#stateMachine": {
-      "id": "vArray.html#stateMachine",
-      "kind": "member",
-      "title": "stateMachine :StateMachine",
-      "longname": "vArray#stateMachine",
-      "name": "stateMachine",
-      "tags": "vArray#stateMachine stateMachine",
-      "summary": "",
-      "description": "To manage the animation via states"
     },
     "vArray.html#length": {
       "id": "vArray.html#length",
@@ -7066,86 +4768,6 @@
       "summary": "",
       "description": "This is that class that encapsulates any object that is to be drawn. It may be number, string, or even a custom Student object, provided it has a toString() overridden that returns the text representation of the object. User of the framework may want to create individual objects of this class that would be drawn (with isSlave = false) and managed by the animator directly. This is useful when the user wants to show a single object on the screen., for example, a number or a string. or the user may not use this at all, instead the user may use higher level classes such as vArray which internally uses vElement objects (with isSlave = true).",
       "body": ""
-    },
-    "vElement.html#val": {
-      "id": "vElement.html#val",
-      "kind": "member",
-      "title": "val :*",
-      "longname": "vElement#val",
-      "name": "val",
-      "tags": "vElement#val val",
-      "summary": "",
-      "description": "The object encapsulated. This gets updated along with the synchronous code (code written by the user)."
-    },
-    "vElement.html#drawVal": {
-      "id": "vElement.html#drawVal",
-      "kind": "member",
-      "title": "drawVal :*",
-      "longname": "vElement#drawVal",
-      "name": "drawVal",
-      "tags": "vElement#drawVal drawVal",
-      "summary": "",
-      "description": "The object utilized to draw. This gets updated as and when the animation related to any updation is executed by animator."
-    },
-    "vElement.html#label": {
-      "id": "vElement.html#label",
-      "kind": "member",
-      "title": "label :string",
-      "longname": "vElement#label",
-      "name": "label",
-      "tags": "vElement#label label",
-      "summary": "",
-      "description": "The label/name that is to be displayed when drawing this vElement"
-    },
-    "vElement.html#color": {
-      "id": "vElement.html#color",
-      "kind": "member",
-      "title": "color :string",
-      "longname": "vElement#color",
-      "name": "color",
-      "tags": "vElement#color color",
-      "summary": "",
-      "description": "The color of the box in which to display the object"
-    },
-    "vElement.html#font": {
-      "id": "vElement.html#font",
-      "kind": "member",
-      "title": "font :string",
-      "longname": "vElement#font",
-      "name": "font",
-      "tags": "vElement#font font",
-      "summary": "",
-      "description": "The font style utilized to write the toString() text of the drawVal in the box"
-    },
-    "vElement.html#labelFont": {
-      "id": "vElement.html#labelFont",
-      "kind": "member",
-      "title": "labelFont :string",
-      "longname": "vElement#labelFont",
-      "name": "labelFont",
-      "tags": "vElement#labelFont labelFont",
-      "summary": "",
-      "description": "The font style utilized to write the label"
-    },
-    "vElement.html#text": {
-      "id": "vElement.html#text",
-      "kind": "member",
-      "title": "text :Array.&lt;string&gt;",
-      "longname": "vElement#text",
-      "name": "text",
-      "tags": "vElement#text text",
-      "summary": "",
-      "description": "The text representation of the drawVal object, as an array of strings which are to be drawn on separate lines"
-    },
-    "vElement.html#stateMachine": {
-      "id": "vElement.html#stateMachine",
-      "kind": "member",
-      "title": "stateMachine :StateMachine",
-      "longname": "vElement#stateMachine",
-      "name": "stateMachine",
-      "tags": "vElement#stateMachine stateMachine",
-      "summary": "",
-      "description": "The state machine to manage the states of vElement. Initial state is idle."
     },
     "vElement.html#setVal": {
       "id": "vElement.html#setVal",

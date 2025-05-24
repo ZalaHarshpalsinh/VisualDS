@@ -383,41 +383,49 @@ declare class vElement extends Entity {
      * The object encapsulated. This gets updated along with the synchronous code
      * (code written by the user).
      * @type {*}
+     * @ignore
      */
     val: any;
     /**
      * The object utilized to draw. This gets updated as and when the animation related to any updation is executed by animator.
      * @type {*}
+     * @ignore
      */
     drawVal: any;
     /**
      * The label/name that is to be displayed when drawing this vElement
      * @type {string}
+     * @ignore
      */
     label: string;
     /**
      * The color of the box in which to display the object
      * @type {string}
+     * @ignore
      */
     color: string;
     /**
      * The font style utilized to write the toString() text of the drawVal in the box
      * @type {string}
+     * @ignore
      */
     font: string;
     /**
      * The font style utilized to write the label
      * @type {string}
+     * @ignore
      */
     labelFont: string;
     /**
      * The text representation of the drawVal object, as an array of strings which are to be drawn on separate lines
      * @type {string[]}
+     * @ignore
      */
     text: string[];
     /**
      * The state machine to manage the states of vElement. Initial state is idle.
      * @type {StateMachine}
+     * @ignore
      */
     stateMachine: StateMachine;
     /**
@@ -554,11 +562,13 @@ declare class vArray extends Entity {
      * This is the actual data inside the array, that changes with the synchronous code
      * written by user.
      * @type {any[]}
+     * @ignore
      */
     data: any[];
     /**
      * The label to draw above the array
      * @type {string}
+     * @ignore
      */
     label: string;
     /**
@@ -566,6 +576,7 @@ declare class vArray extends Entity {
      * It changes asynchronously, as and when animations related to
      * the varray object are selected from the animation queue.
      * @type {vElement[]}
+     * @ignore
      */
     drawData: vElement[];
     /**
@@ -573,21 +584,25 @@ declare class vArray extends Entity {
      *
      * Required, because along with the array itself, these also need to be drawn and updated on every frame.
      * @type {Pointer[]}
+     * @ignore
      */
     pointers: Pointer[];
     /**
      * Width of a single element drawn
      * @type {number}
+     * @ignore
      */
     boxWidth: number;
     /**
      * Height of a single element drawn
      * @type {number}
+     * @ignore
      */
     boxHeight: number;
     /**
      * To manage the animation via states
      * @type {StateMachine}
+     * @ignore
      */
     stateMachine: StateMachine;
     /**
@@ -970,26 +985,31 @@ declare class Pointer extends Entity {
     /**
      * The vArray object this Pointer object will point to
      * @type {vArray}
+     * @ignore
      */
     pointee: vArray;
     /**
      * The index at which this pointer is pointing to. This is the index that changes when user makes changes.
      * @type {number}
+     * @ignore
      */
     index: number;
     /**
      * The index at which this pointer is drawn. This is the index that changes when animations are scheduled.
      * @type {number}
+     * @ignore
      */
     drawIndex: number;
     /**
      * The label to show below this pointer
      * @type {string}
+     * @ignore
      */
     label: string;
     /**
      * The state machine to handle the states of this pointer. Initial state is idle.
      * @type {StateMachine}
+     * @ignore
      */
     stateMachine: StateMachine;
     /**
