@@ -33,6 +33,7 @@ export class Pointer extends Entity
         /**
          * The vArray object this Pointer object will point to
          * @type {vArray}
+         * @ignore
          */
         this.pointee = pointee
 
@@ -42,18 +43,21 @@ export class Pointer extends Entity
         /**
          * The index at which this pointer is pointing to. This is the index that changes when user makes changes.
          * @type {number}
+         * @ignore
          */
         this.index = initialIndex
 
         /**
          * The index at which this pointer is drawn. This is the index that changes when animations are scheduled.
          * @type {number}
+         * @ignore
          */
         this.drawIndex = Math.max( -1, Math.min( this.pointee.length(), initialIndex ) )
 
         /**
          * The label to show below this pointer
          * @type {string}
+         * @ignore
          */
         this.label = label
 
@@ -63,6 +67,7 @@ export class Pointer extends Entity
         /**
          * The state machine to handle the states of this pointer. Initial state is idle.
          * @type {StateMachine}
+         * @ignore
          */
         this.stateMachine = new StateMachine( {
             idle: () => new IdleState( this ),

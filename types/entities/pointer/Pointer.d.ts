@@ -24,26 +24,31 @@ export class Pointer extends Entity {
     /**
      * The vArray object this Pointer object will point to
      * @type {vArray}
+     * @ignore
      */
     pointee: vArray;
     /**
      * The index at which this pointer is pointing to. This is the index that changes when user makes changes.
      * @type {number}
+     * @ignore
      */
     index: number;
     /**
      * The index at which this pointer is drawn. This is the index that changes when animations are scheduled.
      * @type {number}
+     * @ignore
      */
     drawIndex: number;
     /**
      * The label to show below this pointer
      * @type {string}
+     * @ignore
      */
     label: string;
     /**
      * The state machine to handle the states of this pointer. Initial state is idle.
      * @type {StateMachine}
+     * @ignore
      */
     stateMachine: StateMachine;
     /**

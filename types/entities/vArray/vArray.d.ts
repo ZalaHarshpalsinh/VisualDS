@@ -37,11 +37,13 @@ export class vArray extends Entity {
      * This is the actual data inside the array, that changes with the synchronous code
      * written by user.
      * @type {any[]}
+     * @ignore
      */
     data: any[];
     /**
      * The label to draw above the array
      * @type {string}
+     * @ignore
      */
     label: string;
     /**
@@ -49,6 +51,7 @@ export class vArray extends Entity {
      * It changes asynchronously, as and when animations related to
      * the varray object are selected from the animation queue.
      * @type {vElement[]}
+     * @ignore
      */
     drawData: vElement[];
     /**
@@ -56,21 +59,25 @@ export class vArray extends Entity {
      *
      * Required, because along with the array itself, these also need to be drawn and updated on every frame.
      * @type {Pointer[]}
+     * @ignore
      */
     pointers: Pointer[];
     /**
      * Width of a single element drawn
      * @type {number}
+     * @ignore
      */
     boxWidth: number;
     /**
      * Height of a single element drawn
      * @type {number}
+     * @ignore
      */
     boxHeight: number;
     /**
      * To manage the animation via states
      * @type {StateMachine}
+     * @ignore
      */
     stateMachine: StateMachine;
     /**

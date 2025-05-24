@@ -42,41 +42,49 @@ export class vElement extends Entity {
      * The object encapsulated. This gets updated along with the synchronous code
      * (code written by the user).
      * @type {*}
+     * @ignore
      */
     val: any;
     /**
      * The object utilized to draw. This gets updated as and when the animation related to any updation is executed by animator.
      * @type {*}
+     * @ignore
      */
     drawVal: any;
     /**
      * The label/name that is to be displayed when drawing this vElement
      * @type {string}
+     * @ignore
      */
     label: string;
     /**
      * The color of the box in which to display the object
      * @type {string}
+     * @ignore
      */
     color: string;
     /**
      * The font style utilized to write the toString() text of the drawVal in the box
      * @type {string}
+     * @ignore
      */
     font: string;
     /**
      * The font style utilized to write the label
      * @type {string}
+     * @ignore
      */
     labelFont: string;
     /**
      * The text representation of the drawVal object, as an array of strings which are to be drawn on separate lines
      * @type {string[]}
+     * @ignore
      */
     text: string[];
     /**
      * The state machine to manage the states of vElement. Initial state is idle.
      * @type {StateMachine}
+     * @ignore
      */
     stateMachine: StateMachine;
     /**
